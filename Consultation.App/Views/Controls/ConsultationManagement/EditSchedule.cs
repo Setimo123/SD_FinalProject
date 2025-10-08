@@ -37,7 +37,7 @@ namespace Consultation.App.ConsultationManagement
             this.Close();
         }
 
-        /*
+        
                 private void SetTime()
                 {
                     comboboxTime.Items.Clear();
@@ -55,7 +55,7 @@ namespace Consultation.App.ConsultationManagement
                     comboboxTime.SelectedIndex = 0;
 
                 }
-        */
+        
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {

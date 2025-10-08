@@ -85,9 +85,10 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
         }
 
         //ComboBox Time Picker
-        private void comboboxTime_SelectedIndexChanged(object sender, EventArgs e)
+        /*
+        private void Timepicker_load(object sender, EventArgs e)
         {
-            if(comboboxTime.Items.Count == 0)
+            if (comboboxTime.Items.Count == 0)
             {
                 for (int hour = 1; hour <= 12; hour++)
                 {
@@ -103,5 +104,15 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
                 return;
             }
         }
+        */
+
+        private void comboboxTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedTime = comboboxTime.SelectedItem?.ToString();
+            MessageBox.Show("Selected Time: " + selectedTime);
+        }
     }
 }
+
+// add saka og folder tapos control
+//tapos sa views nimo add kag usercontrol
