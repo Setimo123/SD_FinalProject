@@ -43,18 +43,23 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
+            status = new Guna.UI2.WinForms.Guna2TextBox();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             flowLayoutPanel6 = new FlowLayoutPanel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            pictureBox5 = new PictureBox();
             idnumber = new Label();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            pictureBox4 = new PictureBox();
             Date = new Label();
             guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            pictureBox3 = new PictureBox();
             Time = new Label();
             guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            pictureBox2 = new PictureBox();
             Location = new Label();
             panel = new Guna.UI2.WinForms.Guna2Panel();
+            pictureBox1 = new PictureBox();
             Faculty = new Label();
             Notes = new RichTextBox();
             flowLayoutPanel4 = new FlowLayoutPanel();
@@ -71,25 +76,20 @@
             CourseCode = new Guna.UI2.WinForms.Guna2HtmlLabel();
             StudentName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             flowLayoutPanel3 = new FlowLayoutPanel();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
             materialCard1.SuspendLayout();
             flowLayoutPanel6.SuspendLayout();
             guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             guna2Panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             guna2Panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             flowLayoutPanel4.SuspendLayout();
             MenuContextArchive.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // guna2Button1
@@ -108,37 +108,37 @@
             guna2Button1.ImageAlign = HorizontalAlignment.Left;
             guna2Button1.ImageOffset = new Point(-3, 0);
             guna2Button1.ImageSize = new Size(25, 25);
-            guna2Button1.Location = new Point(1283, 13);
+            guna2Button1.Location = new Point(1327, 15);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Button1.Size = new Size(36, 36);
             guna2Button1.TabIndex = 4;
             guna2Button1.Click += guna2Button1_Click;
             // 
-            // guna2TextBox5
+            // status
             // 
-            guna2TextBox5.BackColor = Color.Transparent;
-            guna2TextBox5.BorderRadius = 15;
-            guna2TextBox5.CustomizableEdges = customizableEdges3;
-            guna2TextBox5.DefaultText = "Pending";
-            guna2TextBox5.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox5.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox5.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox5.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox5.FillColor = Color.MistyRose;
-            guna2TextBox5.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2TextBox5.ForeColor = Color.Red;
-            guna2TextBox5.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox5.Location = new Point(1157, 13);
-            guna2TextBox5.Margin = new Padding(3, 4, 3, 4);
-            guna2TextBox5.Name = "guna2TextBox5";
-            guna2TextBox5.PlaceholderText = "";
-            guna2TextBox5.SelectedText = "";
-            guna2TextBox5.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2TextBox5.Size = new Size(114, 38);
-            guna2TextBox5.TabIndex = 9;
-            guna2TextBox5.TextAlign = HorizontalAlignment.Center;
+            status.BackColor = Color.Transparent;
+            status.BorderRadius = 15;
+            status.CustomizableEdges = customizableEdges3;
+            status.DefaultText = "Pending";
+            status.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            status.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            status.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            status.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            status.FillColor = Color.FromArgb(255, 240, 240);
+            status.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            status.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            status.ForeColor = Color.FromArgb(190, 0, 2);
+            status.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            status.Location = new Point(1221, 16);
+            status.Margin = new Padding(3, 4, 3, 4);
+            status.Name = "status";
+            status.PlaceholderText = "";
+            status.SelectedText = "";
+            status.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            status.Size = new Size(100, 32);
+            status.TabIndex = 9;
+            status.TextAlign = HorizontalAlignment.Center;
             // 
             // materialCard1
             // 
@@ -148,17 +148,17 @@
             materialCard1.Controls.Add(flowLayoutPanel4);
             materialCard1.Controls.Add(flowLayoutPanel1);
             materialCard1.Controls.Add(flowLayoutPanel2);
-            materialCard1.Controls.Add(guna2TextBox5);
+            materialCard1.Controls.Add(status);
             materialCard1.Controls.Add(guna2Button1);
             materialCard1.Depth = 0;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(15, 13);
+            materialCard1.Location = new Point(10, 7);
             materialCard1.Margin = new Padding(30);
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(0, 5, 0, 5);
             materialCard1.RightToLeft = RightToLeft.No;
-            materialCard1.Size = new Size(1347, 144);
+            materialCard1.Size = new Size(1380, 180);
             materialCard1.TabIndex = 1;
             // 
             // flowLayoutPanel6
@@ -170,7 +170,7 @@
             flowLayoutPanel6.Controls.Add(guna2Panel4);
             flowLayoutPanel6.Controls.Add(guna2Panel5);
             flowLayoutPanel6.Controls.Add(panel);
-            flowLayoutPanel6.Location = new Point(24, 105);
+            flowLayoutPanel6.Location = new Point(27, 130);
             flowLayoutPanel6.Name = "flowLayoutPanel6";
             flowLayoutPanel6.Size = new Size(591, 33);
             flowLayoutPanel6.TabIndex = 17;
@@ -192,6 +192,17 @@
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel2.Size = new Size(138, 27);
             guna2Panel2.TabIndex = 17;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.Transparent;
+            pictureBox5.Image = Properties.Icons.hash;
+            pictureBox5.Location = new Point(5, 4);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(20, 20);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 20;
+            pictureBox5.TabStop = false;
             // 
             // idnumber
             // 
@@ -222,6 +233,17 @@
             guna2Panel3.Size = new Size(101, 27);
             guna2Panel3.TabIndex = 18;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = Properties.Icons.calendar;
+            pictureBox4.Location = new Point(5, 4);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(20, 20);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 19;
+            pictureBox4.TabStop = false;
+            // 
             // Date
             // 
             Date.AutoSize = true;
@@ -250,6 +272,17 @@
             guna2Panel4.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2Panel4.Size = new Size(85, 27);
             guna2Panel4.TabIndex = 19;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = Properties.Icons.clock;
+            pictureBox3.Location = new Point(5, 4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(20, 20);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 18;
+            pictureBox3.TabStop = false;
             // 
             // Time
             // 
@@ -280,6 +313,17 @@
             guna2Panel5.Size = new Size(74, 27);
             guna2Panel5.TabIndex = 20;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Icons.location;
+            pictureBox2.Location = new Point(5, 4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(20, 20);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 18;
+            pictureBox2.TabStop = false;
+            // 
             // Location
             // 
             Location.AutoSize = true;
@@ -309,6 +353,17 @@
             panel.Size = new Size(128, 27);
             panel.TabIndex = 21;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Icons.user;
+            pictureBox1.Location = new Point(5, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(20, 20);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 18;
+            pictureBox1.TabStop = false;
+            // 
             // Faculty
             // 
             Faculty.AutoSize = true;
@@ -326,11 +381,11 @@
             Notes.BorderStyle = BorderStyle.None;
             Notes.Font = new Font("Microsoft Sans Serif", 11.25F);
             Notes.ForeColor = Color.FromArgb(23, 26, 31);
-            Notes.Location = new Point(24, 59);
+            Notes.Location = new Point(24, 75);
             Notes.Name = "Notes";
             Notes.ReadOnly = true;
             Notes.ScrollBars = RichTextBoxScrollBars.None;
-            Notes.Size = new Size(1193, 40);
+            Notes.Size = new Size(1247, 40);
             Notes.TabIndex = 1;
             Notes.Text = "Wala Gihuman ang project sa Software Design  \ndsadwdw\n\n\n";
             // 
@@ -340,30 +395,31 @@
             flowLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowLayoutPanel4.Controls.Add(Namelabel);
             flowLayoutPanel4.Controls.Add(Code);
-            flowLayoutPanel4.Location = new Point(24, 13);
+            flowLayoutPanel4.Location = new Point(15, 17);
             flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(394, 40);
+            flowLayoutPanel4.Size = new Size(376, 32);
             flowLayoutPanel4.TabIndex = 16;
             flowLayoutPanel4.WrapContents = false;
             // 
             // Namelabel
             // 
             Namelabel.BackColor = Color.Transparent;
-            Namelabel.Font = new Font("Archivo", 15.75F, FontStyle.Bold);
+            Namelabel.Font = new Font("Microsoft Sans Serif", 14.2499981F, FontStyle.Bold);
+            Namelabel.ForeColor = Color.FromArgb(23, 26, 31);
             Namelabel.Location = new Point(3, 3);
             Namelabel.Name = "Namelabel";
-            Namelabel.Size = new Size(197, 34);
+            Namelabel.Size = new Size(187, 26);
             Namelabel.TabIndex = 17;
             Namelabel.Text = "Stephen Neil Garde  ";
             // 
             // Code
             // 
             Code.BackColor = Color.Transparent;
-            Code.Font = new Font("Archivo", 15.75F, FontStyle.Bold);
-            Code.ForeColor = Color.DimGray;
-            Code.Location = new Point(206, 3);
+            Code.Font = new Font("Microsoft Sans Serif", 14.2499981F, FontStyle.Bold);
+            Code.ForeColor = Color.FromArgb(23, 26, 31);
+            Code.Location = new Point(196, 3);
             Code.Name = "Code";
-            Code.Size = new Size(185, 34);
+            Code.Size = new Size(177, 26);
             Code.TabIndex = 18;
             Code.Text = "CPE 325 - L (7605)";
             // 
@@ -480,61 +536,6 @@
             flowLayoutPanel3.Size = new Size(0, 0);
             flowLayoutPanel3.TabIndex = 2;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Icons.user;
-            pictureBox1.Location = new Point(5, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(20, 20);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 18;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = Properties.Icons.location;
-            pictureBox2.Location = new Point(5, 4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(20, 20);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 18;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = Properties.Icons.clock;
-            pictureBox3.Location = new Point(5, 4);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(20, 20);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 18;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackColor = Color.Transparent;
-            pictureBox4.Image = Properties.Icons.calendar;
-            pictureBox4.Location = new Point(5, 4);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(20, 20);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 19;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.BackColor = Color.Transparent;
-            pictureBox5.Image = Properties.Icons.hash;
-            pictureBox5.Location = new Point(5, 4);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(20, 20);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 20;
-            pictureBox5.TabStop = false;
-            // 
             // ArchiveCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -543,29 +544,29 @@
             Controls.Add(flowLayoutPanel3);
             Margin = new Padding(20, 0, 0, 0);
             Name = "ArchiveCard";
-            Size = new Size(1384, 177);
+            Size = new Size(1400, 194);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
             flowLayoutPanel6.ResumeLayout(false);
             flowLayoutPanel6.PerformLayout();
             guna2Panel2.ResumeLayout(false);
             guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             guna2Panel3.ResumeLayout(false);
             guna2Panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             guna2Panel4.ResumeLayout(false);
             guna2Panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             guna2Panel5.ResumeLayout(false);
             guna2Panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel.ResumeLayout(false);
             panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             flowLayoutPanel4.ResumeLayout(false);
             flowLayoutPanel4.PerformLayout();
             MenuContextArchive.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -573,7 +574,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
+        private Guna.UI2.WinForms.Guna2TextBox status;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private Guna.UI2.WinForms.Guna2HtmlLabel LabelName;
         private Guna.UI2.WinForms.Guna2HtmlLabel LabelCourse;

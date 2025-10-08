@@ -16,6 +16,9 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
         public string Notes { get; set; } = " Wala Gihuman ang project sa Software Design   Wala Gihuman ang project sa Software Design   Wala Gihuman ang project sa Software Design   Wala Gihuman ang project sa Software Design   Wala Gihuman ang project sa Software Design   ";
         public string Date { get; set; } = " July 28, 2025";
         public string Time { get; set; } = " 12:30 PM";
+
+        public string Status { get; set; }
+
     }
 
 }

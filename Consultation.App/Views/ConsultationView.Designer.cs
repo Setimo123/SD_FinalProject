@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
             btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             underlinePanel = new Panel();
@@ -71,53 +71,51 @@
             // 
             btnRefresh.BorderColor = Color.Red;
             btnRefresh.BorderRadius = 8;
-            btnRefresh.BorderThickness = 1;
-            btnRefresh.CustomizableEdges = customizableEdges1;
+            btnRefresh.CustomizableEdges = customizableEdges25;
             btnRefresh.DisabledState.BorderColor = Color.DarkGray;
             btnRefresh.DisabledState.CustomBorderColor = Color.DarkGray;
             btnRefresh.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnRefresh.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnRefresh.FillColor = Color.FromArgb(190, 0, 2);
-            btnRefresh.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.Font = new Font("Microsoft Sans Serif", 9.75F);
             btnRefresh.ForeColor = Color.White;
             btnRefresh.Image = Properties.Icons.images_removebg_preview;
             btnRefresh.ImageAlign = HorizontalAlignment.Left;
             btnRefresh.ImageSize = new Size(15, 15);
-            btnRefresh.Location = new Point(1466, 22);
+            btnRefresh.Location = new Point(1466, 21);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.PressedColor = Color.FromArgb(255, 128, 128);
-            btnRefresh.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnRefresh.ShadowDecoration.CustomizableEdges = customizableEdges26;
             btnRefresh.Size = new Size(97, 36);
-            btnRefresh.TabIndex = 5;
+            btnRefresh.TabIndex = 7;
             btnRefresh.Text = "Refresh";
             btnRefresh.TextOffset = new Point(10, 0);
             btnRefresh.Click += btnRefresh_Click;
             // 
             // underlinePanel
             // 
-            underlinePanel.BackColor = Color.Red;
-            underlinePanel.Location = new Point(15, 68);
+            underlinePanel.BackColor = Color.FromArgb(190, 0, 2);
+            underlinePanel.Location = new Point(444, 35);
             underlinePanel.Name = "underlinePanel";
-            underlinePanel.Size = new Size(235, 5);
+            underlinePanel.Size = new Size(190, 4);
             underlinePanel.TabIndex = 4;
             underlinePanel.Visible = false;
             // 
             // btnArchive
             // 
             btnArchive.BorderColor = Color.Transparent;
-            btnArchive.CustomizableEdges = customizableEdges3;
+            btnArchive.CustomizableEdges = customizableEdges27;
             btnArchive.DisabledState.BorderColor = Color.DarkGray;
             btnArchive.DisabledState.CustomBorderColor = Color.DarkGray;
             btnArchive.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnArchive.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnArchive.FillColor = Color.Transparent;
-            btnArchive.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnArchive.ForeColor = Color.DimGray;
-            btnArchive.Location = new Point(158, 9);
+            btnArchive.Font = new Font("Microsoft Sans Serif", 12F);
+            btnArchive.ForeColor = Color.FromArgb(86, 93, 109);
+            btnArchive.Location = new Point(156, 12);
             btnArchive.Name = "btnArchive";
             btnArchive.PressedColor = Color.Transparent;
-            btnArchive.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnArchive.Size = new Size(92, 53);
+            btnArchive.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            btnArchive.Size = new Size(136, 56);
             btnArchive.TabIndex = 3;
             btnArchive.Text = "Archive";
             btnArchive.Click += btnArchive_Click;
@@ -125,19 +123,19 @@
             // btnConsultation
             // 
             btnConsultation.BorderColor = Color.Transparent;
-            btnConsultation.CustomizableEdges = customizableEdges5;
+            btnConsultation.CustomizableEdges = customizableEdges29;
             btnConsultation.DisabledState.BorderColor = Color.DarkGray;
             btnConsultation.DisabledState.CustomBorderColor = Color.DarkGray;
             btnConsultation.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnConsultation.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnConsultation.FillColor = Color.Transparent;
-            btnConsultation.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnConsultation.ForeColor = Color.DimGray;
-            btnConsultation.Location = new Point(15, 9);
+            btnConsultation.Font = new Font("Microsoft Sans Serif", 12F);
+            btnConsultation.ForeColor = Color.FromArgb(190, 0, 2);
+            btnConsultation.Location = new Point(13, 12);
             btnConsultation.Name = "btnConsultation";
             btnConsultation.PressedColor = Color.Transparent;
-            btnConsultation.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnConsultation.Size = new Size(142, 53);
+            btnConsultation.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            btnConsultation.Size = new Size(136, 56);
             btnConsultation.TabIndex = 2;
             btnConsultation.Text = "Consultation";
             btnConsultation.Click += btnConsultation_Click_1;
@@ -161,7 +159,6 @@
             materialCard1.Padding = new Padding(14);
             materialCard1.Size = new Size(1460, 70);
             materialCard1.TabIndex = 2;
-            materialCard1.Paint += materialCard1_Paint;
             // 
             // LabelHeader
             // 
@@ -190,10 +187,10 @@
             // WindowPanelConsultation
             // 
             WindowPanelConsultation.AutoScroll = true;
-            WindowPanelConsultation.Location = new Point(10, 10);
+            WindowPanelConsultation.Location = new Point(10, 6);
             WindowPanelConsultation.Margin = new Padding(0);
             WindowPanelConsultation.Name = "WindowPanelConsultation";
-            WindowPanelConsultation.Size = new Size(1440, 697);
+            WindowPanelConsultation.Size = new Size(1440, 690);
             WindowPanelConsultation.TabIndex = 0;
             // 
             // ConsultationView
@@ -201,14 +198,12 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1658, 961);
             Controls.Add(materialCard3);
             Controls.Add(materialCard1);
             Controls.Add(materialCard2);
             DoubleBuffered = true;
-            //FormBorderStyle = FormBorderStyle.None;
             Name = "ConsultationView";
-            Text = "ConsultationWindow";
+            Size = new Size(1642, 941);
             materialCard2.ResumeLayout(false);
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();

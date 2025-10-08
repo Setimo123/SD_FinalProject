@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -62,6 +64,7 @@
             LabelAMPM = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             LabelMinutes = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             LabelHours = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            comboboxTime = new Guna.UI2.WinForms.Guna2ComboBox();
             materialCard1.SuspendLayout();
             Paneltime.SuspendLayout();
             SuspendLayout();
@@ -142,7 +145,7 @@
             // 
             Date.Checked = true;
             Date.CustomFormat = "MMMM dd, yyyy";
-            Date.CustomizableEdges = customizableEdges11;
+            Date.CustomizableEdges = customizableEdges13;
             Date.FillColor = Color.White;
             Date.Font = new Font("Segoe UI", 9F);
             Date.Format = DateTimePickerFormat.Custom;
@@ -150,7 +153,7 @@
             Date.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             Date.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             Date.Name = "Date";
-            Date.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            Date.ShadowDecoration.CustomizableEdges = customizableEdges14;
             Date.Size = new Size(202, 55);
             Date.TabIndex = 4;
             Date.TextAlign = HorizontalAlignment.Center;
@@ -160,7 +163,7 @@
             // 
             guna2HtmlLabel4.BackColor = Color.Transparent;
             guna2HtmlLabel4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel4.Location = new Point(36, 267);
+            guna2HtmlLabel4.Location = new Point(30, 281);
             guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             guna2HtmlLabel4.Size = new Size(193, 20);
             guna2HtmlLabel4.TabIndex = 7;
@@ -190,7 +193,7 @@
             // 
             btnReschedule.BorderColor = Color.DarkRed;
             btnReschedule.BorderRadius = 8;
-            btnReschedule.CustomizableEdges = customizableEdges7;
+            btnReschedule.CustomizableEdges = customizableEdges9;
             btnReschedule.DisabledState.BorderColor = Color.DarkGray;
             btnReschedule.DisabledState.CustomBorderColor = Color.DarkGray;
             btnReschedule.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -202,7 +205,7 @@
             btnReschedule.ImageAlign = HorizontalAlignment.Left;
             btnReschedule.Location = new Point(326, 412);
             btnReschedule.Name = "btnReschedule";
-            btnReschedule.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnReschedule.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnReschedule.Size = new Size(147, 36);
             btnReschedule.TabIndex = 10;
             btnReschedule.Text = "Reschedule";
@@ -214,7 +217,7 @@
             btnCancel.BorderColor = Color.Red;
             btnCancel.BorderRadius = 8;
             btnCancel.BorderThickness = 1;
-            btnCancel.CustomizableEdges = customizableEdges5;
+            btnCancel.CustomizableEdges = customizableEdges7;
             btnCancel.DisabledState.BorderColor = Color.DarkGray;
             btnCancel.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCancel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -227,7 +230,7 @@
             btnCancel.ImageSize = new Size(10, 10);
             btnCancel.Location = new Point(216, 412);
             btnCancel.Name = "btnCancel";
-            btnCancel.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnCancel.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnCancel.Size = new Size(92, 36);
             btnCancel.TabIndex = 11;
             btnCancel.Text = "Cancel";
@@ -239,7 +242,7 @@
             Reason.AcceptsReturn = true;
             Reason.BorderRadius = 10;
             Reason.BorderThickness = 2;
-            Reason.CustomizableEdges = customizableEdges9;
+            Reason.CustomizableEdges = customizableEdges11;
             Reason.DefaultText = "";
             Reason.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Reason.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -255,7 +258,7 @@
             Reason.PlaceholderForeColor = Color.Gray;
             Reason.PlaceholderText = "Enter reason for rescheduling...";
             Reason.SelectedText = "";
-            Reason.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            Reason.ShadowDecoration.CustomizableEdges = customizableEdges12;
             Reason.Size = new Size(450, 109);
             Reason.TabIndex = 5;
             // 
@@ -263,7 +266,7 @@
             // 
             Time.BorderColor = Color.Gainsboro;
             Time.BorderRadius = 6;
-            Time.CustomizableEdges = customizableEdges3;
+            Time.CustomizableEdges = customizableEdges5;
             Time.DefaultText = "";
             Time.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Time.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -281,7 +284,7 @@
             Time.PlaceholderText = "hh:mm AM";
             Time.ReadOnly = true;
             Time.SelectedText = "";
-            Time.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            Time.ShadowDecoration.CustomizableEdges = customizableEdges6;
             Time.Size = new Size(200, 55);
             Time.TabIndex = 38;
             Time.TextAlign = HorizontalAlignment.Center;
@@ -315,7 +318,7 @@
             // 
             buttonOk.BorderRadius = 6;
             buttonOk.BorderThickness = 2;
-            buttonOk.CustomizableEdges = customizableEdges1;
+            buttonOk.CustomizableEdges = customizableEdges3;
             buttonOk.DisabledState.BorderColor = Color.DarkGray;
             buttonOk.DisabledState.CustomBorderColor = Color.DarkGray;
             buttonOk.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -325,7 +328,7 @@
             buttonOk.ForeColor = Color.Black;
             buttonOk.Location = new Point(143, 12);
             buttonOk.Name = "buttonOk";
-            buttonOk.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            buttonOk.ShadowDecoration.CustomizableEdges = customizableEdges4;
             buttonOk.Size = new Size(44, 25);
             buttonOk.TabIndex = 41;
             buttonOk.Text = "OK";
@@ -361,12 +364,31 @@
             LabelHours.Text = "12";
             LabelHours.Click += LabelHours_Click;
             // 
+            // comboboxTime
+            // 
+            comboboxTime.BackColor = Color.Transparent;
+            comboboxTime.CustomizableEdges = customizableEdges1;
+            comboboxTime.DrawMode = DrawMode.OwnerDrawFixed;
+            comboboxTime.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboboxTime.FocusedColor = Color.FromArgb(94, 148, 255);
+            comboboxTime.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            comboboxTime.Font = new Font("Segoe UI", 10F);
+            comboboxTime.ForeColor = Color.FromArgb(68, 88, 112);
+            comboboxTime.ItemHeight = 30;
+            comboboxTime.Location = new Point(300, 12);
+            comboboxTime.Name = "comboboxTime";
+            comboboxTime.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            comboboxTime.Size = new Size(175, 36);
+            comboboxTime.TabIndex = 40;
+            comboboxTime.SelectedIndexChanged += comboboxTime_SelectedIndexChanged;
+            // 
             // Reschedule
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(500, 460);
+            Controls.Add(comboboxTime);
             Controls.Add(Paneltime);
             Controls.Add(Time);
             Controls.Add(btnCancel);
@@ -414,5 +436,6 @@
         private Syncfusion.Windows.Forms.Tools.AutoLabel LabelAMPM;
         private Syncfusion.Windows.Forms.Tools.AutoLabel LabelMinutes;
         private Syncfusion.Windows.Forms.Tools.AutoLabel LabelHours;
+        private Guna.UI2.WinForms.Guna2ComboBox comboboxTime;
     }
 }

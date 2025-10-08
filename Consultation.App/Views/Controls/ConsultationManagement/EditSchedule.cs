@@ -28,7 +28,7 @@ namespace Consultation.App.ConsultationManagement
                 CourseCode = CourseCode.Text,
                 Location = Location.Text,
                 Faculty = Faculty.Text,
-                Time = TextBoxtime.Text,
+                Time = comboboxTime.SelectedItem.ToString() ?? "",
                 Notes = Notes.Text,
                 Date = Date.Text,
 
@@ -37,58 +37,34 @@ namespace Consultation.App.ConsultationManagement
             this.Close();
         }
 
+        /*
+                private void SetTime()
+                {
+                    comboboxTime.Items.Clear();
+
+                    DateTime Start = DateTime.Today.AddHours(8);
+                    DateTime End = DateTime.Today.AddHours(17);
+
+                    while(Start <= End)
+                    {
+                        comboboxTime.Items.Add(Start.ToString("hh:mm tt"));
+                        Start = Start.AddMinutes(5);
+
+                    }
+
+                    comboboxTime.SelectedIndex = 0;
+
+                }
+        */
+
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void LabelHours_Click(object sender, EventArgs e)
+        private void comboboxTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int hours = int.Parse(LabelHours.Text);
-            hours = hours % 12 + 1;
-            LabelHours.Text = hours.ToString("");
 
         }
-
-        private void LabelMinutes_MouseClick(object sender, MouseEventArgs e)
-        {
-            int minutes = int.Parse(LabelMinutes.Text);
-            int tens = minutes / 10;
-            int ones = minutes % 10;
-
-            if (e.X < LabelMinutes.Width / 2)
-                minutes = (minutes + 10) % 60;
-            else
-                minutes = (minutes + 1) % 60;
-
-            LabelMinutes.Text = minutes.ToString("00");
-
-        }
-
-        private void LabelAMPM_Click(object sender, EventArgs e)
-        {
-            LabelAMPM.Text = LabelAMPM.Text == "AM" ? "PM" : "AM";
-
-        }
-
-        private void UpdateTime()
-        {
-            TextBoxtime.Text = LabelHours.Text + " : " + LabelMinutes.Text + " " + LabelAMPM.Text;
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            UpdateTime();
-            Paneltime.Visible = false;
-        }
-
-        private void TextBoxtime_Click(object sender, EventArgs e)
-        {
-            Paneltime.Left = TextBoxtime.Left + (TextBoxtime.Width - Paneltime.Width) / 2;
-            Paneltime.Top = TextBoxtime.Bottom;
-            Paneltime.Visible = true;
-            LabelMinutes.Focus();
-        }
-
     }
 }

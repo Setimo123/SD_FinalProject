@@ -4,16 +4,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.App", "Consultation.App\Consultation.App.csproj", "{E8C646FC-D437-42FE-B731-67D4DAF23CBC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C04C321E-DE2E-137D-F53E-33D52863666F} = {C04C321E-DE2E-137D-F53E-33D52863666F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.BackEndCRUD", "Consultation.BackEndCRUD\Consultation.BackEndCRUD.csproj", "{BC58B9C7-32E9-DBEE-04A3-F4EDBB445FD9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{66858F64-5978-8A43-0230-6B83CE6C5E08} = {66858F64-5978-8A43-0230-6B83CE6C5E08}
+		{6ED4776A-A105-4AF1-2F60-5099C30BFB67} = {6ED4776A-A105-4AF1-2F60-5099C30BFB67}
+		{C04C321E-DE2E-137D-F53E-33D52863666F} = {C04C321E-DE2E-137D-F53E-33D52863666F}
+		{C5587F7D-2140-4BC6-6F5D-10B0BCB9DCFA} = {C5587F7D-2140-4BC6-6F5D-10B0BCB9DCFA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.Desktop.Test", "Consultation.Desktop.Test\Consultation.Desktop.Test.csproj", "{6901F573-CCB8-0F1F-3D6B-3803D3B8D347}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.Domain", "Consultation.Domain\Consultation.Domain.csproj", "{1F913835-FDA5-A1E2-782A-C4FAC6517FCB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.Domain", "..\..\..\Downloads\DataBaseUpdated-SQL_Database_Version_2.0\DataBaseUpdated-SQL_Database_Version_2.0\Consultation.Domain\Consultation.Domain.csproj", "{C5587F7D-2140-4BC6-6F5D-10B0BCB9DCFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.Infrastructure", "Consultation.Infrastructure\Consultation.Infrastructure.csproj", "{35E92685-7595-2045-2FA4-33726CDF0C88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.Infrastructure", "..\..\..\Downloads\DataBaseUpdated-SQL_Database_Version_2.0\DataBaseUpdated-SQL_Database_Version_2.0\Consultation.Infrastructure\Consultation.Infrastructure.csproj", "{C04C321E-DE2E-137D-F53E-33D52863666F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum", "Enum\Enum.csproj", "{8B912DE8-B833-018A-7F42-9DA849DB8D84}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enum", "..\..\..\Downloads\DataBaseUpdated-SQL_Database_Version_2.0\DataBaseUpdated-SQL_Database_Version_2.0\Enum\Enum.csproj", "{4D8D3ABC-F14A-5B95-3E90-BCEF1330EAFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.Services", "..\..\..\Downloads\DataBaseUpdated-SQL_Database_Version_2.0\DataBaseUpdated-SQL_Database_Version_2.0\Consoltation.Services\Consultation.Services.csproj", "{6ED4776A-A105-4AF1-2F60-5099C30BFB67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.Repository", "..\..\..\Downloads\DataBaseUpdated-SQL_Database_Version_2.0\DataBaseUpdated-SQL_Database_Version_2.0\Consoltation.Repository\Consultation.Repository.csproj", "{66858F64-5978-8A43-0230-6B83CE6C5E08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,18 +46,26 @@ Global
 		{6901F573-CCB8-0F1F-3D6B-3803D3B8D347}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6901F573-CCB8-0F1F-3D6B-3803D3B8D347}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6901F573-CCB8-0F1F-3D6B-3803D3B8D347}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F913835-FDA5-A1E2-782A-C4FAC6517FCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F913835-FDA5-A1E2-782A-C4FAC6517FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F913835-FDA5-A1E2-782A-C4FAC6517FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F913835-FDA5-A1E2-782A-C4FAC6517FCB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35E92685-7595-2045-2FA4-33726CDF0C88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35E92685-7595-2045-2FA4-33726CDF0C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35E92685-7595-2045-2FA4-33726CDF0C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35E92685-7595-2045-2FA4-33726CDF0C88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B912DE8-B833-018A-7F42-9DA849DB8D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B912DE8-B833-018A-7F42-9DA849DB8D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B912DE8-B833-018A-7F42-9DA849DB8D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B912DE8-B833-018A-7F42-9DA849DB8D84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5587F7D-2140-4BC6-6F5D-10B0BCB9DCFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5587F7D-2140-4BC6-6F5D-10B0BCB9DCFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5587F7D-2140-4BC6-6F5D-10B0BCB9DCFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5587F7D-2140-4BC6-6F5D-10B0BCB9DCFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C04C321E-DE2E-137D-F53E-33D52863666F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C04C321E-DE2E-137D-F53E-33D52863666F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C04C321E-DE2E-137D-F53E-33D52863666F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C04C321E-DE2E-137D-F53E-33D52863666F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D8D3ABC-F14A-5B95-3E90-BCEF1330EAFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D8D3ABC-F14A-5B95-3E90-BCEF1330EAFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D8D3ABC-F14A-5B95-3E90-BCEF1330EAFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D8D3ABC-F14A-5B95-3E90-BCEF1330EAFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED4776A-A105-4AF1-2F60-5099C30BFB67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED4776A-A105-4AF1-2F60-5099C30BFB67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED4776A-A105-4AF1-2F60-5099C30BFB67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED4776A-A105-4AF1-2F60-5099C30BFB67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66858F64-5978-8A43-0230-6B83CE6C5E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66858F64-5978-8A43-0230-6B83CE6C5E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66858F64-5978-8A43-0230-6B83CE6C5E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66858F64-5978-8A43-0230-6B83CE6C5E08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

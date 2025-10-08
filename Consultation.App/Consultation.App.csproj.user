@@ -101,6 +101,9 @@
     <Compile Update="Views\Controls\UserManagement\ViewStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\LogInView.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -16,7 +16,6 @@ namespace Consultation.App.ConsultationManagement
     public partial class ConsultationCard : UserControl
     {
         public event EventHandler<ConsultationCard> ArchiveRequested;
-
         private ConsultationData data;
         public DateTime ScheduleDate { get; private set; }
 
@@ -26,13 +25,14 @@ namespace Consultation.App.ConsultationManagement
         public string CourseCode => courseCodeLabel.Text;
         public string Faculty => faculty.Text;
         public string LocationText => Location.Text;
-        public string IDNumber => idnumber.Text;
+        public string IDNumber => Idnumber.Text;
         public string Notes => Noteslabel.Text;
+        public string Status => Tagstatus.Text;
 
         public ConsultationCard(ConsultationData _data)
         {
             InitializeComponent();
-            Data = new ConsultationData();
+            Data = _data;
         }
 
         public ConsultationData Data
@@ -50,22 +50,11 @@ namespace Consultation.App.ConsultationManagement
                 courseCodeLabel.Text = data.CourseCode;
                 Noteslabel.Text = data.Notes;
                 Date.Text = data.Date;
-                Timetxtbox.Text = data.Time;
-                Facultytxtbox.Text = data.Faculty;
-                idnumber.Text = data.IDNumber;
+                Time.Text = data.Time;
+                faculty.Text = data.Faculty;
+                Idnumber.Text = data.IDNumber;
                 Location.Text = data.Location;
-                guna2txtboxStatus.Text = data.status;
-                //courseCodeLabel.Location = new Point(StudentName.Right + 10, courseCodeLabel.Location.Y);
-
-                //DateTime parsedDate;
-                //if (DateTime.TryParse(data.Date, out parsedDate))
-                //{
-                //    ScheduleDate = parsedDate;
-                //}
-                //else
-                //{
-                //    ScheduleDate = DateTime.MinValue;
-                //}
+                Tagstatus.Text = data.Status;
             }
         }
 
@@ -76,7 +65,7 @@ namespace Consultation.App.ConsultationManagement
 
         private void archiveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ((ConsultationView)this.FindForm()).ArchiveCard(this);
+            ArchiveRequested?.Invoke(this, this);
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,29 +90,5 @@ namespace Consultation.App.ConsultationManagement
             viewForm.ShowDialog();
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConsultationCard_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Noteslabel_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

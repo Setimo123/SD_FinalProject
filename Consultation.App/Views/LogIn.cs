@@ -14,22 +14,33 @@ namespace Consultation.App.Views
 {
     public partial class LogIn : Form, ILoginView
     {
+        // Add missing controls
+        private TextBox txtEmail = new TextBox();
+        private TextBox txtPassword = new TextBox();
+        private Label resultlabel1 = new Label();
+        private Label ErrorPassLabel = new Label();
 
-        //public string useremail => EmailTextBox.Text;
-
-        //public string password => PasswordTextBox.Text;
-
-        string ILoginView.useremail { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        string ILoginView.password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string useremail => txtEmail.Text; // getter only
+        public string password => txtPassword.Text; // getter only
 
         public event EventHandler LogInEvent;
 
         public LogIn()
         {
-            InitializeComponent();
+            // InitializeComponent(); // Comment out since we don't have a designer file
 
-            EmailTextBox.TextChanged += SignInTextBox_TextChanged;
-            PasswordTextBox.TextChanged += PasswordTextBoxV2_TextChanged;
+            // Initialize the form
+            this.Text = "Login";
+            this.Size = new Size(400, 300);
+
+            // Add controls to form
+            this.Controls.Add(txtEmail);
+            this.Controls.Add(txtPassword);
+            this.Controls.Add(resultlabel1);
+            this.Controls.Add(ErrorPassLabel);
+
+            txtEmail.TextChanged += SignInTextBox_TextChanged;
+            txtPassword.TextChanged += PasswordTextBoxV2_TextChanged;
         }
 
         private void LogIn_Load(object sender, EventArgs e)
@@ -63,48 +74,49 @@ namespace Consultation.App.Views
             LogInEvent?.Invoke(this, EventArgs.Empty);
 
 
-        //    string email = SignInTextBox.Text.Trim();
-        //    string password = PasswordTextBoxV2.Text.Trim();
+            //    string email = SignInTextBox.Text.Trim();
+            //    string password = PasswordTextBoxV2.Text.Trim();
 
-        //    bool Valid = true;
+            //    bool Valid = true;
 
-        //    resultlabel1.Text = "";
-        //    ErrorPassLabel.Text = "";
+            //    resultlabel1.Text = "";
+            //    ErrorPassLabel.Text = "";
 
-        //    if (string.IsNullOrWhiteSpace(email))
-        //    {
-        //        resultlabel1.Text = "Please enter your Email";
-        //        resultlabel1.ForeColor = Color.Red;
-        //        SignInTextBox.Clear();
-        //        Valid = false;
-        //    }
+            //    if (string.IsNullOrWhiteSpace(email))
+            //    {
+            //        resultlabel1.Text = "Please enter your Email";
+            //        resultlabel1.ForeColor = Color.Red;
+            //        SignInTextBox.Clear();
+            //        Valid = false;
+            //    }
 
-        //    if (string.IsNullOrEmpty(password))
-        //    {
-        //        ErrorPassLabel.Text = "Please Enter your Password";
-        //        ErrorPassLabel.ForeColor = Color.Red;
-        //        PasswordTextBoxV2.Clear();
-        //        Valid = false;
-        //    }
+            //    if (string.IsNullOrEmpty(password))
+            //    {
+            //        ErrorPassLabel.Text = "Please Enter your Password";
+            //        ErrorPassLabel.ForeColor = Color.Red;
+            //        PasswordTextBoxV2.Clear();
+            //        Valid = false;
+            //    }
 
-        //    if (!string.IsNullOrWhiteSpace(email) && !EmailIsValid(email))
-        //    {
-        //        SignInTextBox.Clear();
+            //    if (!string.IsNullOrWhiteSpace(email) && !EmailIsValid(email))
+            //    {
+            //        SignInTextBox.Clear();
 
-        //        resultlabel1.Text = "Invalid Email, Please try again.";
-        //        resultlabel1.ForeColor = Color.Red;
-        //        Valid = false;
-        //    }
+            //        resultlabel1.Text = "Invalid Email, Please try again.";
+            //        resultlabel1.ForeColor = Color.Red;
+            //        Valid = false;
+            //    }
 
-        //    if (!string.IsNullOrWhiteSpace(password) && password != LePassword)
-        //    {
-        //        PasswordTextBoxV2.Clear();
+            //    if (!string.IsNullOrWhiteSpace(password) && password != LePassword)
+            //    {
+            //        PasswordTextBoxV2.Clear();
 
-        //        ErrorPassLabel.Text = "Incorrect Password";
-        //        ErrorPassLabel.ForeColor = Color.Red;
-        //        Valid = false;
-        //    }
+            //        ErrorPassLabel.Text = "Incorrect Password";
+            //        ErrorPassLabel.ForeColor = Color.Red;
+            //        Valid = false;
+            //    }
 
+            bool Valid = true; // Add this line to define Valid
             if (Valid)
             {
                 //MainView mainView = new MainView();
@@ -117,7 +129,17 @@ namespace Consultation.App.Views
         private void ShowPassButton_Click(object sender, EventArgs e)
         {
             PasswordVisible = !PasswordVisible;
-            PasswordTextBox.UseSystemPasswordChar = !PasswordVisible;
+            txtPassword.UseSystemPasswordChar = !PasswordVisible;
+        }
+
+        public void HideForm()
+        {
+            this.Hide();
+        }
+
+        public void ShowMessage(string message)
+        {
+            MessageBox.Show(message);
         }
     }
 }

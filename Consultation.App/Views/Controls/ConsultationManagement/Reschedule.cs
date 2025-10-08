@@ -36,6 +36,9 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
             Close();
         }
 
+
+        //Change into combobox 
+        //daghan error
         private void Time_Click(object sender, EventArgs e)
         {
             Paneltime.Left = Time.Left + (Time.Width - Paneltime.Width) / 2;
@@ -79,6 +82,26 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
         {
             UpdateTime();
             Paneltime.Visible = false;
+        }
+
+        //ComboBox Time Picker
+        private void comboboxTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboboxTime.Items.Count == 0)
+            {
+                for (int hour = 1; hour <= 12; hour++)
+                {
+                    for (int minute = 0; minute <= 60; minute += 10)
+                    {
+                        string timeAm = hour.ToString() + ":" + (minute < 10 ? "0" + minute.ToString() : minute.ToString()) + " AM";
+                        string timePm = hour.ToString() + ":" + (minute < 10 ? "0" + minute.ToString() : minute.ToString()) + " PM";
+                        comboboxTime.Items.Add(timePm);
+                        comboboxTime.Items.Add(timeAm);
+                    }
+                }
+                comboboxTime.SelectedIndex = 0;
+                return;
+            }
         }
     }
 }

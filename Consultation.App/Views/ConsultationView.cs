@@ -1,7 +1,8 @@
-﻿using Consultation.App.Views.IViews;
+﻿using Consultation.App.Views.Controls.ConsultationManagement;
+using Consultation.App.Views.IViews;
 using System;
+using System.CodeDom;
 using System.Windows.Forms;
-using Consultation.App.Views.Controls.ConsultationManagement;
 
 
 namespace Consultation.App.ConsultationManagement
@@ -20,8 +21,8 @@ namespace Consultation.App.ConsultationManagement
 
             for (int i = 0; i < 4; i++)
             {
-                var card = new ConsultationCard();
-                card.Data = new ConsultationData();
+                var data = new ConsultationData();
+                var card = new ConsultationCard(data);
                 card.ArchiveRequested += (s, e) => ArchiveCard(card);
                 activeCards.Add(card);
             }
@@ -34,10 +35,7 @@ namespace Consultation.App.ConsultationManagement
         
         private void ShowConsultationView()
         {
-            LabelHeader.Text = "Active Consultation";
-            MoveUnderline(btnConsultation);
             WindowPanelConsultation.Controls.Clear();
-
             foreach (var card in activeCards)
             {
                 WindowPanelConsultation.Controls.Add(card);
@@ -46,15 +44,31 @@ namespace Consultation.App.ConsultationManagement
 
         public void ArchiveCard(ConsultationCard card)
         {
-            WindowPanelConsultation.Controls.Remove(card);
             activeCards.Remove(card);
+            WindowPanelConsultation.Controls.Remove(card);
 
             var archiveCard = new ArchiveCard();
             archiveCard.Data = card.Data;
             archiveCard.RestoreClicked += (s, e) => RestoreCard(archiveCard);
             archivedCards.Add(archiveCard);
 
+            ShowConsultationView();
+
         }
+
+
+        private void RestoreCard(ArchiveCard archiveCard)
+        {
+            archivedCards.Remove(archiveCard);
+            WindowPanelConsultation.Controls.Remove(archiveCard);
+
+            var card = new ConsultationCard(archiveCard.Data);
+            card.ArchiveRequested += (s, e) => ArchiveCard(card);
+            activeCards.Add(card);
+
+            ShowConsultationView();
+        }
+
 
 
         private void MoveUnderline(Control targetButton)
@@ -66,15 +80,17 @@ namespace Consultation.App.ConsultationManagement
         }
 
 
-        private void OnCardArchived(object sender, ConsultationCard card)
+        private void OnCardArchived(object sender, ArchiveCard archiveCard)
         {
-            WindowPanelConsultation.Controls.Remove(card);
-            archivedCards.Remove(card);
-            var consultationCard = new ConsultationCard();
-            consultationCard.Data = card.Data;
+            WindowPanelConsultation.Controls.Remove(archiveCard);
+            archivedCards.Remove(archiveCard);
+
+            var data = archiveCard.Data;
+            var consultationCard = new ConsultationCard(data);
             consultationCard.ArchiveRequested += (s, e) => ArchiveCard(consultationCard);
             activeCards.Add(consultationCard);
 
+            ShowConsultationView();
         }
 
         private void ShowArchivedConsultations()
@@ -91,15 +107,25 @@ namespace Consultation.App.ConsultationManagement
 
         private void btnConsultation_Click_1(object sender, EventArgs e)
         {
-            ShowConsultationView();
+            btnConsultation.ForeColor = Color.FromArgb(190, 0, 2);
+            btnConsultation.Font = new Font(btnConsultation.Font, FontStyle.Bold);
+            btnArchive.ForeColor = Color.FromArgb(86, 93, 109);
+            btnArchive.Font = new Font(btnArchive.Font, FontStyle.Regular);
+            MoveUnderline(btnConsultation);
             LabelHeader.Text = "Active Consultation";
-
+            ShowConsultationView();
         }
 
         private void btnArchive_Click(object sender, EventArgs e)
         {
-            ShowArchivedConsultations();
+            btnArchive.ForeColor = Color.FromArgb(190, 0, 2);
+            btnArchive.Font = new Font(btnArchive.Font, FontStyle.Bold);
+            btnConsultation.ForeColor = Color.FromArgb(86, 93, 109);
+            btnConsultation.Font = new Font(btnConsultation.Font, FontStyle.Regular);
+            MoveUnderline(btnArchive);
             LabelHeader.Text = "Archived Consultation";
+            ShowArchivedConsultations();
+           
 
         }
 
@@ -115,9 +141,5 @@ namespace Consultation.App.ConsultationManagement
             }
         }
 
-        private void materialCard1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

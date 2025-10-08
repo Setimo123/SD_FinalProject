@@ -16,6 +16,7 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
     {
         public event EventHandler RestoreClicked;
         private ConsultationData data = new ConsultationData();
+
         public ArchiveCard()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
 
         private void restoreToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ((ConsultationView)this.FindForm()).RestoreCard(this);
+            RestoreClicked?.Invoke(this, EventArgs.Empty);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
