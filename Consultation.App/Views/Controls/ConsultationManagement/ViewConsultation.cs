@@ -33,7 +33,7 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
             Faculty.Text = card.Data.Faculty;
             Location.Text = card.Data.Location;
             idnumber.Text = card.Data.IDNumber;
-            //Notes.Text = card.Data.Notes;
+            Notes.Text = card.Data.Notes;
         }
 
         private void btnReschedule_Click(object sender, EventArgs e)

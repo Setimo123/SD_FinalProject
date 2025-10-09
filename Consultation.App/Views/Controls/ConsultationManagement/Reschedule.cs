@@ -23,7 +23,7 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
             card.Data = new ConsultationData
             {
                 Date = Date.Text,
-                Time = Time.Text,
+                Time = comboboxTime.Text,
                 Notes = Reason.Text,
 
             };
@@ -37,82 +37,33 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
         }
 
 
-        //Change into combobox 
-        //daghan error
-        private void Time_Click(object sender, EventArgs e)
+
+        private void comboboxTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Paneltime.Left = Time.Left + (Time.Width - Paneltime.Width) / 2;
-            Paneltime.Top = Time.Bottom;
-            Paneltime.Visible = true;
-            LabelMinutes.Focus();
+            string selectedTime = comboboxTime.SelectedItem?.ToString();         
         }
 
-        private void LabelHours_Click(object sender, EventArgs e)
-        {
-            int hours = int.Parse(LabelHours.Text);
-            hours = hours % 12 + 1;
-            LabelHours.Text = hours.ToString("");
-        }
-
-        private void LabelMinutes_MouseClick(object sender, MouseEventArgs e)
-        {
-            int minutes = int.Parse(LabelMinutes.Text);
-            int tens = minutes / 10;
-            int ones = minutes % 10;
-
-            if (e.X < LabelMinutes.Width / 2)
-                minutes = (minutes + 10) % 60;
-            else
-                minutes = (minutes + 1) % 60;
-
-            LabelMinutes.Text = minutes.ToString("00");
-        }
-
-        private void LabelAMPM_Click(object sender, EventArgs e)
-        {
-            LabelAMPM.Text = LabelAMPM.Text == "AM" ? "PM" : "AM";
-        }
-
-        private void UpdateTime()
-        {
-            Time.Text = LabelHours.Text + " : " + LabelMinutes.Text + " " + LabelAMPM.Text;
-        }
-
-        private void buttonOk_Click(object sender, EventArgs e)
-        {
-            UpdateTime();
-            Paneltime.Visible = false;
-        }
-
-        //ComboBox Time Picker
-        /*
-        private void Timepicker_load(object sender, EventArgs e)
+        private void comboboxTime_DropDown(object sender, EventArgs e)
         {
             if (comboboxTime.Items.Count == 0)
             {
                 for (int hour = 1; hour <= 12; hour++)
                 {
-                    for (int minute = 0; minute <= 60; minute += 10)
-                    {
-                        string timeAm = hour.ToString() + ":" + (minute < 10 ? "0" + minute.ToString() : minute.ToString()) + " AM";
-                        string timePm = hour.ToString() + ":" + (minute < 10 ? "0" + minute.ToString() : minute.ToString()) + " PM";
-                        comboboxTime.Items.Add(timePm);
+                        string timeAm = hour.ToString() + ":00 AM";
                         comboboxTime.Items.Add(timeAm);
-                    }
                 }
+
+
+                for (int hour = 1; hour <= 12; hour++)
+                {
+                        string timePm = hour.ToString() +  ":00 PM";
+                        comboboxTime.Items.Add(timePm);
+                }
+
                 comboboxTime.SelectedIndex = 0;
                 return;
             }
         }
-        */
-
-        private void comboboxTime_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedTime = comboboxTime.SelectedItem?.ToString();
-            MessageBox.Show("Selected Time: " + selectedTime);
-        }
     }
 }
 
-// add saka og folder tapos control
-//tapos sa views nimo add kag usercontrol

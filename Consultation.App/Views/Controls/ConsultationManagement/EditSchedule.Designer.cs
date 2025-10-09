@@ -62,6 +62,8 @@
             guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            pictureBox1 = new PictureBox();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             comboboxTime = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             Idnumber = new Guna.UI2.WinForms.Guna2TextBox();
@@ -76,6 +78,7 @@
             Notes = new Guna.UI2.WinForms.Guna2TextBox();
             guna2CustomGradientPanel1.SuspendLayout();
             materialCard1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -98,12 +101,12 @@
             Date.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Date.ForeColor = Color.Black;
             Date.Format = DateTimePickerFormat.Custom;
-            Date.Location = new Point(488, 68);
+            Date.Location = new Point(487, 70);
             Date.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             Date.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             Date.Name = "Date";
             Date.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            Date.Size = new Size(386, 50);
+            Date.Size = new Size(386, 36);
             Date.TabIndex = 7;
             Date.TextAlign = HorizontalAlignment.Center;
             Date.Value = new DateTime(2025, 5, 28, 21, 27, 17, 707);
@@ -122,7 +125,7 @@
             // 
             guna2HtmlLabel9.BackColor = Color.Transparent;
             guna2HtmlLabel9.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel9.Location = new Point(487, 189);
+            guna2HtmlLabel9.Location = new Point(487, 191);
             guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             guna2HtmlLabel9.Size = new Size(44, 18);
             guna2HtmlLabel9.TabIndex = 17;
@@ -242,6 +245,8 @@
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard1.Controls.Add(pictureBox1);
+            materialCard1.Controls.Add(guna2HtmlLabel5);
             materialCard1.Controls.Add(comboboxTime);
             materialCard1.Controls.Add(guna2HtmlLabel11);
             materialCard1.Controls.Add(Idnumber);
@@ -268,23 +273,52 @@
             materialCard1.Size = new Size(904, 397);
             materialCard1.TabIndex = 27;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.LightGray;
+            pictureBox1.Image = Properties.Icons.clock;
+            pictureBox1.Location = new Point(496, 144);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(14, 14);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 39;
+            pictureBox1.TabStop = false;
+            // 
+            // guna2HtmlLabel5
+            // 
+            guna2HtmlLabel5.BackColor = Color.Transparent;
+            guna2HtmlLabel5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel5.Location = new Point(491, 114);
+            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            guna2HtmlLabel5.Size = new Size(38, 18);
+            guna2HtmlLabel5.TabIndex = 38;
+            guna2HtmlLabel5.Text = "Time";
+            // 
             // comboboxTime
             // 
             comboboxTime.BackColor = Color.Transparent;
+            comboboxTime.BorderColor = Color.Gainsboro;
             comboboxTime.BorderRadius = 8;
             comboboxTime.CustomizableEdges = customizableEdges7;
             comboboxTime.DrawMode = DrawMode.OwnerDrawFixed;
+            comboboxTime.DropDownHeight = 80;
             comboboxTime.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboboxTime.DropDownWidth = 150;
+            comboboxTime.FillColor = Color.Gainsboro;
             comboboxTime.FocusedColor = Color.FromArgb(94, 148, 255);
             comboboxTime.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             comboboxTime.Font = new Font("Segoe UI", 10F);
-            comboboxTime.ForeColor = Color.FromArgb(68, 88, 112);
+            comboboxTime.ForeColor = Color.Black;
+            comboboxTime.IntegralHeight = false;
             comboboxTime.ItemHeight = 30;
-            comboboxTime.Location = new Point(488, 140);
+            comboboxTime.Location = new Point(487, 134);
             comboboxTime.Name = "comboboxTime";
             comboboxTime.ShadowDecoration.CustomizableEdges = customizableEdges8;
             comboboxTime.Size = new Size(386, 36);
             comboboxTime.TabIndex = 37;
+            comboboxTime.TextAlign = HorizontalAlignment.Center;
+            comboboxTime.TextOffset = new Point(20, 0);
+            comboboxTime.DropDown += comboboxTime_DropDown;
             comboboxTime.SelectedIndexChanged += comboboxTime_SelectedIndexChanged;
             // 
             // guna2HtmlLabel11
@@ -324,7 +358,7 @@
             // 
             guna2HtmlLabel6.BackColor = Color.Transparent;
             guna2HtmlLabel6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel6.Location = new Point(495, 49);
+            guna2HtmlLabel6.Location = new Point(491, 50);
             guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             guna2HtmlLabel6.Size = new Size(36, 18);
             guna2HtmlLabel6.TabIndex = 34;
@@ -481,6 +515,7 @@
             guna2CustomGradientPanel1.PerformLayout();
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -509,5 +544,7 @@
         private Guna.UI2.WinForms.Guna2ComboBox comboboxTime;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
         private Guna.UI2.WinForms.Guna2TextBox Idnumber;
+        private PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
     }
 }

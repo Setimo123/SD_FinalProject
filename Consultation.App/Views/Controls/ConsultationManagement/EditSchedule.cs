@@ -10,6 +10,7 @@ namespace Consultation.App.ConsultationManagement
     {
 
         private ConsultationCard cardToEdit;
+
         public EditSchedule(ConsultationCard cardToEdit)
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace Consultation.App.ConsultationManagement
                 CourseCode = CourseCode.Text,
                 Location = Location.Text,
                 Faculty = Faculty.Text,
-                Time = comboboxTime.SelectedItem.ToString() ?? "",
+                Time = comboboxTime.Text,
                 Notes = Notes.Text,
                 Date = Date.Text,
 
@@ -37,25 +38,7 @@ namespace Consultation.App.ConsultationManagement
             this.Close();
         }
 
-        
-                private void SetTime()
-                {
-                    comboboxTime.Items.Clear();
 
-                    DateTime Start = DateTime.Today.AddHours(8);
-                    DateTime End = DateTime.Today.AddHours(17);
-
-                    while(Start <= End)
-                    {
-                        comboboxTime.Items.Add(Start.ToString("hh:mm tt"));
-                        Start = Start.AddMinutes(5);
-
-                    }
-
-                    comboboxTime.SelectedIndex = 0;
-
-                }
-        
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
@@ -64,7 +47,29 @@ namespace Consultation.App.ConsultationManagement
 
         private void comboboxTime_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string selectedTime = comboboxTime.SelectedItem?.ToString();
+        }
 
+        private void comboboxTime_DropDown(object sender, EventArgs e)
+        {
+            if (comboboxTime.Items.Count == 0)
+            {
+                for (int hour = 1; hour <= 12; hour++)
+                {
+                    string timeAm = hour.ToString() + ":00 AM";
+                    comboboxTime.Items.Add(timeAm);
+                }
+
+
+                for (int hour = 1; hour <= 12; hour++)
+                {
+                    string timePm = hour.ToString() + ":00 PM";
+                    comboboxTime.Items.Add(timePm);
+                }
+
+                comboboxTime.SelectedIndex = 0;
+                return;
+            }
         }
     }
 }

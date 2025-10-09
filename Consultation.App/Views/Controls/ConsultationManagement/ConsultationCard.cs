@@ -55,6 +55,15 @@ namespace Consultation.App.ConsultationManagement
                 Idnumber.Text = data.IDNumber;
                 Location.Text = data.Location;
                 Tagstatus.Text = data.Status;
+
+                if (DateTime.TryParse(data.Date, out DateTime parsedDate))
+                {
+                    ScheduleDate = parsedDate;
+                }
+                else
+                {
+                    ScheduleDate = DateTime.MinValue;  
+                }
             }
         }
 
