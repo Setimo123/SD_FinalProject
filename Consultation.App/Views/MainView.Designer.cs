@@ -32,10 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             sidePanel = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            pictureBox1 = new PictureBox();
+            button1 = new Button();
             pictureBoxLogo = new PictureBox();
-            label3 = new Label();
-            buttonPreference = new Button();
-            settings_icon = new ImageList(components);
             label2 = new Label();
             buttonSFManagement = new Button();
             userManagement_icon = new ImageList(components);
@@ -50,6 +49,7 @@
             labelProfileRole = new Label();
             labelProfileName = new Label();
             pictureBoxProfile = new PictureBox();
+            settings_icon = new ImageList(components);
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
             buttonNotification = new Guna.UI2.WinForms.Guna2CircleButton();
             labelForm = new Label();
@@ -57,6 +57,7 @@
             panelContainer = new Panel();
             ((System.ComponentModel.ISupportInitialize)sidePanel).BeginInit();
             sidePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxProfile).BeginInit();
@@ -70,9 +71,9 @@
             sidePanel.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, Color.FromArgb(117, 7, 39), Color.FromArgb(197, 62, 63));
             sidePanel.Border3DStyle = Border3DStyle.Flat;
             sidePanel.BorderStyle = BorderStyle.None;
+            sidePanel.Controls.Add(pictureBox1);
+            sidePanel.Controls.Add(button1);
             sidePanel.Controls.Add(pictureBoxLogo);
-            sidePanel.Controls.Add(label3);
-            sidePanel.Controls.Add(buttonPreference);
             sidePanel.Controls.Add(label2);
             sidePanel.Controls.Add(buttonSFManagement);
             sidePanel.Controls.Add(buttonConsultation);
@@ -87,6 +88,30 @@
             sidePanel.Size = new Size(260, 1041);
             sidePanel.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(44, 939);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(38, 37);
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Microsoft Sans Serif", 11F);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(30, 939);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 36);
+            button1.TabIndex = 8;
+            button1.Text = "              Sign out";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // pictureBoxLogo
             // 
             pictureBoxLogo.BackColor = Color.Transparent;
@@ -97,53 +122,15 @@
             pictureBoxLogo.TabIndex = 0;
             pictureBoxLogo.TabStop = false;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Inter", 14.25F, FontStyle.Bold);
-            label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(24, 554);
-            label3.Name = "label3";
-            label3.Size = new Size(89, 27);
-            label3.TabIndex = 11;
-            label3.Text = "Settings";
-            // 
-            // buttonPreference
-            // 
-            buttonPreference.BackColor = Color.Transparent;
-            buttonPreference.FlatAppearance.BorderSize = 0;
-            buttonPreference.FlatStyle = FlatStyle.Flat;
-            buttonPreference.Font = new Font("Inter", 12F);
-            buttonPreference.ForeColor = SystemColors.ControlLightLight;
-            buttonPreference.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonPreference.ImageIndex = 0;
-            buttonPreference.ImageList = settings_icon;
-            buttonPreference.Location = new Point(30, 594);
-            buttonPreference.Name = "buttonPreference";
-            buttonPreference.Size = new Size(247, 48);
-            buttonPreference.TabIndex = 10;
-            buttonPreference.Text = "   Security";
-            buttonPreference.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonPreference.UseVisualStyleBackColor = false;
-            // 
-            // settings_icon
-            // 
-            settings_icon.ColorDepth = ColorDepth.Depth32Bit;
-            settings_icon.ImageStream = (ImageListStreamer)resources.GetObject("settings_icon.ImageStream");
-            settings_icon.TransparentColor = Color.Transparent;
-            settings_icon.Images.SetKeyName(0, "m_settings.png");
-            settings_icon.Images.SetKeyName(1, "m_settings_select.png");
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Inter", 14.25F, FontStyle.Bold);
+            label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(24, 424);
             label2.Name = "label2";
-            label2.Size = new Size(134, 27);
+            label2.Size = new Size(131, 24);
             label2.TabIndex = 7;
             label2.Text = "Management";
             // 
@@ -152,7 +139,7 @@
             buttonSFManagement.BackColor = Color.Transparent;
             buttonSFManagement.FlatAppearance.BorderSize = 0;
             buttonSFManagement.FlatStyle = FlatStyle.Flat;
-            buttonSFManagement.Font = new Font("Inter", 12F);
+            buttonSFManagement.Font = new Font("Microsoft Sans Serif", 12F);
             buttonSFManagement.ForeColor = SystemColors.ControlLightLight;
             buttonSFManagement.ImageAlign = ContentAlignment.MiddleLeft;
             buttonSFManagement.ImageIndex = 0;
@@ -179,7 +166,7 @@
             buttonConsultation.BackColor = Color.Transparent;
             buttonConsultation.FlatAppearance.BorderSize = 0;
             buttonConsultation.FlatStyle = FlatStyle.Flat;
-            buttonConsultation.Font = new Font("Inter", 12F);
+            buttonConsultation.Font = new Font("Microsoft Sans Serif", 12F);
             buttonConsultation.ForeColor = SystemColors.ControlLightLight;
             buttonConsultation.ImageAlign = ContentAlignment.MiddleLeft;
             buttonConsultation.ImageIndex = 0;
@@ -206,7 +193,7 @@
             buttonBulletin.BackColor = Color.Transparent;
             buttonBulletin.FlatAppearance.BorderSize = 0;
             buttonBulletin.FlatStyle = FlatStyle.Flat;
-            buttonBulletin.Font = new Font("Inter", 12F);
+            buttonBulletin.Font = new Font("Microsoft Sans Serif", 12F);
             buttonBulletin.ForeColor = SystemColors.ControlLightLight;
             buttonBulletin.ImageAlign = ContentAlignment.MiddleLeft;
             buttonBulletin.ImageIndex = 0;
@@ -231,11 +218,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Inter", 14.25F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(24, 192);
             label1.Name = "label1";
-            label1.Size = new Size(58, 27);
+            label1.Size = new Size(55, 24);
             label1.TabIndex = 3;
             label1.Text = "Main";
             // 
@@ -245,7 +232,7 @@
             buttonDashboard.Cursor = Cursors.Hand;
             buttonDashboard.FlatAppearance.BorderSize = 0;
             buttonDashboard.FlatStyle = FlatStyle.Flat;
-            buttonDashboard.Font = new Font("Inter", 12F);
+            buttonDashboard.Font = new Font("Microsoft Sans Serif", 12F);
             buttonDashboard.ForeColor = SystemColors.ControlLightLight;
             buttonDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             buttonDashboard.ImageIndex = 0;
@@ -268,11 +255,11 @@
             // 
             // profilePanel
             // 
+            profilePanel.BackColor = Color.Transparent;
             profilePanel.Controls.Add(labelProfileRole);
             profilePanel.Controls.Add(labelProfileName);
             profilePanel.Controls.Add(pictureBoxProfile);
-            profilePanel.Dock = DockStyle.Bottom;
-            profilePanel.Location = new Point(0, 946);
+            profilePanel.Location = new Point(3, 805);
             profilePanel.Name = "profilePanel";
             profilePanel.Size = new Size(260, 95);
             profilePanel.TabIndex = 1;
@@ -307,6 +294,14 @@
             pictureBoxProfile.Size = new Size(56, 56);
             pictureBoxProfile.TabIndex = 0;
             pictureBoxProfile.TabStop = false;
+            // 
+            // settings_icon
+            // 
+            settings_icon.ColorDepth = ColorDepth.Depth32Bit;
+            settings_icon.ImageStream = (ImageListStreamer)resources.GetObject("settings_icon.ImageStream");
+            settings_icon.TransparentColor = Color.Transparent;
+            settings_icon.Images.SetKeyName(0, "m_settings.png");
+            settings_icon.Images.SetKeyName(1, "m_settings_select.png");
             // 
             // materialCard2
             // 
@@ -354,10 +349,10 @@
             // 
             labelForm.AutoSize = true;
             labelForm.BackColor = Color.Transparent;
-            labelForm.Font = new Font("Inter", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelForm.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelForm.Location = new Point(17, 25);
             labelForm.Name = "labelForm";
-            labelForm.Size = new Size(200, 45);
+            labelForm.Size = new Size(197, 37);
             labelForm.TabIndex = 12;
             labelForm.Text = "Form Name";
             // 
@@ -394,6 +389,7 @@
             ((System.ComponentModel.ISupportInitialize)sidePanel).EndInit();
             sidePanel.ResumeLayout(false);
             sidePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             profilePanel.ResumeLayout(false);
             profilePanel.PerformLayout();
@@ -412,8 +408,6 @@
         private Label label1;
         private Button buttonConsultation;
         private Button buttonBulletin;
-        private Label label3;
-        private Button buttonPreference;
         private Label label2;
         private Button buttonSFManagement;
         private Label labelProfileRole;
@@ -429,5 +423,7 @@
         private Panel panel1;
         private Panel panelContainer;
         private Guna.UI2.WinForms.Guna2CircleButton buttonNotification;
+        private PictureBox pictureBox1;
+        private Button button1;
     }
 }

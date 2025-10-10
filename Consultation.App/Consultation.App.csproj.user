@@ -65,6 +65,9 @@
     <Compile Update="Views\Controls\UserManagement\EditStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\Controls\UserManagement\EditUserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\Controls\UserManagement\FacultyAction.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +95,9 @@
     <Compile Update="Views\Controls\UserManagement\UserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\Controls\UserManagement\UserView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\Controls\UserManagement\ViewAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,9 +114,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Settings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\UserManagementView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Controls\UserManagement\StudentListCard.cs">
@@ -157,6 +160,9 @@
     </Compile>
     <Compile Update="Views\TestViews\TestBulletinView.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserManagementView.cs">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
 </Project>

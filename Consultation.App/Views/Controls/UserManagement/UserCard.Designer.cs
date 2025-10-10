@@ -34,8 +34,14 @@
             labelUserID = new Label();
             labelName = new Label();
             pictureBox1 = new PictureBox();
+            contextMenuStripEx1 = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
+            viewToolStripMenuItem = new ToolStripMenuItem();
+            resetPasswordToolStripMenuItem = new ToolStripMenuItem();
+            deleteUserToolStripMenuItem = new ToolStripMenuItem();
+            deleterUserToolStripMenuItem = new ToolStripMenuItem();
             materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            contextMenuStripEx1.SuspendLayout();
             SuspendLayout();
             // 
             // materialCard1
@@ -67,34 +73,35 @@
             button1.TabIndex = 2;
             button1.TabStop = false;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // labelUserEmail
             // 
             labelUserEmail.AutoSize = true;
-            labelUserEmail.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelUserEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelUserEmail.Location = new Point(553, 23);
             labelUserEmail.Name = "labelUserEmail";
-            labelUserEmail.Size = new Size(179, 23);
+            labelUserEmail.Size = new Size(169, 20);
             labelUserEmail.TabIndex = 1;
             labelUserEmail.Text = "UserEmail@email.com";
             // 
             // labelUserID
             // 
             labelUserID.AutoSize = true;
-            labelUserID.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelUserID.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelUserID.Location = new Point(308, 23);
             labelUserID.Name = "labelUserID";
-            labelUserID.Size = new Size(67, 23);
+            labelUserID.Size = new Size(63, 20);
             labelUserID.TabIndex = 1;
             labelUserID.Text = "545454";
             // 
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelName.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelName.Location = new Point(80, 23);
             labelName.Name = "labelName";
-            labelName.Size = new Size(94, 23);
+            labelName.Size = new Size(89, 20);
             labelName.TabIndex = 1;
             labelName.Text = "User Name";
             // 
@@ -108,6 +115,38 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // contextMenuStripEx1
+            // 
+            contextMenuStripEx1.Font = new Font("Microsoft Sans Serif", 11F);
+            contextMenuStripEx1.Items.AddRange(new ToolStripItem[] { viewToolStripMenuItem, resetPasswordToolStripMenuItem, deleteUserToolStripMenuItem, deleterUserToolStripMenuItem });
+            contextMenuStripEx1.MetroColor = Color.FromArgb(204, 236, 249);
+            contextMenuStripEx1.Name = "contextMenuStripEx1";
+            contextMenuStripEx1.Size = new Size(187, 92);
+            // 
+            // viewToolStripMenuItem
+            // 
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(186, 22);
+            viewToolStripMenuItem.Text = "View";
+            // 
+            // resetPasswordToolStripMenuItem
+            // 
+            resetPasswordToolStripMenuItem.Name = "resetPasswordToolStripMenuItem";
+            resetPasswordToolStripMenuItem.Size = new Size(186, 22);
+            resetPasswordToolStripMenuItem.Text = "Reset Password";
+            // 
+            // deleteUserToolStripMenuItem
+            // 
+            deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
+            deleteUserToolStripMenuItem.Size = new Size(186, 22);
+            deleteUserToolStripMenuItem.Text = "Edit User";
+            // 
+            // deleterUserToolStripMenuItem
+            // 
+            deleterUserToolStripMenuItem.Name = "deleterUserToolStripMenuItem";
+            deleterUserToolStripMenuItem.Size = new Size(186, 22);
+            deleterUserToolStripMenuItem.Text = "Deleter user";
+            // 
             // UserCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -120,6 +159,7 @@
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            contextMenuStripEx1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -131,5 +171,10 @@
         private Label labelUserID;
         private Label labelName;
         private Button button1;
+        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripEx1;
+        private ToolStripMenuItem viewToolStripMenuItem;
+        private ToolStripMenuItem resetPasswordToolStripMenuItem;
+        private ToolStripMenuItem deleteUserToolStripMenuItem;
+        private ToolStripMenuItem deleterUserToolStripMenuItem;
     }
 }

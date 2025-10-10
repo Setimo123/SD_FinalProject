@@ -20,7 +20,6 @@ namespace Consultation.App.Views
             buttonConsultation.Click += (s, e) => ConsultationEvent?.Invoke(s, e);
             buttonBulletin.Click += (s, e) => BulletinEvent?.Invoke(s, e);
             buttonSFManagement.Click += (s, e) => SFManagementEvent?.Invoke(s, e);
-            buttonPreference.Click += (s, e) => PreferenceEvent?.Invoke(s, e);
             buttonNotification.Click += (s, e) => NotificationEvent?.Invoke(s, e);
             this.FormClosed += MainView_FormClosed;
 
@@ -30,7 +29,6 @@ namespace Consultation.App.Views
                 buttonConsultation,
                 buttonBulletin,
                 buttonSFManagement,
-                buttonPreference
             };
 
             foreach (var btn in _navButtons)

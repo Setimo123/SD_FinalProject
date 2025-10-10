@@ -29,7 +29,9 @@ namespace Consultation.App.Views.Controls.UserManagement
             labelUserEmail.Text = email;
         }
 
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            contextMenuStripEx1.Show(button1, new Point(0, button1.Height));
+        }
     }
 }

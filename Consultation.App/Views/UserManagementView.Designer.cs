@@ -37,8 +37,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             BtnNext = new Button();
             BtnPreview = new Button();
             button4 = new Button();
@@ -65,7 +63,10 @@
             materialCard3 = new MaterialSkin.Controls.MaterialCard();
             materialCard4 = new MaterialSkin.Controls.MaterialCard();
             materialCard5 = new MaterialSkin.Controls.MaterialCard();
-            CBoxCourseCode = new Guna.UI2.WinForms.Guna2ComboBox();
+            label7 = new Label();
+            label5 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             CBoxYear = new Guna.UI2.WinForms.Guna2ComboBox();
             CBoxCourse = new Guna.UI2.WinForms.Guna2ComboBox();
             cboxSort = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -77,6 +78,7 @@
             materialCard2.SuspendLayout();
             materialCard3.SuspendLayout();
             materialCard4.SuspendLayout();
+            materialCard5.SuspendLayout();
             SuspendLayout();
             // 
             // BtnNext
@@ -156,7 +158,7 @@
             buttonAdmin.BackColor = Color.Transparent;
             buttonAdmin.FlatAppearance.BorderSize = 0;
             buttonAdmin.FlatStyle = FlatStyle.Flat;
-            buttonAdmin.Font = new Font("Inter", 9.75F, FontStyle.Bold);
+            buttonAdmin.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             buttonAdmin.ForeColor = Color.FromArgb(192, 0, 0);
             buttonAdmin.Location = new Point(1090, 101);
             buttonAdmin.Name = "buttonAdmin";
@@ -181,7 +183,7 @@
             buttonFaculty.BackColor = Color.Transparent;
             buttonFaculty.FlatAppearance.BorderSize = 0;
             buttonFaculty.FlatStyle = FlatStyle.Flat;
-            buttonFaculty.Font = new Font("Inter", 9.75F, FontStyle.Bold);
+            buttonFaculty.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             buttonFaculty.ForeColor = Color.FromArgb(192, 0, 0);
             buttonFaculty.Location = new Point(1015, 101);
             buttonFaculty.Name = "buttonFaculty";
@@ -196,7 +198,7 @@
             buttonStudents.BackgroundImageLayout = ImageLayout.None;
             buttonStudents.FlatAppearance.BorderSize = 0;
             buttonStudents.FlatStyle = FlatStyle.Flat;
-            buttonStudents.Font = new Font("Inter", 9.75F, FontStyle.Bold);
+            buttonStudents.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             buttonStudents.ForeColor = Color.FromArgb(192, 0, 0);
             buttonStudents.Location = new Point(929, 101);
             buttonStudents.Name = "buttonStudents";
@@ -219,20 +221,20 @@
             // TotalStudents
             // 
             TotalStudents.AutoSize = true;
-            TotalStudents.Font = new Font("Inter SemiBold", 18F, FontStyle.Bold);
+            TotalStudents.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             TotalStudents.Location = new Point(17, 39);
             TotalStudents.Name = "TotalStudents";
-            TotalStudents.Size = new Size(58, 35);
+            TotalStudents.Size = new Size(56, 29);
             TotalStudents.TabIndex = 1;
             TotalStudents.Text = "N/A";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Inter", 9F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label1.Location = new Point(17, 14);
             label1.Name = "label1";
-            label1.Size = new Size(91, 17);
+            label1.Size = new Size(99, 15);
             label1.TabIndex = 0;
             label1.Text = "Total Students";
             // 
@@ -250,20 +252,20 @@
             // TotalFacultyMem
             // 
             TotalFacultyMem.AutoSize = true;
-            TotalFacultyMem.Font = new Font("Inter SemiBold", 18F, FontStyle.Bold);
+            TotalFacultyMem.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             TotalFacultyMem.Location = new Point(17, 40);
             TotalFacultyMem.Name = "TotalFacultyMem";
-            TotalFacultyMem.Size = new Size(58, 35);
+            TotalFacultyMem.Size = new Size(56, 29);
             TotalFacultyMem.TabIndex = 1;
             TotalFacultyMem.Text = "N/A";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Inter", 9F, FontStyle.Bold);
+            label4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label4.Location = new Point(17, 14);
             label4.Name = "label4";
-            label4.Size = new Size(109, 17);
+            label4.Size = new Size(116, 15);
             label4.TabIndex = 0;
             label4.Text = "Faculty Members";
             // 
@@ -287,20 +289,20 @@
             // TotalAdmin
             // 
             TotalAdmin.AutoSize = true;
-            TotalAdmin.Font = new Font("Inter SemiBold", 18F, FontStyle.Bold);
+            TotalAdmin.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             TotalAdmin.Location = new Point(17, 39);
             TotalAdmin.Name = "TotalAdmin";
-            TotalAdmin.Size = new Size(58, 35);
+            TotalAdmin.Size = new Size(56, 29);
             TotalAdmin.TabIndex = 1;
             TotalAdmin.Text = "N/A";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Inter", 9F, FontStyle.Bold);
+            label6.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             label6.Location = new Point(17, 14);
             label6.Name = "label6";
-            label6.Size = new Size(88, 17);
+            label6.Size = new Size(92, 15);
             label6.TabIndex = 0;
             label6.Text = "Administrator";
             // 
@@ -367,7 +369,6 @@
             materialCard4.BackColor = Color.FromArgb(255, 255, 255);
             materialCard4.Controls.Add(flPanelUserCard);
             materialCard4.Controls.Add(materialCard5);
-            materialCard4.Controls.Add(CBoxCourseCode);
             materialCard4.Controls.Add(CBoxYear);
             materialCard4.Controls.Add(CBoxCourse);
             materialCard4.Controls.Add(cboxSort);
@@ -388,6 +389,10 @@
             // materialCard5
             // 
             materialCard5.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard5.Controls.Add(label7);
+            materialCard5.Controls.Add(label5);
+            materialCard5.Controls.Add(label3);
+            materialCard5.Controls.Add(label2);
             materialCard5.Depth = 0;
             materialCard5.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard5.Location = new Point(178, 143);
@@ -398,29 +403,51 @@
             materialCard5.Size = new Size(993, 63);
             materialCard5.TabIndex = 20;
             // 
-            // CBoxCourseCode
+            // label7
             // 
-            CBoxCourseCode.BackColor = Color.Transparent;
-            CBoxCourseCode.BorderRadius = 6;
-            CBoxCourseCode.CustomizableEdges = customizableEdges1;
-            CBoxCourseCode.DrawMode = DrawMode.OwnerDrawFixed;
-            CBoxCourseCode.DropDownStyle = ComboBoxStyle.DropDownList;
-            CBoxCourseCode.FocusedColor = Color.FromArgb(94, 148, 255);
-            CBoxCourseCode.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            CBoxCourseCode.Font = new Font("Segoe UI", 10F);
-            CBoxCourseCode.ForeColor = Color.FromArgb(68, 88, 112);
-            CBoxCourseCode.ItemHeight = 30;
-            CBoxCourseCode.Location = new Point(657, 90);
-            CBoxCourseCode.Name = "CBoxCourseCode";
-            CBoxCourseCode.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            CBoxCourseCode.Size = new Size(140, 36);
-            CBoxCourseCode.TabIndex = 19;
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 14F);
+            label7.Location = new Point(877, 25);
+            label7.Name = "label7";
+            label7.Size = new Size(63, 24);
+            label7.TabIndex = 3;
+            label7.Text = "Action";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 14F);
+            label5.Location = new Point(622, 25);
+            label5.Name = "label5";
+            label5.Size = new Size(57, 24);
+            label5.TabIndex = 2;
+            label5.Text = "Email";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 14F);
+            label3.Location = new Point(307, 25);
+            label3.Name = "label3";
+            label3.Size = new Size(101, 24);
+            label3.TabIndex = 1;
+            label3.Text = "ID Number";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 14F);
+            label2.Location = new Point(72, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(61, 24);
+            label2.TabIndex = 0;
+            label2.Text = "Name";
             // 
             // CBoxYear
             // 
             CBoxYear.BackColor = Color.Transparent;
             CBoxYear.BorderRadius = 6;
-            CBoxYear.CustomizableEdges = customizableEdges3;
+            CBoxYear.CustomizableEdges = customizableEdges1;
             CBoxYear.DrawMode = DrawMode.OwnerDrawFixed;
             CBoxYear.DropDownStyle = ComboBoxStyle.DropDownList;
             CBoxYear.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -428,17 +455,18 @@
             CBoxYear.Font = new Font("Segoe UI", 10F);
             CBoxYear.ForeColor = Color.FromArgb(68, 88, 112);
             CBoxYear.ItemHeight = 30;
-            CBoxYear.Location = new Point(496, 90);
+            CBoxYear.Location = new Point(582, 90);
             CBoxYear.Name = "CBoxYear";
-            CBoxYear.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            CBoxYear.ShadowDecoration.CustomizableEdges = customizableEdges2;
             CBoxYear.Size = new Size(140, 36);
             CBoxYear.TabIndex = 18;
+            CBoxYear.SelectedIndexChanged += CBoxYear_SelectedIndexChanged;
             // 
             // CBoxCourse
             // 
             CBoxCourse.BackColor = Color.Transparent;
             CBoxCourse.BorderRadius = 6;
-            CBoxCourse.CustomizableEdges = customizableEdges5;
+            CBoxCourse.CustomizableEdges = customizableEdges3;
             CBoxCourse.DrawMode = DrawMode.OwnerDrawFixed;
             CBoxCourse.DropDownStyle = ComboBoxStyle.DropDownList;
             CBoxCourse.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -446,17 +474,18 @@
             CBoxCourse.Font = new Font("Segoe UI", 10F);
             CBoxCourse.ForeColor = Color.FromArgb(68, 88, 112);
             CBoxCourse.ItemHeight = 30;
-            CBoxCourse.Location = new Point(335, 90);
+            CBoxCourse.Location = new Point(421, 90);
             CBoxCourse.Name = "CBoxCourse";
-            CBoxCourse.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            CBoxCourse.ShadowDecoration.CustomizableEdges = customizableEdges4;
             CBoxCourse.Size = new Size(140, 36);
             CBoxCourse.TabIndex = 17;
+            CBoxCourse.SelectedIndexChanged += CBoxCourse_SelectedIndexChanged;
             // 
             // cboxSort
             // 
             cboxSort.BackColor = Color.Transparent;
             cboxSort.BorderRadius = 6;
-            cboxSort.CustomizableEdges = customizableEdges7;
+            cboxSort.CustomizableEdges = customizableEdges5;
             cboxSort.DrawMode = DrawMode.OwnerDrawFixed;
             cboxSort.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxSort.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -466,27 +495,28 @@
             cboxSort.ItemHeight = 30;
             cboxSort.Location = new Point(178, 90);
             cboxSort.Name = "cboxSort";
-            cboxSort.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            cboxSort.Size = new Size(140, 36);
+            cboxSort.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            cboxSort.Size = new Size(224, 36);
             cboxSort.TabIndex = 16;
+            cboxSort.SelectedIndexChanged += cboxSort_SelectedIndexChanged;
             // 
             // textBoxSearch
             // 
             textBoxSearch.BorderRadius = 6;
-            textBoxSearch.CustomizableEdges = customizableEdges9;
+            textBoxSearch.CustomizableEdges = customizableEdges7;
             textBoxSearch.DefaultText = "Search by name, ID number, or email";
             textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             textBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             textBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxSearch.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxSearch.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             textBoxSearch.Location = new Point(178, 30);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "";
             textBoxSearch.SelectedText = "";
-            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges8;
             textBoxSearch.Size = new Size(984, 41);
             textBoxSearch.TabIndex = 15;
             // 
@@ -518,6 +548,8 @@
             materialCard3.ResumeLayout(false);
             materialCard3.PerformLayout();
             materialCard4.ResumeLayout(false);
+            materialCard5.ResumeLayout(false);
+            materialCard5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -553,9 +585,12 @@
         private MaterialSkin.Controls.MaterialCard materialCard4;
         private Guna.UI2.WinForms.Guna2ComboBox cboxSort;
         private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
-        private Guna.UI2.WinForms.Guna2ComboBox CBoxCourseCode;
         private Guna.UI2.WinForms.Guna2ComboBox CBoxYear;
         private Guna.UI2.WinForms.Guna2ComboBox CBoxCourse;
         private MaterialSkin.Controls.MaterialCard materialCard5;
+        private Label label5;
+        private Label label3;
+        private Label label2;
+        private Label label7;
     }
 }
