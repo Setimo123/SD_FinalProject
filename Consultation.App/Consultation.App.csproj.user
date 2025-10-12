@@ -113,16 +113,10 @@
     <Compile Update="Views\LogInView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\Settings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Views\Controls\UserManagement\StudentListCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Controls\Notification\NotificationView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\ReportsView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\TestViews\MdiParent.cs">

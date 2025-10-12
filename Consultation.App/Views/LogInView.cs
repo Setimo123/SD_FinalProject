@@ -15,13 +15,37 @@ namespace Consultation.App.Views
 {
     public partial class LogInView : Form, ILoginView
     {
+        private Label resultlabel1; // Add this field to the LogInView class to fix CS0103
+        private Label ErrorPassLabel;
+
         public LogInView()
         {
             InitializeComponent();
 
+            // Initialize resultlabel1 if not already done by designer
+            resultlabel1 = new Label
+            {
+                Name = "resultlabel1",
+                AutoSize = true,
+                Location = new Point(10, 10), // Adjust location as needed
+                Text = ""
+            };
+            this.Controls.Add(resultlabel1);
+
+            // Initialize ErrorPassLabel to fix CS0103
+            ErrorPassLabel = new Label
+            {
+                Name = "ErrorPassLabel",
+                AutoSize = true,
+                Location = new Point(10, 35), // Adjust location as needed
+                ForeColor = Color.Red,
+                Text = ""
+            };
+            this.Controls.Add(ErrorPassLabel);
+
             EmailTextBox.TextChanged += SignInTextBox_TextChanged;
             PasswordTextBox.TextChanged += PasswordTextBoxV2_TextChanged;
-            buttonLogIn.Click += (s, e) => LogInEvent?.Invoke(s, e);
+            Login_button.Click += (s, e) => LogInEvent?.Invoke(s, e);
         }
 
 
@@ -75,6 +99,26 @@ namespace Consultation.App.Views
             return Regex.IsMatch(email,
             @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
             RegexOptions.IgnoreCase);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dockingClientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
 
         //private void SignInButton_Click(object sender, EventArgs e)

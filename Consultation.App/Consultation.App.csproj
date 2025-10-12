@@ -39,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+ 
     <ProjectReference Include="..\Consultation.BackEndCRUD\Consultation.BackEndCRUD.csproj" />
   </ItemGroup>
 

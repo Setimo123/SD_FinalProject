@@ -104,5 +104,40 @@ namespace Consultation.App.Views
         {
             Show();
         }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelProfileName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonNotification_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelProfileRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sidePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

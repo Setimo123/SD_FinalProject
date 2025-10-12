@@ -28,243 +28,148 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dockingClientPanel1 = new Syncfusion.Windows.Forms.Tools.DockingClientPanel();
-            pictureBox1 = new PictureBox();
-            panel1 = new Panel();
-            ErrorPassLabel = new Label();
-            resultlabel1 = new Label();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             ShowPassButton = new Button();
-            ForgotPasswordButton = new Button();
-            SystemBtn = new Button();
-            ReqBtn = new Button();
-            label4 = new Label();
-            label3 = new Label();
-            GoogleSignInButton = new Button();
-            buttonLogIn = new Button();
-            RememberMeCheckBox = new Syncfusion.Windows.Forms.Tools.CheckBoxAdv();
             label2 = new Label();
             PasswordTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            label1 = new Label();
             EmailTextBox = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            dockingClientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)RememberMeCheckBox).BeginInit();
+            label1 = new Label();
+            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            dockingClientPanel1 = new Syncfusion.Windows.Forms.Tools.DockingClientPanel();
+            Login_button = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)PasswordTextBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)EmailTextBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
+            dockingClientPanel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // dockingClientPanel1
-            // 
-            dockingClientPanel1.BackgroundImage = Properties.Icons.RedBg_1_;
-            dockingClientPanel1.Controls.Add(pictureBox1);
-            dockingClientPanel1.Controls.Add(panel1);
-            dockingClientPanel1.Location = new Point(-23, 0);
-            dockingClientPanel1.Name = "dockingClientPanel1";
-            dockingClientPanel1.Size = new Size(1940, 1080);
-            dockingClientPanel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Icons.Untitled__Logo_;
-            pictureBox1.Location = new Point(23, 25);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(872, 987);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.Control;
-            panel1.Controls.Add(ErrorPassLabel);
-            panel1.Controls.Add(resultlabel1);
-            panel1.Controls.Add(ShowPassButton);
-            panel1.Controls.Add(ForgotPasswordButton);
-            panel1.Controls.Add(SystemBtn);
-            panel1.Controls.Add(ReqBtn);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(GoogleSignInButton);
-            panel1.Controls.Add(buttonLogIn);
-            panel1.Controls.Add(RememberMeCheckBox);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(PasswordTextBox);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(EmailTextBox);
-            panel1.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold);
-            panel1.Location = new Point(1180, 105);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(589, 849);
-            panel1.TabIndex = 0;
-            // 
-            // ErrorPassLabel
-            // 
-            ErrorPassLabel.AutoSize = true;
-            ErrorPassLabel.Location = new Point(69, 283);
-            ErrorPassLabel.Name = "ErrorPassLabel";
-            ErrorPassLabel.Size = new Size(0, 23);
-            ErrorPassLabel.TabIndex = 17;
-            // 
-            // resultlabel1
-            // 
-            resultlabel1.AutoSize = true;
-            resultlabel1.BackColor = Color.Transparent;
-            resultlabel1.Location = new Point(69, 151);
-            resultlabel1.Name = "resultlabel1";
-            resultlabel1.Size = new Size(0, 23);
-            resultlabel1.TabIndex = 16;
             // 
             // ShowPassButton
             // 
+            ShowPassButton.FlatStyle = FlatStyle.Flat;
             ShowPassButton.Image = Properties.Icons.Untitled_design;
-            ShowPassButton.Location = new Point(494, 268);
+            ShowPassButton.Location = new Point(1620, 511);
             ShowPassButton.Name = "ShowPassButton";
-            ShowPassButton.Size = new Size(32, 23);
+            ShowPassButton.Size = new Size(40, 30);
             ShowPassButton.TabIndex = 15;
             ShowPassButton.UseVisualStyleBackColor = true;
             ShowPassButton.Click += ShowPassButton_Click;
             // 
-            // ForgotPasswordButton
-            // 
-            ForgotPasswordButton.BackColor = Color.Transparent;
-            ForgotPasswordButton.FlatAppearance.BorderSize = 0;
-            ForgotPasswordButton.FlatStyle = FlatStyle.Flat;
-            ForgotPasswordButton.Font = new Font("Inter", 8.25F);
-            ForgotPasswordButton.ForeColor = Color.Red;
-            ForgotPasswordButton.Location = new Point(411, 331);
-            ForgotPasswordButton.Name = "ForgotPasswordButton";
-            ForgotPasswordButton.Size = new Size(117, 23);
-            ForgotPasswordButton.TabIndex = 14;
-            ForgotPasswordButton.Text = "Forgot Password?";
-            ForgotPasswordButton.UseVisualStyleBackColor = false;
-            // 
-            // SystemBtn
-            // 
-            SystemBtn.BackColor = Color.Brown;
-            SystemBtn.FlatStyle = FlatStyle.Flat;
-            SystemBtn.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold);
-            SystemBtn.ForeColor = Color.White;
-            SystemBtn.Location = new Point(311, 647);
-            SystemBtn.Name = "SystemBtn";
-            SystemBtn.Size = new Size(197, 40);
-            SystemBtn.TabIndex = 13;
-            SystemBtn.Text = "System Status";
-            SystemBtn.UseVisualStyleBackColor = false;
-            // 
-            // ReqBtn
-            // 
-            ReqBtn.BackColor = Color.Brown;
-            ReqBtn.FlatStyle = FlatStyle.Flat;
-            ReqBtn.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold);
-            ReqBtn.ForeColor = Color.White;
-            ReqBtn.Location = new Point(97, 647);
-            ReqBtn.Name = "ReqBtn";
-            ReqBtn.Size = new Size(197, 40);
-            ReqBtn.TabIndex = 12;
-            ReqBtn.Text = "Request Access";
-            ReqBtn.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Inter", 8.25F);
-            label4.Location = new Point(151, 584);
-            label4.Name = "label4";
-            label4.Size = new Size(307, 16);
-            label4.TabIndex = 9;
-            label4.Text = "------------------------Need Help?------------------------";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Inter", 8.25F);
-            label3.Location = new Point(162, 472);
-            label3.Name = "label3";
-            label3.Size = new Size(259, 16);
-            label3.TabIndex = 7;
-            label3.Text = "------------------------Or------------------------";
-            // 
-            // GoogleSignInButton
-            // 
-            GoogleSignInButton.BackColor = Color.Brown;
-            GoogleSignInButton.FlatStyle = FlatStyle.Flat;
-            GoogleSignInButton.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold);
-            GoogleSignInButton.ForeColor = Color.White;
-            GoogleSignInButton.Location = new Point(97, 509);
-            GoogleSignInButton.Name = "GoogleSignInButton";
-            GoogleSignInButton.Size = new Size(411, 40);
-            GoogleSignInButton.TabIndex = 6;
-            GoogleSignInButton.Text = "Log In with Google";
-            GoogleSignInButton.UseVisualStyleBackColor = false;
-            // 
-            // buttonLogIn
-            // 
-            buttonLogIn.BackColor = Color.Brown;
-            buttonLogIn.FlatStyle = FlatStyle.Flat;
-            buttonLogIn.Font = new Font("Inter SemiBold", 12F, FontStyle.Bold);
-            buttonLogIn.ForeColor = Color.White;
-            buttonLogIn.Location = new Point(201, 396);
-            buttonLogIn.Name = "buttonLogIn";
-            buttonLogIn.Size = new Size(197, 40);
-            buttonLogIn.TabIndex = 5;
-            buttonLogIn.Text = "Log In";
-            buttonLogIn.UseVisualStyleBackColor = false;
-            // 
-            // RememberMeCheckBox
-            // 
-            RememberMeCheckBox.AccessibilityEnabled = true;
-            RememberMeCheckBox.Font = new Font("Inter", 8.25F);
-            RememberMeCheckBox.Location = new Point(58, 331);
-            RememberMeCheckBox.Name = "RememberMeCheckBox";
-            RememberMeCheckBox.Size = new Size(150, 21);
-            RememberMeCheckBox.TabIndex = 4;
-            RememberMeCheckBox.Text = "Remember Me?";
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Inter", 15.75F);
-            label2.ForeColor = Color.Gray;
-            label2.Location = new Point(58, 226);
+            label2.Font = new Font("Archivo SemiBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.GhostWhite;
+            label2.Location = new Point(1202, 475);
             label2.Name = "label2";
-            label2.Size = new Size(117, 30);
+            label2.Size = new Size(118, 32);
             label2.TabIndex = 3;
             label2.Text = "Password:";
             // 
             // PasswordTextBox
             // 
             PasswordTextBox.BackColor = Color.Transparent;
-            PasswordTextBox.BeforeTouchSize = new Size(470, 30);
-            PasswordTextBox.Font = new Font("Inter", 14.25F);
-            PasswordTextBox.Location = new Point(58, 266);
+            PasswordTextBox.BeforeTouchSize = new Size(455, 32);
+            PasswordTextBox.Border3DStyle = Border3DStyle.Flat;
+            PasswordTextBox.Font = new Font("Microsoft Sans Serif", 14.25F);
+            PasswordTextBox.Location = new Point(1206, 510);
+            PasswordTextBox.Multiline = true;
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.PasswordChar = '●';
-            PasswordTextBox.Size = new Size(470, 30);
+            PasswordTextBox.PlaceholderText = "Input Password";
+            PasswordTextBox.Size = new Size(455, 32);
             PasswordTextBox.TabIndex = 2;
             PasswordTextBox.TextChanged += PasswordTextBoxV2_TextChanged;
+            // 
+            // EmailTextBox
+            // 
+            EmailTextBox.Anchor = AnchorStyles.None;
+            EmailTextBox.BackColor = Color.Transparent;
+            EmailTextBox.BeforeTouchSize = new Size(455, 32);
+            EmailTextBox.Border3DStyle = Border3DStyle.Flat;
+            EmailTextBox.BorderColor = Color.Transparent;
+            EmailTextBox.Cursor = Cursors.Cross;
+            EmailTextBox.Font = new Font("Microsoft Sans Serif", 14.25F);
+            EmailTextBox.Location = new Point(1205, 420);
+            EmailTextBox.Margin = new Padding(5);
+            EmailTextBox.MinimumSize = new Size(24, 20);
+            EmailTextBox.Multiline = true;
+            EmailTextBox.Name = "EmailTextBox";
+            EmailTextBox.PlaceholderText = "Input Email";
+            EmailTextBox.Size = new Size(455, 32);
+            EmailTextBox.TabIndex = 0;
+            EmailTextBox.ThemeStyle.BackColor = Color.WhiteSmoke;
+            EmailTextBox.ThemeStyle.CornerRadius = 0;
+            EmailTextBox.TextChanged += SignInTextBox_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Inter", 15.75F);
-            label1.ForeColor = Color.Gray;
-            label1.Location = new Point(58, 103);
+            label1.Font = new Font("Archivo SemiBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.GhostWhite;
+            label1.Location = new Point(1199, 385);
             label1.Name = "label1";
-            label1.Size = new Size(289, 30);
+            label1.Size = new Size(282, 32);
             label1.TabIndex = 1;
             label1.Text = "Umindanao E-mail Address:";
+            label1.Click += label1_Click;
             // 
-            // EmailTextBox
+            // guna2PictureBox1
             // 
-            EmailTextBox.BackColor = Color.Transparent;
-            EmailTextBox.BeforeTouchSize = new Size(470, 30);
-            EmailTextBox.Font = new Font("Inter", 14.25F);
-            EmailTextBox.Location = new Point(58, 136);
-            EmailTextBox.Name = "EmailTextBox";
-            EmailTextBox.Size = new Size(470, 30);
-            EmailTextBox.TabIndex = 0;
-            EmailTextBox.TextChanged += SignInTextBox_TextChanged;
+            guna2PictureBox1.Anchor = AnchorStyles.None;
+            guna2PictureBox1.BackColor = Color.Transparent;
+            guna2PictureBox1.BackgroundImage = Properties.Icons.LOGO_FINAL;
+            guna2PictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            guna2PictureBox1.CustomizableEdges = customizableEdges1;
+            guna2PictureBox1.FillColor = Color.Transparent;
+            guna2PictureBox1.ImageRotate = 0F;
+            guna2PictureBox1.Location = new Point(35, 84);
+            guna2PictureBox1.Name = "guna2PictureBox1";
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2PictureBox1.Size = new Size(1090, 889);
+            guna2PictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            guna2PictureBox1.TabIndex = 16;
+            guna2PictureBox1.TabStop = false;
+            guna2PictureBox1.Click += guna2PictureBox1_Click;
+            // 
+            // dockingClientPanel1
+            // 
+            dockingClientPanel1.BackColor = Color.Transparent;
+            dockingClientPanel1.BackgroundImage = Properties.Icons.User_Name;
+            dockingClientPanel1.Controls.Add(Login_button);
+            dockingClientPanel1.Controls.Add(guna2PictureBox1);
+            dockingClientPanel1.Controls.Add(ShowPassButton);
+            dockingClientPanel1.Controls.Add(label1);
+            dockingClientPanel1.Controls.Add(EmailTextBox);
+            dockingClientPanel1.Controls.Add(label2);
+            dockingClientPanel1.Controls.Add(PasswordTextBox);
+            dockingClientPanel1.Location = new Point(1, 1);
+            dockingClientPanel1.Name = "dockingClientPanel1";
+            dockingClientPanel1.Size = new Size(1940, 1080);
+            dockingClientPanel1.TabIndex = 0;
+            dockingClientPanel1.Paint += dockingClientPanel1_Paint;
+            // 
+            // Login_button
+            // 
+            Login_button.BorderRadius = 10;
+            Login_button.CustomizableEdges = customizableEdges3;
+            Login_button.DisabledState.BorderColor = Color.DarkGray;
+            Login_button.DisabledState.CustomBorderColor = Color.DarkGray;
+            Login_button.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            Login_button.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            Login_button.FillColor = Color.DarkRed;
+            Login_button.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Login_button.ForeColor = Color.White;
+            Login_button.Image = Properties.Icons.arrowin;
+            Login_button.ImageSize = new Size(25, 25);
+            Login_button.Location = new Point(1332, 590);
+            Login_button.Name = "Login_button";
+            Login_button.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            Login_button.Size = new Size(200, 45);
+            Login_button.TabIndex = 17;
+            Login_button.Text = "Log In";
             // 
             // LogInView
             // 
@@ -274,38 +179,26 @@
             ClientSize = new Size(1924, 1041);
             Controls.Add(dockingClientPanel1);
             Name = "LogInView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LogIn";
             WindowState = FormWindowState.Maximized;
             Load += LogIn_Load;
-            dockingClientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)RememberMeCheckBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PasswordTextBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)EmailTextBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
+            dockingClientPanel1.ResumeLayout(false);
+            dockingClientPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Syncfusion.Windows.Forms.Tools.DockingClientPanel dockingClientPanel1;
-        private Panel panel1;
-        private PictureBox pictureBox1;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt PasswordTextBox;
-        private Label label1;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt EmailTextBox;
         private Label label2;
-        private Button buttonLogIn;
-        private Syncfusion.Windows.Forms.Tools.CheckBoxAdv RememberMeCheckBox;
-        private Button GoogleSignInButton;
-        private Label label3;
-        private Button SystemBtn;
-        private Button ReqBtn;
-        private Label label4;
-        private Button ForgotPasswordButton;
         private Button ShowPassButton;
-        private Label ErrorPassLabel;
-        private Label resultlabel1;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt PasswordTextBox;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt EmailTextBox;
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Syncfusion.Windows.Forms.Tools.DockingClientPanel dockingClientPanel1;
+        private Guna.UI2.WinForms.Guna2Button Login_button;
     }
 }

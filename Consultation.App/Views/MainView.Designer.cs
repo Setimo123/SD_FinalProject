@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             sidePanel = new Syncfusion.Windows.Forms.Tools.GradientPanel();
-            pictureBox1 = new PictureBox();
-            button1 = new Button();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             pictureBoxLogo = new PictureBox();
             label2 = new Label();
             buttonSFManagement = new Button();
@@ -57,7 +58,6 @@
             panelContainer = new Panel();
             ((System.ComponentModel.ISupportInitialize)sidePanel).BeginInit();
             sidePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxProfile).BeginInit();
@@ -71,8 +71,7 @@
             sidePanel.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, Color.FromArgb(117, 7, 39), Color.FromArgb(197, 62, 63));
             sidePanel.Border3DStyle = Border3DStyle.Flat;
             sidePanel.BorderStyle = BorderStyle.None;
-            sidePanel.Controls.Add(pictureBox1);
-            sidePanel.Controls.Add(button1);
+            sidePanel.Controls.Add(guna2Button1);
             sidePanel.Controls.Add(pictureBoxLogo);
             sidePanel.Controls.Add(label2);
             sidePanel.Controls.Add(buttonSFManagement);
@@ -87,50 +86,53 @@
             sidePanel.Name = "sidePanel";
             sidePanel.Size = new Size(260, 1041);
             sidePanel.TabIndex = 0;
+            sidePanel.Paint += sidePanel_Paint;
             // 
-            // pictureBox1
+            // guna2Button1
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(44, 939);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(38, 37);
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Transparent;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Microsoft Sans Serif", 11F);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(30, 939);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 36);
-            button1.TabIndex = 8;
-            button1.Text = "              Sign out";
-            button1.UseVisualStyleBackColor = false;
+            guna2Button1.BackColor = Color.Transparent;
+            guna2Button1.BackgroundImageLayout = ImageLayout.None;
+            guna2Button1.BorderRadius = 5;
+            guna2Button1.CustomizableEdges = customizableEdges1;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.FillColor = Color.Transparent;
+            guna2Button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2Button1.ForeColor = Color.GhostWhite;
+            guna2Button1.Image = (Image)resources.GetObject("guna2Button1.Image");
+            guna2Button1.ImageSize = new Size(25, 25);
+            guna2Button1.Location = new Point(52, 971);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Button1.Size = new Size(150, 45);
+            guna2Button1.TabIndex = 10;
+            guna2Button1.Text = "Sign out";
+            guna2Button1.Click += guna2Button1_Click;
             // 
             // pictureBoxLogo
             // 
             pictureBoxLogo.BackColor = Color.Transparent;
-            pictureBoxLogo.Image = Properties.Icons.LOGO_name__Custom___1_;
-            pictureBoxLogo.Location = new Point(6, 25);
+            pictureBoxLogo.BackgroundImageLayout = ImageLayout.None;
+            pictureBoxLogo.Image = Properties.Icons.LOGO_FINAL;
+            pictureBoxLogo.Location = new Point(-12, -1);
             pictureBoxLogo.Name = "pictureBoxLogo";
-            pictureBoxLogo.Size = new Size(248, 96);
+            pictureBoxLogo.Size = new Size(283, 153);
+            pictureBoxLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxLogo.TabIndex = 0;
             pictureBoxLogo.TabStop = false;
+            pictureBoxLogo.Click += pictureBoxLogo_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            label2.Font = new Font("Archivo ExtraBold", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(24, 424);
             label2.Name = "label2";
-            label2.Size = new Size(131, 24);
+            label2.Size = new Size(139, 29);
             label2.TabIndex = 7;
             label2.Text = "Management";
             // 
@@ -144,7 +146,7 @@
             buttonSFManagement.ImageAlign = ContentAlignment.MiddleLeft;
             buttonSFManagement.ImageIndex = 0;
             buttonSFManagement.ImageList = userManagement_icon;
-            buttonSFManagement.Location = new Point(30, 464);
+            buttonSFManagement.Location = new Point(30, 469);
             buttonSFManagement.Name = "buttonSFManagement";
             buttonSFManagement.Size = new Size(247, 48);
             buttonSFManagement.TabIndex = 6;
@@ -218,11 +220,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            label1.Font = new Font("Archivo ExtraBold", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(24, 192);
             label1.Name = "label1";
-            label1.Size = new Size(55, 24);
+            label1.Size = new Size(59, 29);
             label1.TabIndex = 3;
             label1.Text = "Main";
             // 
@@ -259,7 +261,7 @@
             profilePanel.Controls.Add(labelProfileRole);
             profilePanel.Controls.Add(labelProfileName);
             profilePanel.Controls.Add(pictureBoxProfile);
-            profilePanel.Location = new Point(3, 805);
+            profilePanel.Location = new Point(0, 870);
             profilePanel.Name = "profilePanel";
             profilePanel.Size = new Size(260, 95);
             profilePanel.TabIndex = 1;
@@ -269,22 +271,26 @@
             labelProfileRole.AutoSize = true;
             labelProfileRole.BackColor = Color.Transparent;
             labelProfileRole.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelProfileRole.ForeColor = Color.GhostWhite;
             labelProfileRole.Location = new Point(88, 48);
             labelProfileRole.Name = "labelProfileRole";
             labelProfileRole.Size = new Size(39, 18);
             labelProfileRole.TabIndex = 2;
             labelProfileRole.Text = "Role";
+            labelProfileRole.Click += labelProfileRole_Click;
             // 
             // labelProfileName
             // 
             labelProfileName.AutoSize = true;
             labelProfileName.BackColor = Color.Transparent;
-            labelProfileName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelProfileName.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelProfileName.ForeColor = Color.GhostWhite;
             labelProfileName.Location = new Point(88, 24);
             labelProfileName.Name = "labelProfileName";
-            labelProfileName.Size = new Size(94, 18);
+            labelProfileName.Size = new Size(99, 20);
             labelProfileName.TabIndex = 1;
             labelProfileName.Text = "John Name";
+            labelProfileName.Click += labelProfileName_Click;
             // 
             // pictureBoxProfile
             // 
@@ -333,26 +339,25 @@
             buttonNotification.Font = new Font("Segoe UI", 9F);
             buttonNotification.ForeColor = Color.White;
             buttonNotification.Image = Properties.Icons.notification;
-            buttonNotification.ImageAlign = HorizontalAlignment.Left;
-            buttonNotification.ImageOffset = new Point(2, 0);
-            buttonNotification.ImageSize = new Size(32, 32);
-            buttonNotification.Location = new Point(1560, 25);
+            buttonNotification.ImageSize = new Size(25, 25);
+            buttonNotification.Location = new Point(1550, 33);
             buttonNotification.Name = "buttonNotification";
-            buttonNotification.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            buttonNotification.ShadowDecoration.CustomizableEdges = customizableEdges3;
             buttonNotification.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            buttonNotification.Size = new Size(56, 56);
+            buttonNotification.Size = new Size(40, 40);
             buttonNotification.TabIndex = 13;
             buttonNotification.Tile = false;
             buttonNotification.UseTransparentBackground = true;
+            buttonNotification.Click += buttonNotification_Click;
             // 
             // labelForm
             // 
             labelForm.AutoSize = true;
             labelForm.BackColor = Color.Transparent;
-            labelForm.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelForm.Font = new Font("Archivo ExtraBold", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelForm.Location = new Point(17, 25);
             labelForm.Name = "labelForm";
-            labelForm.Size = new Size(197, 37);
+            labelForm.Size = new Size(204, 48);
             labelForm.TabIndex = 12;
             labelForm.Text = "Form Name";
             // 
@@ -382,6 +387,7 @@
             Controls.Add(panelContainer);
             Controls.Add(panel1);
             Controls.Add(sidePanel);
+            FormBorderStyle = FormBorderStyle.None;
             IsMdiContainer = true;
             Name = "MainView";
             Text = "UMECA";
@@ -389,7 +395,6 @@
             ((System.ComponentModel.ISupportInitialize)sidePanel).EndInit();
             sidePanel.ResumeLayout(false);
             sidePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             profilePanel.ResumeLayout(false);
             profilePanel.PerformLayout();
@@ -423,7 +428,6 @@
         private Panel panel1;
         private Panel panelContainer;
         private Guna.UI2.WinForms.Guna2CircleButton buttonNotification;
-        private PictureBox pictureBox1;
-        private Button button1;
+        public Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
