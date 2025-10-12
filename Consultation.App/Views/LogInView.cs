@@ -15,44 +15,46 @@ namespace Consultation.App.Views
 {
     public partial class LogInView : Form, ILoginView
     {
-        private Label resultlabel1; // Add this field to the LogInView class to fix CS0103
+        private Label resultlabel1;
         private Label ErrorPassLabel;
 
         public LogInView()
         {
             InitializeComponent();
 
-            // Initialize resultlabel1 if not already done by designer
             resultlabel1 = new Label
             {
                 Name = "resultlabel1",
                 AutoSize = true,
-                Location = new Point(10, 10), // Adjust location as needed
+                Location = new Point(10, 10),
                 Text = ""
             };
             this.Controls.Add(resultlabel1);
 
-            // Initialize ErrorPassLabel to fix CS0103
             ErrorPassLabel = new Label
             {
                 Name = "ErrorPassLabel",
                 AutoSize = true,
-                Location = new Point(10, 35), // Adjust location as needed
+                Location = new Point(10, 35),
                 ForeColor = Color.Red,
                 Text = ""
             };
             this.Controls.Add(ErrorPassLabel);
 
-            EmailTextBox.TextChanged += SignInTextBox_TextChanged;
-            PasswordTextBox.TextChanged += PasswordTextBoxV2_TextChanged;
+            Emtextbox.TextChanged += SignInTextBox_TextChanged;
+            PassTextBox.TextChanged += PasswordTextBoxV2_TextChanged;
             Login_button.Click += (s, e) => LogInEvent?.Invoke(s, e);
+
+            // Initialize password char and subscribe to events
+            PassTextBox.UseSystemPasswordChar = true;
+            showpass.CheckedChanged += showpass_CheckedChanged;
         }
 
+        // Removed ShowPassButton_Click and all references to ShowPassButton
 
-        private void ShowPassButton_Click(object sender, EventArgs e)
+        private void showpass_CheckedChanged(object sender, EventArgs e)
         {
-            PasswordVisible = !PasswordVisible;
-            PasswordTextBox.UseSystemPasswordChar = !PasswordVisible;
+            PassTextBox.UseSystemPasswordChar = !showpass.Checked;
         }
 
         public void ShowMessage(string message)
@@ -64,16 +66,12 @@ namespace Consultation.App.Views
         {
             this.Hide();
         }
-        //public string useremail => EmailTextBox.Text;
 
-        //public string password => PasswordTextBox.Text;
+        public string useremail => Emtextbox.Text;
 
-        public string useremail => EmailTextBox.Text;
-
-        public string password => PasswordTextBox.Text;
+        public string password => PassTextBox.Text;
 
         public event EventHandler LogInEvent;
-
 
         private void LogIn_Load(object sender, EventArgs e)
         {
@@ -94,7 +92,6 @@ namespace Consultation.App.Views
         private const string LePassword = "admin";
 
         private bool EmailIsValid(string email)
-
         {
             return Regex.IsMatch(email,
             @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
@@ -121,11 +118,9 @@ namespace Consultation.App.Views
 
         }
 
-        //private void SignInButton_Click(object sender, EventArgs e)
-        //{
-        //    LogInEvent?.Invoke(this, EventArgs.Empty);
+        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
 
-        //}
-
+        }
     }
 }
