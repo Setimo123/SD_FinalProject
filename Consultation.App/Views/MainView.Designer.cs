@@ -30,10 +30,14 @@
         {
             components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             sidePanel = new Syncfusion.Windows.Forms.Tools.GradientPanel();
+            profilePanel = new Panel();
+            userole = new Label();
+            username = new Label();
+            pictureBoxProfile = new PictureBox();
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             pictureBoxLogo = new PictureBox();
             label2 = new Label();
@@ -46,11 +50,6 @@
             label1 = new Label();
             buttonDashboard = new Button();
             dashboard_icon = new ImageList(components);
-            profilePanel = new Panel();
-            labelProfileRole = new Label();
-            labelProfileName = new Label();
-            pictureBoxProfile = new PictureBox();
-            settings_icon = new ImageList(components);
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
             buttonNotification = new Guna.UI2.WinForms.Guna2CircleButton();
             labelForm = new Label();
@@ -58,9 +57,9 @@
             panelContainer = new Panel();
             ((System.ComponentModel.ISupportInitialize)sidePanel).BeginInit();
             sidePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxProfile).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).BeginInit();
             materialCard2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -71,6 +70,7 @@
             sidePanel.BackgroundColor = new Syncfusion.Drawing.BrushInfo(Syncfusion.Drawing.GradientStyle.Vertical, Color.FromArgb(117, 7, 39), Color.FromArgb(197, 62, 63));
             sidePanel.Border3DStyle = Border3DStyle.Flat;
             sidePanel.BorderStyle = BorderStyle.None;
+            sidePanel.Controls.Add(profilePanel);
             sidePanel.Controls.Add(guna2Button1);
             sidePanel.Controls.Add(pictureBoxLogo);
             sidePanel.Controls.Add(label2);
@@ -79,7 +79,6 @@
             sidePanel.Controls.Add(buttonBulletin);
             sidePanel.Controls.Add(label1);
             sidePanel.Controls.Add(buttonDashboard);
-            sidePanel.Controls.Add(profilePanel);
             sidePanel.Dock = DockStyle.Left;
             sidePanel.ForeColor = SystemColors.ControlText;
             sidePanel.Location = new Point(0, 0);
@@ -87,6 +86,59 @@
             sidePanel.Size = new Size(260, 1041);
             sidePanel.TabIndex = 0;
             sidePanel.Paint += sidePanel_Paint;
+            // 
+            // profilePanel
+            // 
+            profilePanel.Anchor = AnchorStyles.None;
+            profilePanel.BackColor = Color.Transparent;
+            profilePanel.BackgroundImageLayout = ImageLayout.None;
+            profilePanel.Controls.Add(userole);
+            profilePanel.Controls.Add(username);
+            profilePanel.Controls.Add(pictureBoxProfile);
+            profilePanel.ForeColor = Color.Transparent;
+            profilePanel.Location = new Point(0, 898);
+            profilePanel.Margin = new Padding(0);
+            profilePanel.Name = "profilePanel";
+            profilePanel.Size = new Size(260, 63);
+            profilePanel.TabIndex = 1;
+            profilePanel.Paint += profilePanel_Paint;
+            // 
+            // userole
+            // 
+            userole.AutoSize = true;
+            userole.BackColor = Color.Transparent;
+            userole.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            userole.ForeColor = Color.GhostWhite;
+            userole.Location = new Point(58, 34);
+            userole.Name = "userole";
+            userole.Size = new Size(39, 18);
+            userole.TabIndex = 2;
+            userole.Text = "Role";
+            userole.Click += labelProfileRole_Click;
+            // 
+            // username
+            // 
+            username.AutoSize = true;
+            username.BackColor = Color.Transparent;
+            username.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            username.ForeColor = Color.GhostWhite;
+            username.Location = new Point(58, 12);
+            username.Name = "username";
+            username.Size = new Size(99, 20);
+            username.TabIndex = 1;
+            username.Text = "John Name";
+            username.Click += labelProfileName_Click;
+            // 
+            // pictureBoxProfile
+            // 
+            pictureBoxProfile.BackColor = Color.Transparent;
+            pictureBoxProfile.Image = Properties.Icons.user1;
+            pictureBoxProfile.Location = new Point(8, 12);
+            pictureBoxProfile.Name = "pictureBoxProfile";
+            pictureBoxProfile.Size = new Size(40, 40);
+            pictureBoxProfile.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxProfile.TabIndex = 0;
+            pictureBoxProfile.TabStop = false;
             // 
             // guna2Button1
             // 
@@ -101,12 +153,12 @@
             guna2Button1.FillColor = Color.Transparent;
             guna2Button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.GhostWhite;
-            guna2Button1.Image = (Image)resources.GetObject("guna2Button1.Image");
+            guna2Button1.Image = Properties.Icons.arrowout;
             guna2Button1.ImageSize = new Size(25, 25);
-            guna2Button1.Location = new Point(52, 971);
+            guna2Button1.Location = new Point(61, 989);
             guna2Button1.Name = "guna2Button1";
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button1.Size = new Size(150, 45);
+            guna2Button1.Size = new Size(125, 40);
             guna2Button1.TabIndex = 10;
             guna2Button1.Text = "Sign out";
             guna2Button1.Click += guna2Button1_Click;
@@ -154,6 +206,7 @@
             buttonSFManagement.TextAlign = ContentAlignment.MiddleLeft;
             buttonSFManagement.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonSFManagement.UseVisualStyleBackColor = false;
+            buttonSFManagement.Click += buttonSFManagement_Click;
             // 
             // userManagement_icon
             // 
@@ -246,6 +299,7 @@
             buttonDashboard.Text = "   Dashboard";
             buttonDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonDashboard.UseVisualStyleBackColor = false;
+            buttonDashboard.Click += buttonDashboard_Click;
             // 
             // dashboard_icon
             // 
@@ -254,60 +308,6 @@
             dashboard_icon.TransparentColor = Color.Transparent;
             dashboard_icon.Images.SetKeyName(0, "m_dashboard.png");
             dashboard_icon.Images.SetKeyName(1, "m_dashboard_select.png");
-            // 
-            // profilePanel
-            // 
-            profilePanel.BackColor = Color.Transparent;
-            profilePanel.Controls.Add(labelProfileRole);
-            profilePanel.Controls.Add(labelProfileName);
-            profilePanel.Controls.Add(pictureBoxProfile);
-            profilePanel.Location = new Point(0, 870);
-            profilePanel.Name = "profilePanel";
-            profilePanel.Size = new Size(260, 95);
-            profilePanel.TabIndex = 1;
-            // 
-            // labelProfileRole
-            // 
-            labelProfileRole.AutoSize = true;
-            labelProfileRole.BackColor = Color.Transparent;
-            labelProfileRole.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelProfileRole.ForeColor = Color.GhostWhite;
-            labelProfileRole.Location = new Point(88, 48);
-            labelProfileRole.Name = "labelProfileRole";
-            labelProfileRole.Size = new Size(39, 18);
-            labelProfileRole.TabIndex = 2;
-            labelProfileRole.Text = "Role";
-            labelProfileRole.Click += labelProfileRole_Click;
-            // 
-            // labelProfileName
-            // 
-            labelProfileName.AutoSize = true;
-            labelProfileName.BackColor = Color.Transparent;
-            labelProfileName.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelProfileName.ForeColor = Color.GhostWhite;
-            labelProfileName.Location = new Point(88, 24);
-            labelProfileName.Name = "labelProfileName";
-            labelProfileName.Size = new Size(99, 20);
-            labelProfileName.TabIndex = 1;
-            labelProfileName.Text = "John Name";
-            labelProfileName.Click += labelProfileName_Click;
-            // 
-            // pictureBoxProfile
-            // 
-            pictureBoxProfile.BackColor = Color.White;
-            pictureBoxProfile.Location = new Point(16, 24);
-            pictureBoxProfile.Name = "pictureBoxProfile";
-            pictureBoxProfile.Size = new Size(56, 56);
-            pictureBoxProfile.TabIndex = 0;
-            pictureBoxProfile.TabStop = false;
-            // 
-            // settings_icon
-            // 
-            settings_icon.ColorDepth = ColorDepth.Depth32Bit;
-            settings_icon.ImageStream = (ImageListStreamer)resources.GetObject("settings_icon.ImageStream");
-            settings_icon.TransparentColor = Color.Transparent;
-            settings_icon.Images.SetKeyName(0, "m_settings.png");
-            settings_icon.Images.SetKeyName(1, "m_settings_select.png");
             // 
             // materialCard2
             // 
@@ -372,6 +372,7 @@
             // 
             // panelContainer
             // 
+            panelContainer.BorderStyle = BorderStyle.FixedSingle;
             panelContainer.Dock = DockStyle.Fill;
             panelContainer.Location = new Point(260, 105);
             panelContainer.Name = "panelContainer";
@@ -395,10 +396,10 @@
             ((System.ComponentModel.ISupportInitialize)sidePanel).EndInit();
             sidePanel.ResumeLayout(false);
             sidePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             profilePanel.ResumeLayout(false);
             profilePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxProfile).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogo).EndInit();
             materialCard2.ResumeLayout(false);
             materialCard2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -415,13 +416,12 @@
         private Button buttonBulletin;
         private Label label2;
         private Button buttonSFManagement;
-        private Label labelProfileRole;
-        private Label labelProfileName;
+        private Label userole;
+        private Label username;
         private PictureBox pictureBoxProfile;
         private ImageList dashboard_icon;
         private ImageList consultation_icon;
         private ImageList bulletin_icon;
-        private ImageList settings_icon;
         private ImageList userManagement_icon;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private Label labelForm;

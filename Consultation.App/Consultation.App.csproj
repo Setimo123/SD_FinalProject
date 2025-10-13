@@ -9,12 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Controls\Settings\**" />
+    <EmbeddedResource Remove="Views\Controls\Settings\**" />
+    <None Remove="Views\Controls\Settings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Views\Controls\ConsultationManagement\ajfr3cd3.wom~" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Presenters\" />
-    <Folder Include="Views\Controls\Settings\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +30,7 @@
     <PackageReference Include="MetroFramework" Version="1.2.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.9">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

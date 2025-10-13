@@ -41,7 +41,7 @@
             ActivityFeedPanel = new MaterialSkin.Controls.MaterialCard();
             BulletinButton = new Guna.UI2.WinForms.Guna2Button();
             guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
-            createNewBulletin1 = new Views.Controls.Dashboard.Quick_Actions_Panel.CreateNewBulletin();
+            createNewBulletin1 = new Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel.CreateNewBulletin();
             ActivityFeedLabel = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
             ConsultationButton = new Guna.UI2.WinForms.Guna2Button();
@@ -63,9 +63,8 @@
             UpcomingSessionsCount = new Label();
             autoLabel8 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             materialCard7 = new MaterialSkin.Controls.MaterialCard();
-            systemSettings1 = new Views.Controls.Dashboard.Quick_Actions_Panel.SystemSettings();
-            addUser1 = new Views.Controls.Dashboard.Quick_Actions_Panel.AddUser();
-            manageConsultation1 = new Views.Controls.Dashboard.Quick_Actions_Panel.ManageConsultation();
+            addUser1 = new Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel.AddUser();
+            manageConsultation1 = new Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel.ManageConsultation();
             materialCard8 = new MaterialSkin.Controls.MaterialCard();
             sfButton2 = new Syncfusion.WinForms.Controls.SfButton();
             QuickActionsLabel = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -151,7 +150,7 @@
             BulletinButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             BulletinButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             BulletinButton.FillColor = Color.White;
-            BulletinButton.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BulletinButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BulletinButton.ForeColor = Color.Black;
             BulletinButton.Location = new Point(693, 20);
             BulletinButton.Name = "BulletinButton";
@@ -200,7 +199,7 @@
             ActivityFeedLabel.Location = new Point(17, 20);
             ActivityFeedLabel.Name = "ActivityFeedLabel";
             ActivityFeedLabel.Position = Syncfusion.Windows.Forms.Tools.AutoLabelPosition.Custom;
-            ActivityFeedLabel.Size = new Size(150, 29);
+            ActivityFeedLabel.Size = new Size(149, 32);
             ActivityFeedLabel.TabIndex = 1;
             ActivityFeedLabel.Text = "Activity Feed";
             // 
@@ -232,7 +231,7 @@
             ConsultationButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             ConsultationButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             ConsultationButton.FillColor = Color.White;
-            ConsultationButton.Font = new Font("Inter Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ConsultationButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ConsultationButton.ForeColor = Color.Black;
             ConsultationButton.Location = new Point(821, 20);
             ConsultationButton.Name = "ConsultationButton";
@@ -265,22 +264,22 @@
             // BulletinPublishedCount
             // 
             BulletinPublishedCount.AutoSize = true;
-            BulletinPublishedCount.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BulletinPublishedCount.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BulletinPublishedCount.ForeColor = Color.DimGray;
             BulletinPublishedCount.Location = new Point(29, 47);
             BulletinPublishedCount.Name = "BulletinPublishedCount";
-            BulletinPublishedCount.Size = new Size(63, 19);
+            BulletinPublishedCount.Size = new Size(67, 20);
             BulletinPublishedCount.TabIndex = 7;
             BulletinPublishedCount.Text = "label13";
             // 
             // autoLabel5
             // 
-            autoLabel5.Font = new Font("Inter", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel5.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             autoLabel5.ForeColor = Color.Black;
             autoLabel5.Location = new Point(29, 14);
             autoLabel5.Name = "autoLabel5";
             autoLabel5.Position = Syncfusion.Windows.Forms.Tools.AutoLabelPosition.Custom;
-            autoLabel5.Size = new Size(158, 19);
+            autoLabel5.Size = new Size(161, 20);
             autoLabel5.TabIndex = 6;
             autoLabel5.Text = "Bulletins Published";
             // 
@@ -299,7 +298,7 @@
             WelcomeLabel.Location = new Point(45, 19);
             WelcomeLabel.Name = "WelcomeLabel";
             WelcomeLabel.Position = Syncfusion.Windows.Forms.Tools.AutoLabelPosition.Custom;
-            WelcomeLabel.Size = new Size(168, 43);
+            WelcomeLabel.Size = new Size(173, 48);
             WelcomeLabel.TabIndex = 4;
             WelcomeLabel.Text = "Welcome,";
             // 
@@ -333,22 +332,22 @@
             // PendingApprovalsCount
             // 
             PendingApprovalsCount.AutoSize = true;
-            PendingApprovalsCount.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PendingApprovalsCount.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PendingApprovalsCount.ForeColor = Color.DimGray;
             PendingApprovalsCount.Location = new Point(29, 47);
             PendingApprovalsCount.Name = "PendingApprovalsCount";
-            PendingApprovalsCount.Size = new Size(63, 19);
+            PendingApprovalsCount.Size = new Size(67, 20);
             PendingApprovalsCount.TabIndex = 12;
             PendingApprovalsCount.Text = "label13";
             // 
             // autoLabel6
             // 
-            autoLabel6.Font = new Font("Inter", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel6.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             autoLabel6.ForeColor = Color.Black;
             autoLabel6.Location = new Point(29, 14);
             autoLabel6.Name = "autoLabel6";
             autoLabel6.Position = Syncfusion.Windows.Forms.Tools.AutoLabelPosition.Custom;
-            autoLabel6.Size = new Size(157, 19);
+            autoLabel6.Size = new Size(158, 20);
             autoLabel6.TabIndex = 7;
             autoLabel6.Text = "Pending Approvals";
             // 
@@ -378,22 +377,22 @@
             // ConsultationsCompletedCount
             // 
             ConsultationsCompletedCount.AutoSize = true;
-            ConsultationsCompletedCount.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ConsultationsCompletedCount.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ConsultationsCompletedCount.ForeColor = Color.DimGray;
             ConsultationsCompletedCount.Location = new Point(29, 47);
             ConsultationsCompletedCount.Name = "ConsultationsCompletedCount";
-            ConsultationsCompletedCount.Size = new Size(63, 19);
+            ConsultationsCompletedCount.Size = new Size(67, 20);
             ConsultationsCompletedCount.TabIndex = 14;
             ConsultationsCompletedCount.Text = "label13";
             // 
             // autoLabel7
             // 
-            autoLabel7.Font = new Font("Inter", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel7.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             autoLabel7.ForeColor = Color.Black;
             autoLabel7.Location = new Point(29, 14);
             autoLabel7.Name = "autoLabel7";
             autoLabel7.Position = Syncfusion.Windows.Forms.Tools.AutoLabelPosition.Custom;
-            autoLabel7.Size = new Size(209, 19);
+            autoLabel7.Size = new Size(210, 20);
             autoLabel7.TabIndex = 13;
             autoLabel7.Text = "Consultations Completed";
             // 
@@ -423,29 +422,28 @@
             // UpcomingSessionsCount
             // 
             UpcomingSessionsCount.AutoSize = true;
-            UpcomingSessionsCount.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            UpcomingSessionsCount.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             UpcomingSessionsCount.ForeColor = Color.DimGray;
             UpcomingSessionsCount.Location = new Point(29, 47);
             UpcomingSessionsCount.Name = "UpcomingSessionsCount";
-            UpcomingSessionsCount.Size = new Size(63, 19);
+            UpcomingSessionsCount.Size = new Size(67, 20);
             UpcomingSessionsCount.TabIndex = 15;
             UpcomingSessionsCount.Text = "label13";
             // 
             // autoLabel8
             // 
-            autoLabel8.Font = new Font("Inter", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            autoLabel8.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             autoLabel8.ForeColor = Color.Black;
             autoLabel8.Location = new Point(29, 14);
             autoLabel8.Name = "autoLabel8";
             autoLabel8.Position = Syncfusion.Windows.Forms.Tools.AutoLabelPosition.Custom;
-            autoLabel8.Size = new Size(164, 19);
+            autoLabel8.Size = new Size(167, 20);
             autoLabel8.TabIndex = 14;
             autoLabel8.Text = "Upcoming Sessions";
             // 
             // materialCard7
             // 
             materialCard7.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard7.Controls.Add(systemSettings1);
             materialCard7.Controls.Add(addUser1);
             materialCard7.Controls.Add(manageConsultation1);
             materialCard7.Controls.Add(createNewBulletin1);
@@ -458,13 +456,6 @@
             materialCard7.Padding = new Padding(14);
             materialCard7.Size = new Size(551, 152);
             materialCard7.TabIndex = 9;
-            // 
-            // systemSettings1
-            // 
-            systemSettings1.Location = new Point(283, 82);
-            systemSettings1.Name = "systemSettings1";
-            systemSettings1.Size = new Size(255, 62);
-            systemSettings1.TabIndex = 0;
             // 
             // addUser1
             // 
@@ -513,7 +504,7 @@
             QuickActionsLabel.Location = new Point(17, 20);
             QuickActionsLabel.Name = "QuickActionsLabel";
             QuickActionsLabel.Position = Syncfusion.Windows.Forms.Tools.AutoLabelPosition.Custom;
-            QuickActionsLabel.Size = new Size(157, 29);
+            QuickActionsLabel.Size = new Size(157, 32);
             QuickActionsLabel.TabIndex = 1;
             QuickActionsLabel.Text = "Quick Actions";
             // 
@@ -545,7 +536,7 @@
             ConByDepLabel.Font = new Font("Archivo Medium", 15.75F, FontStyle.Bold);
             ConByDepLabel.Location = new Point(17, 20);
             ConByDepLabel.Name = "ConByDepLabel";
-            ConByDepLabel.Size = new Size(306, 29);
+            ConByDepLabel.Size = new Size(303, 32);
             ConByDepLabel.TabIndex = 0;
             ConByDepLabel.Text = "Consultation by Department";
             // 
@@ -589,7 +580,7 @@
             // ConsultationCountCE
             // 
             ConsultationCountCE.BackColor = Color.FromArgb(224, 224, 224);
-            ConsultationCountCE.Font = new Font("Inter", 8F, FontStyle.Bold);
+            ConsultationCountCE.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold);
             ConsultationCountCE.ForeColor = Color.DimGray;
             ConsultationCountCE.Location = new Point(210, 42);
             ConsultationCountCE.Name = "ConsultationCountCE";
@@ -618,20 +609,20 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.Location = new Point(87, 49);
             label11.Name = "label11";
-            label11.Size = new Size(103, 19);
+            label11.Size = new Size(105, 20);
             label11.TabIndex = 4;
             label11.Text = "Engineering";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.Location = new Point(87, 30);
             label12.Name = "label12";
-            label12.Size = new Size(42, 19);
+            label12.Size = new Size(41, 20);
             label12.TabIndex = 3;
             label12.Text = "Civil";
             // 
@@ -665,7 +656,7 @@
             // ConsultationCountCHE
             // 
             ConsultationCountCHE.BackColor = Color.FromArgb(224, 224, 224);
-            ConsultationCountCHE.Font = new Font("Inter", 8F, FontStyle.Bold);
+            ConsultationCountCHE.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold);
             ConsultationCountCHE.ForeColor = Color.DimGray;
             ConsultationCountCHE.Location = new Point(210, 42);
             ConsultationCountCHE.Name = "ConsultationCountCHE";
@@ -694,20 +685,20 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.Location = new Point(87, 49);
             label9.Name = "label9";
-            label9.Size = new Size(103, 19);
+            label9.Size = new Size(105, 20);
             label9.TabIndex = 4;
             label9.Text = "Engineering";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.Location = new Point(87, 30);
             label10.Name = "label10";
-            label10.Size = new Size(81, 19);
+            label10.Size = new Size(82, 20);
             label10.TabIndex = 3;
             label10.Text = "Chemical";
             // 
@@ -741,7 +732,7 @@
             // ConsultationCountME
             // 
             ConsultationCountME.BackColor = Color.FromArgb(224, 224, 224);
-            ConsultationCountME.Font = new Font("Inter", 8F, FontStyle.Bold);
+            ConsultationCountME.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold);
             ConsultationCountME.ForeColor = Color.DimGray;
             ConsultationCountME.Location = new Point(210, 42);
             ConsultationCountME.Name = "ConsultationCountME";
@@ -770,20 +761,20 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(87, 49);
             label7.Name = "label7";
-            label7.Size = new Size(103, 19);
+            label7.Size = new Size(105, 20);
             label7.TabIndex = 4;
             label7.Text = "Engineering";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.Location = new Point(87, 30);
             label8.Name = "label8";
-            label8.Size = new Size(98, 19);
+            label8.Size = new Size(99, 20);
             label8.TabIndex = 3;
             label8.Text = "Mechanical";
             // 
@@ -818,7 +809,7 @@
             // 
             ConsultationCountEE.BackColor = Color.FromArgb(224, 224, 224);
             ConsultationCountEE.Enabled = false;
-            ConsultationCountEE.Font = new Font("Inter", 8F, FontStyle.Bold);
+            ConsultationCountEE.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold);
             ConsultationCountEE.ForeColor = Color.DimGray;
             ConsultationCountEE.Location = new Point(210, 42);
             ConsultationCountEE.Name = "ConsultationCountEE";
@@ -847,20 +838,20 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(87, 49);
             label5.Name = "label5";
-            label5.Size = new Size(103, 19);
+            label5.Size = new Size(105, 20);
             label5.TabIndex = 4;
             label5.Text = "Engineering";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(87, 30);
             label6.Name = "label6";
-            label6.Size = new Size(80, 19);
+            label6.Size = new Size(83, 20);
             label6.TabIndex = 3;
             label6.Text = "Electrical";
             // 
@@ -894,7 +885,7 @@
             // ConsultationCountECE
             // 
             ConsultationCountECE.BackColor = Color.FromArgb(224, 224, 224);
-            ConsultationCountECE.Font = new Font("Inter", 8F, FontStyle.Bold);
+            ConsultationCountECE.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold);
             ConsultationCountECE.ForeColor = Color.DimGray;
             ConsultationCountECE.Location = new Point(210, 42);
             ConsultationCountECE.Name = "ConsultationCountECE";
@@ -923,20 +914,20 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(87, 49);
             label3.Name = "label3";
-            label3.Size = new Size(103, 19);
+            label3.Size = new Size(105, 20);
             label3.TabIndex = 4;
             label3.Text = "Engineering";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(87, 30);
             label4.Name = "label4";
-            label4.Size = new Size(97, 19);
+            label4.Size = new Size(98, 20);
             label4.TabIndex = 3;
             label4.Text = "Electronics";
             // 
@@ -970,7 +961,7 @@
             // ConsultationCountCPE
             // 
             ConsultationCountCPE.BackColor = Color.FromArgb(224, 224, 224);
-            ConsultationCountCPE.Font = new Font("Inter", 8F, FontStyle.Bold);
+            ConsultationCountCPE.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold);
             ConsultationCountCPE.ForeColor = Color.DimGray;
             ConsultationCountCPE.Location = new Point(210, 42);
             ConsultationCountCPE.Name = "ConsultationCountCPE";
@@ -982,20 +973,20 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(87, 49);
             label2.Name = "label2";
-            label2.Size = new Size(103, 19);
+            label2.Size = new Size(105, 20);
             label2.TabIndex = 2;
             label2.Text = "Engineering";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Inter Medium", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(87, 30);
             label1.Name = "label1";
-            label1.Size = new Size(88, 19);
+            label1.Size = new Size(87, 20);
             label1.TabIndex = 1;
             label1.Text = "Computer";
             // 
@@ -1014,7 +1005,7 @@
             UserName.Font = new Font("Archivo", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             UserName.Location = new Point(204, 19);
             UserName.Name = "UserName";
-            UserName.Size = new Size(101, 43);
+            UserName.Size = new Size(103, 48);
             UserName.TabIndex = 15;
             UserName.Text = "User!";
             // 
@@ -1102,7 +1093,6 @@
         private Views.Controls.Dashboard.Quick_Actions_Panel.CreateNewBulletin createNewBulletin1;
         private Views.Controls.Dashboard.Quick_Actions_Panel.ManageConsultation manageConsultation1;
         private Views.Controls.Dashboard.Quick_Actions_Panel.AddUser addUser1;
-        private Views.Controls.Dashboard.Quick_Actions_Panel.SystemSettings systemSettings1;
         private MaterialSkin.Controls.MaterialCard card;
         private MaterialSkin.Controls.MaterialCard materialCard14;
         private MaterialSkin.Controls.MaterialCard materialCard13;

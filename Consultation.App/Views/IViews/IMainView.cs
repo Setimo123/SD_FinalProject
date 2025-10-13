@@ -22,7 +22,9 @@ namespace Consultation.App.Views.IViews
 
         void Header(string header);
         void SetMessage(string message);
-
         void ShowForm();
+        
+        // Add methods to set user information
+        void SetUserInfo(string userName, string userRole);
     }
 }

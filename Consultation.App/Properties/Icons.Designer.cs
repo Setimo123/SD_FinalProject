@@ -163,6 +163,16 @@ namespace Consultation.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrowout {
+            get {
+                object obj = ResourceManager.GetObject("arrowout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap attachment {
             get {
                 object obj = ResourceManager.GetObject("attachment", resourceCulture);
@@ -926,6 +936,16 @@ namespace Consultation.App.Properties {
         internal static System.Drawing.Bitmap User_Name {
             get {
                 object obj = ResourceManager.GetObject("User Name", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user1 {
+            get {
+                object obj = ResourceManager.GetObject("user1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

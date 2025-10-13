@@ -44,9 +44,6 @@
     <Compile Update="Views\Controls\Dashboard\Quick Actions Panel\ScheduleConsultation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\Controls\Dashboard\Quick Actions Panel\SystemSettings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Views\Controls\UserManagement\AdminAction.cs">
       <SubType>UserControl</SubType>
     </Compile>

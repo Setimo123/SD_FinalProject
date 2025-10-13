@@ -121,6 +121,9 @@
   <data name="browser-tab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\browser-tab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="notification_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notification_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -189,6 +192,9 @@
   </data>
   <data name="chemical engineering" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chemical engineering.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrowin3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowin3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="more_view" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bulletin_icons\more_view.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -382,7 +388,7 @@
   <data name="mechanical-engineering" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mechanical-engineering.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrowin3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrowin3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrowout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrowout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

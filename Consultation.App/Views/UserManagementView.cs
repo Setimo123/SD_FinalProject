@@ -86,5 +86,10 @@ namespace Consultation.App.Views
             // Example placeholder
             // MessageBox.Show("Year level selected: " + CBoxYear.SelectedItem.ToString());
         }
+
+        private void flPanelUserCard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

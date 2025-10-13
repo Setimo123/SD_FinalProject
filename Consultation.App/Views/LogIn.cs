@@ -73,54 +73,10 @@ namespace Consultation.App.Views
         {
             LogInEvent?.Invoke(this, EventArgs.Empty);
 
-
-            //    string email = SignInTextBox.Text.Trim();
-            //    string password = PasswordTextBoxV2.Text.Trim();
-
-            //    bool Valid = true;
-
-            //    resultlabel1.Text = "";
-            //    ErrorPassLabel.Text = "";
-
-            //    if (string.IsNullOrWhiteSpace(email))
-            //    {
-            //        resultlabel1.Text = "Please enter your Email";
-            //        resultlabel1.ForeColor = Color.Red;
-            //        SignInTextBox.Clear();
-            //        Valid = false;
-            //    }
-
-            //    if (string.IsNullOrEmpty(password))
-            //    {
-            //        ErrorPassLabel.Text = "Please Enter your Password";
-            //        ErrorPassLabel.ForeColor = Color.Red;
-            //        PasswordTextBoxV2.Clear();
-            //        Valid = false;
-            //    }
-
-            //    if (!string.IsNullOrWhiteSpace(email) && !EmailIsValid(email))
-            //    {
-            //        SignInTextBox.Clear();
-
-            //        resultlabel1.Text = "Invalid Email, Please try again.";
-            //        resultlabel1.ForeColor = Color.Red;
-            //        Valid = false;
-            //    }
-
-            //    if (!string.IsNullOrWhiteSpace(password) && password != LePassword)
-            //    {
-            //        PasswordTextBoxV2.Clear();
-
-            //        ErrorPassLabel.Text = "Incorrect Password";
-            //        ErrorPassLabel.ForeColor = Color.Red;
-            //        Valid = false;
-            //    }
-
             bool Valid = true; // Add this line to define Valid
             if (Valid)
             {
-                //MainView mainView = new MainView();
-                //mainView.Show();
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -140,6 +96,11 @@ namespace Consultation.App.Views
         public void ShowMessage(string message)
         {
             MessageBox.Show(message);
+        }
+
+        public void ShowForm()
+        {
+            this.Show();
         }
     }
 }

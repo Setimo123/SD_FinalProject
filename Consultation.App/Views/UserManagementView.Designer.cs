@@ -37,12 +37,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            BtnNext = new Button();
-            BtnPreview = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
             buttonAdmin = new Button();
             flPanelUserCard = new FlowLayoutPanel();
             buttonFaculty = new Button();
@@ -81,78 +75,6 @@
             materialCard5.SuspendLayout();
             SuspendLayout();
             // 
-            // BtnNext
-            // 
-            BtnNext.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnNext.ForeColor = Color.Red;
-            BtnNext.Location = new Point(270, 918);
-            BtnNext.Margin = new Padding(3, 2, 3, 2);
-            BtnNext.Name = "BtnNext";
-            BtnNext.Size = new Size(44, 22);
-            BtnNext.TabIndex = 14;
-            BtnNext.Text = ">";
-            BtnNext.UseVisualStyleBackColor = true;
-            // 
-            // BtnPreview
-            // 
-            BtnPreview.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnPreview.ForeColor = Color.Red;
-            BtnPreview.Location = new Point(22, 917);
-            BtnPreview.Margin = new Padding(3, 2, 3, 2);
-            BtnPreview.Name = "BtnPreview";
-            BtnPreview.Size = new Size(44, 22);
-            BtnPreview.TabIndex = 13;
-            BtnPreview.Text = "<";
-            BtnPreview.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.Red;
-            button4.Location = new Point(220, 918);
-            button4.Margin = new Padding(3, 2, 3, 2);
-            button4.Name = "button4";
-            button4.Size = new Size(44, 22);
-            button4.TabIndex = 12;
-            button4.Text = "4";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Red;
-            button3.Location = new Point(170, 917);
-            button3.Margin = new Padding(3, 2, 3, 2);
-            button3.Name = "button3";
-            button3.Size = new Size(44, 22);
-            button3.TabIndex = 11;
-            button3.Text = "3";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Red;
-            button2.Location = new Point(120, 918);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(44, 22);
-            button2.TabIndex = 10;
-            button2.Text = "2";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Red;
-            button1.Location = new Point(71, 917);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(44, 22);
-            button1.TabIndex = 9;
-            button1.Text = "1";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // buttonAdmin
             // 
             buttonAdmin.BackColor = Color.Transparent;
@@ -177,6 +99,7 @@
             flPanelUserCard.Size = new Size(993, 508);
             flPanelUserCard.TabIndex = 6;
             flPanelUserCard.WrapContents = false;
+            flPanelUserCard.Paint += flPanelUserCard_Paint;
             // 
             // buttonFaculty
             // 
@@ -530,12 +453,6 @@
             Controls.Add(materialCard2);
             Controls.Add(materialCard1);
             Controls.Add(BtnRefresh);
-            Controls.Add(BtnPreview);
-            Controls.Add(button1);
-            Controls.Add(BtnNext);
-            Controls.Add(button2);
-            Controls.Add(button4);
-            Controls.Add(button3);
             Name = "UserManagementView";
             Size = new Size(1644, 941);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -571,13 +488,6 @@
         private Label TotalAdmin;
         private Label label6;
         private Button buttonAdmin;
-        //private ComboBox CBoxCourseCode;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private Button BtnNext;
-        private Button BtnPreview;
         private Button BtnRefresh;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCard materialCard2;

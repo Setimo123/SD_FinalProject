@@ -42,7 +42,6 @@
             dockingClientPanel1 = new Syncfusion.Windows.Forms.Tools.DockingClientPanel();
             showpass = new Guna.UI2.WinForms.Guna2CheckBox();
             Emtextbox = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             Login_button = new Guna.UI2.WinForms.Guna2Button();
             PassTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
@@ -96,7 +95,6 @@
             dockingClientPanel1.BackgroundImage = Properties.Icons.User_Name;
             dockingClientPanel1.Controls.Add(showpass);
             dockingClientPanel1.Controls.Add(Emtextbox);
-            dockingClientPanel1.Controls.Add(guna2HtmlLabel1);
             dockingClientPanel1.Controls.Add(Login_button);
             dockingClientPanel1.Controls.Add(guna2PictureBox1);
             dockingClientPanel1.Controls.Add(label1);
@@ -130,6 +128,7 @@
             // Emtextbox
             // 
             Emtextbox.BorderColor = Color.Transparent;
+            Emtextbox.BorderRadius = 8;
             Emtextbox.CustomizableEdges = customizableEdges3;
             Emtextbox.DefaultText = "";
             Emtextbox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -150,18 +149,9 @@
             Emtextbox.Size = new Size(454, 47);
             Emtextbox.TabIndex = 20;
             // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Location = new Point(43, 92);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(97, 17);
-            guna2HtmlLabel1.TabIndex = 19;
-            guna2HtmlLabel1.Text = "guna2HtmlLabel1";
-            // 
             // Login_button
             // 
-            Login_button.BorderRadius = 10;
+            Login_button.BorderRadius = 8;
             Login_button.CustomizableEdges = customizableEdges5;
             Login_button.DisabledState.BorderColor = Color.DarkGray;
             Login_button.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -182,6 +172,7 @@
             // PassTextBox
             // 
             PassTextBox.BorderColor = Color.Transparent;
+            PassTextBox.BorderRadius = 8;
             PassTextBox.CustomizableEdges = customizableEdges7;
             PassTextBox.DefaultText = "";
             PassTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -225,10 +216,9 @@
         private Label label1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Syncfusion.Windows.Forms.Tools.DockingClientPanel dockingClientPanel1;
-        private Guna.UI2.WinForms.Guna2Button Login_button;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2TextBox PassTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox Emtextbox;
+        internal Guna.UI2.WinForms.Guna2Button Login_button;
+        internal Guna.UI2.WinForms.Guna2TextBox PassTextBox;
+        internal Guna.UI2.WinForms.Guna2TextBox Emtextbox;
         private Guna.UI2.WinForms.Guna2CheckBox showpass;
     }
 }

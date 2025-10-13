@@ -67,6 +67,11 @@ namespace Consultation.App.Views
             this.Hide();
         }
 
+        public void ShowForm()
+        {
+            this.Show();
+        }
+
         public string useremail => Emtextbox.Text;
 
         public string password => PassTextBox.Text;

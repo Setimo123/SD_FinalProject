@@ -11,11 +11,11 @@ namespace Consultation.App.Views.IViews
         string useremail { get; }
         string password { get; }
         DialogResult DialogResult { get; set; }
-
-        event EventHandler LogInEvent;
-
         void HideForm();
-
         void ShowMessage(string message);
+        void ShowForm();
+
+        // Add this event to the interface
+        event EventHandler LogInEvent;
     }
 }

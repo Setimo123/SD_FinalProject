@@ -3,6 +3,7 @@ using Consultation.App.Dashboard;
 using Consultation.App.Presenters; // <-- If your presenters are here
 using Consultation.App.Views;
 using Consultation.App.Views.IViews;
+using Consultation.Domain;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace Consultation.App.Presenters
     public class MainPresenter
     {
         private readonly IMainView _mainView;
+        private readonly Users _currentUser;
 
         private enum ChildViews
         {
@@ -25,9 +27,16 @@ namespace Consultation.App.Presenters
         private ChildViews _currentView;
         private readonly Dictionary<ChildViews, IChildView> _childViews = new();
 
-        public MainPresenter(IMainView mainView)
+        public MainPresenter(IMainView mainView, Users currentUser = null)
         {
             _mainView = mainView;
+            _currentUser = currentUser;
+
+            // Set user information if available
+            if (_currentUser != null)
+            {
+                SetUserInformation();
+            }
 
             // Hook up nav events
             _mainView.DashboardEvent += DashboardEvent;
@@ -46,6 +55,36 @@ namespace Consultation.App.Presenters
             {
                 SetActiveButton(view.Controls.Find("buttonDashboard", true)[0] as Button);
             }
+        }
+
+        private void SetUserInformation()
+        {
+            string userName = GetUserDisplayName();
+            string userRole = GetUserRoleDisplayName();
+            
+            _mainView.SetUserInfo(userName, userRole);
+        }
+
+        private string GetUserDisplayName()
+        {
+            if (_currentUser == null) return "Guest User";
+            
+            // The Users table stores the UserName which appears to be the person's name
+            // You can also use UMID or Email if preferred
+            return !string.IsNullOrEmpty(_currentUser.UserName) ? _currentUser.UserName : "Unknown User";
+        }
+
+        private string GetUserRoleDisplayName()
+        {
+            if (_currentUser == null) return "Guest";
+            
+            return _currentUser.UserType switch
+            {
+                Domain.Enum.UserType.Student => "Student",
+                Domain.Enum.UserType.Faculty => "Faculty",
+                Domain.Enum.UserType.Admin => "Administrator",
+                _ => "Unknown Role"
+            };
         }
 
         private void DashboardEvent(object? sender, EventArgs e)

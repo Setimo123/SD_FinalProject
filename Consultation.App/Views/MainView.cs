@@ -14,7 +14,7 @@ namespace Consultation.App.Views
         {
             InitializeComponent();
 
-            profilePanel.BackColor = Color.FromArgb(50, 0, 0, 0);
+            profilePanel.BackColor = Color.Transparent;
 
             buttonDashboard.Click += (s, e) => DashboardEvent?.Invoke(s, e);
             buttonConsultation.Click += (s, e) => ConsultationEvent?.Invoke(s, e);
@@ -48,6 +48,20 @@ namespace Consultation.App.Views
         public event EventHandler SFManagementEvent;
         public event EventHandler PreferenceEvent;
         public event EventHandler NotificationEvent;
+
+        // Add method to set user information
+        public void SetUserInfo(string userName, string userRole)
+        {
+            if (username != null)
+            {
+                username.Text = userName;
+            }
+
+            if (userole != null)
+            {
+                userole.Text = userRole;
+            }
+        }
 
         public void HighlightButton(Button button)
         {
@@ -136,6 +150,21 @@ namespace Consultation.App.Views
         }
 
         private void sidePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void profilePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSFManagement_Click(object sender, EventArgs e)
         {
 
         }
