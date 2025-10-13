@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Consultation.App.Views.Controls.ConsultationManagement;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Consultation.App.Views.IViews
 {
-    public interface IConsultationView : IChildView
+    public interface IConsultationView
     {
-        //event EventHandler 
+        event EventHandler ShowActiveEvent;
+        event EventHandler ShowArchivedEvent;
+        event EventHandler RefreshConsultationsEvent;
+
+        event EventHandler<ConsultationData> ArchiveRequested;
+        event EventHandler<ConsultationData> RestoreRequested;
+
+        void LoadActiveConsultations(List<ConsultationData> consultations);
+        void LoadArchivedConsultations(List<ConsultationData> consultations);
     }
 }

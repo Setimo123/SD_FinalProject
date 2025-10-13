@@ -89,7 +89,7 @@
             btnRefresh.TabIndex = 7;
             btnRefresh.Text = "Refresh";
             btnRefresh.TextOffset = new Point(10, 0);
-            btnRefresh.Click += btnRefresh_Click;
+            
             // 
             // underlinePanel
             // 
@@ -118,7 +118,7 @@
             btnArchive.Size = new Size(136, 56);
             btnArchive.TabIndex = 3;
             btnArchive.Text = "Archive";
-            btnArchive.Click += btnArchive_Click;
+           
             // 
             // btnConsultation
             // 
@@ -138,7 +138,7 @@
             btnConsultation.Size = new Size(136, 56);
             btnConsultation.TabIndex = 2;
             btnConsultation.Text = "Consultation";
-            btnConsultation.Click += btnConsultation_Click_1;
+            
             // 
             // guna2BorderlessForm1
             // 
@@ -222,6 +222,6 @@
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private FlowLayoutPanel WindowPanelConsultation;
-        private Guna.UI2.WinForms.Guna2HtmlLabel LabelHeader;
+        public Guna.UI2.WinForms.Guna2HtmlLabel LabelHeader;
     }
 }

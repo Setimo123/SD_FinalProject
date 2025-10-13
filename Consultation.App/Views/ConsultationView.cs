@@ -1,145 +1,95 @@
 ﻿using Consultation.App.Views.Controls.ConsultationManagement;
 using Consultation.App.Views.IViews;
 using System;
-using System.CodeDom;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
-
 
 namespace Consultation.App.ConsultationManagement
 {
-
-    public partial class ConsultationView : UserControl, IConsultationView
+    public partial class ConsultationView : UserControl, IConsultationView, IChildView
     {
+        public event EventHandler ShowActiveEvent;
+        public event EventHandler ShowArchivedEvent;
+        public event EventHandler RefreshConsultationsEvent;
+        public event EventHandler<ConsultationData> ArchiveRequested;
+        public event EventHandler<ConsultationData> RestoreRequested;
 
-        private List<ConsultationCard> activeCards = new List<ConsultationCard>();
-        private List<ArchiveCard> archivedCards = new List<ArchiveCard>();
+        public UserControl AsUserControl => this;
 
+        private readonly List<ConsultationCard> activeCards = new();
+        private readonly List<ArchiveCard> archivedCards = new();
 
         public ConsultationView()
         {
             InitializeComponent();
 
-            for (int i = 0; i < 4; i++)
-            {
-                var data = new ConsultationData();
-                var card = new ConsultationCard(data);
-                card.ArchiveRequested += (s, e) => ArchiveCard(card);
-                activeCards.Add(card);
-            }
+            // Set default selected tab
+            MoveUnderline(btnConsultation);
 
-            ShowConsultationView();
+            btnConsultation.Click += (s, e) =>
+            {
+                MoveUnderline(btnConsultation);
+                ShowActiveEvent?.Invoke(this, EventArgs.Empty);
+            };
+
+            btnArchive.Click += (s, e) =>
+            {
+                MoveUnderline(btnArchive);
+                ShowArchivedEvent?.Invoke(this, EventArgs.Empty);
+            };
+
+            btnRefresh.Click += (s, e) => RefreshConsultationsEvent?.Invoke(this, EventArgs.Empty);
         }
-        public UserControl AsUserControl => this;
 
-
-        
-        private void ShowConsultationView()
+        public void LoadActiveConsultations(List<ConsultationData> consultations)
         {
-            WindowPanelConsultation.Controls.Clear();
-            foreach (var card in activeCards)
+            LabelHeader.Text = "Active Consultations";
+            ClearCards();
+
+            foreach (var data in consultations.Distinct())
             {
+                var card = new ConsultationCard(data);
+                card.ArchiveRequested += (s, e) => ArchiveRequested?.Invoke(this, data);
+                activeCards.Add(card);
                 WindowPanelConsultation.Controls.Add(card);
             }
         }
 
-        public void ArchiveCard(ConsultationCard card)
+        public void LoadArchivedConsultations(List<ConsultationData> consultations)
         {
-            activeCards.Remove(card);
-            WindowPanelConsultation.Controls.Remove(card);
+            LabelHeader.Text = "Archived Consultations";
+            ClearCards();
 
-            var archiveCard = new ArchiveCard();
-            archiveCard.Data = card.Data;
-            archiveCard.RestoreClicked += (s, e) => RestoreCard(archiveCard);
-            archivedCards.Add(archiveCard);
-
-            ShowConsultationView();
-
+            foreach (var data in consultations)
+            {
+                var card = new ArchiveCard { Data = data };
+                card.RestoreClicked += (s, e) => RestoreRequested?.Invoke(this, data);
+                archivedCards.Add(card);
+                WindowPanelConsultation.Controls.Add(card);
+            }
         }
 
-
-        private void RestoreCard(ArchiveCard archiveCard)
+        private void ClearCards()
         {
-            archivedCards.Remove(archiveCard);
-            WindowPanelConsultation.Controls.Remove(archiveCard);
+            foreach (var card in activeCards)
+                WindowPanelConsultation.Controls.Remove(card);
+            activeCards.Clear();
 
-            var card = new ConsultationCard(archiveCard.Data);
-            card.ArchiveRequested += (s, e) => ArchiveCard(card);
-            activeCards.Add(card);
-
-            ShowConsultationView();
+            foreach (var card in archivedCards)
+                WindowPanelConsultation.Controls.Remove(card);
+            archivedCards.Clear();
         }
 
-
-
-        private void MoveUnderline(Control targetButton)
+        private void MoveUnderline(Control btn)
         {
-            underlinePanel.Width = targetButton.Width;
-            underlinePanel.Left = targetButton.Left;
-            underlinePanel.Top = targetButton.Bottom - 4;
+            if (btn == null || underlinePanel == null) return;
+
+            underlinePanel.Width = btn.Width;
+            underlinePanel.Left = btn.Left;
+            underlinePanel.Top = btn.Bottom - 2;
             underlinePanel.Visible = true;
+            underlinePanel.BringToFront();
         }
-
-
-        private void OnCardArchived(object sender, ArchiveCard archiveCard)
-        {
-            WindowPanelConsultation.Controls.Remove(archiveCard);
-            archivedCards.Remove(archiveCard);
-
-            var data = archiveCard.Data;
-            var consultationCard = new ConsultationCard(data);
-            consultationCard.ArchiveRequested += (s, e) => ArchiveCard(consultationCard);
-            activeCards.Add(consultationCard);
-
-            ShowConsultationView();
-        }
-
-        private void ShowArchivedConsultations()
-        {
-            LabelHeader.Text = "Archived Consultation";
-            MoveUnderline(btnArchive);
-            WindowPanelConsultation.Controls.Clear();
-
-            foreach (var archiveCard in archivedCards)
-            {
-                WindowPanelConsultation.Controls.Add(archiveCard);
-            }
-        }
-
-        private void btnConsultation_Click_1(object sender, EventArgs e)
-        {
-            btnConsultation.ForeColor = Color.FromArgb(190, 0, 2);
-            btnConsultation.Font = new Font(btnConsultation.Font, FontStyle.Bold);
-            btnArchive.ForeColor = Color.FromArgb(86, 93, 109);
-            btnArchive.Font = new Font(btnArchive.Font, FontStyle.Regular);
-            MoveUnderline(btnConsultation);
-            LabelHeader.Text = "Active Consultation";
-            ShowConsultationView();
-        }
-
-        private void btnArchive_Click(object sender, EventArgs e)
-        {
-            btnArchive.ForeColor = Color.FromArgb(190, 0, 2);
-            btnArchive.Font = new Font(btnArchive.Font, FontStyle.Bold);
-            btnConsultation.ForeColor = Color.FromArgb(86, 93, 109);
-            btnConsultation.Font = new Font(btnConsultation.Font, FontStyle.Regular);
-            MoveUnderline(btnArchive);
-            LabelHeader.Text = "Archived Consultation";
-            ShowArchivedConsultations();
-           
-
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            if (LabelHeader.Text == "Active Consultation")
-            {
-                ShowConsultationView();
-            }
-            else if (LabelHeader.Text == "Archived Consultation")
-            {
-                ShowArchivedConsultations();
-            }
-        }
-
     }
 }

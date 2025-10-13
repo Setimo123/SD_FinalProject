@@ -12,6 +12,7 @@
     <Compile Remove="Views\Controls\Settings\**" />
     <EmbeddedResource Remove="Views\Controls\Settings\**" />
     <None Remove="Views\Controls\Settings\**" />
+<<<<<<< HEAD
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,12 @@
 
   <ItemGroup>
     <Folder Include="Presenters\" />
+=======
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Controls\ConsultationManagement\ajfr3cd3.wom~" />
+>>>>>>> 3f1a8b471076869b955d5f979e724cf80c6034f8
   </ItemGroup>
 
   <ItemGroup>

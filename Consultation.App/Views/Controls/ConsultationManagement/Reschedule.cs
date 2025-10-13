@@ -20,13 +20,12 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
 
         private void btnReschedule_Click(object sender, EventArgs e)
         {
-            card.Data = new ConsultationData
-            {
-                Date = Date.Text,
-                Time = comboboxTime.Text,
-                Notes = Reason.Text,
+            var data = card.Data;
 
-            };
+            data.Date = Date.Text;
+            data.Time = comboboxTime.Text;
+            data.Notes = Reason.Text; 
+            card.Data = data;
 
             this.Close();
         }

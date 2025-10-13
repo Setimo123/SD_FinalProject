@@ -179,7 +179,7 @@ namespace Consultation.App.Presenters
         private IChildView CreateConsultationView()
         {
             var view = new ConsultationView();
-            //var presenter = new ConsultationPresenter(view);
+            var presenter = new ConsultationPresenter(view);
             return view;
         }
 
