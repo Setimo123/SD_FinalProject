@@ -3,6 +3,8 @@ using Consultation.App.Views;
 using Consultation.App.Views.IViews;
 using Consultation.BackEndCRUD.Service;
 using Consultation.Infrastructure.Data;
+using System.Linq;
+
 namespace Consultation.App
 {
     internal static class Program
@@ -19,28 +21,26 @@ namespace Consultation.App
 
             ApplicationConfiguration.Initialize();
 
-            IMainView mainView = new MainView();
-            new MainPresenter(mainView);
             AppDbContext appDbContext = new AppDbContext();
-
             var authservice = new AuthService(appDbContext);
 
             ILoginView loginView = new LogInView();
             new LogInPresenter(loginView, authservice);
 
-            Application.Run((Form)loginView);
+            // Run the login form and check the result
+            var loginResult = ((Form)loginView).ShowDialog();
 
-            ////Application.Run(new BulletinView());
-            //ILoginView loginView = new LogInView();
-            //using (new LogInPresenter(loginView, authservice))
-            //{
-            //    if (loginView.ShowDialog() == DialogResult.OK)
-            //    {
-            //        //LoadProgramList();
-            //        Application.Run((Form)mainView);
-
-            //    }
-            //}
+            // If login was successful, the MainView will already be shown
+            // and will be the active form, so we run the application with it
+            if (loginResult == DialogResult.OK)
+            {
+                // Find the active MainView form
+                var mainForm = Application.OpenForms.OfType<MainView>().FirstOrDefault();
+                if (mainForm != null)
+                {
+                    Application.Run(mainForm);
+                }
+            }
         }
     }
            

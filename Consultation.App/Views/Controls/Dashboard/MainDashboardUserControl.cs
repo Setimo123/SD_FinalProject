@@ -40,7 +40,6 @@ namespace Consultation.App.Dashboard
             createNewBulletin1.Cursor = Cursors.Hand;
             manageConsultation1.Cursor = Cursors.Hand;
             addUser1.Cursor = Cursors.Hand;
-            systemSettings1.Cursor = Cursors.Hand;
             BulletinButton.Cursor = Cursors.Hand;
             ConsultationButton.Cursor = Cursors.Hand;
 
@@ -51,7 +50,6 @@ namespace Consultation.App.Dashboard
             AttachHoverEvents(createNewBulletin1, createNewBulletin1_MouseEnter, createNewBulletin1_MouseLeave);
             AttachHoverEvents(manageConsultation1, manageConsultation1_MouseEnter, manageConsultation1_MouseLeave);
             AttachHoverEvents(addUser1, addUser1_MouseEnter, addUser1_MouseLeave);
-            AttachHoverEvents(systemSettings1, systemSettings1_MouseEnter, systemSettings1_MouseLeave);
 
             this.Load += MainDashboardUserControl_Load;
         }
@@ -179,16 +177,6 @@ namespace Consultation.App.Dashboard
         private void addUser1_MouseLeave(object sender, EventArgs e)
         {
             addUser1.BackColor = consultationDefaultColor;
-        }
-
-        private void systemSettings1_MouseEnter(object sender, EventArgs e)
-        {
-            systemSettings1.BackColor = hoverColor;
-        }
-
-        private void systemSettings1_MouseLeave(object sender, EventArgs e)
-        {
-            systemSettings1.BackColor = consultationDefaultColor;
         }
 
         private void createNewBulletin1_Click(object sender, EventArgs e)

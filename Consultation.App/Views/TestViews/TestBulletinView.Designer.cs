@@ -31,7 +31,6 @@
             label2 = new Label();
             gradientPanel1 = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            systemSettings1 = new Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel.SystemSettings();
             ((System.ComponentModel.ISupportInitialize)gradientPanel1).BeginInit();
             gradientPanel1.SuspendLayout();
             SuspendLayout();
@@ -52,7 +51,6 @@
             gradientPanel1.Border3DStyle = Border3DStyle.Flat;
             gradientPanel1.BorderSingle = ButtonBorderStyle.None;
             gradientPanel1.BorderStyle = BorderStyle.None;
-            gradientPanel1.Controls.Add(systemSettings1);
             gradientPanel1.Controls.Add(materialButton1);
             gradientPanel1.Controls.Add(label2);
             gradientPanel1.Dock = DockStyle.Fill;
@@ -79,13 +77,7 @@
             materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             materialButton1.UseAccentColor = false;
             materialButton1.UseVisualStyleBackColor = true;
-            // 
-            // systemSettings1
-            // 
-            systemSettings1.Location = new Point(109, 337);
-            systemSettings1.Name = "systemSettings1";
-            systemSettings1.Size = new Size(255, 62);
-            systemSettings1.TabIndex = 3;
+
             // 
             // TestBulletinView
             // 
@@ -107,6 +99,6 @@
         private Label label2;
         private Syncfusion.Windows.Forms.Tools.GradientPanel gradientPanel1;
         private MaterialSkin.Controls.MaterialButton materialButton1;
-        private Controls.Dashboard.Quick_Actions_Panel.SystemSettings systemSettings1;
+
     }
 }
