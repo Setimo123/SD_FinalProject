@@ -9,12 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Views\Controls\ConsultationManagement\ajfr3cd3.wom~" />
+    <Compile Remove="Views\Controls\Settings\**" />
+    <EmbeddedResource Remove="Views\Controls\Settings\**" />
+    <None Remove="Views\Controls\Settings\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Presenters\" />
-    <Folder Include="Views\Controls\Settings\" />
+    <None Remove="Views\Controls\ConsultationManagement\ajfr3cd3.wom~" />
   </ItemGroup>
 
   <ItemGroup>

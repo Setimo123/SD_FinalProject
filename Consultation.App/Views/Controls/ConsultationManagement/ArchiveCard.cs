@@ -1,26 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Consultation.App.ConsultationManagement;
 
 namespace Consultation.App.Views.Controls.ConsultationManagement
 {
     public partial class ArchiveCard : UserControl
     {
-        public event EventHandler RestoreClicked;
+        public event EventHandler<ConsultationData> RestoreClicked;
+
         private ConsultationData data = new ConsultationData();
 
         public ArchiveCard()
         {
             InitializeComponent();
-
         }
 
         public ConsultationData Data
@@ -29,7 +21,6 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
             set
             {
                 data = value;
-
                 Namelabel.Text = data.Name;
                 Code.Text = data.CourseCode;
                 Notes.Text = data.Notes;
@@ -41,7 +32,6 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
             }
         }
 
-
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             MenuContextArchive.Show(guna2Button1, guna2Button1.Width / 2, guna2Button1.Height);
@@ -49,13 +39,12 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
 
         private void restoreToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            RestoreClicked?.Invoke(this, EventArgs.Empty);
+            RestoreClicked?.Invoke(this, data);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // Implement delete logic if necessary
         }
-
     }
 }

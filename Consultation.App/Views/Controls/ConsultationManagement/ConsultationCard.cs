@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Consultation.App.Views.Controls.ConsultationManagement;
+using System;
 using System.Windows.Forms;
-using Consultation.App.Views.Controls.ConsultationManagement;
-using Syncfusion.Windows.Forms.Tools;
-
 
 namespace Consultation.App.ConsultationManagement
 {
     public partial class ConsultationCard : UserControl
     {
+        
         public event EventHandler<ConsultationCard> ArchiveRequested;
         private ConsultationData data;
+       
         public DateTime ScheduleDate { get; private set; }
 
+        
         public string NameText => StudentName.Text;
         public string DateText => ScheduleDate.ToShortDateString();
         public string TimeText => Time.Text;
@@ -29,22 +23,19 @@ namespace Consultation.App.ConsultationManagement
         public string Notes => Noteslabel.Text;
         public string Status => Tagstatus.Text;
 
+       
         public ConsultationCard(ConsultationData _data)
         {
             InitializeComponent();
             Data = _data;
         }
 
+
         public ConsultationData Data
         {
-            get
-            {
-
-                return data;
-            }
+            get => data;
             set
             {
-
                 data = value;
                 StudentName.Text = data.Name;
                 courseCodeLabel.Text = data.CourseCode;
@@ -57,47 +48,49 @@ namespace Consultation.App.ConsultationManagement
                 Tagstatus.Text = data.Status;
 
                 if (DateTime.TryParse(data.Date, out DateTime parsedDate))
-                {
                     ScheduleDate = parsedDate;
-                }
                 else
-                {
-                    ScheduleDate = DateTime.MinValue;  
-                }
+                    ScheduleDate = DateTime.MinValue; 
             }
         }
 
+      
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             MenuContext.Show(guna2Button1, guna2Button1.Width / 2, guna2Button1.Height);
         }
 
+     
         private void archiveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ArchiveRequested?.Invoke(this, this);
         }
 
+        
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditSchedule editForm = new EditSchedule(this);
             editForm.ShowDialog();
         }
 
+      
         private void rescheduleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Reschedule rescheduleForm = new Reschedule(this);
             rescheduleForm.ShowDialog();
         }
 
+        
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // TODO: Add delete logic if needed
         }
+
+
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ViewConsultation viewForm = new ViewConsultation(this);
             viewForm.ShowDialog();
         }
-
     }
 }

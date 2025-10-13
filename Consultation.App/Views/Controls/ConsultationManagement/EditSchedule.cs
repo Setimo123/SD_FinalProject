@@ -22,22 +22,23 @@ namespace Consultation.App.ConsultationManagement
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            cardToEdit.Data = new ConsultationData
-            {
-                Name = StudentName.Text,
-                IDNumber = Idnumber.Text,
-                CourseCode = CourseCode.Text,
-                Location = Location.Text,
-                Faculty = Faculty.Text,
-                Time = comboboxTime.Text,
-                Notes = Notes.Text,
-                Date = Date.Text,
+            
+            var data = cardToEdit.Data;
 
-            };
+            data.Name = StudentName.Text;
+            data.IDNumber = Idnumber.Text;
+            data.CourseCode = CourseCode.Text;
+            data.Location = Location.Text;
+            data.Faculty = Faculty.Text;
+            data.Time = comboboxTime.Text;
+            data.Notes = Notes.Text;
+            data.Date = Date.Text;
+
+            
+            cardToEdit.Data = data;
 
             this.Close();
         }
-
 
 
         private void guna2Button3_Click(object sender, EventArgs e)
