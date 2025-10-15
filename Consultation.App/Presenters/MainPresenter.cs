@@ -4,6 +4,7 @@ using Consultation.App.Presenters; // <-- If your presenters are here
 using Consultation.App.Views;
 using Consultation.App.Views.IViews;
 using Consultation.Domain;
+using Consultation.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace Consultation.App.Presenters
     {
         private readonly IMainView _mainView;
         private readonly Users _currentUser;
+        private readonly AppDbContext _dbContext; // Add a field for AppDbContext
 
         private enum ChildViews
         {
@@ -27,10 +29,12 @@ namespace Consultation.App.Presenters
         private ChildViews _currentView;
         private readonly Dictionary<ChildViews, IChildView> _childViews = new();
 
-        public MainPresenter(IMainView mainView, Users currentUser = null)
+        // Update constructor to accept AppDbContext
+        public MainPresenter(IMainView mainView, Users currentUser = null, AppDbContext dbContext = null)
         {
             _mainView = mainView;
             _currentUser = currentUser;
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
 
             // Set user information if available
             if (_currentUser != null)
@@ -172,14 +176,14 @@ namespace Consultation.App.Presenters
         private IChildView CreateDashboardView()
         {
             var view = new MainDashboardUserControl();
-            var presenter = new DashboardPresenter(view);
+            var presenter = new DashboardPresenter(view, _dbContext); // Pass _dbContext as required
             return view;
         }
 
         private IChildView CreateConsultationView()
         {
             var view = new ConsultationView();
-            var presenter = new ConsultationPresenter(view);
+            var presenter = new ConsultationPresenter(view, _dbContext);
             return view;
         }
 

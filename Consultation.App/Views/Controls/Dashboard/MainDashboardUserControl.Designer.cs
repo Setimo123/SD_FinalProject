@@ -51,10 +51,6 @@
             panel1 = new Panel();
             WelcomeLabel = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            materialCard4 = new MaterialSkin.Controls.MaterialCard();
-            PendingApprovalsCount = new Label();
-            autoLabel6 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            panel2 = new Panel();
             materialCard5 = new MaterialSkin.Controls.MaterialCard();
             ConsultationsCompletedCount = new Label();
             autoLabel7 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
@@ -63,7 +59,6 @@
             UpcomingSessionsCount = new Label();
             autoLabel8 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             materialCard7 = new MaterialSkin.Controls.MaterialCard();
-            addUser1 = new Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel.AddUser();
             manageConsultation1 = new Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel.ManageConsultation();
             materialCard8 = new MaterialSkin.Controls.MaterialCard();
             sfButton2 = new Syncfusion.WinForms.Controls.SfButton();
@@ -110,7 +105,6 @@
             UserName = new Label();
             materialCard2.SuspendLayout();
             materialCard3.SuspendLayout();
-            materialCard4.SuspendLayout();
             materialCard5.SuspendLayout();
             materialCard6.SuspendLayout();
             materialCard7.SuspendLayout();
@@ -313,52 +307,6 @@
             autoLabel3.TabIndex = 5;
             autoLabel3.Text = "Here's what's happening at UM  today";
             // 
-            // materialCard4
-            // 
-            materialCard4.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard4.Controls.Add(PendingApprovalsCount);
-            materialCard4.Controls.Add(autoLabel6);
-            materialCard4.Controls.Add(panel2);
-            materialCard4.Depth = 0;
-            materialCard4.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard4.Location = new Point(462, 102);
-            materialCard4.Margin = new Padding(14);
-            materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCard4.Name = "materialCard4";
-            materialCard4.Padding = new Padding(14);
-            materialCard4.Size = new Size(325, 112);
-            materialCard4.TabIndex = 6;
-            // 
-            // PendingApprovalsCount
-            // 
-            PendingApprovalsCount.AutoSize = true;
-            PendingApprovalsCount.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            PendingApprovalsCount.ForeColor = Color.DimGray;
-            PendingApprovalsCount.Location = new Point(29, 47);
-            PendingApprovalsCount.Name = "PendingApprovalsCount";
-            PendingApprovalsCount.Size = new Size(67, 20);
-            PendingApprovalsCount.TabIndex = 12;
-            PendingApprovalsCount.Text = "label13";
-            // 
-            // autoLabel6
-            // 
-            autoLabel6.Font = new Font("Microsoft Sans Serif", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            autoLabel6.ForeColor = Color.Black;
-            autoLabel6.Location = new Point(29, 14);
-            autoLabel6.Name = "autoLabel6";
-            autoLabel6.Position = Syncfusion.Windows.Forms.Tools.AutoLabelPosition.Custom;
-            autoLabel6.Size = new Size(158, 20);
-            autoLabel6.TabIndex = 7;
-            autoLabel6.Text = "Pending Approvals";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.DarkOrange;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(16, 150);
-            panel2.TabIndex = 11;
-            // 
             // materialCard5
             // 
             materialCard5.BackColor = Color.FromArgb(255, 255, 255);
@@ -366,7 +314,7 @@
             materialCard5.Controls.Add(autoLabel7);
             materialCard5.Depth = 0;
             materialCard5.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard5.Location = new Point(874, 102);
+            materialCard5.Location = new Point(462, 102);
             materialCard5.Margin = new Padding(14);
             materialCard5.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard5.Name = "materialCard5";
@@ -384,6 +332,7 @@
             ConsultationsCompletedCount.Size = new Size(67, 20);
             ConsultationsCompletedCount.TabIndex = 14;
             ConsultationsCompletedCount.Text = "label13";
+            ConsultationsCompletedCount.Click += ConsultationsCompletedCount_Click;
             // 
             // autoLabel7
             // 
@@ -399,7 +348,7 @@
             // panel3
             // 
             panel3.BackColor = Color.Red;
-            panel3.Location = new Point(874, 102);
+            panel3.Location = new Point(462, 102);
             panel3.Name = "panel3";
             panel3.Size = new Size(16, 112);
             panel3.TabIndex = 1;
@@ -411,7 +360,7 @@
             materialCard6.Controls.Add(autoLabel8);
             materialCard6.Depth = 0;
             materialCard6.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard6.Location = new Point(1282, 102);
+            materialCard6.Location = new Point(874, 102);
             materialCard6.Margin = new Padding(14);
             materialCard6.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard6.Name = "materialCard6";
@@ -444,7 +393,6 @@
             // materialCard7
             // 
             materialCard7.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard7.Controls.Add(addUser1);
             materialCard7.Controls.Add(manageConsultation1);
             materialCard7.Controls.Add(createNewBulletin1);
             materialCard7.Depth = 0;
@@ -457,17 +405,10 @@
             materialCard7.Size = new Size(551, 152);
             materialCard7.TabIndex = 9;
             // 
-            // addUser1
-            // 
-            addUser1.Location = new Point(283, 12);
-            addUser1.Name = "addUser1";
-            addUser1.Size = new Size(255, 62);
-            addUser1.TabIndex = 0;
-            // 
             // manageConsultation1
             // 
             manageConsultation1.BackColor = Color.White;
-            manageConsultation1.Location = new Point(11, 82);
+            manageConsultation1.Location = new Point(283, 12);
             manageConsultation1.Name = "manageConsultation1";
             manageConsultation1.Size = new Size(255, 62);
             manageConsultation1.TabIndex = 0;
@@ -511,7 +452,7 @@
             // panel4
             // 
             panel4.BackColor = Color.DarkTurquoise;
-            panel4.Location = new Point(1282, 102);
+            panel4.Location = new Point(874, 102);
             panel4.Name = "panel4";
             panel4.Size = new Size(16, 112);
             panel4.TabIndex = 12;
@@ -969,6 +910,7 @@
             ConsultationCountCPE.TabIndex = 6;
             ConsultationCountCPE.Text = "30";
             ConsultationCountCPE.TextAlign = ContentAlignment.MiddleCenter;
+            ConsultationCountCPE.Click += ConsultationCountCPE_Click;
             // 
             // label2
             // 
@@ -1023,7 +965,6 @@
             Controls.Add(materialCard7);
             Controls.Add(materialCard6);
             Controls.Add(materialCard5);
-            Controls.Add(materialCard4);
             Controls.Add(autoLabel3);
             Controls.Add(WelcomeLabel);
             Controls.Add(materialCard3);
@@ -1037,8 +978,6 @@
             materialCard2.PerformLayout();
             materialCard3.ResumeLayout(false);
             materialCard3.PerformLayout();
-            materialCard4.ResumeLayout(false);
-            materialCard4.PerformLayout();
             materialCard5.ResumeLayout(false);
             materialCard5.PerformLayout();
             materialCard6.ResumeLayout(false);
@@ -1071,7 +1010,6 @@
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private Syncfusion.Windows.Forms.Tools.AutoLabel WelcomeLabel;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
-        private MaterialSkin.Controls.MaterialCard materialCard4;
         private MaterialSkin.Controls.MaterialCard materialCard5;
         private MaterialSkin.Controls.MaterialCard materialCard6;
         private MaterialSkin.Controls.MaterialCard materialCard7;
@@ -1080,10 +1018,8 @@
         private Syncfusion.Windows.Forms.Tools.AutoLabel QuickActionsLabel;
         private Panel panel1;
         private Panel panel3;
-        private Panel panel2;
         private Panel panel4;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel5;
-        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel6;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel7;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel8;
         public MaterialSkin.Controls.MaterialCard ActivityFeedPanel;
@@ -1092,7 +1028,6 @@
         private MaterialSkin.Controls.MaterialCard materialCard9;
         private Views.Controls.Dashboard.Quick_Actions_Panel.CreateNewBulletin createNewBulletin1;
         private Views.Controls.Dashboard.Quick_Actions_Panel.ManageConsultation manageConsultation1;
-        private Views.Controls.Dashboard.Quick_Actions_Panel.AddUser addUser1;
         private MaterialSkin.Controls.MaterialCard card;
         private MaterialSkin.Controls.MaterialCard materialCard14;
         private MaterialSkin.Controls.MaterialCard materialCard13;
@@ -1120,7 +1055,6 @@
         private Label ConsultationCountEE;
         private Label ConsultationCountECE;
         private Label BulletinPublishedCount;
-        private Label PendingApprovalsCount;
         private Label ConsultationsCompletedCount;
         private Label UpcomingSessionsCount;
         private Label UserName;

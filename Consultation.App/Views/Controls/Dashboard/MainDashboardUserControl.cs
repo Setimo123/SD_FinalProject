@@ -5,6 +5,7 @@ using Consultation.App.Presenters;
 using Consultation.App.ViewModels.DashboardModels;
 using Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel;
 using Consultation.App.Views.IViews;
+using Consultation.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,9 +29,9 @@ namespace Consultation.App.Dashboard
 
         private DashboardPresenter _presenter;
         public string LoggedInUsername { get; private set; } = "admin";
-        
+
         // Track the published bulletin count - now from service
-        
+
         // Store reference to the current Bulletin control to persist bulletin cards
         private Bulletin _currentBulletinControl;
 
@@ -44,13 +45,12 @@ namespace Consultation.App.Dashboard
         public MainDashboardUserControl()
         {
             InitializeComponent();
-            
+
             // Skip event subscriptions in design mode
             if (!DesignMode)
             {
                 createNewBulletin1.Cursor = Cursors.Hand;
                 manageConsultation1.Cursor = Cursors.Hand;
-                addUser1.Cursor = Cursors.Hand;
                 BulletinButton.Cursor = Cursors.Hand;
                 ConsultationButton.Cursor = Cursors.Hand;
 
@@ -60,11 +60,10 @@ namespace Consultation.App.Dashboard
                 //hover events for buttons
                 AttachHoverEvents(createNewBulletin1, createNewBulletin1_MouseEnter, createNewBulletin1_MouseLeave);
                 AttachHoverEvents(manageConsultation1, manageConsultation1_MouseEnter, manageConsultation1_MouseLeave);
-                AttachHoverEvents(addUser1, addUser1_MouseEnter, addUser1_MouseLeave);
 
                 // Subscribe to the BulletinPublished event from createNewBulletin1 control
                 createNewBulletin1.BulletinPublished += OnBulletinPublished;
-                
+
                 // Subscribe to bulletin service for updates
                 BulletinService.Instance.BulletinsChanged += OnBulletinsChanged;
 
@@ -72,45 +71,60 @@ namespace Consultation.App.Dashboard
             }
         }
 
-        private void MainDashboardUserControl_Load(object sender, EventArgs e)
+        private async void MainDashboardUserControl_Load(object sender, EventArgs e)
         {
             // Create and store the initial Bulletin control
             _currentBulletinControl = new Bulletin();
             ActivityFeedPanel.Controls.Add(_currentBulletinControl);
             BulletinButton.CustomBorderThickness = new Padding(0, 0, 0, 3);
 
-            // Initialize the count display from service
-            UpdateBulletinCount();
-
-            // _presenter = new DashboardPresenter(this);
-            //  _presenter.LoadDashboardData();
+            // Initialize presenter and load all counts from database
+            var dbContext = new AppDbContext();
+            _presenter = new DashboardPresenter(this, dbContext);
+            
+            // Load all dashboard data from database
+            await _presenter.LoadBulletinCount();
+            await _presenter.LoadConsultationStatsByProgram();
+            await _presenter.LoadConsultationCounts();
         }
-        
+
         private void OnBulletinsChanged(object sender, EventArgs e)
         {
-            // Update bulletin count
-            UpdateBulletinCount();
-            
+            // Reload bulletin count from database
+            if (_presenter != null)
+            {
+                _ = _presenter.LoadBulletinCount();
+            }
+
             // Refresh bulletin view if currently displayed
             if (_currentBulletinControl != null && ActivityFeedPanel.Controls.Contains(_currentBulletinControl))
             {
                 RefreshBulletinDisplay();
             }
         }
-        
-        private void UpdateBulletinCount()
+
+        public void UpdateBulletinCount(int count)
         {
-            int count = BulletinService.Instance.GetActiveBulletinCount();
             BulletinPublishedCount.Text = count.ToString();
         }
-        
+
+        private void UpdateBulletinCount()
+        {
+            // This method is deprecated - now using UpdateBulletinCount(int count) from database
+            // Kept for backwards compatibility but calls the presenter
+            if (_presenter != null)
+            {
+                _ = _presenter.LoadBulletinCount();
+            }
+        }
+
         private void RefreshBulletinDisplay()
         {
             if (_currentBulletinControl == null || _currentBulletinControl.IsDisposed)
                 return;
-                
+
             _currentBulletinControl.flowLayoutPanel1.Controls.Clear();
-            
+
             var bulletins = BulletinService.Instance.GetActiveBulletins();
             foreach (var bulletin in bulletins)
             {
@@ -150,7 +164,6 @@ namespace Consultation.App.Dashboard
         {
             // Update from service instead of parameter
             UpdateBulletinCount();
-            PendingApprovalsCount.Text = pending.ToString();
             ConsultationsCompletedCount.Text = completed.ToString();
             UpcomingSessionsCount.Text = upcoming.ToString();
         }
@@ -165,6 +178,15 @@ namespace Consultation.App.Dashboard
             ConsultationCountCHE.Text = CHE.ToString();
         }
 
+        public void UpdateConsultationCounts(int activeCount, int completedCount)
+        {
+            // Update ConsultationsCompletedCount with the count of archived consultations
+            ConsultationsCompletedCount.Text = completedCount.ToString();
+            
+            // Update UpcomingSessionsCount with the count of active consultations
+            UpcomingSessionsCount.Text = activeCount.ToString();
+        }
+
         private void BulletinButton_Click_1(object sender, EventArgs e)
         {
             ResetButtonBorders();
@@ -173,16 +195,16 @@ namespace Consultation.App.Dashboard
             BulletinButton.ForeColor = Color.Red;
 
             ActivityFeedPanel.Controls.Clear();
-            
+
             // Create new Bulletin control if it doesn't exist or reuse the existing one
             if (_currentBulletinControl == null || _currentBulletinControl.IsDisposed)
             {
                 _currentBulletinControl = new Bulletin();
             }
-            
+
             // Reload all bulletins from service
             RefreshBulletinDisplay();
-            
+
             ActivityFeedPanel.Controls.Add(_currentBulletinControl);
         }
 
@@ -241,24 +263,14 @@ namespace Consultation.App.Dashboard
             manageConsultation1.BackColor = consultationDefaultColor;
         }
 
-        private void addUser1_MouseEnter(object sender, EventArgs e)
-        {
-            addUser1.BackColor = hoverColor;
-        }
-
-        private void addUser1_MouseLeave(object sender, EventArgs e)
-        {
-            addUser1.BackColor = consultationDefaultColor;
-        }
-
         private void createNewBulletin1_Click(object sender, EventArgs e)
         {
             // Create and show the CreateBulletin form
             var createBulletinForm = new CreateBulletin();
-            
+
             // Subscribe to the BulletinPublished event
             createBulletinForm.BulletinPublished += OnBulletinPublished;
-            
+
             createBulletinForm.ShowDialog();
         }
 
@@ -286,6 +298,16 @@ namespace Consultation.App.Dashboard
             }
 
             // The bulletin display will be refreshed by OnBulletinsChanged event
+        }
+
+        private void ConsultationCountCPE_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConsultationsCompletedCount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

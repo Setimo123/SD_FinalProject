@@ -21,7 +21,7 @@ namespace Consultation.App.ConsultationManagement
         public string LocationText => Location.Text;
         public string IDNumber => Idnumber.Text;
         public string Notes => Noteslabel.Text;
-        public string Status => Tagstatus.Text;
+        public string Status => ConStatus.Text;
 
        
         public ConsultationCard(ConsultationData _data)
@@ -45,7 +45,7 @@ namespace Consultation.App.ConsultationManagement
                 faculty.Text = data.Faculty;
                 Idnumber.Text = data.IDNumber;
                 Location.Text = data.Location;
-                Tagstatus.Text = data.Status;
+                ConStatus.Text = data.Status;
 
                 if (DateTime.TryParse(data.Date, out DateTime parsedDate))
                     ScheduleDate = parsedDate;

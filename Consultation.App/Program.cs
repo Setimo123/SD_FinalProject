@@ -25,7 +25,7 @@ namespace Consultation.App
             var authservice = new AuthService(appDbContext);
 
             ILoginView loginView = new LogInView();
-            new LogInPresenter(loginView, authservice);
+            new LogInPresenter(loginView, authservice, appDbContext);
 
             // Run the login form and check the result
             var loginResult = ((Form)loginView).ShowDialog();

@@ -14,5 +14,9 @@ namespace Consultation.App.Views.IViews
         void UpdateDashboardStats(int published, int pending, int completed, int upcoming);
 
         void UpdateConsultationStats(int CPE, int EE, int ECE, int CE, int ME, int CHE);
+        
+        void UpdateConsultationCounts(int activeCount, int completedCount);
+        
+        void UpdateBulletinCount(int count);
     }
 }

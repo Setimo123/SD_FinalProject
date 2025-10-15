@@ -2,6 +2,7 @@
 using Consultation.App.Views.IViews;
 using Consultation.BackEndCRUD.Service.IService;
 using Consultation.Domain;
+using Consultation.Infrastructure.Data;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,12 +13,14 @@ namespace Consultation.App.Presenters
     {
         private readonly ILoginView _loginView;
         private readonly IAuthService _authService;
+        private readonly AppDbContext _dbContext;
         private bool _isLoggingIn;
 
-        public LogInPresenter(ILoginView loginView, IAuthService authService)
+        public LogInPresenter(ILoginView loginView, IAuthService authService, AppDbContext dbContext)
         {
             _loginView = loginView ?? throw new ArgumentNullException(nameof(loginView));
             _authService = authService ?? throw new ArgumentNullException(nameof(authService));
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             _isLoggingIn = false;
 
             _loginView.LogInEvent += LoginAsync;
@@ -99,7 +102,7 @@ namespace Consultation.App.Presenters
             {
                 // Create and show main view with user information
                 IMainView mainView = new MainView();
-                new MainPresenter(mainView, user); // Pass the logged-in user
+                new MainPresenter(mainView, user, _dbContext); // Pass the AppDbContext
 
                 _loginView.ShowMessage("Login successful!");
                 _loginView.DialogResult = DialogResult.OK;
