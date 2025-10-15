@@ -9,6 +9,7 @@ namespace Consultation.App.Views.IViews
         event EventHandler AdminManagementEvent;
 
         void AddUserCard(string name, string id, string email);
+        void AddUserCardsBatch(List<(string name, string id, string email)> users);
         void ClearUserCards();
         void Message(string message);
         void UpdateTotalStudents(int count);

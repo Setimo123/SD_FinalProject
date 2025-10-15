@@ -75,19 +75,19 @@ namespace Consultation.App.Dashboard
         {
             // Create and store the initial Bulletin control
             _currentBulletinControl = new Bulletin();
-            
+
             // Initialize presenter and load all counts from database
             var dbContext = new AppDbContext();
             _presenter = new DashboardPresenter(this, dbContext);
-            
+
             // Load all dashboard data from database
             await _presenter.LoadBulletinCount();
             await _presenter.LoadConsultationStatsByProgram();
             await _presenter.LoadConsultationCounts();
-            
+
             // Load bulletins from database into the control
             await RefreshBulletinDisplay();
-            
+
             // Add the bulletin control to the panel and set default tab
             ActivityFeedPanel.Controls.Add(_currentBulletinControl);
             BulletinButton.CustomBorderThickness = new Padding(0, 0, 0, 3);
@@ -189,7 +189,7 @@ namespace Consultation.App.Dashboard
         {
             // Update ConsultationsCompletedCount with the count of archived consultations
             ConsultationsCompletedCount.Text = completedCount.ToString();
-            
+
             // Update UpcomingSessionsCount with the count of active consultations
             UpcomingSessionsCount.Text = activeCount.ToString();
         }
@@ -306,7 +306,7 @@ namespace Consultation.App.Dashboard
 
             // Refresh the bulletin display immediately
             await RefreshBulletinDisplay();
-            
+
             // Reload the bulletin count
             if (_presenter != null)
             {
@@ -320,6 +320,26 @@ namespace Consultation.App.Dashboard
         }
 
         private void ConsultationsCompletedCount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConByDepLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
         {
 
         }

@@ -62,7 +62,7 @@
     <Compile Update="Views\Controls\UserManagement\EditStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\Controls\UserManagement\EditUserProfile.cs">
+    <Compile Update="Views\Controls\UserManagement\AAEditUserProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Controls\UserManagement\FacultyAction.cs">
@@ -89,10 +89,10 @@
     <Compile Update="Views\Controls\UserManagement\StudentCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\Controls\UserManagement\UserCard.cs">
+    <Compile Update="Views\Controls\UserManagement\AAUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\Controls\UserManagement\UserView.cs">
+    <Compile Update="Views\Controls\UserManagement\AAUserView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Controls\UserManagement\ViewAdmin.cs">
@@ -152,5 +152,10 @@
     <Compile Update="Views\UserManagementView.cs">
       <SubType>UserControl</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Controls\UserManagement\AAUserCard.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

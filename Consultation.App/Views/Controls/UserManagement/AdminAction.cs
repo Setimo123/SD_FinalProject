@@ -35,9 +35,9 @@ namespace Consultation.App.Views.Controls.UserManagement
             // 
             picBoxAdminview.ErrorImage = null;
             picBoxAdminview.Image = Properties.Icons.view_png;
-            picBoxAdminview.Location = new Point(-3, 3);
+            picBoxAdminview.Location = new Point(-3, 5);
             picBoxAdminview.Name = "picBoxAdminview";
-            picBoxAdminview.Size = new Size(190, 50);
+            picBoxAdminview.Size = new Size(190, 45);
             picBoxAdminview.SizeMode = PictureBoxSizeMode.CenterImage;
             picBoxAdminview.TabIndex = 0;
             picBoxAdminview.TabStop = false;
@@ -45,9 +45,9 @@ namespace Consultation.App.Views.Controls.UserManagement
             // picBoxAdminEditUser
             // 
             picBoxAdminEditUser.Image = Properties.Icons.Edit_User;
-            picBoxAdminEditUser.Location = new Point(0, 59);
+            picBoxAdminEditUser.Location = new Point(0, 57);
             picBoxAdminEditUser.Name = "picBoxAdminEditUser";
-            picBoxAdminEditUser.Size = new Size(187, 50);
+            picBoxAdminEditUser.Size = new Size(187, 45);
             picBoxAdminEditUser.SizeMode = PictureBoxSizeMode.CenterImage;
             picBoxAdminEditUser.TabIndex = 1;
             picBoxAdminEditUser.TabStop = false;
@@ -55,7 +55,7 @@ namespace Consultation.App.Views.Controls.UserManagement
             // picBoxAdminResetPass
             // 
             picBoxAdminResetPass.Image = Properties.Icons.reset_password;
-            picBoxAdminResetPass.Location = new Point(0, 115);
+            picBoxAdminResetPass.Location = new Point(0, 110);
             picBoxAdminResetPass.Name = "picBoxAdminResetPass";
             picBoxAdminResetPass.Size = new Size(187, 45);
             picBoxAdminResetPass.SizeMode = PictureBoxSizeMode.CenterImage;

@@ -176,7 +176,7 @@ namespace Consultation.App.Presenters
         private IChildView CreateDashboardView()
         {
             var view = new MainDashboardUserControl();
-            var presenter = new DashboardPresenter(view, _dbContext); // Pass _dbContext as required
+            var presenter = new DashboardPresenter(view, _dbContext, _currentUser); // Pass the current user
             return view;
         }
 
@@ -198,6 +198,7 @@ namespace Consultation.App.Presenters
         {
             var view = new UserManagementView();
             var presenter = new UserManagementPresenter(view);
+            view.SetPresenter(presenter); // Pass presenter reference back to view
             return view;
         }
 

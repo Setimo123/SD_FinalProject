@@ -35,10 +35,9 @@
             labelName = new Label();
             pictureBox1 = new PictureBox();
             contextMenuStripEx1 = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
-            viewToolStripMenuItem = new ToolStripMenuItem();
-            resetPasswordToolStripMenuItem = new ToolStripMenuItem();
-            deleteUserToolStripMenuItem = new ToolStripMenuItem();
-            deleterUserToolStripMenuItem = new ToolStripMenuItem();
+            viewTSMI = new ToolStripMenuItem();
+            editTSMI = new ToolStripMenuItem();
+            deleteTSMI = new ToolStripMenuItem();
             materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             contextMenuStripEx1.SuspendLayout();
@@ -118,34 +117,34 @@
             // contextMenuStripEx1
             // 
             contextMenuStripEx1.Font = new Font("Microsoft Sans Serif", 11F);
-            contextMenuStripEx1.Items.AddRange(new ToolStripItem[] { viewToolStripMenuItem, resetPasswordToolStripMenuItem, deleteUserToolStripMenuItem, deleterUserToolStripMenuItem });
+            contextMenuStripEx1.Items.AddRange(new ToolStripItem[] { viewTSMI, editTSMI, deleteTSMI });
             contextMenuStripEx1.MetroColor = Color.FromArgb(204, 236, 249);
             contextMenuStripEx1.Name = "contextMenuStripEx1";
-            contextMenuStripEx1.Size = new Size(187, 92);
+            contextMenuStripEx1.Size = new Size(181, 92);
+            contextMenuStripEx1.Opening += contextMenuStripEx1_Opening;
             // 
-            // viewToolStripMenuItem
+            // viewTSMI
             // 
-            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            viewToolStripMenuItem.Size = new Size(186, 22);
-            viewToolStripMenuItem.Text = "View";
+            viewTSMI.Image = Properties.Icons.views;
+            viewTSMI.Name = "viewTSMI";
+            viewTSMI.Size = new Size(180, 22);
+            viewTSMI.Text = "View";
+            viewTSMI.Click += viewTSMI_Click;
             // 
-            // resetPasswordToolStripMenuItem
+            // editTSMI
             // 
-            resetPasswordToolStripMenuItem.Name = "resetPasswordToolStripMenuItem";
-            resetPasswordToolStripMenuItem.Size = new Size(186, 22);
-            resetPasswordToolStripMenuItem.Text = "Reset Password";
+            editTSMI.Image = Properties.Icons.edit1;
+            editTSMI.Name = "editTSMI";
+            editTSMI.Size = new Size(180, 22);
+            editTSMI.Text = "Edit User";
+            editTSMI.Click += editTSMI_Click;
             // 
-            // deleteUserToolStripMenuItem
+            // deleteTSMI
             // 
-            deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
-            deleteUserToolStripMenuItem.Size = new Size(186, 22);
-            deleteUserToolStripMenuItem.Text = "Edit User";
-            // 
-            // deleterUserToolStripMenuItem
-            // 
-            deleterUserToolStripMenuItem.Name = "deleterUserToolStripMenuItem";
-            deleterUserToolStripMenuItem.Size = new Size(186, 22);
-            deleterUserToolStripMenuItem.Text = "Deleter user";
+            deleteTSMI.Image = Properties.Icons.delte;
+            deleteTSMI.Name = "deleteTSMI";
+            deleteTSMI.Size = new Size(180, 22);
+            deleteTSMI.Text = "Delete user";
             // 
             // UserCard
             // 
@@ -172,9 +171,8 @@
         private Label labelName;
         private Button button1;
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripEx1;
-        private ToolStripMenuItem viewToolStripMenuItem;
-        private ToolStripMenuItem resetPasswordToolStripMenuItem;
-        private ToolStripMenuItem deleteUserToolStripMenuItem;
-        private ToolStripMenuItem deleterUserToolStripMenuItem;
+        private ToolStripMenuItem viewTSMI;
+        private ToolStripMenuItem editTSMI;
+        private ToolStripMenuItem deleteTSMI;
     }
 }

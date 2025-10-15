@@ -29,14 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             buttonAdmin = new Button();
             flPanelUserCard = new FlowLayoutPanel();
             buttonFaculty = new Button();
@@ -62,9 +60,8 @@
             label3 = new Label();
             label2 = new Label();
             CBoxYear = new Guna.UI2.WinForms.Guna2ComboBox();
-            CBoxCourse = new Guna.UI2.WinForms.Guna2ComboBox();
             cboxSort = new Guna.UI2.WinForms.Guna2ComboBox();
-            textBoxSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            USMsearchbar = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -293,9 +290,8 @@
             materialCard4.Controls.Add(flPanelUserCard);
             materialCard4.Controls.Add(materialCard5);
             materialCard4.Controls.Add(CBoxYear);
-            materialCard4.Controls.Add(CBoxCourse);
             materialCard4.Controls.Add(cboxSort);
-            materialCard4.Controls.Add(textBoxSearch);
+            materialCard4.Controls.Add(USMsearchbar);
             materialCard4.Controls.Add(buttonStudents);
             materialCard4.Controls.Add(buttonAdmin);
             materialCard4.Controls.Add(buttonFaculty);
@@ -370,7 +366,7 @@
             // 
             CBoxYear.BackColor = Color.Transparent;
             CBoxYear.BorderRadius = 6;
-            CBoxYear.CustomizableEdges = customizableEdges17;
+            CBoxYear.CustomizableEdges = customizableEdges1;
             CBoxYear.DrawMode = DrawMode.OwnerDrawFixed;
             CBoxYear.DropDownStyle = ComboBoxStyle.DropDownList;
             CBoxYear.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -378,37 +374,18 @@
             CBoxYear.Font = new Font("Segoe UI", 10F);
             CBoxYear.ForeColor = Color.FromArgb(68, 88, 112);
             CBoxYear.ItemHeight = 30;
-            CBoxYear.Location = new Point(582, 90);
+            CBoxYear.Location = new Point(421, 90);
             CBoxYear.Name = "CBoxYear";
-            CBoxYear.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            CBoxYear.ShadowDecoration.CustomizableEdges = customizableEdges2;
             CBoxYear.Size = new Size(140, 36);
             CBoxYear.TabIndex = 18;
             CBoxYear.SelectedIndexChanged += CBoxYear_SelectedIndexChanged;
-            // 
-            // CBoxCourse
-            // 
-            CBoxCourse.BackColor = Color.Transparent;
-            CBoxCourse.BorderRadius = 6;
-            CBoxCourse.CustomizableEdges = customizableEdges19;
-            CBoxCourse.DrawMode = DrawMode.OwnerDrawFixed;
-            CBoxCourse.DropDownStyle = ComboBoxStyle.DropDownList;
-            CBoxCourse.FocusedColor = Color.FromArgb(94, 148, 255);
-            CBoxCourse.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            CBoxCourse.Font = new Font("Segoe UI", 10F);
-            CBoxCourse.ForeColor = Color.FromArgb(68, 88, 112);
-            CBoxCourse.ItemHeight = 30;
-            CBoxCourse.Location = new Point(421, 90);
-            CBoxCourse.Name = "CBoxCourse";
-            CBoxCourse.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            CBoxCourse.Size = new Size(140, 36);
-            CBoxCourse.TabIndex = 17;
-            CBoxCourse.SelectedIndexChanged += CBoxCourse_SelectedIndexChanged;
             // 
             // cboxSort
             // 
             cboxSort.BackColor = Color.Transparent;
             cboxSort.BorderRadius = 6;
-            cboxSort.CustomizableEdges = customizableEdges21;
+            cboxSort.CustomizableEdges = customizableEdges3;
             cboxSort.DrawMode = DrawMode.OwnerDrawFixed;
             cboxSort.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxSort.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -418,30 +395,31 @@
             cboxSort.ItemHeight = 30;
             cboxSort.Location = new Point(178, 90);
             cboxSort.Name = "cboxSort";
-            cboxSort.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            cboxSort.ShadowDecoration.CustomizableEdges = customizableEdges4;
             cboxSort.Size = new Size(224, 36);
             cboxSort.TabIndex = 16;
             cboxSort.SelectedIndexChanged += cboxSort_SelectedIndexChanged;
             // 
-            // textBoxSearch
+            // USMsearchbar
             // 
-            textBoxSearch.BorderRadius = 6;
-            textBoxSearch.CustomizableEdges = customizableEdges23;
-            textBoxSearch.DefaultText = "Search by name, ID number, or email";
-            textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            textBoxSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            textBoxSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            textBoxSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxSearch.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            textBoxSearch.Location = new Point(178, 30);
-            textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.PlaceholderText = "";
-            textBoxSearch.SelectedText = "";
-            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            textBoxSearch.Size = new Size(984, 41);
-            textBoxSearch.TabIndex = 15;
+            USMsearchbar.BorderRadius = 6;
+            USMsearchbar.CustomizableEdges = customizableEdges5;
+            USMsearchbar.DefaultText = "\r\n";
+            USMsearchbar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            USMsearchbar.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            USMsearchbar.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            USMsearchbar.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            USMsearchbar.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            USMsearchbar.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            USMsearchbar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            USMsearchbar.Location = new Point(178, 30);
+            USMsearchbar.Name = "USMsearchbar";
+            USMsearchbar.PlaceholderForeColor = Color.Gray;
+            USMsearchbar.PlaceholderText = "Search by Name, Email or Umindanao ID";
+            USMsearchbar.SelectedText = "";
+            USMsearchbar.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            USMsearchbar.Size = new Size(984, 41);
+            USMsearchbar.TabIndex = 15;
             // 
             // UserManagementView
             // 
@@ -494,9 +472,8 @@
         private MaterialSkin.Controls.MaterialCard materialCard3;
         private MaterialSkin.Controls.MaterialCard materialCard4;
         private Guna.UI2.WinForms.Guna2ComboBox cboxSort;
-        private Guna.UI2.WinForms.Guna2TextBox textBoxSearch;
+        private Guna.UI2.WinForms.Guna2TextBox USMsearchbar;
         private Guna.UI2.WinForms.Guna2ComboBox CBoxYear;
-        private Guna.UI2.WinForms.Guna2ComboBox CBoxCourse;
         private MaterialSkin.Controls.MaterialCard materialCard5;
         private Label label5;
         private Label label3;

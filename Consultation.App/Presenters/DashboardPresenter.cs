@@ -16,12 +16,35 @@ namespace Consultation.App.Presenters
         private readonly IDashboardView _view;
         private readonly IConsultationRequestRepository _consultationRepository;
         private readonly IBulletinRepository _bulletinRepository;
+        private readonly AppDbContext _dbContext;
         
-        public DashboardPresenter(IDashboardView view, AppDbContext dbContext)
+        public DashboardPresenter(IDashboardView view, AppDbContext dbContext, Consultation.Domain.Users currentUser = null)
         {
             _view = view;
+            _dbContext = dbContext;
             _consultationRepository = new ConsultationRequestRepository(dbContext);
             _bulletinRepository = new BulletinRepository(dbContext);
+            
+            // Display user name if user is logged in
+            if (currentUser != null)
+            {
+                LoadUserName(currentUser);
+            }
+        }
+        
+        private void LoadUserName(Consultation.Domain.Users user)
+        {
+            try
+            {
+                // Display the full user name from the UserName field
+                string displayName = !string.IsNullOrEmpty(user.UserName) ? user.UserName : "User";
+                _view.DisplayUserName(displayName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"LoadUserName Error: {ex.Message}");
+                _view.DisplayUserName("User");
+            }
         }
 
         public async Task LoadConsultationStatsByProgram()
