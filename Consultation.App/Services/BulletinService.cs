@@ -1,21 +1,25 @@
+using Consultation.App.Repository;
+using Consultation.App.Repository.IRepository;
 using Consultation.App.Views.Controls.BulletinManagement;
+using Consultation.Domain;
+using Consultation.Infrastructure.Data;
+using Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Consultation.App.Services
 {
     /// <summary>
-    /// Singleton service to manage bulletin data across the application
+    /// Singleton service to manage bulletin data across the application using database
     /// </summary>
     public class BulletinService
     {
         private static BulletinService _instance;
         private static readonly object _lock = new object();
         
-        private readonly List<BulletinData> _activeBulletins;
-        private readonly List<BulletinData> _archivedBulletins;
-        private int _nextBulletinId = 1;
+        private readonly IBulletinRepository _repository;
         
         // Event to notify when bulletins change
         public event EventHandler<BulletinPublishedEventArgs> BulletinPublished;
@@ -23,8 +27,8 @@ namespace Consultation.App.Services
 
         private BulletinService()
         {
-            _activeBulletins = new List<BulletinData>();
-            _archivedBulletins = new List<BulletinData>();
+            var dbContext = new AppDbContext();
+            _repository = new BulletinRepository(dbContext);
         }
 
         public static BulletinService Instance
@@ -45,99 +49,195 @@ namespace Consultation.App.Services
             }
         }
 
-        public void PublishBulletin(BulletinPublishedEventArgs bulletinData)
+        public async Task<bool> PublishBulletin(BulletinPublishedEventArgs bulletinData)
         {
-            var bulletin = new BulletinData
+            try
             {
-                Id = GenerateBulletinId(),
-                Title = bulletinData.Title,
-                Author = bulletinData.Author,
-                Content = bulletinData.Content,
-                Status = bulletinData.Status,
-                DatePosted = bulletinData.DatePosted
-            };
+                var bulletin = new Bulletin
+                {
+                    Title = bulletinData.Title,
+                    Author = bulletinData.Author,
+                    Content = bulletinData.Content,
+                    Status = bulletinData.Status.Equals("Pending", StringComparison.OrdinalIgnoreCase) 
+                        ? BulletinStatus.pending 
+                        : BulletinStatus.publish,
+                    DatePublished = bulletinData.DatePosted,
+                    FileCount = 0,
+                    IsArchived = false
+                };
 
-            _activeBulletins.Insert(0, bulletin); // Add to beginning
-            
-            // Notify subscribers
-            BulletinPublished?.Invoke(this, bulletinData);
-            BulletinsChanged?.Invoke(this, EventArgs.Empty);
-        }
-        
-        private string GenerateBulletinId()
-        {
-            string id = $"BUL-{DateTime.Now.Year}-{_nextBulletinId:D3}";
-            _nextBulletinId++;
-            return id;
-        }
-
-        public List<BulletinData> GetActiveBulletins()
-        {
-            return new List<BulletinData>(_activeBulletins);
-        }
-        
-        public List<BulletinData> GetArchivedBulletins()
-        {
-            return new List<BulletinData>(_archivedBulletins);
-        }
-
-        public int GetActiveBulletinCount()
-        {
-            return _activeBulletins.Count;
-        }
-        
-        public int GetArchivedBulletinCount()
-        {
-            return _archivedBulletins.Count;
-        }
-        
-        public void ArchiveBulletin(string bulletinId)
-        {
-            var bulletin = _activeBulletins.FirstOrDefault(b => b.Id == bulletinId);
-            if (bulletin != null)
-            {
-                _activeBulletins.Remove(bulletin);
-                bulletin.Status = "Archived";
-                _archivedBulletins.Insert(0, bulletin);
-                BulletinsChanged?.Invoke(this, EventArgs.Empty);
+                bool success = await _repository.AddBulletin(bulletin);
+                
+                if (success)
+                {
+                    // Important: Notify subscribers AFTER database save is confirmed
+                    BulletinPublished?.Invoke(this, bulletinData);
+                    BulletinsChanged?.Invoke(this, EventArgs.Empty);
+                }
+                
+                return success;
             }
-        }
-        
-        public void RestoreBulletin(string bulletinId)
-        {
-            var bulletin = _archivedBulletins.FirstOrDefault(b => b.Id == bulletinId);
-            if (bulletin != null)
+            catch (Exception ex)
             {
-                _archivedBulletins.Remove(bulletin);
-                bulletin.Status = "Pending";
-                _activeBulletins.Insert(0, bulletin);
-                BulletinsChanged?.Invoke(this, EventArgs.Empty);
-            }
-        }
-        
-        public void DeleteBulletin(string bulletinId)
-        {
-            var activeBulletin = _activeBulletins.FirstOrDefault(b => b.Id == bulletinId);
-            if (activeBulletin != null)
-            {
-                _activeBulletins.Remove(activeBulletin);
-                BulletinsChanged?.Invoke(this, EventArgs.Empty);
-                return;
-            }
-            
-            var archivedBulletin = _archivedBulletins.FirstOrDefault(b => b.Id == bulletinId);
-            if (archivedBulletin != null)
-            {
-                _archivedBulletins.Remove(archivedBulletin);
-                BulletinsChanged?.Invoke(this, EventArgs.Empty);
+                Console.WriteLine($"PublishBulletin Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                return false;
             }
         }
 
-        public void ClearBulletins()
+        public async Task<List<BulletinData>> GetActiveBulletins()
         {
-            _activeBulletins.Clear();
-            _archivedBulletins.Clear();
-            BulletinsChanged?.Invoke(this, EventArgs.Empty);
+            try
+            {
+                var bulletins = await _repository.GetActiveBulletins();
+                return bulletins.Select(b => new BulletinData
+                {
+                    Id = b.BulletinID.ToString(),
+                    Title = b.Title,
+                    Author = b.Author,
+                    Content = b.Content,
+                    Status = b.Status.ToString(),
+                    DatePosted = b.DatePublished
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetActiveBulletins Error: {ex.Message}");
+                return new List<BulletinData>();
+            }
+        }
+        
+        public async Task<List<BulletinData>> GetArchivedBulletins()
+        {
+            try
+            {
+                var bulletins = await _repository.GetArchivedBulletins();
+                return bulletins.Select(b => new BulletinData
+                {
+                    Id = b.BulletinID.ToString(),
+                    Title = b.Title,
+                    Author = b.Author,
+                    Content = b.Content,
+                    Status = b.Status.ToString(),
+                    DatePosted = b.DatePublished
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetArchivedBulletins Error: {ex.Message}");
+                return new List<BulletinData>();
+            }
+        }
+
+        public async Task<int> GetActiveBulletinCount()
+        {
+            try
+            {
+                return await _repository.GetActiveBulletinCount();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetActiveBulletinCount Error: {ex.Message}");
+                return 0;
+            }
+        }
+        
+        public async Task<int> GetArchivedBulletinCount()
+        {
+            try
+            {
+                return await _repository.GetArchivedBulletinCount();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetArchivedBulletinCount Error: {ex.Message}");
+                return 0;
+            }
+        }
+        
+        public async Task<bool> ArchiveBulletin(int bulletinId)
+        {
+            try
+            {
+                bool success = await _repository.ArchiveBulletin(bulletinId);
+                if (success)
+                {
+                    BulletinsChanged?.Invoke(this, EventArgs.Empty);
+                }
+                return success;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ArchiveBulletin Error: {ex.Message}");
+                return false;
+            }
+        }
+        
+        public async Task<bool> RestoreBulletin(int bulletinId)
+        {
+            try
+            {
+                bool success = await _repository.RestoreBulletin(bulletinId);
+                if (success)
+                {
+                    BulletinsChanged?.Invoke(this, EventArgs.Empty);
+                }
+                return success;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"RestoreBulletin Error: {ex.Message}");
+                return false;
+            }
+        }
+        
+        public async Task<bool> DeleteBulletin(int bulletinId)
+        {
+            try
+            {
+                bool success = await _repository.DeleteBulletin(bulletinId);
+                if (success)
+                {
+                    BulletinsChanged?.Invoke(this, EventArgs.Empty);
+                }
+                return success;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"DeleteBulletin Error: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateBulletin(int bulletinId, string title, string author, string content, string status)
+        {
+            try
+            {
+                var bulletin = await _repository.GetBulletinById(bulletinId);
+                if (bulletin == null)
+                {
+                    return false;
+                }
+
+                bulletin.Title = title;
+                bulletin.Author = author;
+                bulletin.Content = content;
+                bulletin.Status = status.Equals("Pending", StringComparison.OrdinalIgnoreCase) 
+                    ? BulletinStatus.pending 
+                    : BulletinStatus.publish;
+
+                bool success = await _repository.UpdateBulletin(bulletin);
+                if (success)
+                {
+                    BulletinsChanged?.Invoke(this, EventArgs.Empty);
+                }
+                return success;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"UpdateBulletin Error: {ex.Message}");
+                return false;
+            }
         }
     }
 

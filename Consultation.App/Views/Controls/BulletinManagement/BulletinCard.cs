@@ -13,7 +13,7 @@ namespace Consultation.App.Views.Controls.BulletinManagement
 {
     public partial class BulletinCard : UserControl
     {
-        private string _bulletinId;
+        private int _bulletinId;
         
         public BulletinCard()
         {
@@ -25,7 +25,12 @@ namespace Consultation.App.Views.Controls.BulletinManagement
         {
             InitializeComponent();
             
-            _bulletinId = id;
+            // Parse the ID as integer for database operations
+            if (int.TryParse(id, out int bulletinId))
+            {
+                _bulletinId = bulletinId;
+            }
+            
             tagId.Text = $"ID: {id}";
             lblTitle.Text = title;
             tagAuthor.Text = author;
@@ -106,7 +111,7 @@ namespace Consultation.App.Views.Controls.BulletinManagement
 
             // backend
         }
-        private void btnArchive_Click(object sender, EventArgs e)
+        private async void btnArchive_Click(object sender, EventArgs e)
         {
             // Confirm archive action
             var result = MessageBox.Show(
@@ -117,17 +122,39 @@ namespace Consultation.App.Views.Controls.BulletinManagement
                 
             if (result == DialogResult.Yes)
             {
-                // Archive through the service
-                Consultation.App.Services.BulletinService.Instance.ArchiveBulletin(_bulletinId);
-                
-                MessageBox.Show(
-                    "Bulletin has been archived successfully!",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                try
+                {
+                    // Archive through the service (database)
+                    bool success = await Consultation.App.Services.BulletinService.Instance.ArchiveBulletin(_bulletinId);
+                    
+                    if (success)
+                    {
+                        MessageBox.Show(
+                            "Bulletin has been archived successfully!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Failed to archive the bulletin. Please try again.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"An error occurred: {ex.Message}",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
         }
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
             // Confirm delete action
             var result = MessageBox.Show(
@@ -138,14 +165,36 @@ namespace Consultation.App.Views.Controls.BulletinManagement
                 
             if (result == DialogResult.Yes)
             {
-                // Delete through the service
-                Consultation.App.Services.BulletinService.Instance.DeleteBulletin(_bulletinId);
-                
-                MessageBox.Show(
-                    "Bulletin has been deleted successfully!",
-                    "Success",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                try
+                {
+                    // Delete through the service (database)
+                    bool success = await Consultation.App.Services.BulletinService.Instance.DeleteBulletin(_bulletinId);
+                    
+                    if (success)
+                    {
+                        MessageBox.Show(
+                            "Bulletin has been deleted successfully!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Failed to delete the bulletin. Please try again.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"An error occurred: {ex.Message}",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
         }
 

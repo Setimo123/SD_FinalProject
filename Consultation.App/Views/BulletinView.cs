@@ -47,11 +47,11 @@ namespace Consultation.App.Views
             }
         }
 
-        private void LoadActiveBulletins()
+        private async void LoadActiveBulletins()
         {
             flpBulletinList.Controls.Clear();
             
-            var bulletins = BulletinService.Instance.GetActiveBulletins();
+            var bulletins = await BulletinService.Instance.GetActiveBulletins();
             
             foreach (var bulletin in bulletins)
             {
@@ -102,11 +102,11 @@ namespace Consultation.App.Views
             LoadArchivedBulletins();
         }
         
-        private void LoadArchivedBulletins()
+        private async void LoadArchivedBulletins()
         {
             flpBulletinList.Controls.Clear();
             
-            var bulletins = BulletinService.Instance.GetArchivedBulletins();
+            var bulletins = await BulletinService.Instance.GetArchivedBulletins();
             
             foreach (var bulletin in bulletins)
             {

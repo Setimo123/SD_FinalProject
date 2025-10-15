@@ -38,8 +38,9 @@ namespace Consultation.App.Repository
         {
             try
             {
+                // Get all non-archived bulletins (both pending and published)
                 return await _context.Bulletin
-                    .Where(b => !b.IsArchived && b.Status == BulletinStatus.publish)
+                    .Where(b => !b.IsArchived)
                     .OrderByDescending(b => b.DatePublished)
                     .ToListAsync();
             }
@@ -70,8 +71,9 @@ namespace Consultation.App.Repository
         {
             try
             {
+                // Count all non-archived bulletins (both pending and published)
                 return await _context.Bulletin
-                    .CountAsync(b => !b.IsArchived && b.Status == BulletinStatus.publish);
+                    .CountAsync(b => !b.IsArchived);
             }
             catch (Exception ex)
             {

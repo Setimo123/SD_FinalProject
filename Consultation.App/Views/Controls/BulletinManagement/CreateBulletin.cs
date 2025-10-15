@@ -21,7 +21,7 @@ namespace Consultation.App.Views.Controls.BulletinManagement
             InitializeComponent();
         }
 
-        private void btnPublishBulletin_Click(object sender, EventArgs e)
+        private async void btnPublishBulletin_Click(object sender, EventArgs e)
         {
             // Validate that required fields are not empty
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
@@ -64,19 +64,45 @@ namespace Consultation.App.Views.Controls.BulletinManagement
                 DatePosted = DateTime.Now
             };
 
-            // Publish bulletin through the service
-            BulletinService.Instance.PublishBulletin(bulletinData);
-            
-            // Raise the event to notify subscribers that a bulletin was published
-            BulletinPublished?.Invoke(this, bulletinData);
-            
-            // Show success message
-            MessageBox.Show($"Bulletin '{bulletinData.Title}' has been published successfully!", 
-                "Success", 
-                MessageBoxButtons.OK, 
-                MessageBoxIcon.Information);
-            
-            this.Close();
+            try
+            {
+                // Disable button to prevent multiple submissions
+                btnPublishBulletin.Enabled = false;
+                
+                // Publish bulletin through the service to database
+                bool success = await BulletinService.Instance.PublishBulletin(bulletinData);
+                
+                if (success)
+                {
+                    // Show success message
+                    MessageBox.Show($"Bulletin '{bulletinData.Title}' has been published successfully to the database!", 
+                        "Success", 
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Information);
+                    
+                    // Raise the event to notify subscribers that a bulletin was published
+                    // This happens AFTER the database save is confirmed
+                    BulletinPublished?.Invoke(this, bulletinData);
+                    
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to publish bulletin to the database. Please try again.", 
+                        "Error", 
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
+                    btnPublishBulletin.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while publishing the bulletin: {ex.Message}", 
+                    "Error", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+                btnPublishBulletin.Enabled = true;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -75,9 +75,7 @@ namespace Consultation.App.Dashboard
         {
             // Create and store the initial Bulletin control
             _currentBulletinControl = new Bulletin();
-            ActivityFeedPanel.Controls.Add(_currentBulletinControl);
-            BulletinButton.CustomBorderThickness = new Padding(0, 0, 0, 3);
-
+            
             // Initialize presenter and load all counts from database
             var dbContext = new AppDbContext();
             _presenter = new DashboardPresenter(this, dbContext);
@@ -86,20 +84,29 @@ namespace Consultation.App.Dashboard
             await _presenter.LoadBulletinCount();
             await _presenter.LoadConsultationStatsByProgram();
             await _presenter.LoadConsultationCounts();
+            
+            // Load bulletins from database into the control
+            await RefreshBulletinDisplay();
+            
+            // Add the bulletin control to the panel and set default tab
+            ActivityFeedPanel.Controls.Add(_currentBulletinControl);
+            BulletinButton.CustomBorderThickness = new Padding(0, 0, 0, 3);
+            BulletinButton.CustomBorderColor = Color.Red;
+            BulletinButton.ForeColor = Color.Red;
         }
 
-        private void OnBulletinsChanged(object sender, EventArgs e)
+        private async void OnBulletinsChanged(object sender, EventArgs e)
         {
             // Reload bulletin count from database
             if (_presenter != null)
             {
-                _ = _presenter.LoadBulletinCount();
+                await _presenter.LoadBulletinCount();
             }
 
             // Refresh bulletin view if currently displayed
             if (_currentBulletinControl != null && ActivityFeedPanel.Controls.Contains(_currentBulletinControl))
             {
-                RefreshBulletinDisplay();
+                await RefreshBulletinDisplay();
             }
         }
 
@@ -118,14 +125,14 @@ namespace Consultation.App.Dashboard
             }
         }
 
-        private void RefreshBulletinDisplay()
+        private async Task RefreshBulletinDisplay()
         {
             if (_currentBulletinControl == null || _currentBulletinControl.IsDisposed)
                 return;
 
             _currentBulletinControl.flowLayoutPanel1.Controls.Clear();
 
-            var bulletins = BulletinService.Instance.GetActiveBulletins();
+            var bulletins = await BulletinService.Instance.GetActiveBulletins();
             foreach (var bulletin in bulletins)
             {
                 var card = new BulletinCards(
@@ -187,7 +194,7 @@ namespace Consultation.App.Dashboard
             UpcomingSessionsCount.Text = activeCount.ToString();
         }
 
-        private void BulletinButton_Click_1(object sender, EventArgs e)
+        private async void BulletinButton_Click_1(object sender, EventArgs e)
         {
             ResetButtonBorders();
             BulletinButton.CustomBorderThickness = new Padding(0, 0, 0, 3);
@@ -202,8 +209,8 @@ namespace Consultation.App.Dashboard
                 _currentBulletinControl = new Bulletin();
             }
 
-            // Reload all bulletins from service
-            RefreshBulletinDisplay();
+            // Reload all bulletins from service (database)
+            await RefreshBulletinDisplay();
 
             ActivityFeedPanel.Controls.Add(_currentBulletinControl);
         }
@@ -275,7 +282,7 @@ namespace Consultation.App.Dashboard
         }
 
         // Event handler for when a bulletin is published
-        private void OnBulletinPublished(object sender, BulletinPublishedEventArgs e)
+        private async void OnBulletinPublished(object sender, BulletinPublishedEventArgs e)
         {
             // The service already handles the bulletin publication and notification
             // Just ensure we're showing the bulletin tab
@@ -297,7 +304,14 @@ namespace Consultation.App.Dashboard
                 ActivityFeedPanel.Controls.Add(_currentBulletinControl);
             }
 
-            // The bulletin display will be refreshed by OnBulletinsChanged event
+            // Refresh the bulletin display immediately
+            await RefreshBulletinDisplay();
+            
+            // Reload the bulletin count
+            if (_presenter != null)
+            {
+                await _presenter.LoadBulletinCount();
+            }
         }
 
         private void ConsultationCountCPE_Click(object sender, EventArgs e)

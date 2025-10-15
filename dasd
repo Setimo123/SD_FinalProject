@@ -1,0 +1,26 @@
+[33mcommit 9e683c57a9b79039112aa68b953abd3f9dfe4299[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: sush1 <d.pascual.524712@umindanao.edu.ph>
+Date:   Wed Oct 15 23:23:49 2025 +0800
+
+    added a few functionality and fixed a few errors
+
+ Consultation.App/Consultation.App.csproj.user      |   3 [31m-[m
+ .../Presenters/ConsultationPresenter.cs            | 114 [32m+++++++++++[m[31m-[m
+ Consultation.App/Presenters/DashboardPresenter.cs  | 193 [32m+++++++++++++[m[31m-------[m
+ Consultation.App/Presenters/LogInPresenter.cs      |   7 [32m+[m[31m-[m
+ Consultation.App/Presenters/MainPresenter.cs       |  10 [32m+[m[31m-[m
+ Consultation.App/Program.cs                        |  14 [32m+[m[31m-[m
+ Consultation.App/Repository/BulletinRepository.cs  | 201 [32m+++++++++++++++++++++[m
+ .../Repository/IRepository/IBulletinRepository.cs  |  22 [32m+++[m
+ .../ConsultationManagement/ArchiveCard.Designer.cs | 106 [32m+++++[m[31m------[m
+ .../ConsultationCard.Designer.cs                   | 141 [32m+++++++[m[31m--------[m
+ .../ConsultationManagement/ConsultationCard.cs     |   4 [32m+[m[31m-[m
+ .../Dashboard/MainDashboardUserControl.Designer.cs |  80 [32m+[m[31m-------[m
+ .../Controls/Dashboard/MainDashboardUserControl.cs |  98 [32m++++++[m[31m----[m
+ .../Quick Actions Panel/AddUser.Designer.cs        | 106 [31m-----------[m
+ .../Dashboard/Quick Actions Panel/AddUser.cs       |  25 [31m---[m
+ .../Dashboard/Quick Actions Panel/AddUser.resx     | 120 [31m------------[m
+ Consultation.App/Views/IViews/IDashboardView.cs    |   4 [32m+[m
+ .../Consultation.App.AssemblyInfo.cs               |   2 [32m+[m[31m-[m
+ .../Consultation.App.AssemblyInfoInputs.cache      |   2 [32m+[m[31m-[m
+ 19 files changed, 674 insertions(+), 578 deletions(-)
