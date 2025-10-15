@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consultation.App.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,6 +64,9 @@ namespace Consultation.App.Views.Controls.BulletinManagement
                 DatePosted = DateTime.Now
             };
 
+            // Publish bulletin through the service
+            BulletinService.Instance.PublishBulletin(bulletinData);
+            
             // Raise the event to notify subscribers that a bulletin was published
             BulletinPublished?.Invoke(this, bulletinData);
             
