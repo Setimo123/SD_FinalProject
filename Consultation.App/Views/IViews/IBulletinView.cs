@@ -8,5 +8,7 @@ namespace Consultation.App.Views.IViews
 {
     public interface IBulletinView : IChildView
     {
+        void SwitchToArchivedView();
+        void SwitchToActiveView();
     }
 }

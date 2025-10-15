@@ -51,6 +51,6 @@
 
         #endregion
 
-        private FlowLayoutPanel flowLayoutPanel1;
+        public FlowLayoutPanel flowLayoutPanel1;
     }
 }

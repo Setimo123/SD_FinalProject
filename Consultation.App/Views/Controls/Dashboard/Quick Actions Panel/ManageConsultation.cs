@@ -13,6 +13,8 @@ namespace Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel
 {
     public partial class ManageConsultation : UserControl
     {
+        public event EventHandler NavigateToConsultation;
+
         public ManageConsultation()
         {
             InitializeComponent();
@@ -20,8 +22,8 @@ namespace Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel
 
         private void materialCard1_Click(object sender, EventArgs e)
         {
-         //   AddSchedule scheduleForm = new AddSchedule();
-         //   scheduleForm.ShowDialog();
+            // Trigger navigation to Consultation view
+            NavigateToConsultation?.Invoke(this, EventArgs.Empty);
         }
     }
 }

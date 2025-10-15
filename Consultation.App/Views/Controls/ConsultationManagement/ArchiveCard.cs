@@ -29,6 +29,9 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
                 Faculty.Text = data.Faculty;
                 idnumber.Text = data.IDNumber;
                 Location.Text = data.Location;
+                
+                // Set the ArcStatus to "Archived"
+                ArcStatus.Text = "Archived";
             }
         }
 
@@ -42,9 +45,48 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
             RestoreClicked?.Invoke(this, data);
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Implement delete logic if necessary
+            // Confirm delete action
+            var result = MessageBox.Show(
+                $"Are you sure you want to permanently delete the consultation for '{data.Name}'? This action cannot be undone.",
+                "Delete Consultation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+                
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // Delete through the service (database)
+                    bool success = await Services.ConsultationService.Instance.DeleteConsultation(data.Id);
+                    
+                    if (success)
+                    {
+                        MessageBox.Show(
+                            "Consultation has been permanently deleted!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Failed to delete the consultation. Please try again.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"An error occurred: {ex.Message}",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

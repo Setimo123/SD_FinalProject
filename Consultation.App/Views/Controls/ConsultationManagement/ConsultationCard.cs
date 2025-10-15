@@ -8,6 +8,7 @@ namespace Consultation.App.ConsultationManagement
     {
         
         public event EventHandler<ConsultationCard> ArchiveRequested;
+        public event EventHandler<ConsultationCard> DeleteRequested;
         private ConsultationData data;
        
         public DateTime ScheduleDate { get; private set; }
@@ -81,9 +82,20 @@ namespace Consultation.App.ConsultationManagement
         }
 
         
+        
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: Add delete logic if needed
+            // Confirm delete action
+            var result = MessageBox.Show(
+                $"Are you sure you want to delete the consultation for '{StudentName.Text}'? This action cannot be undone.",
+                "Delete Consultation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+                
+            if (result == DialogResult.Yes)
+            {
+                DeleteRequested?.Invoke(this, this);
+            }
         }
 
 

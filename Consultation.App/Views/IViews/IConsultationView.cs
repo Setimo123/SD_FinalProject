@@ -12,8 +12,11 @@ namespace Consultation.App.Views.IViews
 
         event EventHandler<ConsultationData> ArchiveRequested;
         event EventHandler<ConsultationData> RestoreRequested;
+        event EventHandler<ConsultationData> DeleteRequested;
 
         void LoadActiveConsultations(List<ConsultationData> consultations);
         void LoadArchivedConsultations(List<ConsultationData> consultations);
+        void SwitchToArchivedView();
+        void SwitchToActiveView();
     }
 }
