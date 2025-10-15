@@ -13,9 +13,42 @@ namespace Consultation.App.Views.Controls.BulletinManagement
 {
     public partial class BulletinCard : UserControl
     {
+        private string _bulletinId;
+        
         public BulletinCard()
         {
             InitializeComponent();
+        }
+        
+        // Constructor with bulletin data
+        public BulletinCard(string id, string title, string author, string content, string status, DateTime datePosted)
+        {
+            InitializeComponent();
+            
+            _bulletinId = id;
+            tagId.Text = $"ID: {id}";
+            lblTitle.Text = title;
+            tagAuthor.Text = author;
+            txtContent.Text = content;
+            tagStatus.Text = status;
+            tagDate.Text = datePosted.ToString("yyyy-MM-dd");
+            
+            // Update status appearance based on status value
+            UpdateStatusAppearance(status);
+        }
+        
+        private void UpdateStatusAppearance(string status)
+        {
+            if (string.Equals(status, "Pending", StringComparison.OrdinalIgnoreCase))
+            {
+                tagStatus.FillColor = Color.FromArgb(255, 240, 240);
+                tagStatus.ForeColor = Color.FromArgb(190, 0, 2);
+            }
+            else if (string.Equals(status, "Approved", StringComparison.OrdinalIgnoreCase))
+            {
+                tagStatus.FillColor = Color.LightGreen;
+                tagStatus.ForeColor = Color.DarkGreen;
+            }
         }
 
         private void btnMore_Click(object sender, EventArgs e)
@@ -75,12 +108,45 @@ namespace Consultation.App.Views.Controls.BulletinManagement
         }
         private void btnArchive_Click(object sender, EventArgs e)
         {
-            // backend
-            // maybe set a variable like isArchived = true (initialized to false)
+            // Confirm archive action
+            var result = MessageBox.Show(
+                $"Are you sure you want to archive the bulletin '{lblTitle.Text}'?",
+                "Archive Bulletin",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+                
+            if (result == DialogResult.Yes)
+            {
+                // Archive through the service
+                Consultation.App.Services.BulletinService.Instance.ArchiveBulletin(_bulletinId);
+                
+                MessageBox.Show(
+                    "Bulletin has been archived successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // backend
+            // Confirm delete action
+            var result = MessageBox.Show(
+                $"Are you sure you want to delete the bulletin '{lblTitle.Text}'? This action cannot be undone.",
+                "Delete Bulletin",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+                
+            if (result == DialogResult.Yes)
+            {
+                // Delete through the service
+                Consultation.App.Services.BulletinService.Instance.DeleteBulletin(_bulletinId);
+                
+                MessageBox.Show(
+                    "Bulletin has been deleted successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
 
         private void Initialize_btnMoreComponents()

@@ -13,9 +13,25 @@ namespace Consultation.App.Views.Controls.BulletinManagement
 {
     public partial class ArchiveCard : UserControl
     {
+        private string _bulletinId;
+        
         public ArchiveCard()
         {
             InitializeComponent();
+        }
+        
+        // Constructor with bulletin data
+        public ArchiveCard(string id, string title, string author, string content, string status, DateTime datePosted)
+        {
+            InitializeComponent();
+            
+            _bulletinId = id;
+            tagId.Text = $"ID: {id}";
+            lblTitle.Text = title;
+            tagAuthor.Text = author;
+            txtContent.Text = content;
+            tagStatus.Text = status;
+            tagDate.Text = datePosted.ToString("yyyy-MM-dd");
         }
 
         private void btnMore_Click(object sender, EventArgs e)
@@ -75,12 +91,45 @@ namespace Consultation.App.Views.Controls.BulletinManagement
         }
         private void btnArchive_Click(object sender, EventArgs e)
         {
-            // backend
-            // maybe set a variable like isArchived = true (initialized to false)
+            // Restore from archive
+            var result = MessageBox.Show(
+                $"Do you want to restore the bulletin '{lblTitle.Text}' to active bulletins?",
+                "Restore Bulletin",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+                
+            if (result == DialogResult.Yes)
+            {
+                // Restore through the service
+                Consultation.App.Services.BulletinService.Instance.RestoreBulletin(_bulletinId);
+                
+                MessageBox.Show(
+                    "Bulletin has been restored successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // backend
+            // Confirm delete action
+            var result = MessageBox.Show(
+                $"Are you sure you want to permanently delete the bulletin '{lblTitle.Text}'? This action cannot be undone.",
+                "Delete Bulletin",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+                
+            if (result == DialogResult.Yes)
+            {
+                // Delete through the service
+                Consultation.App.Services.BulletinService.Instance.DeleteBulletin(_bulletinId);
+                
+                MessageBox.Show(
+                    "Bulletin has been permanently deleted!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
 
         private void Initialize_btnMoreComponents()
@@ -164,7 +213,7 @@ namespace Consultation.App.Views.Controls.BulletinManagement
             btnArchive.Name = "btnArchive";
             btnArchive.Size = new Size(115, 40);
             btnArchive.TabIndex = 37;
-            btnArchive.Text = "Archive";
+            btnArchive.Text = "Restore";
             btnArchive.TextAlign = HorizontalAlignment.Left;
             btnArchive.TextOffset = new Point(6, 0);
             btnArchive.Margin = Padding.Empty;

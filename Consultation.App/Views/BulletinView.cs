@@ -1,4 +1,5 @@
-﻿using Consultation.App.Views.Controls.BulletinManagement;
+﻿using Consultation.App.Services;
+using Consultation.App.Views.Controls.BulletinManagement;
 using Consultation.App.Views.IViews;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,9 @@ namespace Consultation.App.Views
         {
             InitializeComponent();
 
+            // Subscribe to bulletin service events
+            BulletinService.Instance.BulletinsChanged += OnBulletinsChanged;
+
             btnBulletinView_Click(btnBulletinView, EventArgs.Empty);
         }
 
@@ -27,7 +31,47 @@ namespace Consultation.App.Views
         {
             CreateBulletin bulletinForm = new CreateBulletin();
             bulletinForm.ShowDialog();
-            btnBulletinView_Click(btnBulletinView, EventArgs.Empty);    // automatic refresh
+            // Refresh is handled by the BulletinsChanged event
+        }
+
+        private void OnBulletinsChanged(object sender, EventArgs e)
+        {
+            // Refresh the current view
+            if (lblBulletinHeader.Text == "Active Bulletins")
+            {
+                LoadActiveBulletins();
+            }
+            else if (lblBulletinHeader.Text == "Archived Bulletins")
+            {
+                LoadArchivedBulletins();
+            }
+        }
+
+        private void LoadActiveBulletins()
+        {
+            flpBulletinList.Controls.Clear();
+            
+            var bulletins = BulletinService.Instance.GetActiveBulletins();
+            
+            foreach (var bulletin in bulletins)
+            {
+                var card = new BulletinCard(
+                    bulletin.Id,
+                    bulletin.Title,
+                    bulletin.Author,
+                    bulletin.Content,
+                    bulletin.Status,
+                    bulletin.DatePosted
+                );
+                flpBulletinList.Controls.Add(card);
+            }
+            
+            // If no bulletins exist, show a message or empty state
+            if (bulletins.Count == 0)
+            {
+                // Optional: Add a label showing "No bulletins available"
+                // For now, just leave it empty
+            }
         }
 
         private void btnBulletinView_Click(object sender, EventArgs e)
@@ -40,12 +84,8 @@ namespace Consultation.App.Views
 
             lblBulletinHeader.Text = "Active Bulletins";
 
-            // backend
-            flpBulletinList.Controls.Clear();
-            for (int i = 0; i < 5; ++i)
-            {
-                flpBulletinList.Controls.Add(new BulletinCard());
-            }
+            // Load active bulletins from service
+            LoadActiveBulletins();
         }
 
         private void btnArchive_Click(object sender, EventArgs e)
@@ -58,11 +98,34 @@ namespace Consultation.App.Views
 
             lblBulletinHeader.Text = "Archived Bulletins";
 
-            // backend
+            // Load archived bulletins from service
+            LoadArchivedBulletins();
+        }
+        
+        private void LoadArchivedBulletins()
+        {
             flpBulletinList.Controls.Clear();
-            for (int i = 0; i < 3; ++i)
+            
+            var bulletins = BulletinService.Instance.GetArchivedBulletins();
+            
+            foreach (var bulletin in bulletins)
             {
-                flpBulletinList.Controls.Add(new ArchiveCard());
+                var card = new ArchiveCard(
+                    bulletin.Id,
+                    bulletin.Title,
+                    bulletin.Author,
+                    bulletin.Content,
+                    bulletin.Status,
+                    bulletin.DatePosted
+                );
+                flpBulletinList.Controls.Add(card);
+            }
+            
+            // If no archived bulletins exist, show a message or empty state
+            if (bulletins.Count == 0)
+            {
+                // Optional: Add a label showing "No archived bulletins"
+                // For now, just leave it empty
             }
         }
 

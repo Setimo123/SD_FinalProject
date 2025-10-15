@@ -32,6 +32,9 @@
     <Compile Update="Views\Controls\Dashboard\Activity Feed Panel\ConsultationCards.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\Controls\Dashboard\MainDashboardUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\Controls\Dashboard\Quick Actions Panel\AddUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,9 +144,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Controls\Dashboard\Activity Feed Panel\ConsultationCard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\Controls\Dashboard\MainDashboardUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\MainView.cs">
