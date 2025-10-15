@@ -5,6 +5,7 @@ using Consultation.App.Presenters;
 using Consultation.App.ViewModels.DashboardModels;
 using Consultation.App.Views.Controls.Dashboard.Quick_Actions_Panel;
 using Consultation.App.Views.IViews;
+using Consultation.App.Views;
 using Consultation.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,9 @@ namespace Consultation.App.Dashboard
 
         // Store reference to the current Bulletin control to persist bulletin cards
         private Bulletin _currentBulletinControl;
+        
+        // Store reference to the current Consultation2 control to persist consultation cards
+        private Consultation2 _currentConsultation2Control;
 
         public void DisplayUserName(string name)
         {
@@ -64,8 +68,14 @@ namespace Consultation.App.Dashboard
                 // Subscribe to the BulletinPublished event from createNewBulletin1 control
                 createNewBulletin1.BulletinPublished += OnBulletinPublished;
 
+                // Subscribe to navigation event from manageConsultation1 control
+                manageConsultation1.NavigateToConsultation += OnNavigateToConsultation;
+
                 // Subscribe to bulletin service for updates
                 BulletinService.Instance.BulletinsChanged += OnBulletinsChanged;
+
+                // Subscribe to consultation service for updates
+                ConsultationService.Instance.ConsultationsChanged += OnConsultationsChanged;
 
                 this.Load += MainDashboardUserControl_Load;
             }
@@ -110,6 +120,23 @@ namespace Consultation.App.Dashboard
             }
         }
 
+        private async void OnConsultationsChanged(object sender, EventArgs e)
+        {
+            // Reload consultation counts from database
+            if (_presenter != null)
+            {
+                await _presenter.LoadConsultationCounts();
+                await _presenter.LoadConsultationStatsByProgram();
+            }
+
+            // Refresh consultation view if currently displayed
+            if (_currentConsultation2Control != null && !_currentConsultation2Control.IsDisposed && 
+                ActivityFeedPanel.Controls.Contains(_currentConsultation2Control))
+            {
+                await RefreshConsultationDisplay(_currentConsultation2Control);
+            }
+        }
+
         public void UpdateBulletinCount(int count)
         {
             BulletinPublishedCount.Text = count.ToString();
@@ -142,6 +169,43 @@ namespace Consultation.App.Dashboard
                     bulletin.DatePosted
                 );
                 _currentBulletinControl.flowLayoutPanel1.Controls.Add(card);
+            }
+        }
+
+        private async Task RefreshConsultationDisplay(Consultation2 consultationControl)
+        {
+            if (consultationControl == null || consultationControl.IsDisposed)
+                return;
+
+            consultationControl.flowLayoutPanel1.Controls.Clear();
+
+            var consultations = await ConsultationService.Instance.GetActiveConsultations();
+            
+            foreach (var consultation in consultations)
+            {
+                try
+                {
+                    // Try to parse the date, default to current date if parsing fails
+                    DateTime consultationDate;
+                    if (!DateTime.TryParse(consultation.Date, out consultationDate))
+                    {
+                        consultationDate = DateTime.Now;
+                    }
+
+                    var card = new ConsultationCards(
+                        consultation.Name,
+                        consultation.Status,
+                        consultation.Notes,
+                        consultation.CourseCode,
+                        consultationDate
+                    );
+                    consultationControl.flowLayoutPanel1.Controls.Add(card);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error creating consultation card: {ex.Message}");
+                    // Continue to next consultation if one fails
+                }
             }
         }
 
@@ -215,7 +279,7 @@ namespace Consultation.App.Dashboard
             ActivityFeedPanel.Controls.Add(_currentBulletinControl);
         }
 
-        private void ConsultationButton_Click_1(object sender, EventArgs e)
+        private async void ConsultationButton_Click_1(object sender, EventArgs e)
         {
             ResetButtonBorders();
             ConsultationButton.CustomBorderThickness = new Padding(0, 0, 0, 3);
@@ -223,7 +287,17 @@ namespace Consultation.App.Dashboard
             ConsultationButton.ForeColor = Color.Red;
 
             ActivityFeedPanel.Controls.Clear();
-            ActivityFeedPanel.Controls.Add(new Consultation2());
+            
+            // Create new Consultation2 control if it doesn't exist or reuse the existing one
+            if (_currentConsultation2Control == null || _currentConsultation2Control.IsDisposed)
+            {
+                _currentConsultation2Control = new Consultation2();
+            }
+            
+            // Load consultations from service (database)
+            await RefreshConsultationDisplay(_currentConsultation2Control);
+            
+            ActivityFeedPanel.Controls.Add(_currentConsultation2Control);
         }
 
         private void ResetButtonBorders()
@@ -322,6 +396,18 @@ namespace Consultation.App.Dashboard
         private void ConsultationsCompletedCount_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void OnNavigateToConsultation(object sender, EventArgs e)
+        {
+            // Find the MainView form and trigger the Consultation button click
+            var mainForm = this.FindForm();
+            if (mainForm is MainView mainView)
+            {
+                // Find the Consultation button and trigger its click event
+                var consultationButton = mainView.Controls.Find("buttonConsultation", true).FirstOrDefault() as Button;
+                consultationButton?.PerformClick();
+            }
         }
     }
 }

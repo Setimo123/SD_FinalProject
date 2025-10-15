@@ -102,14 +102,12 @@ namespace Consultation.App.Views.Controls.BulletinManagement
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            CreateBulletin bulletinForm = new CreateBulletin();
+            CreateBulletin bulletinForm = new CreateBulletin(_bulletinId);
             bulletinForm.lblHeader.Text = "Edit Bulletin";
             bulletinForm.txtAuthor.Text = tagAuthor.Text;
             bulletinForm.txtTitle.Text = lblTitle.Text;
             bulletinForm.txtContent.Text = txtContent.Text;
             bulletinForm.ShowDialog();
-
-            // backend
         }
         private async void btnArchive_Click(object sender, EventArgs e)
         {

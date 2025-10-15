@@ -37,6 +37,28 @@ namespace Consultation.App.Views.Controls.BulletinManagement
             txtContent.Text = content;
             tagStatus.Text = status;
             tagDate.Text = datePosted.ToString("yyyy-MM-dd");
+            
+            // Update status appearance based on status value
+            UpdateStatusAppearance(status);
+        }
+        
+        private void UpdateStatusAppearance(string status)
+        {
+            if (string.Equals(status, "Archived", StringComparison.OrdinalIgnoreCase))
+            {
+                tagStatus.FillColor = Color.FromArgb(240, 240, 240);
+                tagStatus.ForeColor = Color.FromArgb(100, 100, 100);
+            }
+            else if (string.Equals(status, "Pending", StringComparison.OrdinalIgnoreCase))
+            {
+                tagStatus.FillColor = Color.FromArgb(255, 240, 240);
+                tagStatus.ForeColor = Color.FromArgb(190, 0, 2);
+            }
+            else if (string.Equals(status, "Approved", StringComparison.OrdinalIgnoreCase))
+            {
+                tagStatus.FillColor = Color.LightGreen;
+                tagStatus.ForeColor = Color.DarkGreen;
+            }
         }
 
         private void btnMore_Click(object sender, EventArgs e)
@@ -85,14 +107,12 @@ namespace Consultation.App.Views.Controls.BulletinManagement
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            CreateBulletin bulletinForm = new CreateBulletin();
+            CreateBulletin bulletinForm = new CreateBulletin(_bulletinId);
             bulletinForm.lblHeader.Text = "Edit Bulletin";
             bulletinForm.txtAuthor.Text = tagAuthor.Text;
             bulletinForm.txtTitle.Text = lblTitle.Text;
             bulletinForm.txtContent.Text = txtContent.Text;
             bulletinForm.ShowDialog();
-
-            // backend
         }
         private async void btnArchive_Click(object sender, EventArgs e)
         {

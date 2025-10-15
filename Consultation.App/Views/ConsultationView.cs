@@ -14,6 +14,7 @@ namespace Consultation.App.ConsultationManagement
         public event EventHandler RefreshConsultationsEvent;
         public event EventHandler<ConsultationData> ArchiveRequested;
         public event EventHandler<ConsultationData> RestoreRequested;
+        public event EventHandler<ConsultationData> DeleteRequested;
 
         public UserControl AsUserControl => this;
 
@@ -51,6 +52,7 @@ namespace Consultation.App.ConsultationManagement
             {
                 var card = new ConsultationCard(data);
                 card.ArchiveRequested += (s, e) => ArchiveRequested?.Invoke(this, data);
+                card.DeleteRequested += (s, e) => DeleteRequested?.Invoke(this, data);
                 activeCards.Add(card);
                 WindowPanelConsultation.Controls.Add(card);
             }
@@ -79,6 +81,20 @@ namespace Consultation.App.ConsultationManagement
             foreach (var card in archivedCards)
                 WindowPanelConsultation.Controls.Remove(card);
             archivedCards.Clear();
+        }
+
+        public void SwitchToArchivedView()
+        {
+            // Just move the underline, don't trigger the event
+            // The presenter will call LoadArchivedConsultations directly
+            MoveUnderline(btnArchive);
+        }
+
+        public void SwitchToActiveView()
+        {
+            // Just move the underline, don't trigger the event
+            // The presenter will call LoadActiveConsultations directly
+            MoveUnderline(btnConsultation);
         }
 
         private void MoveUnderline(Control btn)

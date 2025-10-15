@@ -16,9 +16,20 @@ namespace Consultation.App.Views.Controls.BulletinManagement
         // Event to notify when a bulletin is published
         public event EventHandler<BulletinPublishedEventArgs> BulletinPublished;
 
+        private int? _bulletinId; // Null for create, has value for edit
+        private bool _isEditMode;
+
         public CreateBulletin()
         {
             InitializeComponent();
+            _isEditMode = false;
+        }
+
+        // Constructor for edit mode
+        public CreateBulletin(int bulletinId) : this()
+        {
+            _bulletinId = bulletinId;
+            _isEditMode = true;
         }
 
         private async void btnPublishBulletin_Click(object sender, EventArgs e)
@@ -54,50 +65,87 @@ namespace Consultation.App.Views.Controls.BulletinManagement
                 return;
             }
 
-            // Create event args with bulletin data
-            var bulletinData = new BulletinPublishedEventArgs
-            {
-                Title = txtTitle.Text.Trim(),
-                Author = txtAuthor.Text.Trim(),
-                Content = txtContent.Text.Trim(),
-                Status = "Pending", // Default status for newly published bulletins
-                DatePosted = DateTime.Now
-            };
-
             try
             {
                 // Disable button to prevent multiple submissions
                 btnPublishBulletin.Enabled = false;
                 
-                // Publish bulletin through the service to database
-                bool success = await BulletinService.Instance.PublishBulletin(bulletinData);
-                
-                if (success)
+                if (_isEditMode && _bulletinId.HasValue)
                 {
-                    // Show success message
-                    MessageBox.Show($"Bulletin '{bulletinData.Title}' has been published successfully to the database!", 
-                        "Success", 
-                        MessageBoxButtons.OK, 
-                        MessageBoxIcon.Information);
+                    // Update existing bulletin - NO event raising, service handles the refresh
+                    bool success = await BulletinService.Instance.UpdateBulletin(
+                        _bulletinId.Value,
+                        txtTitle.Text.Trim(),
+                        txtAuthor.Text.Trim(),
+                        txtContent.Text.Trim(),
+                        "Pending" // Keep status as Pending for edited bulletins
+                    );
                     
-                    // Raise the event to notify subscribers that a bulletin was published
-                    // This happens AFTER the database save is confirmed
-                    BulletinPublished?.Invoke(this, bulletinData);
-                    
-                    this.Close();
+                    if (success)
+                    {
+                        MessageBox.Show(
+                            "Bulletin has been updated successfully!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        
+                        // Just close - BulletinService already raised BulletinsChanged event
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Failed to update bulletin. Please try again.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        btnPublishBulletin.Enabled = true;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Failed to publish bulletin to the database. Please try again.", 
-                        "Error", 
-                        MessageBoxButtons.OK, 
-                        MessageBoxIcon.Error);
-                    btnPublishBulletin.Enabled = true;
+                    // Create new bulletin
+                    var bulletinData = new BulletinPublishedEventArgs
+                    {
+                        Title = txtTitle.Text.Trim(),
+                        Author = txtAuthor.Text.Trim(),
+                        Content = txtContent.Text.Trim(),
+                        Status = "Pending", // Default status for newly published bulletins
+                        DatePosted = DateTime.Now
+                    };
+
+                    // Publish bulletin through the service to database
+                    bool success = await BulletinService.Instance.PublishBulletin(bulletinData);
+                    
+                    if (success)
+                    {
+                        // Show success message
+                        MessageBox.Show(
+                            $"Bulletin '{bulletinData.Title}' has been published successfully!", 
+                            "Success", 
+                            MessageBoxButtons.OK, 
+                            MessageBoxIcon.Information);
+                        
+                        // Note: BulletinService already raises BulletinPublished and BulletinsChanged events
+                        // No need to raise BulletinPublished here again
+                        
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Failed to publish bulletin. Please try again.", 
+                            "Error", 
+                            MessageBoxButtons.OK, 
+                            MessageBoxIcon.Error);
+                        btnPublishBulletin.Enabled = true;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while publishing the bulletin: {ex.Message}", 
+                MessageBox.Show(
+                    $"An error occurred: {ex.Message}", 
                     "Error", 
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Error);

@@ -21,6 +21,8 @@ namespace Consultation.App.Views
 
             // Subscribe to bulletin service events
             BulletinService.Instance.BulletinsChanged += OnBulletinsChanged;
+            BulletinService.Instance.BulletinArchived += OnBulletinArchived;
+            BulletinService.Instance.BulletinRestored += OnBulletinRestored;
 
             btnBulletinView_Click(btnBulletinView, EventArgs.Empty);
         }
@@ -45,6 +47,18 @@ namespace Consultation.App.Views
             {
                 LoadArchivedBulletins();
             }
+        }
+
+        private void OnBulletinArchived(object sender, EventArgs e)
+        {
+            // Automatically switch to archived view when a bulletin is archived
+            SwitchToArchivedView();
+        }
+
+        private void OnBulletinRestored(object sender, EventArgs e)
+        {
+            // Automatically switch to active view when a bulletin is restored
+            SwitchToActiveView();
         }
 
         private async void LoadActiveBulletins()
@@ -135,6 +149,36 @@ namespace Consultation.App.Views
             panelUnderline.Left = targetButton.Left;
             panelUnderline.Top = targetButton.Bottom - 4;
             panelUnderline.Visible = true;
+        }
+
+        public void SwitchToArchivedView()
+        {
+            // Switch UI to archived view
+            btnArchive.ForeColor = Color.FromArgb(190, 0, 2);
+            btnArchive.Font = new Font(btnBulletinView.Font, FontStyle.Bold);
+            btnBulletinView.ForeColor = Color.FromArgb(86, 93, 109);
+            btnBulletinView.Font = new Font(btnArchive.Font, FontStyle.Regular);
+            MoveUnderline(btnArchive);
+
+            lblBulletinHeader.Text = "Archived Bulletins";
+
+            // Load archived bulletins
+            LoadArchivedBulletins();
+        }
+
+        public void SwitchToActiveView()
+        {
+            // Switch UI to active view
+            btnBulletinView.ForeColor = Color.FromArgb(190, 0, 2);
+            btnBulletinView.Font = new Font(btnBulletinView.Font, FontStyle.Bold);
+            btnArchive.ForeColor = Color.FromArgb(86, 93, 109);
+            btnArchive.Font = new Font(btnArchive.Font, FontStyle.Regular);
+            MoveUnderline(btnBulletinView);
+
+            lblBulletinHeader.Text = "Active Bulletins";
+
+            // Load active bulletins
+            LoadActiveBulletins();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

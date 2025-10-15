@@ -24,6 +24,8 @@ namespace Consultation.App.Services
         // Event to notify when bulletins change
         public event EventHandler<BulletinPublishedEventArgs> BulletinPublished;
         public event EventHandler BulletinsChanged;
+        public event EventHandler BulletinArchived;
+        public event EventHandler BulletinRestored;
 
         private BulletinService()
         {
@@ -118,7 +120,7 @@ namespace Consultation.App.Services
                     Title = b.Title,
                     Author = b.Author,
                     Content = b.Content,
-                    Status = b.Status.ToString(),
+                    Status = "Archived", // Always show "Archived" for archived bulletins
                     DatePosted = b.DatePublished
                 }).ToList();
             }
@@ -162,6 +164,7 @@ namespace Consultation.App.Services
                 bool success = await _repository.ArchiveBulletin(bulletinId);
                 if (success)
                 {
+                    BulletinArchived?.Invoke(this, EventArgs.Empty);
                     BulletinsChanged?.Invoke(this, EventArgs.Empty);
                 }
                 return success;
@@ -180,6 +183,7 @@ namespace Consultation.App.Services
                 bool success = await _repository.RestoreBulletin(bulletinId);
                 if (success)
                 {
+                    BulletinRestored?.Invoke(this, EventArgs.Empty);
                     BulletinsChanged?.Invoke(this, EventArgs.Empty);
                 }
                 return success;

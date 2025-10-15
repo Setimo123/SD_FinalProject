@@ -30,18 +30,22 @@ namespace Consultation.App.Presenters
             {
                 var counts = await _consultationRepository.GetActiveConsultationCountsByProgram();
 
-                int countCPE = counts.ContainsKey("CpE") ? counts["CpE"] : 0;
+                // Handle both uppercase and mixed case program names
+                int countCPE = (counts.ContainsKey("CPE") ? counts["CPE"] : 0) + 
+                               (counts.ContainsKey("CpE") ? counts["CpE"] : 0);
                 int countME = counts.ContainsKey("ME") ? counts["ME"] : 0;
                 int countCE = counts.ContainsKey("CE") ? counts["CE"] : 0;
                 int countEE = counts.ContainsKey("EE") ? counts["EE"] : 0;
                 int countECE = counts.ContainsKey("ECE") ? counts["ECE"] : 0;
-                int countCHE = counts.ContainsKey("ChE") ? counts["ChE"] : 0;
+                int countCHE = (counts.ContainsKey("CHE") ? counts["CHE"] : 0) + 
+                               (counts.ContainsKey("ChE") ? counts["ChE"] : 0);
 
                 _view.UpdateConsultationStats(countCPE, countEE, countECE, countCE, countME, countCHE);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"LoadConsultationStatsByProgram Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
                 // Set all counts to 0 if there's an error
                 _view.UpdateConsultationStats(0, 0, 0, 0, 0, 0);
             }
