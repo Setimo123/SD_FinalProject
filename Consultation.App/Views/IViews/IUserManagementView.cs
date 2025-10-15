@@ -8,7 +8,11 @@ namespace Consultation.App.Views.IViews
         event EventHandler FacultyManagementEvent;
         event EventHandler AdminManagementEvent;
 
-        void AddUserCard(string name);
+        void AddUserCard(string name, string id, string email);
+        void ClearUserCards();
         void Message(string message);
+        void UpdateTotalStudents(int count);
+        void UpdateTotalFaculty(int count);
+        void UpdateTotalAdmin(int count);
     }
 }

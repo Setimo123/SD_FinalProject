@@ -34,9 +34,29 @@ namespace Consultation.App.Views
         public UserControl AsUserControl => this;
 
         // For adding user cards; change if needed
-        public void AddUserCard(string name)
+        public void AddUserCard(string name, string id, string email)
         {
-            flPanelUserCard.Controls.Add(new UserCard(name, "547546", "genericEmail@hotmail.net"));
+            flPanelUserCard.Controls.Add(new UserCard(name, id, email));
+        }
+
+        public void ClearUserCards()
+        {
+            flPanelUserCard.Controls.Clear();
+        }
+
+        public void UpdateTotalStudents(int count)
+        {
+            TotalStudents.Text = count.ToString();
+        }
+
+        public void UpdateTotalFaculty(int count)
+        {
+            TotalFacultyMem.Text = count.ToString();
+        }
+
+        public void UpdateTotalAdmin(int count)
+        {
+            TotalAdmin.Text = count.ToString();
         }
 
         public void Message(string message)

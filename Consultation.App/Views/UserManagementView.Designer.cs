@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             buttonAdmin = new Button();
             flPanelUserCard = new FlowLayoutPanel();
             buttonFaculty = new Button();
@@ -330,7 +330,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 14F);
-            label7.Location = new Point(877, 25);
+            label7.Location = new Point(874, 20);
             label7.Name = "label7";
             label7.Size = new Size(63, 24);
             label7.TabIndex = 3;
@@ -340,7 +340,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 14F);
-            label5.Location = new Point(622, 25);
+            label5.Location = new Point(622, 20);
             label5.Name = "label5";
             label5.Size = new Size(57, 24);
             label5.TabIndex = 2;
@@ -350,7 +350,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 14F);
-            label3.Location = new Point(307, 25);
+            label3.Location = new Point(306, 20);
             label3.Name = "label3";
             label3.Size = new Size(101, 24);
             label3.TabIndex = 1;
@@ -360,7 +360,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 14F);
-            label2.Location = new Point(72, 25);
+            label2.Location = new Point(90, 20);
             label2.Name = "label2";
             label2.Size = new Size(61, 24);
             label2.TabIndex = 0;
@@ -370,7 +370,7 @@
             // 
             CBoxYear.BackColor = Color.Transparent;
             CBoxYear.BorderRadius = 6;
-            CBoxYear.CustomizableEdges = customizableEdges1;
+            CBoxYear.CustomizableEdges = customizableEdges17;
             CBoxYear.DrawMode = DrawMode.OwnerDrawFixed;
             CBoxYear.DropDownStyle = ComboBoxStyle.DropDownList;
             CBoxYear.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -380,7 +380,7 @@
             CBoxYear.ItemHeight = 30;
             CBoxYear.Location = new Point(582, 90);
             CBoxYear.Name = "CBoxYear";
-            CBoxYear.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            CBoxYear.ShadowDecoration.CustomizableEdges = customizableEdges18;
             CBoxYear.Size = new Size(140, 36);
             CBoxYear.TabIndex = 18;
             CBoxYear.SelectedIndexChanged += CBoxYear_SelectedIndexChanged;
@@ -389,7 +389,7 @@
             // 
             CBoxCourse.BackColor = Color.Transparent;
             CBoxCourse.BorderRadius = 6;
-            CBoxCourse.CustomizableEdges = customizableEdges3;
+            CBoxCourse.CustomizableEdges = customizableEdges19;
             CBoxCourse.DrawMode = DrawMode.OwnerDrawFixed;
             CBoxCourse.DropDownStyle = ComboBoxStyle.DropDownList;
             CBoxCourse.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -399,7 +399,7 @@
             CBoxCourse.ItemHeight = 30;
             CBoxCourse.Location = new Point(421, 90);
             CBoxCourse.Name = "CBoxCourse";
-            CBoxCourse.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            CBoxCourse.ShadowDecoration.CustomizableEdges = customizableEdges20;
             CBoxCourse.Size = new Size(140, 36);
             CBoxCourse.TabIndex = 17;
             CBoxCourse.SelectedIndexChanged += CBoxCourse_SelectedIndexChanged;
@@ -408,7 +408,7 @@
             // 
             cboxSort.BackColor = Color.Transparent;
             cboxSort.BorderRadius = 6;
-            cboxSort.CustomizableEdges = customizableEdges5;
+            cboxSort.CustomizableEdges = customizableEdges21;
             cboxSort.DrawMode = DrawMode.OwnerDrawFixed;
             cboxSort.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxSort.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -418,7 +418,7 @@
             cboxSort.ItemHeight = 30;
             cboxSort.Location = new Point(178, 90);
             cboxSort.Name = "cboxSort";
-            cboxSort.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            cboxSort.ShadowDecoration.CustomizableEdges = customizableEdges22;
             cboxSort.Size = new Size(224, 36);
             cboxSort.TabIndex = 16;
             cboxSort.SelectedIndexChanged += cboxSort_SelectedIndexChanged;
@@ -426,7 +426,7 @@
             // textBoxSearch
             // 
             textBoxSearch.BorderRadius = 6;
-            textBoxSearch.CustomizableEdges = customizableEdges7;
+            textBoxSearch.CustomizableEdges = customizableEdges23;
             textBoxSearch.DefaultText = "Search by name, ID number, or email";
             textBoxSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBoxSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -439,7 +439,7 @@
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "";
             textBoxSearch.SelectedText = "";
-            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            textBoxSearch.ShadowDecoration.CustomizableEdges = customizableEdges24;
             textBoxSearch.Size = new Size(984, 41);
             textBoxSearch.TabIndex = 15;
             // 

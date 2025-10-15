@@ -46,6 +46,7 @@
   <ItemGroup>
  
     <ProjectReference Include="..\Consultation.BackEndCRUD\Consultation.BackEndCRUD.csproj" />
+    <ProjectReference Include="..\..\..\..\Downloads\DataBaseUpdated-SQL_Database_Version_2.0\Consoltation.Repository\Consultation.Repository.csproj" />
   </ItemGroup>
 
   <ItemGroup>

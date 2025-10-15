@@ -151,16 +151,19 @@
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button1.FillColor = Color.Transparent;
-            guna2Button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2Button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.GhostWhite;
             guna2Button1.Image = Properties.Icons.arrowout;
+            guna2Button1.ImageAlign = HorizontalAlignment.Left;
             guna2Button1.ImageSize = new Size(25, 25);
-            guna2Button1.Location = new Point(61, 989);
+            guna2Button1.Location = new Point(30, 981);
             guna2Button1.Name = "guna2Button1";
+            guna2Button1.PressedColor = Color.White;
             guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button1.Size = new Size(125, 40);
+            guna2Button1.Size = new Size(230, 48);
             guna2Button1.TabIndex = 10;
             guna2Button1.Text = "Sign out";
+            guna2Button1.TextAlign = HorizontalAlignment.Left;
             guna2Button1.Click += guna2Button1_Click;
             // 
             // pictureBoxLogo
