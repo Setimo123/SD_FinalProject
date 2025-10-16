@@ -1,4 +1,5 @@
 ﻿using Consultation.App.Views.IViews;
+using Consultation.App.Helpers;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -131,7 +132,19 @@ namespace Consultation.App.Views
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // Confirm sign out action
+            var result = CustomMessageBox.Show(
+                "Are you sure you want to sign out?\n\n" +
+                "You will be returned to the login screen.",
+                "Confirm Sign Out",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2); // Default to No for safety
+                
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             sidePanel = new Syncfusion.Windows.Forms.Tools.GradientPanel();
             profilePanel = new Panel();
             userole = new Label();
             username = new Label();
             pictureBoxProfile = new PictureBox();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            signOUT = new Guna.UI2.WinForms.Guna2Button();
             pictureBoxLogo = new PictureBox();
             label2 = new Label();
             buttonSFManagement = new Button();
@@ -71,7 +71,7 @@
             sidePanel.Border3DStyle = Border3DStyle.Flat;
             sidePanel.BorderStyle = BorderStyle.None;
             sidePanel.Controls.Add(profilePanel);
-            sidePanel.Controls.Add(guna2Button1);
+            sidePanel.Controls.Add(signOUT);
             sidePanel.Controls.Add(pictureBoxLogo);
             sidePanel.Controls.Add(label2);
             sidePanel.Controls.Add(buttonSFManagement);
@@ -140,31 +140,31 @@
             pictureBoxProfile.TabIndex = 0;
             pictureBoxProfile.TabStop = false;
             // 
-            // guna2Button1
+            // signOUT
             // 
-            guna2Button1.BackColor = Color.Transparent;
-            guna2Button1.BackgroundImageLayout = ImageLayout.None;
-            guna2Button1.BorderRadius = 5;
-            guna2Button1.CustomizableEdges = customizableEdges1;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.Transparent;
-            guna2Button1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.GhostWhite;
-            guna2Button1.Image = Properties.Icons.arrowout;
-            guna2Button1.ImageAlign = HorizontalAlignment.Left;
-            guna2Button1.ImageSize = new Size(25, 25);
-            guna2Button1.Location = new Point(30, 981);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.PressedColor = Color.White;
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button1.Size = new Size(230, 48);
-            guna2Button1.TabIndex = 10;
-            guna2Button1.Text = "Sign out";
-            guna2Button1.TextAlign = HorizontalAlignment.Left;
-            guna2Button1.Click += guna2Button1_Click;
+            signOUT.BackColor = Color.Transparent;
+            signOUT.BackgroundImageLayout = ImageLayout.None;
+            signOUT.BorderRadius = 5;
+            signOUT.CustomizableEdges = customizableEdges4;
+            signOUT.DisabledState.BorderColor = Color.DarkGray;
+            signOUT.DisabledState.CustomBorderColor = Color.DarkGray;
+            signOUT.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            signOUT.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            signOUT.FillColor = Color.Transparent;
+            signOUT.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            signOUT.ForeColor = Color.GhostWhite;
+            signOUT.Image = Properties.Icons.arrowout;
+            signOUT.ImageAlign = HorizontalAlignment.Left;
+            signOUT.ImageSize = new Size(25, 25);
+            signOUT.Location = new Point(30, 981);
+            signOUT.Name = "signOUT";
+            signOUT.PressedColor = Color.White;
+            signOUT.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            signOUT.Size = new Size(230, 48);
+            signOUT.TabIndex = 10;
+            signOUT.Text = "Sign out";
+            signOUT.TextAlign = HorizontalAlignment.Left;
+            signOUT.Click += guna2Button1_Click;
             // 
             // pictureBoxLogo
             // 
@@ -345,7 +345,7 @@
             buttonNotification.ImageSize = new Size(25, 25);
             buttonNotification.Location = new Point(1550, 33);
             buttonNotification.Name = "buttonNotification";
-            buttonNotification.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            buttonNotification.ShadowDecoration.CustomizableEdges = customizableEdges6;
             buttonNotification.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             buttonNotification.Size = new Size(40, 40);
             buttonNotification.TabIndex = 13;
@@ -431,6 +431,6 @@
         private Panel panel1;
         private Panel panelContainer;
         private Guna.UI2.WinForms.Guna2CircleButton buttonNotification;
-        public Guna.UI2.WinForms.Guna2Button guna2Button1;
+        public Guna.UI2.WinForms.Guna2Button signOUT;
     }
 }
