@@ -98,6 +98,13 @@ namespace Consultation.App.Presenters
                 return;
             }
 
+            // Check if user is an Administrator (UserType.Admin = 3)
+            if (user.UserType != Consultation.Domain.Enum.UserType.Admin)
+            {
+                _loginView.ShowMessage("Access Denied: Only Administrators are allowed to log in to this application.");
+                return;
+            }
+
             try
             {
                 // Create and show main view with user information

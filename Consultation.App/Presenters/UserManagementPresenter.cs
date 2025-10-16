@@ -18,6 +18,7 @@ namespace Consultation.App.Presenters
         private readonly IAdminRepository _adminRepository;
         private string _currentUserType = "Student"; // Track which user type is currently displayed
         private string _currentSearchTerm = ""; // Track the current search term
+        private bool _isAscending = true; // Track current sort order (true = A-Z, false = Z-A)
 
         public UserManagementPresenter(IUserManagementView userManagementView)
         {
@@ -125,6 +126,38 @@ namespace Consultation.App.Presenters
             }
         }
 
+        /// <summary>
+        /// Changes the sort order and reloads the current view
+        /// </summary>
+        /// <param name="isAscending">True for A-Z, False for Z-A</param>
+        public async Task ChangeSortOrder(bool isAscending)
+        {
+            _isAscending = isAscending;
+
+            // Reload the current view with new sort order
+            if (string.IsNullOrWhiteSpace(_currentSearchTerm))
+            {
+                // Reload all users
+                switch (_currentUserType)
+                {
+                    case "Student":
+                        await LoadStudentCards();
+                        break;
+                    case "Faculty":
+                        await LoadFacultyCards();
+                        break;
+                    case "Admin":
+                        await LoadAdminCards();
+                        break;
+                }
+            }
+            else
+            {
+                // Reload search results
+                await SearchUsers(_currentSearchTerm);
+            }
+        }
+
         private async Task SearchStudentCards(string searchTerm)
         {
             try
@@ -132,6 +165,11 @@ namespace Consultation.App.Presenters
                 _userManagementView.ClearUserCards();
 
                 var students = await _studentRepository.SearchStudents(searchTerm);
+
+                // Apply sorting
+                students = _isAscending 
+                    ? students.OrderBy(s => s.StudentName).ToList()
+                    : students.OrderByDescending(s => s.StudentName).ToList();
 
                 await AddCardsInBatchesAsync(students, (student) =>
                 {
@@ -161,6 +199,11 @@ namespace Consultation.App.Presenters
 
                 var facultyList = await _facultyRepository.SearchFaculty(searchTerm);
 
+                // Apply sorting
+                facultyList = _isAscending
+                    ? facultyList.OrderBy(f => f.FacultyName).ToList()
+                    : facultyList.OrderByDescending(f => f.FacultyName).ToList();
+
                 await AddCardsInBatchesAsync(facultyList, (faculty) =>
                 {
                     _userManagementView.AddUserCard(
@@ -188,6 +231,11 @@ namespace Consultation.App.Presenters
                 _userManagementView.ClearUserCards();
 
                 var admins = await _adminRepository.SearchAdmin(searchTerm);
+
+                // Apply sorting
+                admins = _isAscending
+                    ? admins.OrderBy(a => a.AdminName).ToList()
+                    : admins.OrderByDescending(a => a.AdminName).ToList();
 
                 await AddCardsInBatchesAsync(admins, (admin) =>
                 {
@@ -224,11 +272,13 @@ namespace Consultation.App.Presenters
                 // Clear existing cards
                 _userManagementView.ClearUserCards();
 
-                // Show loading indicator (optional)
-                // _userManagementView.Message("Loading students...");
-
                 // Fetch all students from the database
                 var students = await _studentRepository.GetAllStudents();
+
+                // Apply sorting
+                students = _isAscending
+                    ? students.OrderBy(s => s.StudentName).ToList()
+                    : students.OrderByDescending(s => s.StudentName).ToList();
 
                 // Add cards in batches for smooth rendering
                 await AddCardsInBatchesAsync(students, (student) =>
@@ -265,6 +315,11 @@ namespace Consultation.App.Presenters
                 // Fetch all faculty from the database
                 var facultyList = await _facultyRepository.GetAllFaculty();
 
+                // Apply sorting
+                facultyList = _isAscending
+                    ? facultyList.OrderBy(f => f.FacultyName).ToList()
+                    : facultyList.OrderByDescending(f => f.FacultyName).ToList();
+
                 // Add cards in batches for smooth rendering
                 await AddCardsInBatchesAsync(facultyList, (faculty) =>
                 {
@@ -299,6 +354,11 @@ namespace Consultation.App.Presenters
 
                 // Fetch all admins from the database
                 var admins = await _adminRepository.GetAllAdmin();
+
+                // Apply sorting
+                admins = _isAscending
+                    ? admins.OrderBy(a => a.AdminName).ToList()
+                    : admins.OrderByDescending(a => a.AdminName).ToList();
 
                 // Add cards in batches for smooth rendering
                 await AddCardsInBatchesAsync(admins, (admin) =>

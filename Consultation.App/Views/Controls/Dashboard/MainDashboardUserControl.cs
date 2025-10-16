@@ -247,6 +247,9 @@ namespace Consultation.App.Dashboard
             ConsultationCountCE.Text = CE.ToString();
             ConsultationCountME.Text = ME.ToString();
             ConsultationCountCHE.Text = CHE.ToString();
+            
+            // Update Matengcount with ME value
+            Matengcount.Text = ME.ToString();
         }
 
         public void UpdateConsultationCounts(int activeCount, int completedCount)

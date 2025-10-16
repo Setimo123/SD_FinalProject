@@ -145,6 +145,7 @@
             deleteTSMI.Name = "deleteTSMI";
             deleteTSMI.Size = new Size(180, 22);
             deleteTSMI.Text = "Delete user";
+            deleteTSMI.Click += deleteTSMI_Click;
             // 
             // UserCard
             // 

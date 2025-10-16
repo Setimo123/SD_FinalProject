@@ -192,29 +192,24 @@ namespace Consultation.App.Views
             // ComboBox 1: Sort Options
             cboxSort.Items.Add("Sort by: Ascending");
             cboxSort.Items.Add("Sort by: Descending");
-            cboxSort.SelectedIndex = 0; // Default selection
-
-            // ComboBox 2: Year Levels
-            string[] years = { "1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year" };
-            foreach (string year in years)
-                CBoxYear.Items.Add(year);
-            CBoxYear.SelectedIndex = 0;
-
-            // Optional event handlers
+            
+            // Event handler for sort changes - attach BEFORE setting SelectedIndex
             cboxSort.SelectedIndexChanged += cboxSort_SelectedIndexChanged;
-            CBoxYear.SelectedIndexChanged += CBoxYear_SelectedIndexChanged;
+            
+            // Set default selection (this will trigger the event, but _presenter will be null)
+            cboxSort.SelectedIndex = 0; // Default selection
         }
 
-        private void cboxSort_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cboxSort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Example placeholder
-            // MessageBox.Show("Sort option selected: " + cboxSort.SelectedItem.ToString());
-        }
+            // Only process if presenter is set and we have cards loaded
+            if (_presenter == null || flPanelUserCard.Controls.Count == 0) return;
 
-        private void CBoxYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Example placeholder
-            // MessageBox.Show("Year level selected: " + CBoxYear.SelectedItem.ToString());
+            // Determine sort order based on selection
+            bool isAscending = cboxSort.SelectedIndex == 0; // 0 = Ascending, 1 = Descending
+
+            // Trigger sort in presenter
+            await _presenter.ChangeSortOrder(isAscending);
         }
 
         private void flPanelUserCard_Paint(object sender, PaintEventArgs e)
@@ -228,6 +223,11 @@ namespace Consultation.App.Views
         }
 
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void USMsearchbar_TextChanged(object sender, EventArgs e)
         {
 
         }

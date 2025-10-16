@@ -59,7 +59,41 @@ namespace Consultation.App.Views
 
         public void ShowMessage(string message)
         {
-            MessageBox.Show(message);
+            // Create a custom form for larger font display
+            Form messageForm = new Form
+            {
+                Width = 450,
+                Height = 200,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = "Message",
+                StartPosition = FormStartPosition.CenterScreen,
+                MaximizeBox = false,
+                MinimizeBox = false
+            };
+
+            Label messageLabel = new Label
+            {
+                Text = message,
+                Font = new Font("Segoe UI", 14F, FontStyle.Regular),
+                AutoSize = false,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Dock = DockStyle.Fill,
+                Padding = new Padding(20)
+            };
+
+            Button okButton = new Button
+            {
+                Text = "OK",
+                Font = new Font("Segoe UI", 12F, FontStyle.Bold),
+                DialogResult = DialogResult.OK,
+                Size = new Size(100, 40),
+                Location = new Point((messageForm.Width - 100) / 2, messageForm.Height - 80)
+            };
+
+            messageForm.Controls.Add(messageLabel);
+            messageForm.Controls.Add(okButton);
+            messageForm.AcceptButton = okButton;
+            messageForm.ShowDialog();
         }
 
         public void HideForm()

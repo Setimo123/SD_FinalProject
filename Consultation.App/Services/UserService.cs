@@ -1,0 +1,454 @@
+using Consultation.Domain;
+using Consultation.Domain.Enum;
+using Consultation.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+
+namespace Consultation.App.Services
+{
+    /// <summary>
+    /// Service for managing user data operations
+    /// </summary>
+    public class UserService
+    {
+        private static UserService _instance;
+        private static readonly object _lock = new object();
+
+        private UserService()
+        {
+        }
+
+        public static UserService Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    lock (_lock)
+                    {
+                        if (_instance == null)
+                        {
+                            _instance = new UserService();
+                        }
+                    }
+                }
+                return _instance;
+            }
+        }
+
+        /// <summary>
+        /// Gets a user by their UMID with full information
+        /// </summary>
+        public async Task<Users> GetUserByUMID(string umid)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var user = await context.Users
+                        .AsNoTracking() // Read-only query for better performance
+                        .FirstOrDefaultAsync(u => u.UMID == umid);
+                    
+                    if (user != null)
+                    {
+                        Console.WriteLine($"Successfully retrieved user: {user.UserName} (UMID: {umid})");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"User with UMID {umid} not found");
+                    }
+                    
+                    return user;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetUserByUMID Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Updates user information in the database
+        /// </summary>
+        public async Task<bool> UpdateUser(string originalUMID, string newFullName, string newEmail, string newUMID, UserType newUserType, int? newDepartmentId = null)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    // Start a transaction to ensure all changes are saved together
+                    using (var transaction = await context.Database.BeginTransactionAsync())
+                    {
+                        try
+                        {
+                            // Find the user by original UMID
+                            var user = await context.Users.FirstOrDefaultAsync(u => u.UMID == originalUMID);
+                            if (user == null)
+                            {
+                                Console.WriteLine($"User with UMID {originalUMID} not found");
+                                return false;
+                            }
+
+                            // Store the UsersID for updating related tables
+                            string userId = user.Id;
+
+                            // Update Users table
+                            user.UserName = newFullName;
+                            user.NormalizedUserName = newFullName.ToUpper();
+                            user.Email = newEmail;
+                            user.NormalizedEmail = newEmail.ToUpper();
+                            user.UMID = newUMID;
+                            user.UserType = newUserType;
+
+                            // Mark user as modified
+                            context.Entry(user).State = EntityState.Modified;
+
+                            // Update related tables based on UserType
+                            if (newUserType == UserType.Student)
+                            {
+                                var student = await context.Students
+                                    .FirstOrDefaultAsync(s => s.UsersID == userId);
+                                
+                                if (student != null)
+                                {
+                                    student.StudentName = newFullName;
+                                    student.Email = newEmail;
+                                    student.StudentUMID = newUMID;
+                                    
+                                    if (newDepartmentId.HasValue)
+                                    {
+                                        student.ProgramID = newDepartmentId.Value;
+                                    }
+                                    
+                                    context.Entry(student).State = EntityState.Modified;
+                                }
+                            }
+                            else if (newUserType == UserType.Faculty)
+                            {
+                                var faculty = await context.Faculty
+                                    .FirstOrDefaultAsync(f => f.UsersID == userId);
+                                
+                                if (faculty != null)
+                                {
+                                    faculty.FacultyName = newFullName;
+                                    faculty.FacultyUMID = newUMID;
+                                    
+                                    context.Entry(faculty).State = EntityState.Modified;
+                                }
+                            }
+                            else if (newUserType == UserType.Admin)
+                            {
+                                var admin = await context.Admin
+                                    .FirstOrDefaultAsync(a => a.UsersID == userId);
+                                
+                                if (admin != null)
+                                {
+                                    admin.AdminName = newFullName;
+                                    
+                                    context.Entry(admin).State = EntityState.Modified;
+                                }
+                            }
+
+                            // Save all changes
+                            int changes = await context.SaveChangesAsync();
+                            
+                            // Commit transaction
+                            await transaction.CommitAsync();
+                            
+                            Console.WriteLine($"Successfully updated user {originalUMID}. Changes saved: {changes}");
+                            return true;
+                        }
+                        catch (Exception ex)
+                        {
+                            // Rollback transaction on error
+                            await transaction.RollbackAsync();
+                            Console.WriteLine($"Transaction failed: {ex.Message}");
+                            throw;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"UpdateUser Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets all departments for dropdown
+        /// </summary>
+        public async Task<List<Department>> GetAllDepartments()
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    return await context.Department.ToListAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetAllDepartments Error: {ex.Message}");
+                return new List<Department>();
+            }
+        }
+
+        /// <summary>
+        /// Gets all programs for a specific department
+        /// </summary>
+        public async Task<List<Domain.Program>> GetProgramsByDepartment(int departmentId)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    return await context.Program
+                        .Where(p => p.DepartmentID == departmentId)
+                        .ToListAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetProgramsByDepartment Error: {ex.Message}");
+                return new List<Domain.Program>();
+            }
+        }
+
+        /// <summary>
+        /// Gets student information including department/program
+        /// </summary>
+        public async Task<(int? programId, string departmentName)> GetStudentDepartmentInfo(string umid)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var student = await context.Students
+                        .AsNoTracking()
+                        .Include(s => s.Program)
+                        .ThenInclude(p => p.Department)
+                        .FirstOrDefaultAsync(s => s.StudentUMID == umid);
+
+                    if (student != null && student.Program != null)
+                    {
+                        Console.WriteLine($"Student department info: ProgramID={student.ProgramID}, Department={student.Program.Department?.DepartmentName}");
+                        return (student.ProgramID, student.Program.Department?.DepartmentName ?? "N/A");
+                    }
+
+                    Console.WriteLine($"No student found with UMID: {umid}");
+                    return (null, "N/A");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetStudentDepartmentInfo Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                return (null, "N/A");
+            }
+        }
+
+        /// <summary>
+        /// Gets faculty department information
+        /// </summary>
+        public async Task<string> GetFacultyDepartmentInfo(string umid)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var faculty = await context.Faculty
+                        .AsNoTracking()
+                        .Include(f => f.SchoolYear)
+                        .FirstOrDefaultAsync(f => f.FacultyUMID == umid);
+
+                    return "Faculty Department"; // You can expand this based on your schema
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"GetFacultyDepartmentInfo Error: {ex.Message}");
+                return "N/A";
+            }
+        }
+
+        /// <summary>
+        /// Verifies that a user update was successful by checking the database
+        /// </summary>
+        public async Task<bool> VerifyUserUpdate(string umid, string expectedName, string expectedEmail)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var user = await context.Users
+                        .AsNoTracking()
+                        .FirstOrDefaultAsync(u => u.UMID == umid);
+                    
+                    if (user == null)
+                    {
+                        Console.WriteLine($"Verification failed: User with UMID {umid} not found");
+                        return false;
+                    }
+
+                    bool nameMatches = user.UserName == expectedName;
+                    bool emailMatches = user.Email == expectedEmail;
+
+                    Console.WriteLine($"Verification for UMID {umid}:");
+                    Console.WriteLine($"  Expected Name: {expectedName}, Actual: {user.UserName}, Match: {nameMatches}");
+                    Console.WriteLine($"  Expected Email: {expectedEmail}, Actual: {user.Email}, Match: {emailMatches}");
+
+                    return nameMatches && emailMatches;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"VerifyUserUpdate Error: {ex.Message}");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Deletes a user completely from the database including all related records
+        /// </summary>
+        public async Task<bool> DeleteUser(string umid)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    // Start a transaction to ensure all deletions are atomic
+                    using (var transaction = await context.Database.BeginTransactionAsync())
+                    {
+                        try
+                        {
+                            // Find the user by UMID
+                            var user = await context.Users.FirstOrDefaultAsync(u => u.UMID == umid);
+                            if (user == null)
+                            {
+                                Console.WriteLine($"User with UMID {umid} not found");
+                                return false;
+                            }
+
+                            string userId = user.Id;
+                            UserType userType = user.UserType;
+
+                            // Delete related records based on UserType
+                            if (userType == UserType.Student)
+                            {
+                                // Delete student record
+                                var student = await context.Students
+                                    .FirstOrDefaultAsync(s => s.UsersID == userId);
+                                
+                                if (student != null)
+                                {
+                                    // Delete enrolled courses for this student
+                                    var enrolledCourses = await context.EnrolledCourse
+                                        .Where(ec => ec.StudentID == student.StudentID)
+                                        .ToListAsync();
+                                    
+                                    if (enrolledCourses.Any())
+                                    {
+                                        context.EnrolledCourse.RemoveRange(enrolledCourses);
+                                    }
+                                    
+                                    // Delete consultation requests for this student
+                                    var consultations = await context.ConsultationRequest
+                                        .Where(cr => cr.StudentID == student.StudentID)
+                                        .ToListAsync();
+                                    
+                                    if (consultations.Any())
+                                    {
+                                        context.ConsultationRequest.RemoveRange(consultations);
+                                    }
+                                    
+                                    context.Students.Remove(student);
+                                }
+                            }
+                            else if (userType == UserType.Faculty)
+                            {
+                                // Delete faculty record
+                                var faculty = await context.Faculty
+                                    .FirstOrDefaultAsync(f => f.UsersID == userId);
+                                
+                                if (faculty != null)
+                                {
+                                    // Delete or update consultation requests assigned to this faculty
+                                    var consultations = await context.ConsultationRequest
+                                        .Where(cr => cr.FacultyID == faculty.FacultyID)
+                                        .ToListAsync();
+                                    
+                                    if (consultations.Any())
+                                    {
+                                        // Option 1: Delete consultations
+                                        context.ConsultationRequest.RemoveRange(consultations);
+                                        
+                                        // Option 2: Set faculty to null (uncomment if preferred)
+                                        // foreach (var consultation in consultations)
+                                        // {
+                                        //     consultation.FacultyID = null;
+                                        // }
+                                    }
+                                    
+                                    context.Faculty.Remove(faculty);
+                                }
+                            }
+                            else if (userType == UserType.Admin)
+                            {
+                                // Delete admin record
+                                var admin = await context.Admin
+                                    .FirstOrDefaultAsync(a => a.UsersID == userId);
+                                
+                                if (admin != null)
+                                {
+                                    context.Admin.Remove(admin);
+                                }
+                            }
+
+                            // Delete action logs related to this user
+                            var actionLogs = await context.ActionLog
+                                .Where(al => al.Users.Id == userId)
+                                .ToListAsync();
+                            
+                            if (actionLogs.Any())
+                            {
+                                context.ActionLog.RemoveRange(actionLogs);
+                            }
+
+                            // Finally, delete the user from Users table
+                            context.Users.Remove(user);
+
+                            // Save all changes
+                            int changes = await context.SaveChangesAsync();
+                            
+                            // Commit transaction
+                            await transaction.CommitAsync();
+                            
+                            Console.WriteLine($"Successfully deleted user {umid} and all related records. Changes saved: {changes}");
+                            return true;
+                        }
+                        catch (Exception ex)
+                        {
+                            // Rollback transaction on error
+                            await transaction.RollbackAsync();
+                            Console.WriteLine($"Transaction failed during delete: {ex.Message}");
+                            throw;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"DeleteUser Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                return false;
+            }
+        }
+    }
+}

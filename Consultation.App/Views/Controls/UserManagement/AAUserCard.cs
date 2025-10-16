@@ -157,8 +157,8 @@ namespace Consultation.App.Views.Controls.UserManagement
                 BackColor = Color.White
             };
 
-            // Create and configure the edituserprof control
-            edituserprof editUserProf = new edituserprof();
+            // Create and configure the edituserprof control with the user's UMID
+            edituserprof editUserProf = new edituserprof(userID);
             editUserProf.Dock = DockStyle.Fill;
 
             // Add the edituserprof to the form
@@ -166,6 +166,59 @@ namespace Consultation.App.Views.Controls.UserManagement
 
             // Show the form as a modal dialog
             editForm.ShowDialog();
+        }
+
+        private async void deleteTSMI_Click(object sender, EventArgs e)
+        {
+            // Confirm delete action
+            var result = MessageBox.Show(
+                $"Are you sure you want to permanently delete the user '{userName}' (UMID: {userID})?\n\n" +
+                "This action will delete:\n" +
+                "- User account\n" +
+                "- All related records (enrollments, consultations, etc.)\n\n" +
+                "This action cannot be undone!",
+                "Delete User",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2); // Default to No for safety
+                
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // Delete through the UserService (database)
+                    bool success = await Services.UserService.Instance.DeleteUser(userID);
+                    
+                    if (success)
+                    {
+                        MessageBox.Show(
+                            "User has been permanently deleted!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        
+                        // Remove this card from the parent container
+                        this.Parent?.Controls.Remove(this);
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Failed to delete the user. Please try again.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"An error occurred while deleting the user: {ex.Message}",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

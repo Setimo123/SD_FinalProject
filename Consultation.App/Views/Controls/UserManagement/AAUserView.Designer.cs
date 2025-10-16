@@ -50,10 +50,9 @@
             USname = new Label();
             guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             panel2 = new Panel();
-            button3 = new Button();
-            button2 = new Button();
             edprof = new Button();
             label3 = new Label();
+            Delbutton = new Button();
             guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cLose).BeginInit();
             panel1.SuspendLayout();
@@ -305,40 +304,13 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
+            panel2.Controls.Add(Delbutton);
             panel2.Controls.Add(edprof);
             panel2.Controls.Add(label3);
             panel2.Location = new Point(723, 145);
             panel2.Name = "panel2";
             panel2.Size = new Size(209, 420);
             panel2.TabIndex = 2;
-            // 
-            // button3
-            // 
-            button3.FlatAppearance.BorderColor = Color.Brown;
-            button3.FlatAppearance.BorderSize = 2;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.ForeColor = Color.Red;
-            button3.Location = new Point(18, 185);
-            button3.Name = "button3";
-            button3.Size = new Size(172, 35);
-            button3.TabIndex = 6;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.FlatAppearance.BorderColor = Color.Brown;
-            button2.FlatAppearance.BorderSize = 2;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.Red;
-            button2.Location = new Point(18, 129);
-            button2.Name = "button2";
-            button2.Size = new Size(172, 35);
-            button2.TabIndex = 5;
-            button2.Text = "Reset Pasword";
-            button2.UseVisualStyleBackColor = true;
             // 
             // edprof
             // 
@@ -364,6 +336,19 @@
             label3.Size = new Size(146, 26);
             label3.TabIndex = 3;
             label3.Text = "Quick Actions";
+            // 
+            // Delbutton
+            // 
+            Delbutton.FlatAppearance.BorderColor = Color.Brown;
+            Delbutton.FlatAppearance.BorderSize = 2;
+            Delbutton.FlatStyle = FlatStyle.Flat;
+            Delbutton.ForeColor = Color.Red;
+            Delbutton.Location = new Point(18, 123);
+            Delbutton.Name = "Delbutton";
+            Delbutton.Size = new Size(172, 35);
+            Delbutton.TabIndex = 6;
+            Delbutton.Text = "Delete";
+            Delbutton.UseVisualStyleBackColor = true;
             // 
             // UserView
             // 
@@ -408,8 +393,7 @@
         private Label label10;
         private Syncfusion.Windows.Forms.Tools.GradientLabel gradientRLE;
         private Label label11;
-        private Button button3;
-        private Button button2;
         private Button edprof;
+        private Button Delbutton;
     }
 }
