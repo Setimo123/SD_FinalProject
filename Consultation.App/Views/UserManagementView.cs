@@ -18,18 +18,95 @@ namespace Consultation.App.Views
     public partial class UserManagementView : UserControl, IUserManagementView
     {
         private UserManagementPresenter _presenter;
+        private string _currentTab = "Student"; // Track the currently active tab
 
         public UserManagementView()
         {
             InitializeComponent();
 
-            buttonStudents.Click += (s, e) => StudentManagementEvent?.Invoke(s, e);
-            buttonFaculty.Click += (s, e) => FacultyManagementEvent?.Invoke(s, e);
-            buttonAdmin.Click += (s, e) => AdminManagementEvent?.Invoke(s, e);
+            buttonStudents.Click += (s, e) => {
+                _currentTab = "Student";
+                StudentManagementEvent?.Invoke(s, e);
+            };
+            buttonFaculty.Click += (s, e) => {
+                _currentTab = "Faculty";
+                FacultyManagementEvent?.Invoke(s, e);
+            };
+            buttonAdmin.Click += (s, e) => {
+                _currentTab = "Admin";
+                AdminManagementEvent?.Invoke(s, e);
+            };
 
             InitializeComboBoxes();
             OptimizeFlowLayoutPanel();
             InitializeSearchBox();
+            InitializeRefreshButton();
+            InitializeAddButton();
+        }
+
+        /// <summary>
+        /// Initializes the add button with event handler
+        /// </summary>
+        private void InitializeAddButton()
+        {
+            USMadd.Click += USMadd_Click;
+            USMadd.Cursor = Cursors.Hand; // Make it clear it's clickable
+        }
+
+        private void USMadd_Click(object sender, EventArgs e)
+        {
+            // Create a borderless, non-movable form to host the AAaddUser control
+            Form addUserForm = new Form
+            {
+                Text = "Add New User",
+                Size = new Size(798, 518),  // Exact size to match AAaddUser control
+                StartPosition = FormStartPosition.CenterScreen,
+                FormBorderStyle = FormBorderStyle.None,  // Borderless form
+                BackColor = Color.White,
+                MaximizeBox = false,  // Disable maximize
+                MinimizeBox = false,  // Disable minimize
+                AutoSize = false,  // Disable auto-sizing
+                AutoSizeMode = AutoSizeMode.GrowOnly,  // Prevent shrinking
+                ShowInTaskbar = false  // Don't show in taskbar
+            };
+
+            // Create and configure the AAaddUser control
+            AAaddUser addUserControl = new AAaddUser
+            {
+                Dock = DockStyle.Fill,  // Fill the entire form
+                Location = new Point(0, 0)
+            };
+
+            // Add the AAaddUser control to the form
+            addUserForm.Controls.Add(addUserControl);
+
+            // Show the form as a modal dialog
+            addUserForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Initializes the refresh button with event handler
+        /// </summary>
+        private void InitializeRefreshButton()
+        {
+            USMrefresh.Click += USMrefresh_Click;
+        }
+
+        private void USMrefresh_Click(object sender, EventArgs e)
+        {
+            // Refresh the current view based on the tracked active tab
+            switch (_currentTab)
+            {
+                case "Student":
+                    StudentManagementEvent?.Invoke(this, EventArgs.Empty);
+                    break;
+                case "Faculty":
+                    FacultyManagementEvent?.Invoke(this, EventArgs.Empty);
+                    break;
+                case "Admin":
+                    AdminManagementEvent?.Invoke(this, EventArgs.Empty);
+                    break;
+            }
         }
 
         public event EventHandler StudentManagementEvent;

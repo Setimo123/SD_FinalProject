@@ -36,10 +36,16 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label2 = new Label();
             label1 = new Label();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             dockingClientPanel1 = new Syncfusion.Windows.Forms.Tools.DockingClientPanel();
+            miNN = new Guna.UI2.WinForms.Guna2Button();
+            eXXit = new Guna.UI2.WinForms.Guna2Button();
             showpass = new Guna.UI2.WinForms.Guna2CheckBox();
             Emtextbox = new Guna.UI2.WinForms.Guna2TextBox();
             Login_button = new Guna.UI2.WinForms.Guna2Button();
@@ -93,6 +99,8 @@
             // 
             dockingClientPanel1.BackColor = Color.Transparent;
             dockingClientPanel1.BackgroundImage = Properties.Icons.User_Name;
+            dockingClientPanel1.Controls.Add(miNN);
+            dockingClientPanel1.Controls.Add(eXXit);
             dockingClientPanel1.Controls.Add(showpass);
             dockingClientPanel1.Controls.Add(Emtextbox);
             dockingClientPanel1.Controls.Add(Login_button);
@@ -105,6 +113,43 @@
             dockingClientPanel1.Size = new Size(1940, 1080);
             dockingClientPanel1.TabIndex = 0;
             dockingClientPanel1.Paint += dockingClientPanel1_Paint;
+            // 
+            // miNN
+            // 
+            miNN.BackgroundImage = Properties.Icons.minimize_login;
+            miNN.BackgroundImageLayout = ImageLayout.Zoom;
+            miNN.CustomizableEdges = customizableEdges3;
+            miNN.DisabledState.BorderColor = Color.DarkGray;
+            miNN.DisabledState.CustomBorderColor = Color.DarkGray;
+            miNN.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            miNN.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            miNN.FillColor = Color.Transparent;
+            miNN.Font = new Font("Segoe UI", 9F);
+            miNN.ForeColor = Color.White;
+            miNN.Location = new Point(1755, 2);
+            miNN.Name = "miNN";
+            miNN.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            miNN.Size = new Size(80, 40);
+            miNN.TabIndex = 23;
+            miNN.Click += miNN_Click;
+            // 
+            // eXXit
+            // 
+            eXXit.BackgroundImage = Properties.Icons.close_login;
+            eXXit.BackgroundImageLayout = ImageLayout.Zoom;
+            eXXit.CustomizableEdges = customizableEdges5;
+            eXXit.DisabledState.BorderColor = Color.DarkGray;
+            eXXit.DisabledState.CustomBorderColor = Color.DarkGray;
+            eXXit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            eXXit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            eXXit.FillColor = Color.Transparent;
+            eXXit.Font = new Font("Segoe UI", 9F);
+            eXXit.ForeColor = Color.White;
+            eXXit.Location = new Point(1842, 2);
+            eXXit.Name = "eXXit";
+            eXXit.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            eXXit.Size = new Size(80, 40);
+            eXXit.TabIndex = 22;
             // 
             // showpass
             // 
@@ -129,7 +174,7 @@
             // 
             Emtextbox.BorderColor = Color.Transparent;
             Emtextbox.BorderRadius = 8;
-            Emtextbox.CustomizableEdges = customizableEdges3;
+            Emtextbox.CustomizableEdges = customizableEdges7;
             Emtextbox.DefaultText = "";
             Emtextbox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             Emtextbox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -145,14 +190,14 @@
             Emtextbox.PlaceholderForeColor = Color.DimGray;
             Emtextbox.PlaceholderText = "Input Email";
             Emtextbox.SelectedText = "";
-            Emtextbox.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            Emtextbox.ShadowDecoration.CustomizableEdges = customizableEdges8;
             Emtextbox.Size = new Size(454, 47);
             Emtextbox.TabIndex = 20;
             // 
             // Login_button
             // 
             Login_button.BorderRadius = 8;
-            Login_button.CustomizableEdges = customizableEdges5;
+            Login_button.CustomizableEdges = customizableEdges9;
             Login_button.DisabledState.BorderColor = Color.DarkGray;
             Login_button.DisabledState.CustomBorderColor = Color.DarkGray;
             Login_button.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -164,7 +209,7 @@
             Login_button.ImageSize = new Size(25, 25);
             Login_button.Location = new Point(1320, 657);
             Login_button.Name = "Login_button";
-            Login_button.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            Login_button.ShadowDecoration.CustomizableEdges = customizableEdges10;
             Login_button.Size = new Size(200, 45);
             Login_button.TabIndex = 17;
             Login_button.Text = "Log In";
@@ -173,7 +218,7 @@
             // 
             PassTextBox.BorderColor = Color.Transparent;
             PassTextBox.BorderRadius = 8;
-            PassTextBox.CustomizableEdges = customizableEdges7;
+            PassTextBox.CustomizableEdges = customizableEdges11;
             PassTextBox.DefaultText = "";
             PassTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             PassTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -189,7 +234,7 @@
             PassTextBox.PlaceholderForeColor = Color.DimGray;
             PassTextBox.PlaceholderText = "Input password";
             PassTextBox.SelectedText = "";
-            PassTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            PassTextBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
             PassTextBox.Size = new Size(454, 47);
             PassTextBox.TabIndex = 18;
             // 
@@ -200,6 +245,7 @@
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(1924, 1041);
             Controls.Add(dockingClientPanel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LogInView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LogIn";
@@ -220,5 +266,7 @@
         internal Guna.UI2.WinForms.Guna2TextBox PassTextBox;
         internal Guna.UI2.WinForms.Guna2TextBox Emtextbox;
         private Guna.UI2.WinForms.Guna2CheckBox showpass;
+        private Guna.UI2.WinForms.Guna2Button eXXit;
+        private Guna.UI2.WinForms.Guna2Button miNN;
     }
 }

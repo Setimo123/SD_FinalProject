@@ -105,7 +105,7 @@
             guna2CustomGradientPanel1.Location = new Point(0, 0);
             guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            guna2CustomGradientPanel1.Size = new Size(950, 130);
+            guna2CustomGradientPanel1.Size = new Size(986, 130);
             guna2CustomGradientPanel1.TabIndex = 0;
             // 
             // btnReturn
@@ -123,7 +123,7 @@
             btnReturn.Location = new Point(31, 12);
             btnReturn.Name = "btnReturn";
             btnReturn.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            btnReturn.Size = new Size(317, 45);
+            btnReturn.Size = new Size(212, 45);
             btnReturn.TabIndex = 1;
             btnReturn.Text = "Back to Consultations";
             btnReturn.Click += btnReturn_Click;
@@ -166,14 +166,14 @@
             materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard1.Name = "materialCard1";
             materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(650, 382);
+            materialCard1.Size = new Size(650, 391);
             materialCard1.TabIndex = 1;
             // 
             // guna2HtmlLabel12
             // 
             guna2HtmlLabel12.BackColor = Color.Transparent;
             guna2HtmlLabel12.Font = new Font("Microsoft Sans Serif", 9.75F);
-            guna2HtmlLabel12.Location = new Point(332, 239);
+            guna2HtmlLabel12.Location = new Point(332, 236);
             guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             guna2HtmlLabel12.Size = new Size(102, 18);
             guna2HtmlLabel12.TabIndex = 54;
@@ -181,7 +181,7 @@
             // 
             // Time
             // 
-            Time.BorderColor = Color.Gainsboro;
+            Time.BorderColor = Color.Black;
             Time.BorderRadius = 6;
             Time.BorderThickness = 0;
             Time.CustomizableEdges = customizableEdges7;
@@ -195,8 +195,9 @@
             Time.Font = new Font("Microsoft Sans Serif", 8.25F);
             Time.ForeColor = Color.Black;
             Time.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Time.Location = new Point(322, 275);
+            Time.Location = new Point(332, 262);
             Time.Name = "Time";
+            Time.PlaceholderForeColor = Color.Black;
             Time.PlaceholderText = "";
             Time.ReadOnly = true;
             Time.SelectedText = "";
@@ -232,6 +233,7 @@
             Date.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             Date.Location = new Point(17, 262);
             Date.Name = "Date";
+            Date.PlaceholderForeColor = Color.Black;
             Date.PlaceholderText = "";
             Date.ReadOnly = true;
             Date.SelectedText = "";
@@ -251,7 +253,7 @@
             // 
             // idnumber
             // 
-            idnumber.BorderColor = Color.Gainsboro;
+            idnumber.BorderColor = Color.Black;
             idnumber.BorderRadius = 6;
             idnumber.BorderThickness = 0;
             idnumber.CustomizableEdges = customizableEdges11;
@@ -267,6 +269,7 @@
             idnumber.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             idnumber.Location = new Point(17, 68);
             idnumber.Name = "idnumber";
+            idnumber.PlaceholderForeColor = Color.Black;
             idnumber.PlaceholderText = "";
             idnumber.ReadOnly = true;
             idnumber.SelectedText = "";
@@ -278,7 +281,7 @@
             // 
             guna2HtmlLabel10.BackColor = Color.Transparent;
             guna2HtmlLabel10.Font = new Font("Microsoft Sans Serif", 9.75F);
-            guna2HtmlLabel10.Location = new Point(332, 109);
+            guna2HtmlLabel10.Location = new Point(332, 104);
             guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             guna2HtmlLabel10.Size = new Size(54, 18);
             guna2HtmlLabel10.TabIndex = 46;
@@ -310,8 +313,9 @@
             Location.Font = new Font("Microsoft Sans Serif", 8.25F);
             Location.ForeColor = Color.Black;
             Location.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            Location.Location = new Point(322, 135);
+            Location.Location = new Point(332, 130);
             Location.Name = "Location";
+            Location.PlaceholderForeColor = Color.Black;
             Location.PlaceholderText = "";
             Location.ReadOnly = true;
             Location.SelectedText = "";
@@ -323,7 +327,7 @@
             // 
             guna2HtmlLabel8.BackColor = Color.Transparent;
             guna2HtmlLabel8.Font = new Font("Microsoft Sans Serif", 9.75F);
-            guna2HtmlLabel8.Location = new Point(332, 173);
+            guna2HtmlLabel8.Location = new Point(332, 167);
             guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             guna2HtmlLabel8.Size = new Size(82, 18);
             guna2HtmlLabel8.TabIndex = 44;
@@ -345,8 +349,9 @@
             CourseCode.Font = new Font("Microsoft Sans Serif", 8.25F);
             CourseCode.ForeColor = Color.Black;
             CourseCode.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            CourseCode.Location = new Point(322, 200);
+            CourseCode.Location = new Point(332, 193);
             CourseCode.Name = "CourseCode";
+            CourseCode.PlaceholderForeColor = Color.Black;
             CourseCode.PlaceholderText = "";
             CourseCode.ReadOnly = true;
             CourseCode.SelectedText = "";
@@ -382,6 +387,7 @@
             Faculty.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             Faculty.Location = new Point(17, 193);
             Faculty.Name = "Faculty";
+            Faculty.PlaceholderForeColor = Color.Black;
             Faculty.PlaceholderText = "";
             Faculty.ReadOnly = true;
             Faculty.SelectedText = "";
@@ -411,7 +417,7 @@
             Notes.ReadOnly = true;
             Notes.SelectedText = "";
             Notes.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            Notes.Size = new Size(587, 51);
+            Notes.Size = new Size(616, 51);
             Notes.TabIndex = 37;
             // 
             // guna2HtmlLabel4
@@ -442,6 +448,7 @@
             StudentName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             StudentName.Location = new Point(17, 130);
             StudentName.Name = "StudentName";
+            StudentName.PlaceholderForeColor = Color.Black;
             StudentName.PlaceholderText = "";
             StudentName.ReadOnly = true;
             StudentName.SelectedText = "";
@@ -473,7 +480,7 @@
             materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             materialCard2.Name = "materialCard2";
             materialCard2.Padding = new Padding(14);
-            materialCard2.Size = new Size(230, 382);
+            materialCard2.Size = new Size(230, 391);
             materialCard2.TabIndex = 2;
             // 
             // btnDelete

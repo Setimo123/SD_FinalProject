@@ -33,6 +33,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             buttonAdmin = new Button();
             flPanelUserCard = new FlowLayoutPanel();
             buttonFaculty = new Button();
@@ -52,6 +56,8 @@
             materialCard2 = new MaterialSkin.Controls.MaterialCard();
             materialCard3 = new MaterialSkin.Controls.MaterialCard();
             materialCard4 = new MaterialSkin.Controls.MaterialCard();
+            USMadd = new Guna.UI2.WinForms.Guna2Button();
+            USMrefresh = new Guna.UI2.WinForms.Guna2Button();
             materialCard5 = new MaterialSkin.Controls.MaterialCard();
             label7 = new Label();
             label5 = new Label();
@@ -284,6 +290,8 @@
             // materialCard4
             // 
             materialCard4.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard4.Controls.Add(USMadd);
+            materialCard4.Controls.Add(USMrefresh);
             materialCard4.Controls.Add(flPanelUserCard);
             materialCard4.Controls.Add(materialCard5);
             materialCard4.Controls.Add(cboxSort);
@@ -300,6 +308,52 @@
             materialCard4.Padding = new Padding(14);
             materialCard4.Size = new Size(1396, 765);
             materialCard4.TabIndex = 10;
+            // 
+            // USMadd
+            // 
+            USMadd.BorderColor = Color.Red;
+            USMadd.BorderRadius = 8;
+            USMadd.CustomizableEdges = customizableEdges1;
+            USMadd.DisabledState.BorderColor = Color.DarkGray;
+            USMadd.DisabledState.CustomBorderColor = Color.DarkGray;
+            USMadd.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            USMadd.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            USMadd.FillColor = Color.FromArgb(190, 0, 2);
+            USMadd.Font = new Font("Microsoft Sans Serif", 9.75F);
+            USMadd.ForeColor = Color.White;
+            USMadd.Image = Properties.Icons.adduser;
+            USMadd.ImageAlign = HorizontalAlignment.Left;
+            USMadd.ImageSize = new Size(15, 15);
+            USMadd.Location = new Point(536, 90);
+            USMadd.Name = "USMadd";
+            USMadd.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            USMadd.Size = new Size(110, 36);
+            USMadd.TabIndex = 22;
+            USMadd.Text = "Add User";
+            USMadd.TextOffset = new Point(10, 0);
+            // 
+            // USMrefresh
+            // 
+            USMrefresh.BorderColor = Color.Red;
+            USMrefresh.BorderRadius = 8;
+            USMrefresh.CustomizableEdges = customizableEdges3;
+            USMrefresh.DisabledState.BorderColor = Color.DarkGray;
+            USMrefresh.DisabledState.CustomBorderColor = Color.DarkGray;
+            USMrefresh.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            USMrefresh.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            USMrefresh.FillColor = Color.FromArgb(190, 0, 2);
+            USMrefresh.Font = new Font("Microsoft Sans Serif", 9.75F);
+            USMrefresh.ForeColor = Color.White;
+            USMrefresh.Image = Properties.Icons.images_removebg_preview;
+            USMrefresh.ImageAlign = HorizontalAlignment.Left;
+            USMrefresh.ImageSize = new Size(15, 15);
+            USMrefresh.Location = new Point(420, 90);
+            USMrefresh.Name = "USMrefresh";
+            USMrefresh.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            USMrefresh.Size = new Size(97, 36);
+            USMrefresh.TabIndex = 21;
+            USMrefresh.Text = "Refresh";
+            USMrefresh.TextOffset = new Point(10, 0);
             // 
             // materialCard5
             // 
@@ -362,7 +416,7 @@
             // 
             cboxSort.BackColor = Color.Transparent;
             cboxSort.BorderRadius = 6;
-            cboxSort.CustomizableEdges = customizableEdges1;
+            cboxSort.CustomizableEdges = customizableEdges5;
             cboxSort.DrawMode = DrawMode.OwnerDrawFixed;
             cboxSort.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxSort.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -372,7 +426,7 @@
             cboxSort.ItemHeight = 30;
             cboxSort.Location = new Point(178, 90);
             cboxSort.Name = "cboxSort";
-            cboxSort.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            cboxSort.ShadowDecoration.CustomizableEdges = customizableEdges6;
             cboxSort.Size = new Size(224, 36);
             cboxSort.TabIndex = 16;
             cboxSort.SelectedIndexChanged += cboxSort_SelectedIndexChanged;
@@ -380,8 +434,8 @@
             // USMsearchbar
             // 
             USMsearchbar.BorderRadius = 6;
-            USMsearchbar.CustomizableEdges = customizableEdges3;
-            USMsearchbar.DefaultText = "\r\n";
+            USMsearchbar.CustomizableEdges = customizableEdges7;
+            USMsearchbar.DefaultText = "";
             USMsearchbar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             USMsearchbar.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             USMsearchbar.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
@@ -395,7 +449,7 @@
             USMsearchbar.PlaceholderForeColor = Color.Gray;
             USMsearchbar.PlaceholderText = "Search by Name, Email or Umindanao ID";
             USMsearchbar.SelectedText = "";
-            USMsearchbar.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            USMsearchbar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             USMsearchbar.Size = new Size(993, 49);
             USMsearchbar.TabIndex = 15;
             USMsearchbar.TextChanged += USMsearchbar_TextChanged;
@@ -457,5 +511,7 @@
         private Label label3;
         private Label label2;
         private Label label7;
+        private Guna.UI2.WinForms.Guna2Button USMrefresh;
+        private Guna.UI2.WinForms.Guna2Button USMadd;
     }
 }

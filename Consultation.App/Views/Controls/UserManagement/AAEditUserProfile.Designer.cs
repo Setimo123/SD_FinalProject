@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             editprofileusm = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             exitedit = new PictureBox();
             label2 = new Label();
@@ -73,14 +73,14 @@
             editprofileusm.Controls.Add(exitedit);
             editprofileusm.Controls.Add(label2);
             editprofileusm.Controls.Add(label1);
-            editprofileusm.CustomizableEdges = customizableEdges15;
+            editprofileusm.CustomizableEdges = customizableEdges1;
             editprofileusm.FillColor = Color.Brown;
             editprofileusm.FillColor2 = Color.Maroon;
             editprofileusm.FillColor3 = Color.Maroon;
             editprofileusm.FillColor4 = Color.RosyBrown;
             editprofileusm.Location = new Point(0, 0);
             editprofileusm.Name = "editprofileusm";
-            editprofileusm.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            editprofileusm.ShadowDecoration.CustomizableEdges = customizableEdges2;
             editprofileusm.Size = new Size(950, 130);
             editprofileusm.TabIndex = 0;
             // 
@@ -138,15 +138,16 @@
             panel1.Controls.Add(TBfullname);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(28, 168);
+            panel1.Location = new Point(28, 190);
             panel1.Name = "panel1";
-            panel1.Size = new Size(890, 455);
+            panel1.Size = new Size(763, 433);
             panel1.TabIndex = 1;
             // 
             // CBdept
             // 
             CBdept.BackColor = Color.Transparent;
-            CBdept.CustomizableEdges = customizableEdges17;
+            CBdept.BorderRadius = 8;
+            CBdept.CustomizableEdges = customizableEdges3;
             CBdept.DrawMode = DrawMode.OwnerDrawFixed;
             CBdept.DropDownStyle = ComboBoxStyle.DropDownList;
             CBdept.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -156,14 +157,16 @@
             CBdept.ItemHeight = 30;
             CBdept.Location = new Point(471, 274);
             CBdept.Name = "CBdept";
-            CBdept.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            CBdept.Size = new Size(347, 36);
+            CBdept.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            CBdept.Size = new Size(193, 36);
             CBdept.TabIndex = 24;
+            CBdept.SelectedIndexChanged += CBdept_SelectedIndexChanged;
             // 
             // CBrole
             // 
             CBrole.BackColor = Color.Transparent;
-            CBrole.CustomizableEdges = customizableEdges19;
+            CBrole.BorderRadius = 8;
+            CBrole.CustomizableEdges = customizableEdges5;
             CBrole.DrawMode = DrawMode.OwnerDrawFixed;
             CBrole.DropDownStyle = ComboBoxStyle.DropDownList;
             CBrole.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -173,8 +176,8 @@
             CBrole.ItemHeight = 30;
             CBrole.Location = new Point(471, 199);
             CBrole.Name = "CBrole";
-            CBrole.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            CBrole.Size = new Size(347, 36);
+            CBrole.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            CBrole.Size = new Size(193, 36);
             CBrole.TabIndex = 23;
             // 
             // canxel
@@ -183,9 +186,9 @@
             canxel.FlatAppearance.BorderSize = 2;
             canxel.FlatStyle = FlatStyle.Flat;
             canxel.ForeColor = Color.Firebrick;
-            canxel.Location = new Point(526, 375);
+            canxel.Location = new Point(470, 344);
             canxel.Name = "canxel";
-            canxel.Size = new Size(138, 37);
+            canxel.Size = new Size(88, 37);
             canxel.TabIndex = 22;
             canxel.Text = "Cancel";
             canxel.UseVisualStyleBackColor = true;
@@ -197,7 +200,7 @@
             saveChanges.FlatAppearance.BorderSize = 2;
             saveChanges.FlatStyle = FlatStyle.Flat;
             saveChanges.ForeColor = Color.White;
-            saveChanges.Location = new Point(681, 374);
+            saveChanges.Location = new Point(575, 343);
             saveChanges.Name = "saveChanges";
             saveChanges.Size = new Size(138, 37);
             saveChanges.TabIndex = 21;
@@ -230,7 +233,8 @@
             // 
             // TBUID
             // 
-            TBUID.CustomizableEdges = customizableEdges21;
+            TBUID.BorderRadius = 8;
+            TBUID.CustomizableEdges = customizableEdges7;
             TBUID.DefaultText = "";
             TBUID.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             TBUID.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -243,8 +247,8 @@
             TBUID.Name = "TBUID";
             TBUID.PlaceholderText = "";
             TBUID.SelectedText = "";
-            TBUID.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            TBUID.Size = new Size(347, 36);
+            TBUID.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            TBUID.Size = new Size(193, 36);
             TBUID.TabIndex = 16;
             // 
             // label10
@@ -258,7 +262,7 @@
             label10.Size = new Size(64, 20);
             label10.TabIndex = 15;
             label10.Text = "User ID";
-            label10.Click += this.label10_Click;
+            label10.Click += label10_Click;
             // 
             // label9
             // 
@@ -274,7 +278,8 @@
             // 
             // TBContact
             // 
-            TBContact.CustomizableEdges = customizableEdges23;
+            TBContact.BorderRadius = 8;
+            TBContact.CustomizableEdges = customizableEdges9;
             TBContact.DefaultText = "";
             TBContact.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             TBContact.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -287,8 +292,8 @@
             TBContact.Name = "TBContact";
             TBContact.PlaceholderText = "";
             TBContact.SelectedText = "";
-            TBContact.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            TBContact.Size = new Size(347, 36);
+            TBContact.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            TBContact.Size = new Size(207, 36);
             TBContact.TabIndex = 9;
             // 
             // label6
@@ -305,7 +310,8 @@
             // 
             // TBemail
             // 
-            TBemail.CustomizableEdges = customizableEdges25;
+            TBemail.BorderRadius = 8;
+            TBemail.CustomizableEdges = customizableEdges11;
             TBemail.DefaultText = "";
             TBemail.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             TBemail.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -318,7 +324,7 @@
             TBemail.Name = "TBemail";
             TBemail.PlaceholderText = "";
             TBemail.SelectedText = "";
-            TBemail.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            TBemail.ShadowDecoration.CustomizableEdges = customizableEdges12;
             TBemail.Size = new Size(347, 36);
             TBemail.TabIndex = 7;
             // 
@@ -336,7 +342,8 @@
             // 
             // TBfullname
             // 
-            TBfullname.CustomizableEdges = customizableEdges27;
+            TBfullname.BorderRadius = 8;
+            TBfullname.CustomizableEdges = customizableEdges13;
             TBfullname.DefaultText = "";
             TBfullname.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             TBfullname.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -349,7 +356,7 @@
             TBfullname.Name = "TBfullname";
             TBfullname.PlaceholderText = "";
             TBfullname.SelectedText = "";
-            TBfullname.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            TBfullname.ShadowDecoration.CustomizableEdges = customizableEdges14;
             TBfullname.Size = new Size(347, 36);
             TBfullname.TabIndex = 5;
             // 
@@ -364,7 +371,7 @@
             label4.Size = new Size(80, 20);
             label4.TabIndex = 4;
             label4.Text = "Full Name";
-            label4.Click += this.label4_Click;
+            label4.Click += label4_Click;
             // 
             // label3
             // 
@@ -380,13 +387,12 @@
             // 
             // edituserprof
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(panel1);
             Controls.Add(editprofileusm);
             Name = "edituserprof";
-            Size = new Size(948, 598);
+            Size = new Size(840, 598);
             editprofileusm.ResumeLayout(false);
             editprofileusm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)exitedit).EndInit();

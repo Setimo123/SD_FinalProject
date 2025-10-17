@@ -209,6 +209,7 @@
             ConStatus.ShadowDecoration.CustomizableEdges = customizableEdges2;
             ConStatus.Size = new Size(100, 32);
             ConStatus.TabIndex = 30;
+            ConStatus.Click += ConStatus_Click;
             // 
             // flowLayoutPanel6
             // 
@@ -448,6 +449,7 @@
             Noteslabel.Size = new Size(1247, 40);
             Noteslabel.TabIndex = 13;
             Noteslabel.Text = "SKDISDISKDSKDKSsdkKSDK\nSDSDASDSADASASDASDd\n";
+            Noteslabel.Visible = false;
             // 
             // guna2Button1
             // 

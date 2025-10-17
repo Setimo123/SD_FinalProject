@@ -49,24 +49,15 @@
             btnPublish = new Guna.UI2.WinForms.Guna2Button();
             btnDelete = new Guna.UI2.WinForms.Guna2Button();
             btnBack = new Guna.UI2.WinForms.Guna2Button();
-            lblTitle = new Label();
             btnEdit = new Guna.UI2.WinForms.Guna2Button();
             flpTags = new FlowLayoutPanel();
+            lblTitle = new Label();
             tagId = new Guna.UI2.WinForms.Guna2Button();
             tagDate = new Guna.UI2.WinForms.Guna2Button();
             tagAuthor = new Guna.UI2.WinForms.Guna2Button();
             txtContent = new RichTextBox();
-            lblAttachments = new Label();
-            materialCard1 = new MaterialSkin.Controls.MaterialCard();
-            picDownload = new PictureBox();
-            lblFileSize = new Label();
-            lblFileName = new Label();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             flpTags.SuspendLayout();
-            materialCard1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picDownload).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -102,7 +93,7 @@
             btnPublish.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnPublish.FillColor = Color.White;
             btnPublish.FocusedColor = Color.Transparent;
-            btnPublish.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPublish.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPublish.ForeColor = Color.FromArgb(222, 59, 64);
             btnPublish.Image = Properties.Icons.approve;
             btnPublish.ImageOffset = new Point(-2, 0);
@@ -129,7 +120,7 @@
             btnDelete.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnDelete.FillColor = Color.White;
             btnDelete.FocusedColor = Color.Transparent;
-            btnDelete.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDelete.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = Color.FromArgb(222, 59, 64);
             btnDelete.Image = Properties.Icons.delete;
             btnDelete.ImageOffset = new Point(-2, 0);
@@ -156,7 +147,7 @@
             btnBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnBack.FillColor = Color.FromArgb(222, 59, 64);
             btnBack.FocusedColor = Color.Transparent;
-            btnBack.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBack.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBack.ForeColor = Color.White;
             btnBack.Image = Properties.Icons.white_arrow;
             btnBack.ImageOffset = new Point(-2, 0);
@@ -169,18 +160,6 @@
             btnBack.TabIndex = 23;
             btnBack.Text = "Back to Bulletins";
             btnBack.Click += btnBack_Click;
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Archivo", 17.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(3, 0);
-            lblTitle.Margin = new Padding(3, 0, 40, 0);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(374, 34);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "School Closure - Faculty Meeting";
             // 
             // btnEdit
             // 
@@ -195,7 +174,7 @@
             btnEdit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnEdit.FillColor = Color.White;
             btnEdit.FocusedColor = Color.Transparent;
-            btnEdit.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEdit.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEdit.ForeColor = Color.FromArgb(222, 59, 64);
             btnEdit.Image = Properties.Icons.edit;
             btnEdit.ImageOffset = new Point(-2, 0);
@@ -219,8 +198,20 @@
             flpTags.Controls.Add(tagAuthor);
             flpTags.Location = new Point(25, 70);
             flpTags.Name = "flpTags";
-            flpTags.Size = new Size(831, 34);
+            flpTags.Size = new Size(810, 34);
             flpTags.TabIndex = 29;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Archivo", 17.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(3, 0);
+            lblTitle.Margin = new Padding(3, 0, 40, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(374, 34);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "School Closure - Faculty Meeting";
             // 
             // tagId
             // 
@@ -233,13 +224,13 @@
             tagId.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             tagId.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             tagId.FillColor = Color.FromArgb(253, 242, 242);
-            tagId.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tagId.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tagId.ForeColor = Color.FromArgb(222, 59, 64);
             tagId.Location = new Point(420, 3);
             tagId.Margin = new Padding(3, 3, 10, 3);
             tagId.Name = "tagId";
             tagId.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            tagId.Size = new Size(135, 26);
+            tagId.Size = new Size(129, 25);
             tagId.TabIndex = 26;
             tagId.Text = "ID: BUL-2025-001";
             // 
@@ -254,16 +245,16 @@
             tagDate.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             tagDate.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             tagDate.FillColor = Color.FromArgb(253, 242, 242);
-            tagDate.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tagDate.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tagDate.ForeColor = Color.FromArgb(222, 59, 64);
             tagDate.Image = Properties.Icons.tag_date;
             tagDate.ImageOffset = new Point(-1, 0);
             tagDate.ImageSize = new Size(16, 15);
-            tagDate.Location = new Point(568, 3);
+            tagDate.Location = new Point(562, 3);
             tagDate.Margin = new Padding(3, 3, 10, 3);
             tagDate.Name = "tagDate";
             tagDate.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            tagDate.Size = new Size(118, 26);
+            tagDate.Size = new Size(109, 25);
             tagDate.TabIndex = 27;
             tagDate.Text = "2024-05-05";
             // 
@@ -278,15 +269,15 @@
             tagAuthor.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             tagAuthor.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             tagAuthor.FillColor = Color.FromArgb(253, 242, 242);
-            tagAuthor.Font = new Font("Inter", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tagAuthor.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tagAuthor.ForeColor = Color.FromArgb(222, 59, 64);
             tagAuthor.Image = Properties.Icons.tag_person;
             tagAuthor.ImageSize = new Size(16, 16);
-            tagAuthor.Location = new Point(699, 3);
+            tagAuthor.Location = new Point(684, 3);
             tagAuthor.Margin = new Padding(3, 3, 10, 3);
             tagAuthor.Name = "tagAuthor";
             tagAuthor.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            tagAuthor.Size = new Size(122, 26);
+            tagAuthor.Size = new Size(116, 25);
             tagAuthor.TabIndex = 28;
             tagAuthor.Text = "Admin Office";
             // 
@@ -294,7 +285,7 @@
             // 
             txtContent.BackColor = Color.White;
             txtContent.BorderStyle = BorderStyle.None;
-            txtContent.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtContent.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtContent.ForeColor = Color.FromArgb(23, 26, 31);
             txtContent.Location = new Point(44, 162);
             txtContent.Name = "txtContent";
@@ -303,86 +294,12 @@
             txtContent.TabIndex = 27;
             txtContent.Text = resources.GetString("txtContent.Text");
             // 
-            // lblAttachments
-            // 
-            lblAttachments.AutoSize = true;
-            lblAttachments.Font = new Font("Archivo SemiBold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAttachments.ForeColor = Color.FromArgb(86, 93, 109);
-            lblAttachments.Location = new Point(44, 546);
-            lblAttachments.Name = "lblAttachments";
-            lblAttachments.Size = new Size(168, 32);
-            lblAttachments.TabIndex = 28;
-            lblAttachments.Text = "Attachments (1)";
-            // 
-            // materialCard1
-            // 
-            materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(picDownload);
-            materialCard1.Controls.Add(lblFileSize);
-            materialCard1.Controls.Add(lblFileName);
-            materialCard1.Controls.Add(pictureBox1);
-            materialCard1.Depth = 0;
-            materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(65, 592);
-            materialCard1.Margin = new Padding(14);
-            materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialCard1.Name = "materialCard1";
-            materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(1367, 70);
-            materialCard1.TabIndex = 29;
-            // 
-            // picDownload
-            // 
-            picDownload.Cursor = Cursors.Hand;
-            picDownload.Image = Properties.Icons.download;
-            picDownload.Location = new Point(1314, 17);
-            picDownload.Name = "picDownload";
-            picDownload.Size = new Size(36, 36);
-            picDownload.SizeMode = PictureBoxSizeMode.Zoom;
-            picDownload.TabIndex = 30;
-            picDownload.TabStop = false;
-            picDownload.Click += picDownload_Click;
-            // 
-            // lblFileSize
-            // 
-            lblFileSize.AutoSize = true;
-            lblFileSize.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFileSize.ForeColor = Color.FromArgb(86, 93, 109);
-            lblFileSize.Location = new Point(59, 38);
-            lblFileSize.Name = "lblFileSize";
-            lblFileSize.Size = new Size(54, 18);
-            lblFileSize.TabIndex = 2;
-            lblFileSize.Text = "245 KB";
-            // 
-            // lblFileName
-            // 
-            lblFileName.AutoSize = true;
-            lblFileName.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblFileName.ForeColor = Color.FromArgb(23, 36, 31);
-            lblFileName.Location = new Point(59, 17);
-            lblFileName.Name = "lblFileName";
-            lblFileName.Size = new Size(133, 18);
-            lblFileName.TabIndex = 1;
-            lblFileName.Text = "Faculty_Meeting.pdf";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Icons.attachment;
-            pictureBox1.Location = new Point(17, 17);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(36, 36);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
             // BulletinOverlay
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1500, 705);
-            Controls.Add(materialCard1);
-            Controls.Add(lblAttachments);
+            ClientSize = new Size(1500, 564);
             Controls.Add(txtContent);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -392,12 +309,7 @@
             panel1.PerformLayout();
             flpTags.ResumeLayout(false);
             flpTags.PerformLayout();
-            materialCard1.ResumeLayout(false);
-            materialCard1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picDownload).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -408,12 +320,6 @@
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Guna.UI2.WinForms.Guna2Button btnPublish;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
-        private Label lblAttachments;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
-        private PictureBox pictureBox1;
-        private Label lblFileSize;
-        private Label lblFileName;
-        private PictureBox picDownload;
         public Label lblTitle;
         public RichTextBox txtContent;
         public Guna.UI2.WinForms.Guna2Button tagAuthor;

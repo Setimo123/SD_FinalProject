@@ -22,6 +22,20 @@ namespace Consultation.App.Views
         {
             InitializeComponent();
 
+            // Set the form icon
+            try
+            {
+                string iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logo.ico");
+                if (System.IO.File.Exists(iconPath))
+                {
+                    this.Icon = new Icon(iconPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to load icon: {ex.Message}");
+            }
+
             resultlabel1 = new Label
             {
                 Name = "resultlabel1",
@@ -48,6 +62,10 @@ namespace Consultation.App.Views
             // Initialize password char and subscribe to events
             PassTextBox.UseSystemPasswordChar = true;
             showpass.CheckedChanged += showpass_CheckedChanged;
+            
+            // Subscribe to minimize and exit button events
+            miNN.Click += miNN_Click;
+            eXXit.Click += eXXit_Click;
         }
 
         // Removed ShowPassButton_Click and all references to ShowPassButton
@@ -55,6 +73,12 @@ namespace Consultation.App.Views
         private void showpass_CheckedChanged(object sender, EventArgs e)
         {
             PassTextBox.UseSystemPasswordChar = !showpass.Checked;
+        }
+
+        private void eXXit_Click(object sender, EventArgs e)
+        {
+            // Close the entire application
+            Application.Exit();
         }
 
         public void ShowMessage(string message)
@@ -160,6 +184,12 @@ namespace Consultation.App.Views
         private void guna2HtmlLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void miNN_Click(object sender, EventArgs e)
+        {
+            // Minimize the application
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

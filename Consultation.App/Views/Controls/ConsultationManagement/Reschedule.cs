@@ -24,7 +24,7 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
 
             data.Date = Date.Text;
             data.Time = comboboxTime.Text;
-            data.Notes = Reason.Text; 
+            data.Notes = Reason.Text;
             card.Data = data;
 
             this.Close();
@@ -39,7 +39,7 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
 
         private void comboboxTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedTime = comboboxTime.SelectedItem?.ToString();         
+            string selectedTime = comboboxTime.SelectedItem?.ToString();
         }
 
         private void comboboxTime_DropDown(object sender, EventArgs e)
@@ -48,20 +48,40 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
             {
                 for (int hour = 1; hour <= 12; hour++)
                 {
-                        string timeAm = hour.ToString() + ":00 AM";
-                        comboboxTime.Items.Add(timeAm);
+                    string timeAm = hour.ToString() + ":00 AM";
+                    comboboxTime.Items.Add(timeAm);
                 }
 
 
                 for (int hour = 1; hour <= 12; hour++)
                 {
-                        string timePm = hour.ToString() +  ":00 PM";
-                        comboboxTime.Items.Add(timePm);
+                    string timePm = hour.ToString() + ":00 PM";
+                    comboboxTime.Items.Add(timePm);
                 }
 
                 comboboxTime.SelectedIndex = 0;
                 return;
             }
+        }
+
+        private void CurrentTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Reschedule_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

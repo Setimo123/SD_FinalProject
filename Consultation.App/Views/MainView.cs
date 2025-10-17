@@ -15,6 +15,20 @@ namespace Consultation.App.Views
         {
             InitializeComponent();
 
+            // Set the form icon
+            try
+            {
+                string iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logo.ico");
+                if (System.IO.File.Exists(iconPath))
+                {
+                    this.Icon = new Icon(iconPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to load icon: {ex.Message}");
+            }
+
             profilePanel.BackColor = Color.Transparent;
 
             buttonDashboard.Click += (s, e) => DashboardEvent?.Invoke(s, e);
@@ -143,7 +157,31 @@ namespace Consultation.App.Views
                 
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                // Hide the main view
+                this.Hide();
+                
+                // Create and show the login view
+                var loginView = new LogInView();
+                loginView.FormClosed += (s, args) => 
+                {
+                    // If login view is closed without successful login, exit application
+                    if (loginView.DialogResult != DialogResult.OK)
+                    {
+                        Application.Exit();
+                    }
+                };
+                loginView.ShowDialog();
+                
+                // If we return here and the dialog result is OK, show main view again
+                // Otherwise close this form
+                if (loginView.DialogResult != DialogResult.OK)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    this.Show();
+                }
             }
         }
 

@@ -41,8 +41,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txtTitle = new Guna.UI2.WinForms.Guna2TextBox();
             label2 = new Label();
             btnPublishBulletin = new Guna.UI2.WinForms.Guna2Button();
@@ -52,16 +50,10 @@
             lblHeader = new Label();
             label3 = new Label();
             txtAuthor = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            pictureBox1 = new PictureBox();
-            label6 = new Label();
-            label5 = new Label();
             label4 = new Label();
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             txtContent = new Guna.UI2.WinForms.Guna2TextBox();
             panel1.SuspendLayout();
-            guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // txtTitle
@@ -75,7 +67,7 @@
             txtTitle.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtTitle.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtTitle.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTitle.Font = new Font("Inter Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTitle.ForeColor = Color.FromArgb(66, 72, 86);
             txtTitle.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTitle.Location = new Point(65, 179);
@@ -91,11 +83,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Inter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(66, 72, 86);
             label2.Location = new Point(73, 167);
             label2.Name = "label2";
-            label2.Size = new Size(45, 23);
+            label2.Size = new Size(43, 20);
             label2.TabIndex = 12;
             label2.Text = "Title";
             // 
@@ -112,7 +104,7 @@
             btnPublishBulletin.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnPublishBulletin.FillColor = Color.White;
             btnPublishBulletin.FocusedColor = Color.Transparent;
-            btnPublishBulletin.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPublishBulletin.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPublishBulletin.ForeColor = Color.FromArgb(222, 59, 64);
             btnPublishBulletin.Image = Properties.Icons.publish;
             btnPublishBulletin.ImageOffset = new Point(-2, 0);
@@ -139,7 +131,7 @@
             btnCancel.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnCancel.FillColor = Color.White;
             btnCancel.FocusedColor = Color.Transparent;
-            btnCancel.Font = new Font("Inter", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCancel.ForeColor = Color.FromArgb(222, 59, 64);
             btnCancel.Image = Properties.Icons.close;
             btnCancel.ImageOffset = new Point(-2, 0);
@@ -178,7 +170,7 @@
             btnBack.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnBack.FillColor = Color.FromArgb(222, 59, 64);
             btnBack.FocusedColor = Color.Transparent;
-            btnBack.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBack.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBack.ForeColor = Color.White;
             btnBack.Image = Properties.Icons.white_arrow;
             btnBack.ImageOffset = new Point(-2, 0);
@@ -206,11 +198,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Inter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(66, 72, 86);
             label3.Location = new Point(73, 257);
             label3.Name = "label3";
-            label3.Size = new Size(65, 23);
+            label3.Size = new Size(63, 20);
             label3.TabIndex = 27;
             label3.Text = "Author";
             // 
@@ -225,7 +217,7 @@
             txtAuthor.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtAuthor.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtAuthor.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtAuthor.Font = new Font("Inter Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtAuthor.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtAuthor.ForeColor = Color.FromArgb(66, 72, 86);
             txtAuthor.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtAuthor.Location = new Point(65, 269);
@@ -238,64 +230,14 @@
             txtAuthor.TabIndex = 26;
             txtAuthor.TextOffset = new Point(6, 0);
             // 
-            // guna2Panel1
-            // 
-            guna2Panel1.AllowDrop = true;
-            guna2Panel1.BorderColor = Color.FromArgb(189, 193, 202);
-            guna2Panel1.BorderRadius = 6;
-            guna2Panel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            guna2Panel1.BorderThickness = 2;
-            guna2Panel1.Controls.Add(pictureBox1);
-            guna2Panel1.Controls.Add(label6);
-            guna2Panel1.Cursor = Cursors.Hand;
-            guna2Panel1.CustomizableEdges = customizableEdges11;
-            guna2Panel1.Location = new Point(65, 571);
-            guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2Panel1.Size = new Size(1367, 110);
-            guna2Panel1.TabIndex = 28;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Icons.file;
-            pictureBox1.Location = new Point(673, 18);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(21, 24);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Inter", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.FromArgb(23, 26, 31);
-            label6.Location = new Point(565, 56);
-            label6.Name = "label6";
-            label6.Size = new Size(238, 36);
-            label6.TabIndex = 0;
-            label6.Text = "Click to upload files or drag and drop\nPDF, DOC, DOCX up to 100 MB";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Inter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.FromArgb(66, 72, 86);
-            label5.Location = new Point(73, 558);
-            label5.Name = "label5";
-            label5.Size = new Size(112, 23);
-            label5.TabIndex = 30;
-            label5.Text = "Attachments";
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Inter", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(66, 72, 86);
             label4.Location = new Point(73, 347);
             label4.Name = "label4";
-            label4.Size = new Size(137, 23);
+            label4.Size = new Size(138, 20);
             label4.TabIndex = 29;
             label4.Text = "Bulletin Content";
             // 
@@ -310,14 +252,14 @@
             // 
             txtContent.BorderColor = Color.FromArgb(189, 193, 202);
             txtContent.BorderRadius = 6;
-            txtContent.CustomizableEdges = customizableEdges13;
+            txtContent.CustomizableEdges = customizableEdges11;
             txtContent.DefaultText = "";
             txtContent.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtContent.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtContent.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtContent.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtContent.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtContent.Font = new Font("Inter Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtContent.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtContent.ForeColor = Color.FromArgb(66, 72, 86);
             txtContent.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtContent.Location = new Point(65, 359);
@@ -327,7 +269,7 @@
             txtContent.PlaceholderText = "Enter Bulletin Content";
             txtContent.ScrollBars = ScrollBars.Vertical;
             txtContent.SelectedText = "";
-            txtContent.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtContent.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtContent.Size = new Size(1367, 190);
             txtContent.TabIndex = 31;
             txtContent.TextOffset = new Point(6, 0);
@@ -337,10 +279,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1500, 705);
+            ClientSize = new Size(1500, 568);
             Controls.Add(label4);
-            Controls.Add(label5);
-            Controls.Add(guna2Panel1);
             Controls.Add(label3);
             Controls.Add(txtAuthor);
             Controls.Add(panel1);
@@ -353,9 +293,6 @@
             Text = "Create New Bulletin";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            guna2Panel1.ResumeLayout(false);
-            guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -366,13 +303,9 @@
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Panel panel1;
         private Label label3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Label label4;
-        private Label label5;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2Button btnBack;
-        private PictureBox pictureBox1;
-        private Label label6;
         public Guna.UI2.WinForms.Guna2TextBox txtTitle;
         public Label lblHeader;
         public Guna.UI2.WinForms.Guna2TextBox txtAuthor;

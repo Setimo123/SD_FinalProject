@@ -22,18 +22,18 @@ namespace Consultation.App.Views.Controls.UserManagement
         public edituserprof()
         {
             InitializeComponent();
-            
+
             // Wire up event handlers
             exitedit.Click += exitedit_Click;
             exitedit.Cursor = Cursors.Hand;
-            
+
             canxel.Click += canxel_Click;
             saveChanges.Click += saveChanges_Click;
-            
+
             // Initialize dropdowns
             InitializeRoleComboBox();
             InitializeDepartmentComboBox();
-            
+
             // Initialize input handling for TextBoxes
             InitializeTextBoxHandling();
         }
@@ -57,19 +57,19 @@ namespace Consultation.App.Views.Controls.UserManagement
             TBfullname.PlaceholderText = "Enter full name";
             TBfullname.TextChanged += TBfullname_TextChanged;
             TBfullname.Leave += TBfullname_Leave;
-            
+
             // Email TextBox
             TBemail.MaxLength = 100;
             TBemail.PlaceholderText = "example@umindanao.edu.ph";
             TBemail.TextChanged += TBemail_TextChanged;
             TBemail.Leave += TBemail_Leave;
-            
+
             // User ID TextBox
             TBUID.MaxLength = 20;
             TBUID.PlaceholderText = "Enter User ID/UMID";
             TBUID.TextChanged += TBUID_TextChanged;
             TBUID.KeyPress += TBUID_KeyPress; // Only allow alphanumeric
-            
+
             // Contact Number TextBox
             TBContact.MaxLength = 15;
             TBContact.PlaceholderText = "+63 XXX XXX XXXX";
@@ -90,7 +90,7 @@ namespace Consultation.App.Views.Controls.UserManagement
                 TBfullname.Text = TBfullname.Text.TrimStart();
                 TBfullname.SelectionStart = TBfullname.Text.Length;
             }
-            
+
             // Reset border color to default when user starts typing
             TBfullname.BorderColor = Color.FromArgb(213, 218, 223);
         }
@@ -101,13 +101,13 @@ namespace Consultation.App.Views.Controls.UserManagement
         private void TBfullname_Leave(object sender, EventArgs e)
         {
             string fullName = TBfullname.Text.Trim();
-            
+
             if (string.IsNullOrWhiteSpace(fullName))
             {
                 TBfullname.BorderColor = Color.Red;
                 return;
             }
-            
+
             // Validate that name contains only letters, spaces, and common name characters
             if (!Regex.IsMatch(fullName, @"^[a-zA-Z\s\.\-']+$"))
             {
@@ -138,7 +138,7 @@ namespace Consultation.App.Views.Controls.UserManagement
                 TBemail.Text = TBemail.Text.Replace(" ", "");
                 TBemail.SelectionStart = Math.Max(0, cursorPosition - 1);
             }
-            
+
             // Reset border color
             TBemail.BorderColor = Color.FromArgb(213, 218, 223);
         }
@@ -149,13 +149,13 @@ namespace Consultation.App.Views.Controls.UserManagement
         private void TBemail_Leave(object sender, EventArgs e)
         {
             string email = TBemail.Text.Trim();
-            
+
             if (string.IsNullOrWhiteSpace(email))
             {
                 TBemail.BorderColor = Color.Red;
                 return;
             }
-            
+
             // Validate email format
             if (!IsValidEmail(email))
             {
@@ -186,10 +186,10 @@ namespace Consultation.App.Views.Controls.UserManagement
                 TBUID.Text = TBUID.Text.Replace(" ", "");
                 TBUID.SelectionStart = Math.Max(0, cursorPosition - 1);
             }
-            
+
             // Reset border color
             TBUID.BorderColor = Color.FromArgb(213, 218, 223);
-            
+
             // Validate minimum length
             if (TBUID.Text.Length > 0 && TBUID.Text.Length >= 4)
             {
@@ -229,12 +229,12 @@ namespace Consultation.App.Views.Controls.UserManagement
         private void TBContact_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow digits, +, -, spaces, parentheses, and control keys
-            if (!char.IsDigit(e.KeyChar) && 
-                !char.IsControl(e.KeyChar) && 
-                e.KeyChar != '+' && 
-                e.KeyChar != '-' && 
-                e.KeyChar != ' ' && 
-                e.KeyChar != '(' && 
+            if (!char.IsDigit(e.KeyChar) &&
+                !char.IsControl(e.KeyChar) &&
+                e.KeyChar != '+' &&
+                e.KeyChar != '-' &&
+                e.KeyChar != ' ' &&
+                e.KeyChar != '(' &&
                 e.KeyChar != ')')
             {
                 e.Handled = true;
@@ -392,12 +392,12 @@ namespace Consultation.App.Views.Controls.UserManagement
             {
                 var departments = await UserService.Instance.GetAllDepartments();
                 CBdept.Items.Clear();
-                
+
                 foreach (var dept in departments)
                 {
                     CBdept.Items.Add(new DepartmentItem { Id = dept.DepartmentID, Name = dept.DepartmentName });
                 }
-                
+
                 // Set display member
                 CBdept.DisplayMember = "Name";
                 CBdept.ValueMember = "Id";
@@ -417,9 +417,9 @@ namespace Consultation.App.Views.Controls.UserManagement
             try
             {
                 Console.WriteLine($"Loading user data for UMID: {umid}");
-                
+
                 _currentUser = await UserService.Instance.GetUserByUMID(umid);
-                
+
                 if (_currentUser == null)
                 {
                     MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -432,12 +432,12 @@ namespace Consultation.App.Views.Controls.UserManagement
                 TBfullname.Text = SanitizeInput(_currentUser.UserName);
                 TBemail.Text = SanitizeInput(_currentUser.Email);
                 TBUID.Text = SanitizeInput(_currentUser.UMID);
-                
+
                 // Set border colors to green for loaded data
                 TBfullname.BorderColor = Color.Green;
                 TBemail.BorderColor = Color.Green;
                 TBUID.BorderColor = Color.Green;
-                
+
                 // Set role
                 switch (_currentUser.UserType)
                 {
@@ -460,7 +460,7 @@ namespace Consultation.App.Views.Controls.UserManagement
                         Console.WriteLine("Admin role selected");
                         break;
                 }
-                
+
                 Console.WriteLine("User data loaded successfully");
             }
             catch (Exception ex)
@@ -514,18 +514,18 @@ namespace Consultation.App.Views.Controls.UserManagement
                 saveChanges.Enabled = false;
                 saveChanges.Text = "Saving...";
                 canxel.Enabled = false;
-                
+
                 // Get sanitized values
                 string newFullName = SanitizeInput(TBfullname.Text);
                 string newEmail = SanitizeInput(TBemail.Text).ToLower();
                 string newUMID = SanitizeInput(TBUID.Text);
-                
+
                 Console.WriteLine($"Saving changes for user:");
                 Console.WriteLine($"  Original UMID: {_originalUMID}");
                 Console.WriteLine($"  New Full Name: {newFullName}");
                 Console.WriteLine($"  New Email: {newEmail}");
                 Console.WriteLine($"  New UMID: {newUMID}");
-                
+
                 // Determine user type from dropdown
                 UserType newUserType = CBrole.SelectedIndex switch
                 {
@@ -534,7 +534,7 @@ namespace Consultation.App.Views.Controls.UserManagement
                     2 => UserType.Admin,
                     _ => UserType.Student
                 };
-                
+
                 Console.WriteLine($"  New User Type: {newUserType}");
 
                 // Get selected department/program ID
@@ -558,13 +558,13 @@ namespace Consultation.App.Views.Controls.UserManagement
                 if (success)
                 {
                     Console.WriteLine("User updated successfully in database");
-                    
+
                     MessageBox.Show(
                         "User profile has been updated successfully!",
                         "Success",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-                    
+
                     // Close the form
                     Form parentForm = this.FindForm();
                     if (parentForm != null)
@@ -575,13 +575,13 @@ namespace Consultation.App.Views.Controls.UserManagement
                 else
                 {
                     Console.WriteLine("Failed to update user in database");
-                    
+
                     MessageBox.Show(
                         "Failed to update user profile. Please try again.",
                         "Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
-                    
+
                     saveChanges.Enabled = true;
                     saveChanges.Text = "Save Changes";
                     canxel.Enabled = true;
@@ -591,13 +591,13 @@ namespace Consultation.App.Views.Controls.UserManagement
             {
                 Console.WriteLine($"saveChanges_Click Error: {ex.Message}");
                 Console.WriteLine($"Stack Trace: {ex.StackTrace}");
-                
+
                 MessageBox.Show(
                     $"An error occurred: {ex.Message}",
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-                
+
                 saveChanges.Enabled = true;
                 saveChanges.Text = "Save Changes";
                 canxel.Enabled = true;
@@ -649,6 +649,11 @@ namespace Consultation.App.Views.Controls.UserManagement
             {
                 return Name;
             }
+        }
+
+        private void CBdept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

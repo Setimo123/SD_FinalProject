@@ -71,6 +71,7 @@ namespace Consultation.App.Dashboard.Activity_Feed_Panel
         {
             string status = ConsultationStatusLabel.Text.Trim();
 
+            // Status 1: Pending - Red/Firebrick
             if (string.Equals(status, "Pending", StringComparison.OrdinalIgnoreCase))
             {
                 ConsultationStatusPanel.FillColor = Color.Firebrick;
@@ -82,15 +83,64 @@ namespace Consultation.App.Dashboard.Activity_Feed_Panel
                     FontStyle.Bold | FontStyle.Italic
                 );
             }
+            // Status 2: Approved - Green
             else if (string.Equals(status, "Approved", StringComparison.OrdinalIgnoreCase))
             {
-                ConsultationStatusPanel.FillColor = Color.LightGreen;
-                ConsultationStatusLabel.ForeColor = Color.Black;
-                ConsultationStatusLabel.BackColor = Color.LightGreen;
+                ConsultationStatusPanel.FillColor = Color.FromArgb(220, 252, 231); // Light green
+                ConsultationStatusLabel.ForeColor = Color.FromArgb(21, 128, 61); // Dark green
+                ConsultationStatusLabel.BackColor = Color.FromArgb(220, 252, 231);
                 ConsultationStatusLabel.Font = new Font(
                     ConsultationStatusLabel.Font.FontFamily,
                     ConsultationStatusLabel.Font.Size,
                     FontStyle.Bold | FontStyle.Italic
+                );
+            }
+            // Status 3: Disapproved - Dark Red
+            else if (string.Equals(status, "Disapproved", StringComparison.OrdinalIgnoreCase))
+            {
+                ConsultationStatusPanel.FillColor = Color.FromArgb(254, 226, 226); // Very light red
+                ConsultationStatusLabel.ForeColor = Color.FromArgb(153, 27, 27); // Dark red
+                ConsultationStatusLabel.BackColor = Color.FromArgb(254, 226, 226);
+                ConsultationStatusLabel.Font = new Font(
+                    ConsultationStatusLabel.Font.FontFamily,
+                    ConsultationStatusLabel.Font.Size,
+                    FontStyle.Bold | FontStyle.Italic
+                );
+            }
+            // Status 4: Cancelled - Orange/Amber
+            else if (string.Equals(status, "Cancelled", StringComparison.OrdinalIgnoreCase))
+            {
+                ConsultationStatusPanel.FillColor = Color.FromArgb(254, 243, 199); // Light amber
+                ConsultationStatusLabel.ForeColor = Color.FromArgb(146, 64, 14); // Dark amber
+                ConsultationStatusLabel.BackColor = Color.FromArgb(254, 243, 199);
+                ConsultationStatusLabel.Font = new Font(
+                    ConsultationStatusLabel.Font.FontFamily,
+                    ConsultationStatusLabel.Font.Size,
+                    FontStyle.Bold | FontStyle.Italic
+                );
+            }
+            // Status 5: Done - Blue/Gray
+            else if (string.Equals(status, "Done", StringComparison.OrdinalIgnoreCase))
+            {
+                ConsultationStatusPanel.FillColor = Color.FromArgb(224, 242, 254); // Light blue
+                ConsultationStatusLabel.ForeColor = Color.FromArgb(30, 64, 175); // Dark blue
+                ConsultationStatusLabel.BackColor = Color.FromArgb(224, 242, 254);
+                ConsultationStatusLabel.Font = new Font(
+                    ConsultationStatusLabel.Font.FontFamily,
+                    ConsultationStatusLabel.Font.Size,
+                    FontStyle.Bold | FontStyle.Italic
+                );
+            }
+            // Default fallback
+            else
+            {
+                ConsultationStatusPanel.FillColor = Color.FromArgb(243, 244, 246); // Light gray
+                ConsultationStatusLabel.ForeColor = Color.FromArgb(75, 85, 99); // Dark gray
+                ConsultationStatusLabel.BackColor = Color.FromArgb(243, 244, 246);
+                ConsultationStatusLabel.Font = new Font(
+                    ConsultationStatusLabel.Font.FontFamily,
+                    ConsultationStatusLabel.Font.Size,
+                    FontStyle.Regular
                 );
             }
         }

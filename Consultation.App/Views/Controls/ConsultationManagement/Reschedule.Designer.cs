@@ -39,9 +39,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             materialCard1 = new MaterialSkin.Controls.MaterialCard();
             CurrentTime = new Label();
             CurrentDate = new Label();
@@ -55,8 +55,12 @@
             Reason = new Guna.UI2.WinForms.Guna2TextBox();
             comboboxTime = new Guna.UI2.WinForms.Guna2ComboBox();
             pictureBox1 = new PictureBox();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             materialCard1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -64,26 +68,6 @@
             guna2BorderlessForm1.ContainerControl = this;
             guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Archivo", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2HtmlLabel1.Location = new Point(25, 20);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(230, 31);
-            guna2HtmlLabel1.TabIndex = 0;
-            guna2HtmlLabel1.Text = "Reschedule Consultation\r\n\r\n\r\n";
-            // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.BackColor = Color.Transparent;
-            guna2HtmlLabel2.Font = new Font("Archivo", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2HtmlLabel2.Location = new Point(25, 46);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(327, 27);
-            guna2HtmlLabel2.TabIndex = 1;
-            guna2HtmlLabel2.Text = "Update the date and time for this consultation.";
             // 
             // materialCard1
             // 
@@ -104,20 +88,21 @@
             // CurrentTime
             // 
             CurrentTime.AutoSize = true;
-            CurrentTime.Font = new Font("Archivo SemiBold", 14.2499981F, FontStyle.Bold);
-            CurrentTime.Location = new Point(291, 40);
+            CurrentTime.Font = new Font("Archivo SemiBold", 12F, FontStyle.Bold);
+            CurrentTime.Location = new Point(250, 37);
             CurrentTime.Name = "CurrentTime";
-            CurrentTime.Size = new Size(96, 29);
+            CurrentTime.Size = new Size(81, 25);
             CurrentTime.TabIndex = 8;
             CurrentTime.Text = "11:01 AM";
+            CurrentTime.Click += CurrentTime_Click;
             // 
             // CurrentDate
             // 
             CurrentDate.AutoSize = true;
-            CurrentDate.Font = new Font("Archivo SemiBold", 14.2499981F, FontStyle.Bold);
-            CurrentDate.Location = new Point(62, 37);
+            CurrentDate.Font = new Font("Archivo SemiBold", 12F, FontStyle.Bold);
+            CurrentDate.Location = new Point(17, 37);
             CurrentDate.Name = "CurrentDate";
-            CurrentDate.Size = new Size(119, 29);
+            CurrentDate.Size = new Size(98, 25);
             CurrentDate.TabIndex = 7;
             CurrentDate.Text = "July 6, 2025";
             // 
@@ -133,6 +118,7 @@
             // 
             // Date
             // 
+            Date.BorderRadius = 5;
             Date.Checked = true;
             Date.CustomFormat = "MMMM dd, yyyy";
             Date.CustomizableEdges = customizableEdges9;
@@ -230,7 +216,7 @@
             // Reason
             // 
             Reason.AcceptsReturn = true;
-            Reason.BorderRadius = 10;
+            Reason.BorderRadius = 8;
             Reason.BorderThickness = 2;
             Reason.CustomizableEdges = customizableEdges7;
             Reason.DefaultText = "";
@@ -249,12 +235,13 @@
             Reason.PlaceholderText = "Enter reason for rescheduling...";
             Reason.SelectedText = "";
             Reason.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            Reason.Size = new Size(450, 136);
+            Reason.Size = new Size(450, 126);
             Reason.TabIndex = 5;
             // 
             // comboboxTime
             // 
             comboboxTime.BackColor = Color.Transparent;
+            comboboxTime.BorderRadius = 5;
             comboboxTime.CustomizableEdges = customizableEdges1;
             comboboxTime.DrawMode = DrawMode.OwnerDrawFixed;
             comboboxTime.DropDownHeight = 80;
@@ -288,6 +275,43 @@
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
+            // guna2Panel1
+            // 
+            guna2Panel1.BackColor = Color.DarkRed;
+            guna2Panel1.Controls.Add(guna2HtmlLabel1);
+            guna2Panel1.Controls.Add(guna2HtmlLabel7);
+            guna2Panel1.CustomizableEdges = customizableEdges11;
+            guna2Panel1.FillColor = Color.Transparent;
+            guna2Panel1.Location = new Point(-4, -4);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Panel1.Size = new Size(520, 88);
+            guna2Panel1.TabIndex = 41;
+            // 
+            // guna2HtmlLabel7
+            // 
+            guna2HtmlLabel7.BackColor = Color.Transparent;
+            guna2HtmlLabel7.Font = new Font("Archivo", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel7.ForeColor = Color.White;
+            guna2HtmlLabel7.Location = new Point(27, 13);
+            guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            guna2HtmlLabel7.Size = new Size(230, 31);
+            guna2HtmlLabel7.TabIndex = 1;
+            guna2HtmlLabel7.Text = "Reschedule Consultation";
+            guna2HtmlLabel7.Click += guna2HtmlLabel7_Click;
+            // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Font = new Font("Archivo", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.ForeColor = Color.White;
+            guna2HtmlLabel1.Location = new Point(27, 46);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(388, 31);
+            guna2HtmlLabel1.TabIndex = 2;
+            guna2HtmlLabel1.Text = "Update the date and time for this consultation.";
+            guna2HtmlLabel1.Click += guna2HtmlLabel1_Click;
+            // 
             // Reschedule
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -304,15 +328,17 @@
             Controls.Add(Reason);
             Controls.Add(Date);
             Controls.Add(materialCard1);
-            Controls.Add(guna2HtmlLabel2);
-            Controls.Add(guna2HtmlLabel1);
+            Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Reschedule";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Reschedule";
+            Text = "+ ";
+            Load += Reschedule_Load;
             materialCard1.ResumeLayout(false);
             materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            guna2Panel1.ResumeLayout(false);
+            guna2Panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -321,8 +347,6 @@
 
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private MaterialSkin.Controls.MaterialCard materialCard1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2DateTimePicker Date;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
@@ -335,5 +359,8 @@
         private Guna.UI2.WinForms.Guna2TextBox Reason;
         private Guna.UI2.WinForms.Guna2ComboBox comboboxTime;
         private PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

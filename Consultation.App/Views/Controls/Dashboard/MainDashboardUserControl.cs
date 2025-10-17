@@ -241,6 +241,7 @@ namespace Consultation.App.Dashboard
 
         public void UpdateConsultationStats(int CPE, int EE, int ECE, int CE, int ME, int CHE)
         {
+            // Update each label with its corresponding program count
             ConsultationCountCPE.Text = CPE.ToString();
             ConsultationCountEE.Text = EE.ToString();
             ConsultationCountECE.Text = ECE.ToString();
@@ -248,8 +249,14 @@ namespace Consultation.App.Dashboard
             ConsultationCountME.Text = ME.ToString();
             ConsultationCountCHE.Text = CHE.ToString();
             
-            // Update Matengcount with ME value
-            Matengcount.Text = ME.ToString();
+            // ConsultationCountMatE appears to be a duplicate of ME in the designer
+            // Set it to 0 or hide it if it's not being used
+            if (ConsultationCountMatE != null)
+            {
+                ConsultationCountMatE.Text = "0";
+                // Optionally hide the MatE card if it's not needed:
+                // materialCard4.Visible = false;
+            }
         }
 
         public void UpdateConsultationCounts(int activeCount, int completedCount)

@@ -53,15 +53,40 @@ namespace Consultation.App.Presenters
             {
                 var counts = await _consultationRepository.GetActiveConsultationCountsByProgram();
 
-                // Handle both uppercase and mixed case program names
+                Console.WriteLine("=== Consultation Counts by Program ===");
+                foreach (var kvp in counts)
+                {
+                    Console.WriteLine($"  {kvp.Key}: {kvp.Value}");
+                }
+
+                // Get counts for each program, handling case variations
+                // CPE - Computer Engineering (ProgramID: 3)
                 int countCPE = (counts.ContainsKey("CPE") ? counts["CPE"] : 0) + 
                                (counts.ContainsKey("CpE") ? counts["CpE"] : 0);
-                int countME = counts.ContainsKey("ME") ? counts["ME"] : 0;
-                int countCE = counts.ContainsKey("CE") ? counts["CE"] : 0;
+                
+                // EE - Electrical Engineering (ProgramID: 4)
                 int countEE = counts.ContainsKey("EE") ? counts["EE"] : 0;
+                
+                // ECE - Electronics Engineering (ProgramID: 5)
                 int countECE = counts.ContainsKey("ECE") ? counts["ECE"] : 0;
+                
+                // CE - Civil Engineering (ProgramID: 2)
+                int countCE = counts.ContainsKey("CE") ? counts["CE"] : 0;
+                
+                // ME - Mechanical Engineering (ProgramID: 1)
+                int countME = counts.ContainsKey("ME") ? counts["ME"] : 0;
+                
+                // CHE - Chemical Engineering (might not exist in current database)
                 int countCHE = (counts.ContainsKey("CHE") ? counts["CHE"] : 0) + 
                                (counts.ContainsKey("ChE") ? counts["ChE"] : 0);
+
+                Console.WriteLine("=== Final Counts ===");
+                Console.WriteLine($"  CPE: {countCPE}");
+                Console.WriteLine($"  EE: {countEE}");
+                Console.WriteLine($"  ECE: {countECE}");
+                Console.WriteLine($"  CE: {countCE}");
+                Console.WriteLine($"  ME: {countME}");
+                Console.WriteLine($"  CHE: {countCHE}");
 
                 _view.UpdateConsultationStats(countCPE, countEE, countECE, countCE, countME, countCHE);
             }

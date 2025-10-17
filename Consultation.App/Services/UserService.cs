@@ -450,5 +450,219 @@ namespace Consultation.App.Services
                 return false;
             }
         }
+
+        /// <summary>
+        /// Creates a new user in the system with the specified information
+        /// </summary>
+        public async Task<bool> CreateUser(
+            string fullName,
+            string email,
+            string umid,
+            string password,
+            UserType userType,
+            int? departmentId = null)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    // Start a transaction to ensure all changes are saved together
+                    using (var transaction = await context.Database.BeginTransactionAsync())
+                    {
+                        try
+                        {
+                            // Check if UMID already exists
+                            var existingUser = await context.Users
+                                .FirstOrDefaultAsync(u => u.UMID == umid);
+                            
+                            if (existingUser != null)
+                            {
+                                Console.WriteLine($"User with UMID {umid} already exists");
+                                MessageBox.Show(
+                                    $"A user with UMID {umid} already exists in the system.",
+                                    "Duplicate UMID",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                                return false;
+                            }
+
+                            // Check if email already exists
+                            var existingEmail = await context.Users
+                                .FirstOrDefaultAsync(u => u.Email == email);
+                            
+                            if (existingEmail != null)
+                            {
+                                Console.WriteLine($"User with email {email} already exists");
+                                MessageBox.Show(
+                                    $"A user with email {email} already exists in the system.",
+                                    "Duplicate Email",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                                return false;
+                            }
+
+                            // Create new Users instance
+                            var newUser = new Users
+                            {
+                                Id = Guid.NewGuid().ToString().ToUpper(),
+                                UserName = fullName,
+                                NormalizedUserName = fullName.ToUpper(),
+                                Email = email,
+                                NormalizedEmail = email.ToUpper(),
+                                EmailConfirmed = true,
+                                UMID = umid,
+                                UserType = userType,
+                                SecurityStamp = Guid.NewGuid().ToString(),
+                                ConcurrencyStamp = Guid.NewGuid().ToString(),
+                                PhoneNumber = null, // No phone number field anymore
+                                PhoneNumberConfirmed = false,
+                                LockoutEnabled = false,
+                                TwoFactorEnabled = false,
+                                AccessFailedCount = 0
+                            };
+
+                            // Hash the password using Identity's PasswordHasher
+                            var passwordHasher = new Microsoft.AspNetCore.Identity.PasswordHasher<Users>();
+                            newUser.PasswordHash = passwordHasher.HashPassword(newUser, password);
+
+                            // Add user to database
+                            context.Users.Add(newUser);
+                            await context.SaveChangesAsync();
+
+                            Console.WriteLine($"Created user: {newUser.UserName} with ID: {newUser.Id}");
+
+                            // Get the current school year (default to first school year)
+                            var currentSchoolYear = await context.SchoolYear
+                                .FirstOrDefaultAsync(sy => sy.SchoolYearStatus == Domain.Enum.SchoolYearStatus.Current);
+                            
+                            int schoolYearId = currentSchoolYear?.SchoolYearID ?? 1;
+
+                            // Create related records based on UserType
+                            if (userType == UserType.Student)
+                            {
+                                // Ensure department/program ID is provided for students
+                                if (!departmentId.HasValue)
+                                {
+                                    Console.WriteLine("Program ID is required for students");
+                                    await transaction.RollbackAsync();
+                                    MessageBox.Show(
+                                        "Program/Department is required for student registration.",
+                                        "Missing Information",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                                    return false;
+                                }
+
+                                var newStudent = new Student
+                                {
+                                    StudentUMID = umid,
+                                    StudentName = fullName,
+                                    Email = email,
+                                    ProgramID = departmentId.Value,
+                                    SchoolYearID = schoolYearId,
+                                    UsersID = newUser.Id
+                                };
+
+                                context.Students.Add(newStudent);
+                                Console.WriteLine($"Created student record for {fullName}");
+                            }
+                            else if (userType == UserType.Faculty)
+                            {
+                                // For faculty, we should set a default program or make it optional
+                                // If no department is selected, use the first available program
+                                int facultyProgramId = departmentId ?? 1; // Default to first program if not specified
+                                
+                                var newFaculty = new Faculty
+                                {
+                                    FacultyUMID = umid,
+                                    FacultyName = fullName,
+                                    SchoolYearID = schoolYearId,
+                                    UsersID = newUser.Id,
+                                    ProgramID = facultyProgramId, // Set the ProgramID for faculty
+                                    FacultyEmail = email // Set email for faculty
+                                };
+
+                                context.Faculty.Add(newFaculty);
+                                Console.WriteLine($"Created faculty record for {fullName}");
+                            }
+                            else if (userType == UserType.Admin)
+                            {
+                                var newAdmin = new Admin
+                                {
+                                    AdminName = fullName,
+                                    UsersID = newUser.Id
+                                };
+
+                                context.Admin.Add(newAdmin);
+                                Console.WriteLine($"Created admin record for {fullName}");
+                            }
+
+                            // Save all changes
+                            int changes = await context.SaveChangesAsync();
+
+                            // Commit transaction
+                            await transaction.CommitAsync();
+
+                            Console.WriteLine($"Successfully created user {umid}. Total changes saved: {changes}");
+                            return true;
+                        }
+                        catch (Exception ex)
+                        {
+                            // Rollback transaction on error
+                            await transaction.RollbackAsync();
+                            Console.WriteLine($"Transaction failed during user creation: {ex.Message}");
+                            Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                            throw;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"CreateUser Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Checks if a UMID is already in use
+        /// </summary>
+        public async Task<bool> IsUMIDAvailable(string umid)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var exists = await context.Users.AnyAsync(u => u.UMID == umid);
+                    return !exists;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"IsUMIDAvailable Error: {ex.Message}");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Checks if an email is already in use
+        /// </summary>
+        public async Task<bool> IsEmailAvailable(string email)
+        {
+            try
+            {
+                using (var context = new AppDbContext())
+                {
+                    var exists = await context.Users.AnyAsync(u => u.Email == email);
+                    return !exists;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"IsEmailAvailable Error: {ex.Message}");
+                return false;
+            }
+        }
     }
 }

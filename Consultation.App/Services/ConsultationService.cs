@@ -58,8 +58,9 @@ namespace Consultation.App.Services
                     return new List<ConsultationData>();
                 }
 
+                // Only Pending (1) consultations are shown in Active
                 var activeConsultations = allRequests
-                    .Where(request => request.Status != Domain.Enum.Status.Done)
+                    .Where(request => request.Status == Domain.Enum.Status.Pending)
                     .Select(request => new ConsultationData
                     {
                         Id = request.ConsultationID,
@@ -95,8 +96,12 @@ namespace Consultation.App.Services
                     return new List<ConsultationData>();
                 }
 
+                // Approved (2), Disapproved (3), Cancelled (4), and Done (5) consultations are shown in Archive
                 var archivedConsultations = allRequests
-                    .Where(request => request.Status == Domain.Enum.Status.Done)
+                    .Where(request => request.Status == Domain.Enum.Status.Approved ||
+                                     request.Status == Domain.Enum.Status.Disapproved ||
+                                     request.Status == Domain.Enum.Status.Cancelled ||
+                                     request.Status == Domain.Enum.Status.Done)
                     .Select(request => new ConsultationData
                     {
                         Id = request.ConsultationID,

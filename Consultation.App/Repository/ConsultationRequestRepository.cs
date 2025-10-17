@@ -67,24 +67,41 @@ namespace Consultation.App.Repository
         {
             try
             {
-                var counts = await _context.ConsultationRequest
+                // Get all active consultations (not Done status) with student and program information
+                var consultations = await _context.ConsultationRequest
                     .Where(c => c.Status != Domain.Enum.Status.Done)
                     .Include(c => c.Student)
                         .ThenInclude(s => s.Program)
                     .ToListAsync();
 
+                Console.WriteLine($"Total active consultations found: {consultations.Count}");
+
                 var programCounts = new Dictionary<string, int>();
 
-                foreach (var consultation in counts)
+                foreach (var consultation in consultations)
                 {
+                    // Get the program name through the student relationship
                     var programName = consultation.Student?.Program?.ProgramName;
+                    
                     if (!string.IsNullOrEmpty(programName))
                     {
+                        Console.WriteLine($"Consultation ID {consultation.ConsultationID}: Student={consultation.Student?.StudentName}, Program={programName}");
+                        
                         if (programCounts.ContainsKey(programName))
                             programCounts[programName]++;
                         else
                             programCounts[programName] = 1;
                     }
+                    else
+                    {
+                        Console.WriteLine($"Consultation ID {consultation.ConsultationID}: No program found (Student={consultation.Student?.StudentName ?? "null"})");
+                    }
+                }
+
+                Console.WriteLine("=== Program Counts Dictionary ===");
+                foreach (var kvp in programCounts)
+                {
+                    Console.WriteLine($"  {kvp.Key}: {kvp.Value}");
                 }
 
                 return programCounts;

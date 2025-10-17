@@ -30,8 +30,11 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
                 idnumber.Text = data.IDNumber;
                 Location.Text = data.Location;
                 
-                // Set the ArcStatus to "Archived"
-                ArcStatus.Text = "Archived";
+                // Display the actual status from the database
+                ArcStatus.Text = data.Status;
+                
+                // Update the visual appearance based on status
+                UpdateStatusAppearance();
             }
         }
 
@@ -86,6 +89,57 @@ namespace Consultation.App.Views.Controls.ConsultationManagement
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Updates the visual appearance of the ArcStatus textbox based on the consultation status
+        /// </summary>
+        private void UpdateStatusAppearance()
+        {
+            string status = ArcStatus.Text.Trim();
+
+            // Status 1: Pending - Red/Firebrick
+            if (string.Equals(status, "Pending", StringComparison.OrdinalIgnoreCase))
+            {
+                ArcStatus.FillColor = Color.FromArgb(255, 240, 240);
+                ArcStatus.ForeColor = Color.FromArgb(190, 0, 2);
+                ArcStatus.Font = new Font(ArcStatus.Font.FontFamily, ArcStatus.Font.Size, FontStyle.Bold);
+            }
+            // Status 2: Approved - Green
+            else if (string.Equals(status, "Approved", StringComparison.OrdinalIgnoreCase))
+            {
+                ArcStatus.FillColor = Color.FromArgb(220, 252, 231); // Light green background
+                ArcStatus.ForeColor = Color.FromArgb(21, 128, 61); // Dark green text
+                ArcStatus.Font = new Font(ArcStatus.Font.FontFamily, ArcStatus.Font.Size, FontStyle.Bold);
+            }
+            // Status 3: Disapproved - Dark Red
+            else if (string.Equals(status, "Disapproved", StringComparison.OrdinalIgnoreCase))
+            {
+                ArcStatus.FillColor = Color.FromArgb(254, 226, 226); // Very light red background
+                ArcStatus.ForeColor = Color.FromArgb(153, 27, 27); // Dark red text
+                ArcStatus.Font = new Font(ArcStatus.Font.FontFamily, ArcStatus.Font.Size, FontStyle.Bold);
+            }
+            // Status 4: Cancelled - Orange/Amber
+            else if (string.Equals(status, "Cancelled", StringComparison.OrdinalIgnoreCase))
+            {
+                ArcStatus.FillColor = Color.FromArgb(254, 243, 199); // Light amber background
+                ArcStatus.ForeColor = Color.FromArgb(146, 64, 14); // Dark amber text
+                ArcStatus.Font = new Font(ArcStatus.Font.FontFamily, ArcStatus.Font.Size, FontStyle.Bold);
+            }
+            // Status 5: Done - Blue/Gray
+            else if (string.Equals(status, "Done", StringComparison.OrdinalIgnoreCase))
+            {
+                ArcStatus.FillColor = Color.FromArgb(224, 242, 254); // Light blue background
+                ArcStatus.ForeColor = Color.FromArgb(30, 64, 175); // Dark blue text
+                ArcStatus.Font = new Font(ArcStatus.Font.FontFamily, ArcStatus.Font.Size, FontStyle.Bold);
+            }
+            // Default fallback
+            else
+            {
+                ArcStatus.FillColor = Color.FromArgb(243, 244, 246); // Light gray background
+                ArcStatus.ForeColor = Color.FromArgb(75, 85, 99); // Dark gray text
+                ArcStatus.Font = new Font(ArcStatus.Font.FontFamily, ArcStatus.Font.Size, FontStyle.Regular);
             }
         }
     }

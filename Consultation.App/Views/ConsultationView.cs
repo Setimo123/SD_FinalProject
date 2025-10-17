@@ -1,8 +1,10 @@
-﻿using Consultation.App.Views.Controls.ConsultationManagement;
+﻿using Consultation.App.Services;
+using Consultation.App.Views.Controls.ConsultationManagement;
 using Consultation.App.Views.IViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Consultation.App.ConsultationManagement
@@ -25,22 +27,86 @@ namespace Consultation.App.ConsultationManagement
         {
             InitializeComponent();
 
+            // Subscribe to consultation service events
+            ConsultationService.Instance.ConsultationsChanged += OnConsultationsChanged;
+
             // Set default selected tab
             MoveUnderline(btnConsultation);
 
-            btnConsultation.Click += (s, e) =>
+            btnConsultation.Click += async (s, e) =>
             {
                 MoveUnderline(btnConsultation);
-                ShowActiveEvent?.Invoke(this, EventArgs.Empty);
+                await LoadActiveConsultationsFromService();
             };
 
-            btnArchive.Click += (s, e) =>
+            btnArchive.Click += async (s, e) =>
             {
                 MoveUnderline(btnArchive);
-                ShowArchivedEvent?.Invoke(this, EventArgs.Empty);
+                await LoadArchivedConsultationsFromService();
             };
 
-            btnRefresh.Click += (s, e) => RefreshConsultationsEvent?.Invoke(this, EventArgs.Empty);
+            btnRefresh.Click += btnRefresh_Click;
+        }
+
+        private async void OnConsultationsChanged(object sender, EventArgs e)
+        {
+            // Refresh the current view when consultations change
+            if (LabelHeader.Text == "Active Consultations")
+            {
+                await LoadActiveConsultationsFromService();
+            }
+            else if (LabelHeader.Text == "Archived Consultations")
+            {
+                await LoadArchivedConsultationsFromService();
+            }
+        }
+
+        private async void btnRefresh_Click(object sender, EventArgs e)
+        {
+            if (LabelHeader.Text == "Active Consultations")
+            {
+                await LoadActiveConsultationsFromService();
+            }
+            else
+            {
+                await LoadArchivedConsultationsFromService();
+            }
+        }
+
+        private async Task LoadActiveConsultationsFromService()
+        {
+            try
+            {
+                var consultations = await ConsultationService.Instance.GetActiveConsultations();
+                LoadActiveConsultations(consultations);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"LoadActiveConsultationsFromService Error: {ex.Message}");
+                MessageBox.Show(
+                    "An error occurred while loading active consultations. Please try again.",
+                    "Load Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task LoadArchivedConsultationsFromService()
+        {
+            try
+            {
+                var consultations = await ConsultationService.Instance.GetArchivedConsultations();
+                LoadArchivedConsultations(consultations);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"LoadArchivedConsultationsFromService Error: {ex.Message}");
+                MessageBox.Show(
+                    "An error occurred while loading archived consultations. Please try again.",
+                    "Load Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         public void LoadActiveConsultations(List<ConsultationData> consultations)

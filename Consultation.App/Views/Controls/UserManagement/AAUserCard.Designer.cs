@@ -144,7 +144,7 @@
             deleteTSMI.Image = Properties.Icons.delte;
             deleteTSMI.Name = "deleteTSMI";
             deleteTSMI.Size = new Size(180, 22);
-            deleteTSMI.Text = "Delete user";
+            deleteTSMI.Text = "Delete User";
             deleteTSMI.Click += deleteTSMI_Click;
             // 
             // UserCard
