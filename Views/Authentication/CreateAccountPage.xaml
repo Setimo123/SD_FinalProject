@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="UM_Consultation_App_MAUI.Views.CreateAccountPage">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#8c221e" />
+    </Page.Behaviors>
+    
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            
+            <Image
+                Source="createaccount_image.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                Margin="-10,-10,-10,-10"/>
+            
+            <!--Fullname Section-->
+            <Frame 
+                CornerRadius="20"
+                BorderColor="GhostWhite"
+                Padding="0"
+                HeightRequest="50"
+                HasShadow="True"
+                BackgroundColor="GhostWhite">
+
+                <Grid ColumnSpacing="10" Padding="15,0">
+
+                    <Image 
+                        Source="fullname_icon.png" 
+                        VerticalOptions="Center"
+                        WidthRequest="25"
+                        HeightRequest="25"
+                        Grid.Column="0" />
+
+                    <Entry 
+                         x:Name="txtboxFullName"
+                         Text="{Binding Username}"
+                         FontAttributes="Bold"
+                         Placeholder="Full Name"
+                         BackgroundColor="Transparent"
+                         TextColor="Black"
+                         PlaceholderColor="Gray"
+                         Grid.Column="1"
+                         Visual="Default"/>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Frame>
+
+            <!--UM Email Section-->
+            <Frame 
+                CornerRadius="20"
+                BorderColor="GhostWhite"
+                Padding="0"
+                HeightRequest="50"
+                HasShadow="True"
+                BackgroundColor="GhostWhite">
+
+                <Grid ColumnSpacing="10" Padding="15,0">
+
+                    <Image 
+                        Source="email_icon.png" 
+                        VerticalOptions="Center"
+                        WidthRequest="25"
+                        HeightRequest="25"
+                        Grid.Column="0" />
+
+                    <Entry 
+                        x:Name="txtboxEmail"
+                        Text="{Binding Email}"
+                        Placeholder="UM Email"
+                        BackgroundColor="Transparent"
+                        FontAttributes="Bold"
+                        TextColor="Black"
+                        PlaceholderColor="Gray"
+                        Grid.Column="1"
+                        Visual="Default"/>
+
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Frame>
+
+            <!--Password Section-->
+            <Frame 
+                CornerRadius="20"
+                BorderColor="GhostWhite"
+                Padding="0"
+                HeightRequest="50"
+                HasShadow="True"
+                BackgroundColor="GhostWhite">
+
+                <Grid ColumnSpacing="10" Padding="15,0">
+
+                    <Image 
+                        Source="password_icon.png" 
+                        VerticalOptions="Center"
+                        WidthRequest="25"
+                        HeightRequest="25"
+                        Grid.Column="0" />
+
+                    <Entry 
+                        x:Name="txtboxPassword"
+                         Text="{Binding Password}"
+                        TextChanged="OnPasswordTextChanged"
+                        FontAttributes="Bold"
+                        IsPassword="True"
+                        Placeholder="Password"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        PlaceholderColor="Gray"
+                        Grid.Column="1"
+                        Visual="Default"/>
+
+                    <ImageButton
+                        x:Name="btnPasswordEye"
+                        Source="eyeclosed.png"
+                        BackgroundColor="Transparent"
+                        WidthRequest="25"
+                        HeightRequest="25"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center" 
+                        Grid.Column="2"
+                        Clicked="TogglePasswordVisibility"/>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Frame>
+
+            <!--Confirm Password Section-->
+            <Frame 
+                CornerRadius="20"
+                BorderColor="GhostWhite"
+                Padding="0"
+                HeightRequest="50"
+                HasShadow="True"
+                BackgroundColor="GhostWhite">
+
+                <Grid ColumnSpacing="10" Padding="15,0">
+
+                    <Image 
+                        Source="confirmpassword_icon.png" 
+                        VerticalOptions="Center"
+                        WidthRequest="25"
+                        HeightRequest="25"
+                        Grid.Column="0" />
+
+                    <Entry 
+                        x:Name="txtboxConfirmPassword"
+                         Text="{Binding Confirmpassword}"
+                        TextChanged="OnPasswordTextChanged"
+                        IsPassword="True"
+                        FontAttributes="Bold"
+                        Placeholder="Confirm Password"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        PlaceholderColor="Gray"
+                        Grid.Column="1"
+                        Visual="Material"/>
+
+                    <ImageButton
+                        x:Name="btnConfirmPasswordEye"
+                        Source="eyeclosed.png"
+                        BackgroundColor="Transparent"
+                        WidthRequest="25"
+                        HeightRequest="25"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        Grid.Column="2" 
+                        Clicked="ToggleConfirmPasswordVisibility"/>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Frame>
+            
+
+            <!--User Type Section-->
+            <Frame 
+                CornerRadius="20"
+                BorderColor="GhostWhite"
+                Padding="0"
+                HeightRequest="50"
+                HasShadow="True"
+                BackgroundColor="GhostWhite">
+
+                <Grid ColumnSpacing="10" Padding="15,0">
+
+                    <Image 
+                        Source="usertype_icon.png" 
+                        VerticalOptions="Center"
+                        WidthRequest="25"
+                        HeightRequest="25"
+                        Grid.Column="0" />
+
+                    <Picker Title="Choose User Type"
+                            ItemsSource ="{Binding Usertypes}"
+                            SelectedItem="{Binding SelectedUserType, Mode= TwoWay}"
+                            SelectedIndex="0"
+                            FontAttributes="Bold"
+                            Grid.Column="1">
+                    </Picker>
+
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                
+            </Frame>
+
+
+            <HorizontalStackLayout
+                Spacing="10"
+                Margin="18,-18,0,0">
+                <Image
+                    x:Name="iconStatus"
+                    Source="dissaproveicon.png"
+                    WidthRequest="20"
+                    HeightRequest="20"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center" 
+                    IsVisible="False"/>
+                <Label
+                    x:Name="lblPasswordMatch"
+                    Text="Password do not match."
+                    TextColor="OrangeRed"
+                    FontSize="15"
+                    IsVisible="False"/>
+            </HorizontalStackLayout>
+
+            <Button
+                x:Name="btnSignUp"
+                IsEnabled="False"   
+                Text="Sign Up"
+                FontAttributes="Bold"
+                FontSize="16"
+                BackgroundColor="LightPink"
+                TextColor="White"
+                CornerRadius="25"
+                HorizontalOptions="Center"
+                WidthRequest="200"
+                HeightRequest="50" 
+                Margin="0,55,0,0"
+                Command="{Binding CreateAccouteCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

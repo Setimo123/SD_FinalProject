@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="UM_Consultation_App_MAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:studentview="clr-namespace:UM_Consultation_App_MAUI.Views.StudentView"
+    xmlns:facultyview="clr-namespace:UM_Consultation_App_MAUI.Views.FacultyView"
+    xmlns:common="clr-namespace:UM_Consultation_App_MAUI.Views.Common"
+    xmlns:local="clr-namespace:UM_Consultation_App_MAUI"
+    Shell.TabBarBackgroundColor="GhostWhite"
+    Shell.TabBarForegroundColor="#b61c1c"
+    Shell.TabBarTitleColor="#b61c1c"
+    Shell.TabBarUnselectedColor="Black"
+    Shell.TabBarDisabledColor="#cccccc"
+    Shell.FlyoutBehavior="Disabled"
+    Title="UM_Consultation_App_MAUI">
+
+    <!-- Log-In Navigation-->
+
+    <ShellContent
+        Title="Login"
+        Route="LoginPage"
+        ContentTemplate="{DataTemplate local:LoginPage}" />
+
+
+    <!-- Student Navigation -->
+    <TabBar Route="Student">
+        <!--Home-->
+        <ShellContent
+            Title="Home"
+            Icon="homeicon.png"
+            Route="HomePage"
+            ContentTemplate="{DataTemplate studentview:HomePage}" />
+        
+        <!--Request-->
+        <ShellContent
+            Title="Request"
+            Icon="requesticon.png"
+            Route="RequestPage"
+            ContentTemplate="{DataTemplate studentview:RequestPage}" />
+
+        <!--Response-->
+        <ShellContent
+            Title="Response"
+            Icon="responseicon.png"
+            Route="ResponsePage"
+            ContentTemplate="{DataTemplate studentview:ResponsePage}" />
+
+        <!--Menu-->
+        <ShellContent
+            Title="Menu"
+            Icon="menuicon.png"
+            Route="MenuPage"
+            ContentTemplate="{DataTemplate common:MenuPage}" />
+    </TabBar>
+    
+    <!-- Faculty Navigation -->
+    <TabBar Route="Faculty">
+        <ShellContent
+            Title="Request"
+            Icon="checklisticon.png"
+            Route="FacultyHomePage"
+            ContentTemplate="{DataTemplate facultyview:RequestListPage}" />
+
+        <ShellContent
+            Title="Consultation List"
+            Icon="listicon.png"
+            Route="FacultyResponsePage"
+            ContentTemplate="{DataTemplate facultyview:ConsultationListPage}" />
+
+        <!--Menu-->
+        <ShellContent
+            Title="Menu"
+            Icon="menuicon.png"
+            Route="MenuPage"
+            ContentTemplate="{DataTemplate common:MenuPage}" />
+    </TabBar>
+
+    <ShellContent
+        Title="Request Consultation"
+        Route="RequestConsultationPage"
+        ContentTemplate="{DataTemplate studentview:RequestConsultationPage}" />
+
+
+
+</Shell>

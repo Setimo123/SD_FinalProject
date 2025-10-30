@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:local="clr-namespace:UM_Consultation_App_MAUI.Views.StudentView"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="UM_Consultation_App_MAUI.Views.StudentView.RequestPage"  
+             BackgroundColor="#ffffff"
+             Title="Requests"
+             Shell.TitleColor="Black">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#8c221e" />
+    </Page.Behaviors>
+    <!--daghan restrictions/limitation but this is the best ive got-->  
+    <!--polish nalang kulang-->  
+     
+        <VerticalStackLayout Padding="15" Spacing="15">  
+            
+            <Frame 
+                CornerRadius="20"
+                BorderColor="GhostWhite"
+                Padding="0"
+                HeightRequest="50"
+                HasShadow="True"
+                BackgroundColor="GhostWhite">
+
+                <Grid ColumnSpacing="10" Padding="15,0">
+
+                    <Image 
+                        Source="semester_icon.png" 
+                        VerticalOptions="Center"
+                        WidthRequest="25"
+                        HeightRequest="25"
+                        Grid.Column="0" />
+
+                <Picker Title="Select Semester"  
+                        ItemsSource="{Binding SchoolYear}"
+                        SelectedItem="{Binding SelectedSchoolYear, Mode= TwoWay}"
+                        TitleColor="Black"  
+                        SelectedIndex="0"  
+                        BackgroundColor="Transparent"  
+                        FontAttributes="Bold"  
+                        FontSize="18"  
+                        HorizontalOptions="FillAndExpand"
+                        Grid.Column="1"/>
+
+
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+        </Frame>
+        
+
+            <!-- Request Consultation Button -->  
+            <Button Text="Request Consultation"  
+                    BackgroundColor="#b61c1c"  
+                    TextColor="White"  
+                    FontSize="18"  
+                    CornerRadius="20"  
+                    HeightRequest="50"  
+                    WidthRequest="270"
+                    Command="{Binding RequestConsultationClickCommand}"/>  
+
+            <!-- Courses View -->
+        <CollectionView 
+            ItemsSource="{Binding EnrolledCourselist}"  
+            SelectedItems="{Binding SelectedEnrolledCourses}"
+                Margin="10"  
+                SelectionMode="None">  
+                <CollectionView.Header>  
+                    <Grid Padding="10" ColumnSpacing="10">  
+                        <Grid.ColumnDefinitions>  
+                            <ColumnDefinition Width="2*"/>  
+                            <ColumnDefinition Width="2*"/>  
+                            <ColumnDefinition Width="3*"/>  
+                        </Grid.ColumnDefinitions>  
+
+                        <Label Text="Code" FontAttributes="Bold" />  
+                        <Label Text="Course" Grid.Column="1" FontAttributes="Bold" />  
+                        <Label Text="Instructor" Grid.Column="2" FontAttributes="Bold" />  
+                    </Grid>  
+                </CollectionView.Header>  
+
+                <CollectionView.ItemTemplate>  
+                    <DataTemplate>  
+                        <Grid Padding="10" ColumnSpacing="10">  
+                            <Grid.ColumnDefinitions>  
+                                <ColumnDefinition Width="2*"/>  
+                                <ColumnDefinition Width="2*"/>  
+                                <ColumnDefinition Width="3*"/>  
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding Coursecode}" />
+                            <Label Text="{Binding Coursename}" Grid.Column="1" />
+                            <Label Text="{Binding Instructorname}" Grid.Column="2" />  
+                        </Grid>  
+                    </DataTemplate>  
+                </CollectionView.ItemTemplate>  
+            </CollectionView>  
+
+        </VerticalStackLayout>  
+</ContentPage>

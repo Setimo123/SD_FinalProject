@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               x:Class="UM_Consultation_App_MAUI.Views.Common.LoadingScreen"           
+               Color="Transparent"
+               CanBeDismissedByTappingOutsideOfPopup="False">
+
+
+    <Grid BackgroundColor="Transparent" Padding="10">
+
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="20">
+
+            <ActivityIndicator IsRunning="True"
+                         Color="#b61c1c"
+                         Scale="2" 
+                         WidthRequest="20" 
+                         HeightRequest="20"/>
+
+            <Label Text="Loading..."
+                   FontSize="15"
+                   FontAttributes="Italic"
+                   TextColor="LightGray"
+                   HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+
+</toolkit:Popup>

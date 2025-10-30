@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+     
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="UM_Consultation_App_MAUI.Views.StudentView.HomePage"  
+              xmlns:shpvm ="clr-namespace:UM_Consultation_App_MAUI.Views.StudentView" 
+             Background="#ffffff"
+             Title="">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#8c221e" />
+    </Page.Behaviors>
+  
+        <VerticalStackLayout  
+            Padding="30,0"  
+            Spacing="10">
+
+        <!-- User Information Section -->
+        <Label Text="{Binding Umid}"    
+               FontSize="33"  
+               Margin="0,60,0,0"  
+               TextColor="#a9141d"  
+               HorizontalOptions="Center"  
+               FontAttributes="Bold"/>
+
+        <Label Text="{Binding Studentname}"  
+               TextColor="Black"  
+               FontSize="25"  
+               HorizontalOptions="Center"  
+               FontAttributes="Bold"/>
+
+        <Label Text="{Binding Useryearlevel} "  
+               TextColor="Black"
+               FontSize="20"  
+               HorizontalOptions="Center"  
+               FontAttributes="Bold"/>
+
+        <Label Text="{Binding Program}"  
+               TextColor="Black"
+               FontSize="20"  
+               HorizontalOptions="Center"  
+               FontAttributes="Bold"/>
+
+        <Label Text="{Binding Schoolyear}" 
+               FontSize="20"  
+               TextColor="#f98800"  
+               HorizontalOptions="Center"  
+               FontAttributes="Bold"/>
+
+
+        <!-- Pending Consultations -->
+        <Frame Padding="10" Margin="30"   
+               HorizontalOptions="Center"   
+               HasShadow="True"  
+               WidthRequest="280"  
+               BorderColor="White">
+            <VerticalStackLayout>
+                <Label Text="PENDING CONSULTATIONS"  
+                       FontSize="Medium"  
+                       HorizontalOptions="Center"  
+                       FontAttributes="Bold"  
+                       Margin="10,0,0,10"/>
+                <Label Text="{Binding Pendingconsultation}"  
+                       FontSize="40"  
+                       HorizontalOptions="Center"  
+                       FontAttributes="Bold"  
+                       Margin="10,0,0,0"/>
+            </VerticalStackLayout>
+        </Frame>
+
+
+        <!-- Notifications -->  
+            <Frame Padding="10" Margin="10"   
+               HorizontalOptions="Center"   
+               HasShadow="True"  
+               WidthRequest="380"  
+               HeightRequest="300"  
+               BorderColor="White">
+            <ScrollView>
+                <VerticalStackLayout>
+                    <Label Text="Notifications"  
+                       FontSize="Medium"  
+                       HorizontalOptions="Start"  
+                       FontAttributes="Bold"  
+                       Margin="10,0,0,10" />
+                    <Label FontSize="Medium"   
+                       HorizontalOptions="Center"  
+                       Margin="10,0,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Jay Al Gallenero " FontAttributes="Bold"/>
+                                <Span Text="has approved your consultation request."/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label FontSize="Medium"   
+                       HorizontalOptions="Center"  
+                       Margin="10,10,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Jay Al Gallenero " FontAttributes="Bold" />
+                                <Span Text="has disapproved your consultation request."/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>  
+
+        </VerticalStackLayout>  
+</ContentPage>

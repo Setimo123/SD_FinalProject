@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:local="clr-namespace:UM_Consultation_App_MAUI.Views.FacultyView"  
+             xmlns:ViewModel="clr-namespace:UM_Consultation_App_MAUI.ViewModels"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="UM_Consultation_App_MAUI.Views.FacultyView.RequestListPage"
+              x:Name="RequestListPageXAL"
+             Title="">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#8c221e" />
+    </Page.Behaviors>
+
+        <VerticalStackLayout Grid.Row="0" Padding="20" >
+            <!-- Title -->
+            <Label Text="Requests"  
+               FontSize="24"  
+               FontAttributes="Bold"  
+               TextColor="black"  
+               HorizontalOptions="Start" />
+
+            <Frame BorderColor="Transparent">
+                <Grid ColumnDefinitions="195, 200" Padding="0">
+                    <Label Text="Details"  
+                       FontSize="16"  
+                       FontAttributes="Bold"  
+                       TextColor="Black"  
+                       HorizontalOptions="Center"
+                       Grid.Column="0"/>
+
+                    <Label Text="Action"  
+                       FontSize="16"  
+                       FontAttributes="Bold"  
+                       TextColor="Black"  
+                       HorizontalOptions="Center"
+                       Grid.Column="1"/>
+                </Grid>
+            </Frame>
+
+            <!-- Request List -->
+            <Border StrokeThickness="0"  
+                    BackgroundColor="Transparent"
+                    HeightRequest="580"  
+                    WidthRequest="380"  
+                    Padding="10">
+
+                <CollectionView ItemsSource="{Binding PendingRequests}" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10" ColumnDefinitions="230,Auto,Auto">
+                                <StackLayout>
+                                    <Label Text="{Binding Id}" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,40,2"/>
+                                    <Label Text="{Binding CourseCode}" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,40,2" />
+                                    <Label Text="{Binding StudentName}" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center" Margin="0,0,40,15"/>
+                                    <Label Text="{Binding Date}" FontSize="14" HorizontalOptions="Center" TextColor="#b63b43" Margin="0,0,40,0"/>
+                                    <Label Text="{Binding Time}" FontSize="14" HorizontalOptions="Center" TextColor="#b63b43" Margin="0,0,40,0"/>
+                                </StackLayout>
+                            <Button Text="✔" Grid.Column="1"  Command="{Binding Source={x:Reference RequestListPageXAL},
+                                                                Path=BindingContext.ApproveRequestCommand}"
+                                                               CommandParameter="{Binding .}" 
+                                            Margin="10" TextColor="#3c9357" BackgroundColor="#eefdf3" CornerRadius="10"
+                                            HeightRequest="40" WidthRequest="40"/>
+                            <Button Text="✖" Grid.Column="2" 
+                                               Command="{Binding Source={x:Reference RequestListPageXAL},   
+                                               Path=BindingContext.DisApproveRequestCommand}"
+                                               CommandParameter="{Binding .}" 
+                                            Margin="10" TextColor="#de3e43" BackgroundColor="#fdf2f2" CornerRadius="10"
+                                            HeightRequest="40" WidthRequest="40"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Border>
+        </VerticalStackLayout>
+</ContentPage>

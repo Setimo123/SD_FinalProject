@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="UM_Consultation_App_MAUI.Views.Common.MenuPage"
+             Title="Settings"
+             Shell.TitleColor="#8c221e"
+             BackgroundColor="White">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#8c221e" />
+    </Page.Behaviors>
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*" Padding="10">
+
+        <!-- App Bar -->
+        
+
+        <!-- Scrollable Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="20" Padding="10">
+
+                <!-- Custom Expansion Tile -->
+                <Frame HasShadow="True" BorderColor="LightGray" CornerRadius="10">
+                    <VerticalStackLayout>
+
+                        <!-- Header with tap gesture -->
+                        <Grid Padding="10">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAccountTapped" />
+                            </Grid.GestureRecognizers>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <Image Source="user.png"
+                                   WidthRequest="24"
+                                   HeightRequest="24"
+                                   Grid.Column="0"
+                                   VerticalOptions="Center" />
+
+                            <Label Text="Account Management"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   Margin="10,0,0,0" />
+
+
+                            <Image x:Name="ArrowIcon"
+                                   Source="down_arrow.png"
+                                   WidthRequest="20"
+                                   HeightRequest="20"
+                                   Grid.Column="2"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="End" />
+                        </Grid>
+
+                        <!-- Expandable Content -->
+                        <StackLayout x:Name="AccountDetails" IsVisible="False" Padding="10" Spacing="10">
+                            <Grid ColumnSpacing="10" RowSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Name:" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
+                                <Label Text="{Binding Studentname}" Grid.Row="0" Grid.Column="1" />
+
+                                <Label Text="Email/Username:" FontAttributes="Bold" Grid.Row="1" Grid.Column="0" />
+                                <Label Text="{Binding Email}" Grid.Row="1" Grid.Column="1" />
+
+                                <Label Text="Course" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" />
+                                <Label Text="{Binding Course}" Grid.Row="2" Grid.Column="1" />
+                            </Grid>
+
+                            <Button Text="Change Password"
+                                    BackgroundColor="#6200EA"
+                                    TextColor="White"
+                                    Command="{Binding ChangePasswordCommand}"
+                                    Margin="0,10,0,0" />
+                        </StackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Logout -->
+                <Button Text="Logout"
+                        TextColor="White"
+                        BackgroundColor="#b61c1c"
+                        Command="{Binding LogoutButtonCommand}"
+                        CornerRadius="10"
+                        HorizontalOptions="Fill" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

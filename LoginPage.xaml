@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="UM_Consultation_App_MAUI.LoginPage"
+             Title=""
+             BackgroundColor="#ffffff">
+    
+    <!-- Polish nalang kulang especially sa textfield -->
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#8c221e" />
+        <mct:StatusBarBehavior StatusBarColor="#8c221e" />
+    </Page.Behaviors>
+
+    <VerticalStackLayout Padding="30" Spacing="10" VerticalOptions="Center">
+
+        <!-- Logo and App Name -->
+        <Image Source="logofinal.png"
+               WidthRequest="350"
+               HorizontalOptions="Center"
+               Margin="0, -70, 0, 0"/>
+        <Label Text="Main Campus"
+               FontSize="19"
+               HorizontalOptions="Center"
+               TextColor="#969696"/>
+
+        <!-- Greeting -->
+        <Label Text="Maayong Adlaw, Ga!"
+               FontSize="25"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               Margin="0,80,0,0" />
+        <!-- Email -->
+        <Frame 
+            CornerRadius="30" BorderColor="GhostWhite" Padding="0" HeightRequest="78"
+            HasShadow="True" BackgroundColor="GhostWhite" WidthRequest="320">
+
+            <Grid ColumnSpacing="10" Padding="15">
+                <Image 
+                    Source="email_icon.png" VerticalOptions="Center" WidthRequest="25"
+                    HeightRequest="25" Grid.Column="0" />
+
+                <Entry 
+                    x:Name="txtboxEmail"
+                    Placeholder="UM Email"
+                    Text="{Binding Email}"
+                    BackgroundColor="Transparent"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    PlaceholderColor="Gray"
+                    Grid.Column="1"
+                    Visual="Default"/>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Frame>
+
+
+        <!-- Password -->
+        <Frame 
+            CornerRadius="30" BorderColor="GhostWhite" Padding="0" HeightRequest="78" 
+            WidthRequest="320" HasShadow="True" BackgroundColor="GhostWhite">
+
+            <Grid ColumnSpacing="10" Padding="15">
+
+                <Image 
+                    Source="password_icon.png" VerticalOptions="Center"
+                    WidthRequest="25" HeightRequest="25"
+                    Grid.Column="0" />
+
+                <Entry 
+                    x:Name="txtboxPassword" 
+                    FontAttributes="Bold"
+                    IsPassword="{Binding IsPasswordHidden}" 
+                    Placeholder="Password"
+                    Text="{Binding Password}"
+                    BackgroundColor="Transparent" 
+                    TextColor="Black"
+                    PlaceholderColor="Gray" 
+                    Grid.Column="1"
+                    Visual="Default"/>
+
+                <ImageButton
+                    x:Name="btnPasswordEye" Source="{Binding Passwordhashed}"
+                    Command="{Binding TogglePasswordVisibilityCommand}"
+                    BackgroundColor="Transparent" WidthRequest="25"
+                    HeightRequest="25" HorizontalOptions="End"
+                    VerticalOptions="Center" Grid.Column="2"
+                    />
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Frame>
+
+
+        <!-- Forgot Password -->
+        <Label Text="Forgot Password?"
+               TextColor="#554E4E"
+               FontSize="13"
+               HorizontalOptions="End" 
+               FontAttributes="Bold" />
+
+        <!-- Login Button -->
+        <Button Text="Log In"
+                FontSize="18"
+                BackgroundColor="#b61c1c"
+                Command ="{Binding ClickLogInCommand}"
+                TextColor="White"
+                CornerRadius="50"
+                HeightRequest="55"
+                WidthRequest="300"/>
+
+        <!-- Create Account Button -->
+        <Button Text="Create Account"
+                BackgroundColor="Transparent"
+                Command="{Binding CreateAccountClickCommand}"
+                BorderColor="#b61c1c"
+                BorderWidth="2"
+                TextColor="#b61c1c"
+                CornerRadius="50"
+                HeightRequest="55"
+                WidthRequest="300"/>
+    </VerticalStackLayout>
+
+</ContentPage>

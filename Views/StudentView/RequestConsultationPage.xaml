@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="UM_Consultation_App_MAUI.Views.StudentView.RequestConsultationPage"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             Title="Request Consultation">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#8c221e" />
+    </Page.Behaviors>
+
+    <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Always">
+    <VerticalStackLayout Padding="30" Spacing="10">
+            <Label Text="{Binding Studentumid}"
+               FontSize="30"
+               FontAttributes="Bold"
+               TextColor="#a9141d"
+               Margin="0,20,0,0"
+               HorizontalOptions="Center"/>
+
+            <Label Text="{Binding Studentname}"
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="Black"
+               Margin="0,0,0,15"
+               HorizontalOptions="Center"/>
+
+        <Label Text="Choose Your Course Title"
+               FontSize="14"/>
+
+        <Frame BorderColor="gray" CornerRadius="10" Padding="5" >
+            
+                <Picker Title="Choose Course" x:Name="CourseSelectPicker"
+                    FontAttributes="Bold"
+                    ItemsSource="{Binding AvailableCourses}"
+                    SelectedItem="{Binding SelectedCourse}"
+                    ItemDisplayBinding="{Binding CourseName}">
+
+                </Picker>
+            </Frame>
+
+        <Label Text="Course Code"
+               FontSize="14"/>
+
+        <Frame BorderColor="Gray" CornerRadius="10" Padding="5">
+                <Entry Placeholder="Enter Course Code" MaxLength="20"
+                   IsReadOnly="True"
+                   Text="{Binding CourseCode}"   
+                   FontAttributes="Bold"
+                   Keyboard="Numeric"
+                   />
+        </Frame>
+
+        <Label Text="Course Instructor"
+               FontSize="14"/>
+
+        <Frame BorderColor="Gray" CornerRadius="10" Padding="5">
+            <Entry Placeholder="Enter Course Instructor"
+                   x:Name="CourseInstructor"
+                   IsReadOnly="True"
+                   Text="{Binding CourseInstructor}"
+                   FontAttributes="Bold"/>
+        </Frame>
+
+        <Label Text="Date of Consultation"
+               FontSize="14"/>
+
+        <Frame BorderColor="Gray" CornerRadius="10" Padding="5">
+                <DatePicker Date="{Binding DateOfConsultation}"></DatePicker>
+        </Frame>
+
+        <Label Text="Start Time"
+               FontSize="14"/>
+
+        <Frame BorderColor="Gray" CornerRadius="10" Padding="5">
+            <Picker Title="Choose Start Time"
+                    SelectedItem="{Binding SelectedStartTimeText}"   
+                    SelectedIndex="0"
+                    FontAttributes="Bold">
+                <Picker.Items>
+                    <x:String>7:00 AM</x:String>
+                    <x:String>7:30 AM</x:String>
+                    <x:String>8:00 AM</x:String>
+                    <x:String>8:30 AM</x:String>
+                    <x:String>9:00 AM</x:String>
+                    <x:String>9:30 AM</x:String>
+                    <x:String>10:00 AM</x:String>
+                    <x:String>10:30 AM</x:String>
+                    <x:String>11:00 AM</x:String>
+                    <x:String>11:30 AM</x:String>
+                    <x:String>12:00 PM</x:String>
+                    <x:String>1:30 PM</x:String>
+                    <x:String>2:00 PM</x:String>
+                    <x:String>2:30 PM</x:String>
+                    <x:String>3:00 PM</x:String>
+                    <x:String>3:30 PM</x:String>
+                    <x:String>4:00 PM</x:String>
+                    <x:String>4:30 PM</x:String>
+                    <x:String>5:00 PM</x:String>
+                    <x:String>5:30 PM</x:String>
+                    <x:String>6:00 PM</x:String>
+                    <x:String>6:30 PM</x:String>
+                    <x:String>7:00 PM</x:String>
+                    <x:String>7:30 PM</x:String>
+                    <x:String>8:00 PM</x:String>
+                    <x:String>8:30 PM</x:String>
+                    <x:String>9:00 PM</x:String>
+                    <x:String>9:30 PM</x:String>
+                </Picker.Items>
+            </Picker>
+        </Frame>
+
+        <Label Text="End Time"
+       FontSize="14"/>
+
+        <Frame BorderColor="Gray" CornerRadius="10" Padding="5">
+            <Picker Title="Choose End Time"
+            SelectedIndex="0"
+            SelectedItem="{Binding SelectedEndTimeText}"   
+            FontAttributes="Bold">
+                <Picker.Items>
+                    <x:String>8:00 AM</x:String>
+                    <x:String>8:30 AM</x:String>
+                    <x:String>9:00 AM</x:String>
+                    <x:String>9:30 AM</x:String>
+                    <x:String>10:00 AM</x:String>
+                    <x:String>10:30 AM</x:String>
+                    <x:String>11:00 AM</x:String>
+                    <x:String>11:30 AM</x:String>
+                    <x:String>12:00 PM</x:String>
+                    <x:String>1:30 PM</x:String>
+                    <x:String>2:00 PM</x:String>
+                    <x:String>2:30 PM</x:String>
+                    <x:String>3:00 PM</x:String>
+                    <x:String>3:30 PM</x:String>
+                    <x:String>4:00 PM</x:String>
+                    <x:String>4:30 PM</x:String>
+                    <x:String>5:00 PM</x:String>
+                    <x:String>5:30 PM</x:String>
+                    <x:String>6:00 PM</x:String>
+                    <x:String>6:30 PM</x:String>
+                    <x:String>7:00 PM</x:String>
+                    <x:String>7:30 PM</x:String>
+                    <x:String>8:00 PM</x:String>
+                    <x:String>8:30 PM</x:String>
+                    <x:String>9:00 PM</x:String>
+                    <x:String>9:30 PM</x:String>
+                </Picker.Items>
+            </Picker>
+        </Frame>
+
+        <HorizontalStackLayout Spacing="15" Margin="50,10,0,0">
+            <Button Text="File Consultation Request" 
+                    BackgroundColor="#b61c1c"
+                    Command="{Binding FileConsultationClickCommand}"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="20"/>
+
+            <Button Text="Back" 
+                    BackgroundColor="black"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Command="{Binding BackNavigationCommand}"
+                    CornerRadius="20"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

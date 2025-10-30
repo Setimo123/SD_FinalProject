@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:local="clr-namespace:UM_Consultation_App_MAUI.Views.FacultyView"  
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="UM_Consultation_App_MAUI.Views.FacultyView.ConsultationListPage"
+             Title="">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#8c221e" />
+    </Page.Behaviors>
+
+    <VerticalStackLayout Padding="20">
+        <!-- Title -->
+        <Label Text="Consultation List"  
+           FontSize="24"  
+           FontAttributes="Bold"  
+           TextColor="black"  
+           HorizontalOptions="Start" />
+
+        <Frame BorderColor="Transparent">
+            <Grid ColumnDefinitions="195, 200" Padding="0">
+                <Label Text="Details"  
+                       FontSize="16"  
+                       FontAttributes="Bold"  
+                       TextColor="Black"  
+                       HorizontalOptions="Center"
+                       Grid.Column="0"/>
+
+                <Label Text="Status"  
+                       FontSize="16"  
+                       FontAttributes="Bold"  
+                       TextColor="Black"  
+                       HorizontalOptions="Center"
+                       Grid.Column="1"/>
+            </Grid>
+        </Frame>
+
+        <Border StrokeThickness="0"  
+                BackgroundColor="Transparent"
+                HeightRequest="580"  
+                WidthRequest="380"  
+                Padding="10">
+            <CollectionView ItemsSource="{Binding ConsultationsList}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10" ColumnDefinitions="*,Auto">
+                            <StackLayout>
+                                <Label Text="{Binding Id}" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,70,2"/>
+                                <Label Text="{Binding Coursevode}" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,70,2" />
+                                <Label Text="{Binding Studentname}" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center" Margin="0,0,70,15"/>
+                                <Label Text="{Binding Date}" FontSize="14" HorizontalOptions="Center" TextColor="#b63b43" Margin="0,0,70,0"/>
+                                <Label Text="{Binding Time}" FontSize="14" HorizontalOptions="Center" TextColor="#b63b43" Margin="0,0,70,0"/>
+                            </StackLayout>
+                            <Label Text="{Binding Status}" Grid.Column="1" TextColor="{Binding StatusColor}" VerticalOptions="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
