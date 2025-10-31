@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Consultation.Domain.Enum
 {
-    public enum Status
+    public enum YearLevel
     {
-        Pending = 1,
-        Approved = 2,
-        Disapproved = 3,
-        Cancelled = 4,
-        Done = 5
+        FirstYear = 1,
+        SecondYear = 2,
+        ThirdYear = 3,
+        FourthYear = 4,
+        FifthYear = 5
     }
 }

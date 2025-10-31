@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Consultation.Repository\Consultation.Repository.csproj" />
+    <ProjectReference Include="..\Consultation.Domain\Consultation.Domain.csproj" />
+    <ProjectReference Include="..\Consultation.Infrastructure\Consultation.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Enum\Enum.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Consultation.Domain.Enum
 {
-    public enum Status
+    public enum BulletinStatus
     {
-        Pending = 1,
-        Approved = 2,
-        Disapproved = 3,
-        Cancelled = 4,
-        Done = 5
+    Draft = 1,
+        Published = 2,
+    Archived = 3
     }
 }

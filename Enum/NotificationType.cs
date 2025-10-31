@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Consultation.Domain.Enum
 {
-    public enum Status
+    public enum NotificationType
     {
-        Pending = 1,
-        Approved = 2,
-        Disapproved = 3,
-        Cancelled = 4,
-        Done = 5
+        StudentNotification = 1,
+  AdminNotification = 2,
+        FacultyNotification = 3
     }
 }
