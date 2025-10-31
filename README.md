@@ -85,14 +85,6 @@ cd src\Consultation.App
 dotnet run
 ```
 
-### 4. Default Login Credentials
-
-**Administrator Account:**  
-- 📧 Email: `jgallenero@umindanao.edu.ph`  
-- 🔐 Password: `MyAdmin123!`
-
----
-
 ## 📁 Project Structure
 
 ```plaintext
@@ -203,7 +195,7 @@ This project is developed for **academic purposes** at the **University of Minda
 
 For issues, questions, or contributions:  
 - 🐙 Open an issue on GitHub  
-- 📧 Contact: *[Your Email or Contact Info]*  
+- 📧 Contact: *contact one of the contributors in this repo*  
 
 ---
 
