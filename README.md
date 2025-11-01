@@ -1,6 +1,6 @@
 # 🧑‍💻 UMECA Consultation Management System
 
-A comprehensive **.NET 8 desktop application** for managing student–faculty consultations at the **University of Mindanao**.
+A comprehensive **.NET 8 desktop application** for managing student–faculty consultations at the **University of Mindanao - College of Engineering Education**.
 
 ---
 
@@ -11,6 +11,24 @@ The system is intended **only for administrators or users with administrative pr
 
 ---
 
+## 🌿 Repository Branches
+
+This repository contains multiple branches for different components of the UMECA system:
+
+| Branch | Description |
+|--------|-------------|
+| **master** | Desktop software (for admin) - Main application codebase |
+| **UMECA_Database** | Database files and schema |
+| **UMECA_Manuals** | Programmer's manual and documentation files |
+| **UMECA_Mobile_Application** | Mobile Application (for students & faculty) |
+
+To switch between branches:
+```bash
+git checkout <branch-name>
+```
+
+---
+
 ## ✨ Features
 
 ### 🧑‍💼 For Administrators
@@ -18,7 +36,7 @@ The system is intended **only for administrators or users with administrative pr
 - 📚 Manage programs and departments   
 - 📅 View and manage all consultation requests  
 - 📢 Post and manage bulletin announcements  
-- 📊 Access system-wide analytics and reports 
+- 📊 Access system-wide analytics 
 
 ---
 
