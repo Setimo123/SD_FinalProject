@@ -172,7 +172,8 @@ Key dependencies:
 
 ## 👥 Development Team
 
-**University of Mindanao – College of Computing Education**  
+**University of Mindanao – College of Engineering Education**
+**BS Computer Engineering - CpE 223L (7599)** 
 📘 Software Development Final Project  
 
 ---
