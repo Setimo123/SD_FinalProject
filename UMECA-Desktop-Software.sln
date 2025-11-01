@@ -32,6 +32,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{06968092-9
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src (2)", "src (2)", "{DF43E8BF-871C-493C-AFD4-0C203238E654}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests (2)", "tests (2)", "{A2C56EC6-346E-4001-9FF1-3F2D5A1F08C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools (2)", "tools (2)", "{892695A5-9695-4E03-B84C-DFDDB7BC0053}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs (2)", "docs (2)", "{AC313B24-1BE1-434A-84CF-13637042E5FE}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
