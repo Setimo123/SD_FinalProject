@@ -7,29 +7,18 @@ A comprehensive **.NET 8 desktop application** for managing student–faculty co
 ## 🎯 Project Overview
 
 The **UMECA Consultation Management System** is a Windows Forms application designed to streamline the consultation scheduling process between students and faculty members.  
-It provides **role-based access** for Students, Faculty, and Administrators, featuring consultation requests, bulletin management, and user administration.
+The system is intended **only for administrators or users with administrative privileges**, providing them exclusive access to manage consultations, bulletins, user data, and system configurations.
 
 ---
 
 ## ✨ Features
 
-### 👨‍🎓 For Students
-- 📅 Request consultations with faculty members  
-- 📊 View consultation history and status  
-- 📢 Access bulletin board announcements  
-- 🔔 Receive notifications for consultation updates  
-
-### 👨‍🏫 For Faculty
-- ✅ Approve or reject consultation requests  
-- 📋 Manage consultation schedules  
-- 👥 View student information and enrolled courses  
-- 📈 Dashboard with pending consultation metrics  
-
 ### 🧑‍💼 For Administrators
 - 👤 Manage users (Students, Faculty, Admins)  
-- 📚 Manage programs and departments  
-- 🏫 Configure academic school years  
-- 📊 View system-wide analytics  
+- 📚 Manage programs and departments   
+- 📅 View and manage all consultation requests  
+- 📢 Post and manage bulletin announcements  
+- 📊 Access system-wide analytics and reports 
 
 ---
 
@@ -85,6 +74,8 @@ cd src\Consultation.App
 dotnet run
 ```
 
+---
+
 ## 📁 Project Structure
 
 ```plaintext
@@ -103,7 +94,7 @@ SD_FinalProject/
 ├── scripts/
 │   └── QuickStart.ps1                 # Quick start automation script
 │
-└── SD_FinalProject.sln                # Solution file
+└── UMECA-Desktop-Software.sln                # Solution file
 ```
 
 ---
@@ -170,11 +161,11 @@ Key dependencies:
 
 ---
 
-## 👥 Development Team
+## 👨‍💻 Development Team
 
-**University of Mindanao – College of Engineering Education**
-**BS Computer Engineering - CpE 223L (7599)** 
-📘 Software Development Final Project  
+**University of Mindanao – College of Engineering Education**  
+**BS Computer Engineering - CpE 223L (7599)**  
+**Software Development Final Project**
 
 ---
 
@@ -192,11 +183,11 @@ This project is developed for **academic purposes** at the **University of Minda
 
 ---
 
-## 📞 Support
+## 💬 Support
 
-For issues, questions, or contributions:  
-- 🐙 Open an issue on GitHub  
-- 📧 Contact: *contact one of the contributors in this repo*  
+For any issues, questions, or contributions, please contact the repository owners & contributors:  
+**[Setimo123](https://github.com/Setimo123)**, **[jandreeeh](https://github.com/jandreeeh)**, or **[n2nyyy](https://github.com/n2nyyy)**.
+ 
 
 ---
 
