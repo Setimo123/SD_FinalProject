@@ -1,6 +1,10 @@
+<p align="center">
+  <img src="src/Consultation.App/Resources/LOGO FINAL (Custom).png" alt="UMECA Logo" width="300"/>
+</p>
+
 # 🧑‍💻 UMECA Consultation Management System
 
-A comprehensive **.NET 8 desktop application** for managing student–faculty consultations at the **University of Mindanao - College of Engineering Education**.
+A comprehensive **.NET 8 desktop application** for managing student–faculty consultations at the **University of Mindanao**.
 
 ---
 
@@ -36,7 +40,7 @@ git checkout <branch-name>
 - 📚 Manage programs and departments   
 - 📅 View and manage all consultation requests  
 - 📢 Post and manage bulletin announcements  
-- 📊 Access system-wide analytics 
+- 📊 Access system-wide analytics and reports 
 
 ---
 
