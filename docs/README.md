@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://github.com/Setimo123/SD_FinalProject/blob/UMECA_Bulletin_TV/public/logo.png" alt="UMECA Logo" width="300"/>
+
 # 📺 UMECA Bulletin TV
 
 ### *Where Information Comes Alive*
@@ -11,7 +13,6 @@
 
 *A mesmerizing digital bulletin board that transforms campus announcements into an elegant visual experience.*
 
-[✨ Demo](#-demo) • [🚀 Quick Start](#-quick-start) • [📖 Documentation](#-documentation) • [🤝 Contributing](#-team)
 
 </div>
 
@@ -71,74 +72,6 @@ Each bulletin shows its publication date, helping users identify the most recent
 
 Get your bulletin board up and running in just a few minutes!
 
-
-
-## 🛠️ Tech StackYou can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-
-
-### FrontendThis project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-- **Framework**: Next.js 15.4.5 (React 19)
-
-- **Language**: TypeScript## Learn More
-
-- **Styling**: Tailwind CSS 4.0
-
-- **UI Components**: Radix UITo learn more about Next.js, take a look at the following resources:
-
-- **Carousel**: Embla Carousel with Autoplay
-
-- **Date/Time**: Day.js- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-### Backend
-
-- **Database**: SQL Server LocalDB (ConsultationDatabase)You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-- **API Bridge**: C# .NET (BulletinApiServer.cs)
-
-- **ORM**: ADO.NET / Entity Framework## Deploy on Vercel
-
-
-
-## 📁 Project StructureThe easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-
-
-```Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-antoni-main/
-├── src/
-│   ├── app/
-│   │   ├── _components/          # Page-specific components
-│   │   │   ├── bulletin.tsx      # Main carousel component
-│   │   │   ├── timeclock.tsx     # Real-time clock display
-│   │   │   └── currentDate.tsx   # Current date display
-│   │   ├── api/
-│   │   │   └── bulletin/
-│   │   │       └── route.ts      # API route proxying to C# API
-│   │   ├── layout.tsx            # Root layout with header
-│   │   ├── page.tsx              # Home page
-│   │   └── globals.css           # Global styles and theme
-│   ├── components/
-│   │   └── ui/                   # Reusable UI components
-│   │       ├── button.tsx
-│   │       ├── card.tsx
-│   │       └── carousel.tsx
-│   └── lib/
-│       ├── db.ts                 # Database configuration
-│       └── utils.ts              # Utility functions
-├── public/
-│   └── logo.png                  # UMECA logo
-├── BulletinApiServer.cs          # C# API server
-├── CSharp-API-Bridge.cs          # C# database bridge
-└── Program.cs-example            # C# program template
-```
-
-
-
 ### 📦 Prerequisites
 
 Before you begin, make sure you have:
@@ -194,40 +127,6 @@ yarn dev
    ```
 
 3. The API will automatically create the necessary tables and seed initial data.
-
----
-
-## 🏗️ Architecture
-
-UMECA Bulletin TV follows a modern, decoupled architecture:
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                     Browser (Client)                     │
-│  ┌────────────────────────────────────────────────────┐ │
-│  │         Next.js 15 + React 19 Frontend            │ │
-│  │    (Auto-scrolling Carousel + Real-time Clock)    │ │
-│  └───────────────────┬────────────────────────────────┘ │
-└────────────────────────┼────────────────────────────────┘
-                         │ HTTP/REST
-                         ▼
-┌─────────────────────────────────────────────────────────┐
-│               Next.js API Routes (Proxy)                │
-│          /api/bulletin → C# API Bridge                  │
-└───────────────────┬─────────────────────────────────────┘
-                    │ HTTP
-                    ▼
-┌─────────────────────────────────────────────────────────┐
-│              C# .NET API Server                         │
-│         (BulletinApiServer.cs)                          │
-└───────────────────┬─────────────────────────────────────┘
-                    │ ADO.NET
-                    ▼
-┌─────────────────────────────────────────────────────────┐
-│           SQL Server LocalDB                            │
-│       (ConsultationDatabase)                            │
-└─────────────────────────────────────────────────────────┘
-```
 
 ---
 
@@ -301,152 +200,6 @@ UMECA Bulletin TV follows a modern, decoupled architecture:
 
 ---
 
-## 🎨 Customization Guide
-
-### 🌈 Changing the Gradient Background
-
-Edit `src/app/globals.css` and `src/app/layout.tsx`:
-
-```css
-/* In globals.css */
---background: linear-gradient(115deg, #ff512f, #dd2476);
-```
-
-```tsx
-/* In layout.tsx */
-className="bg-[linear-gradient(115deg,_#your-color-1,_#your-color-2)]"
-```
-
-### ⚡ Adjusting Carousel Speed
-
-Edit `src/app/_components/bulletin.tsx`:
-
-```typescript
-const autoplayPlugin = React.useRef(
-  Autoplay({ 
-    delay: 5000, // Change delay in milliseconds (default: 5 seconds)
-    stopOnInteraction: false,
-  })
-);
-```
-
-### 🖼️ Logo Customization
-
-Simply replace `public/logo.png` with your institution's logo (recommended size: 200x200px).
-
----
-
-## 🎪 Key Components Deep Dive
-
-### 🎪 Bulletin Carousel
-The star of the show. Uses Embla Carousel with autoplay to create smooth, infinite scrolling.
-
-**Features:**
-- Vertical scrolling with customizable speed
-- Auto-advance with 5-second intervals
-- Smooth easing transitions
-- Loop mode for continuous playback
-- Glass-morphism card design
-
-### 📊 Overview Card
-A fixed card displaying all bulletin titles, providing context for what's coming.
-
-### ⏰ Real-time Clock
-Updates every second using React hooks, displaying time in an elegant format.
-
-```typescript
-// Clock updates every second
-useEffect(() => {
-  const interval = setInterval(() => {
-    setTime(dayjs().format('HH:mm:ss'));
-  }, 1000);
-  return () => clearInterval(interval);
-}, []);
-```
-
----
-
-## � API Reference
-
-### GET `/api/bulletin`
-Fetches all active bulletins from the database.
-
-**Response:**
-```json
-[
-  {
-    "Id": 1,
-    "Title": "Campus Event Announcement",
-    "Content": "Join us for the annual tech summit...",
-    "DatePublished": "2025-11-03T14:30:00",
-    "Author": "Admin",
-    "Status": 1
-  }
-]
-```
-
-### POST `/api/bulletin`
-Creates a new bulletin entry (if implemented).
-
-**Request Body:**
-```json
-{
-  "Title": "New Announcement",
-  "Content": "Important bulletin content...",
-  "Author": "Admin",
-  "Status": 1
-}
-```
-
----
-
-## � Deployment Options
-
-### 🟢 Vercel (Recommended)
-
-The easiest way to deploy:
-
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-vercel
-```
-
-Or use the [Vercel Dashboard](https://vercel.com/new) to import from GitHub.
-
-### 🔵 Custom Server
-
-```bash
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
-
-**Important:** Ensure your C# API server is deployed and accessible.
-
----
-
-## 🎯 Usage Scenarios
-
-### 📺 For TV Displays
-1. Open the application in full-screen mode (`F11`)
-2. The carousel will auto-play indefinitely
-3. Perfect for lobby displays, cafeterias, and common areas
-
-### 🖥️ For Kiosks
-1. Set browser to kiosk mode
-2. Disable mouse cursor if needed
-3. Enable auto-refresh for bulletins
-
-### 📱 For Mobile Viewing
-The responsive design works beautifully on tablets and phones too!
-
----
-
 ## 🐛 Troubleshooting
 
 <details>
@@ -491,18 +244,6 @@ The responsive design works beautifully on tablets and phones too!
 
 ---
 
-## � Learning Resources
-
-Expand your knowledge with these excellent resources:
-
-- 📘 [Next.js Documentation](https://nextjs.org/docs) - Master Next.js App Router
-- 📗 [React Documentation](https://react.dev) - Learn React 19 features
-- 📙 [Tailwind CSS](https://tailwindcss.com/docs) - Explore utility-first CSS
-- 📕 [TypeScript Handbook](https://www.typescriptlang.org/docs) - Type-safe programming
-- 📓 [Embla Carousel](https://www.embla-carousel.com/get-started/) - Carousel API docs
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions! Here's how you can help:
@@ -515,63 +256,20 @@ We welcome contributions! Here's how you can help:
 
 ---
 
-## 👥 Team
+## 👥 Development Team
 
 This project was crafted with ❤️ as part of the **CpE 223/L Group Project**.
 
 ### 🎓 Course Information
 - **Course:** CpE 223/L - Software Development
 - **Institution:** University of Mindanao
-- **Department:** Electrical and Computer Engineering
-
-### 👨‍💻 Development Team
-- **System Architecture** - Backend & Database Design
-- **Frontend Development** - UI/UX Implementation
-- **API Integration** - C# Bridge & Data Flow
-- **Testing & QA** - Quality Assurance & Documentation
+- **Department:** College of Engineering Education
 
 ---
 
-## 📝 License
+## 📜 License
 
 This project is developed for **educational purposes** as part of the CpE 223/L course requirements at the University of Mindanao.
-
----
-
-## 🌟 Acknowledgments
-
-Special thanks to:
-
-- 🏫 **UMECA** - For inspiring this digital transformation
-- 👨‍🏫 **Our Instructors** - For guidance and invaluable feedback
-- ⚛️ **Next.js Team** - For the amazing React framework
-- 🎨 **Vercel** - For the incredible deployment platform
-- 💡 **Open Source Community** - For the tools and libraries
-
----
-
-## 📞 Support & Contact
-
-Have questions or need help?
-
-- 📧 Email: [Contact your instructor]
-- 💬 GitHub Issues: [Report bugs or request features](https://github.com/Setimo123/SD_FinalProject/issues)
-- 📖 Documentation: Check `/docs` folder for detailed guides
-
----
-
-## 🗺️ Roadmap
-
-Future enhancements we're considering:
-
-- [ ] 🔐 Admin dashboard for bulletin management
-- [ ] 📱 Progressive Web App (PWA) support
-- [ ] 🌐 Multi-language support
-- [ ] 📊 Analytics dashboard
-- [ ] 🎨 Theme customization panel
-- [ ] 🔔 Push notifications
-- [ ] 📸 Image/video support in bulletins
-- [ ] 🔄 Real-time sync with WebSockets
 
 ---
 
