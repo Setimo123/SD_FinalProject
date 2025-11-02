@@ -1,4 +1,5 @@
 using Consultation.App.Presenters;
+using Consultation.App.Services;
 using Consultation.App.Views;
 using Consultation.App.Views.IViews;
 using Consultation.BackEndCRUD.Service;
@@ -9,17 +10,45 @@ namespace Consultation.App
 {
     internal static class Program
     {
+        private static BulletinApiServer _apiServer;
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static async Task Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NNaF5cXmBCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWXpecXRcQ2BcV0BwVktWYUA=");
 
             ApplicationConfiguration.Initialize();
+
+            // Start API Server for Next.js integration
+            _apiServer = new BulletinApiServer();
+            try
+            {
+                await _apiServer.StartAsync();
+
+                // Optional: Show notification that API is ready
+                MessageBox.Show(
+              "Bulletin API Bridge is running on http://localhost:5000\n\n" +
+          "You can now start your Next.js application.",
+      "API Bridge Started",
+              MessageBoxButtons.OK,
+         MessageBoxIcon.Information);
+             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Warning: Could not start API server: {ex.Message}");
+          MessageBox.Show(
+              $"Failed to start API Bridge:\n{ex.Message}\n\n" +
+            "The application will continue without API access.",
+            "API Bridge Error",
+         MessageBoxButtons.OK,
+          MessageBoxIcon.Warning);
+              // Continue running the app even if API server fails
+       }
 
             AppDbContext appDbContext = new AppDbContext();
             var authservice = new AuthService(appDbContext);
@@ -41,7 +70,13 @@ namespace Consultation.App
                     Application.Run(mainForm);
                 }
             }
+
+            // Stop API Server when app closes
+            if (_apiServer != null && _apiServer.IsRunning)
+            {
+                await _apiServer.StopAsync();
+            }
         }
     }
-           
 }
+
