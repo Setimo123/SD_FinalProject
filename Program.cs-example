@@ -1,0 +1,106 @@
+// ===================================================================
+// Program.cs - For Windows Forms .NET 8 Application
+// ===================================================================
+// This starts the API server when your Windows Forms app starts
+// ===================================================================
+
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Consultation.App.Services;
+
+namespace Consultation.App
+{
+    internal static class Program
+    {
+        private static BulletinApiServer? _apiServer;
+
+        [STAThread]
+        static async Task Main()
+        {
+            ApplicationConfiguration.Initialize();
+
+            // Start the API Bridge server
+            try
+            {
+                _apiServer = new BulletinApiServer();
+                _ = _apiServer.StartAsync(); // Start in background
+                
+                // Optional: Wait a moment for server to start
+                await Task.Delay(500);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Failed to start API Bridge:\n{ex.Message}",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+            // Run your main form
+            Application.Run(new MainForm()); // Replace MainForm with your actual form name
+
+            // Stop API server when app closes
+            if (_apiServer != null)
+            {
+                await _apiServer.StopAsync();
+            }
+        }
+    }
+}
+
+// ===================================================================
+// ALTERNATIVE: Start API from MainForm (Your main form)
+// ===================================================================
+// If you prefer to start the API from your main form:
+/*
+public partial class MainForm : Form
+{
+    private BulletinApiServer? _apiServer;
+
+    public MainForm()
+    {
+        InitializeComponent();
+        
+        // Start API server when form loads
+        this.Load += MainForm_Load;
+        this.FormClosing += MainForm_FormClosing;
+    }
+
+    private async void MainForm_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            _apiServer = new BulletinApiServer();
+            await _apiServer.StartAsync();
+            
+            // Optional: Update status bar or label
+            // statusLabel.Text = "API Bridge: Running ✅";
+            
+            MessageBox.Show(
+                "Bulletin API Bridge is running on http://localhost:5000\n\n" +
+                "You can now start your Next.js application.",
+                "API Bridge Started",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(
+                $"Failed to start API: {ex.Message}",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
+    }
+
+    private async void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        if (_apiServer != null)
+        {
+            await _apiServer.StopAsync();
+        }
+    }
+}
+*/
+
